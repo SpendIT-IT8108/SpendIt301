@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 //hello
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Hello world, Maryam Taraif");
+        print("uffff");
         // Do any additional setup after loading the view.
         
         
@@ -18,6 +20,7 @@ class ViewController: UIViewController {
         
         print("TEST FROM KAWTHAR")
     }
+    
 
 
 }
