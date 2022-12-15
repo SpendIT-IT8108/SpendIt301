@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,7 +50,9 @@
         <scene sceneID="miP-M6-lhv">
             <objects>
                 <viewControllerPlaceholder storyboardName="Overview" id="r5T-kJ-ljU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="DOj-9p-dBX"/>
+                    <tabBarItem key="tabBarItem" title="Overview" id="DOj-9p-dBX">
+                        <imageReference key="image" image="chart.bar.xaxis" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfH-dP-PWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
