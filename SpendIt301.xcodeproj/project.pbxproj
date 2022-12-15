@@ -16,7 +16,7 @@
 		2130B044294AF4AB001EC43C /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B043294AF4AB001EC43C /* Overview.storyboard */; };
 		2130B047294AF4EC001EC43C /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B045294AF4EC001EC43C /* Transactions.storyboard */; };
 		2130B04A294AF518001EC43C /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B048294AF518001EC43C /* Categories.storyboard */; };
-		2130B04C294AF52C001EC43C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B04B294AF52C001EC43C /* Settings.storyboard */; };
+		2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		2130B043294AF4AB001EC43C /* Overview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
 		2130B046294AF4EC001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Transactions.storyboard; sourceTree = "<group>"; };
 		2130B049294AF518001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Categories.storyboard; sourceTree = "<group>"; };
-		2130B04B294AF52C001EC43C /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		2130B04E294AF6DB001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/SettingsPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
-				2130B04B294AF52C001EC43C /* Settings.storyboard */,
+				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
@@ -138,12 +138,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2130B03C294AEBEF001EC43C /* LaunchScreen.storyboard in Resources */,
+				2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */,
 				2130B044294AF4AB001EC43C /* Overview.storyboard in Resources */,
 				2130B039294AEBEF001EC43C /* Assets.xcassets in Resources */,
 				2130B037294AEBEB001EC43C /* Main.storyboard in Resources */,
 				2130B04A294AF518001EC43C /* Categories.storyboard in Resources */,
 				2130B047294AF4EC001EC43C /* Transactions.storyboard in Resources */,
-				2130B04C294AF52C001EC43C /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +193,14 @@
 				2130B049294AF518001EC43C /* Base */,
 			);
 			name = Categories.storyboard;
+			sourceTree = "<group>";
+		};
+		2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2130B04E294AF6DB001EC43C /* Base */,
+			);
+			name = SettingsPage.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
