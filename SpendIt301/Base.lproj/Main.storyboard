@@ -49,7 +49,7 @@
         <scene sceneID="miP-M6-lhv">
             <objects>
                 <viewControllerPlaceholder storyboardName="Overview" id="r5T-kJ-ljU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="chart.bar.xaxis" catalog="system" id="DOj-9p-dBX"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="DOj-9p-dBX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfH-dP-PWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,7 +59,7 @@
         <scene sceneID="irg-zn-JYo">
             <objects>
                 <viewControllerPlaceholder storyboardName="Transactions" id="VCL-he-3Sz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="arrow.up.arrow.down" catalog="system" id="hXd-UW-ghU"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="arrow.up.arrow.down" catalog="system" selectedImage="arrow.up.arrow.down" id="hXd-UW-ghU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfO-xR-kGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +69,7 @@
         <scene sceneID="yzd-b4-VJf">
             <objects>
                 <viewControllerPlaceholder storyboardName="Categories" id="jk2-g7-yG3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="square.grid.2x2.fill" catalog="system" id="MRp-nw-H2c"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="square.grid.2x2.fill" catalog="system" selectedImage="square.grid.2x2.fill" id="MRp-nw-H2c"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4E-pj-Nnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +79,7 @@
         <scene sceneID="Ruh-7J-DFS">
             <objects>
                 <viewControllerPlaceholder storyboardName="SettingsPage" id="oXi-h6-brG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="gearshape" catalog="system" id="v8X-sW-Nj0"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="gearshape" catalog="system" selectedImage="gearshape" id="v8X-sW-Nj0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtB-qJ-E8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
