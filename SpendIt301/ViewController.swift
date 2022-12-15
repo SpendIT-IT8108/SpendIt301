@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  SpendIt301
 //
-//  Created by Fatema Marhoon on 15/12/2022.
+//  Created by Maryam Taraif on 15/12/2022.
 //
 
 import UIKit
