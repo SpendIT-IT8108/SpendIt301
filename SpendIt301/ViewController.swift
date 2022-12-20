@@ -45,8 +45,8 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        floatingButton.frame = CGRect(x:view.frame.size.width/2,
-                                      y:view.frame.size.height - 120,
+        floatingButton.frame = CGRect(x:view.frame.size.width/2 - 30,
+                                      y:view.frame.size.height - 110,
                                       width:60, height:60)
     }
 
