@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Af2-Wf-5HZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Af2-Wf-5HZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,7 +50,9 @@
         <scene sceneID="miP-M6-lhv">
             <objects>
                 <viewControllerPlaceholder storyboardName="Overview" id="r5T-kJ-ljU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="DOj-9p-dBX"/>
+                    <tabBarItem key="tabBarItem" title="Overview" id="DOj-9p-dBX">
+                        <imageReference key="image" image="chart.bar.xaxis" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfH-dP-PWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +62,7 @@
         <scene sceneID="irg-zn-JYo">
             <objects>
                 <viewControllerPlaceholder storyboardName="Transactions" id="VCL-he-3Sz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hXd-UW-ghU"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="arrow.up.arrow.down" catalog="system" selectedImage="arrow.up.arrow.down" id="hXd-UW-ghU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfO-xR-kGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +72,7 @@
         <scene sceneID="yzd-b4-VJf">
             <objects>
                 <viewControllerPlaceholder storyboardName="Categories" id="jk2-g7-yG3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="MRp-nw-H2c"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="square.grid.2x2.fill" catalog="system" selectedImage="square.grid.2x2.fill" id="MRp-nw-H2c"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4E-pj-Nnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,7 +82,7 @@
         <scene sceneID="Ruh-7J-DFS">
             <objects>
                 <viewControllerPlaceholder storyboardName="SettingsPage" id="oXi-h6-brG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="v8X-sW-Nj0"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="gearshape" catalog="system" selectedImage="gearshape" id="v8X-sW-Nj0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtB-qJ-E8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,6 +90,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
