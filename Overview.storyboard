@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="ora-kO-1f5" kind="show" id="13L-cl-swt"/>
+                                    <segue destination="ora-kO-1f5" kind="presentation" id="Bna-6d-CNy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,7 +44,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g87-Zt-tvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2230" y="-2618"/>
+            <point key="canvasLocation" x="2283" y="-2581"/>
         </scene>
     </scenes>
     <resources>

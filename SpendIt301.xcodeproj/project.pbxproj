@@ -17,6 +17,7 @@
 		2130B047294AF4EC001EC43C /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B045294AF4EC001EC43C /* Transactions.storyboard */; };
 		2130B04A294AF518001EC43C /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B048294AF518001EC43C /* Categories.storyboard */; };
 		2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */; };
+		36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36025E6929533D8E0035C71F /* AddTransactionTVC.swift */; };
 		36D485B5294B018700D0D297 /* AddTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D485B4294B018700D0D297 /* AddTransaction.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		2130B046294AF4EC001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Transactions.storyboard; sourceTree = "<group>"; };
 		2130B049294AF518001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Categories.storyboard; sourceTree = "<group>"; };
 		2130B04E294AF6DB001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/SettingsPage.storyboard; sourceTree = "<group>"; };
+		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
 		36D485B4294B018700D0D297 /* AddTransaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTransaction.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,8 @@
 			isa = PBXGroup;
 			children = (
 				36D485B4294B018700D0D297 /* AddTransaction.storyboard */,
+				36025E6929533D8E0035C71F /* AddTransactionTVC.swift */,
+				36025E6B29533DCB0035C71F /* Add transaction */,
 				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
@@ -80,6 +84,13 @@
 				2130B03D294AEBEF001EC43C /* Info.plist */,
 			);
 			path = SpendIt301;
+			sourceTree = "<group>";
+		};
+		36025E6B29533DCB0035C71F /* Add transaction */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Add transaction";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
+				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
