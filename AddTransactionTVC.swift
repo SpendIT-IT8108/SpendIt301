@@ -13,24 +13,28 @@ class AddTransactionTVC: UITableViewController {
     @IBOutlet weak var imageCell: UITableViewCell!
     @IBOutlet weak var NotestextView: UITextView!
     @IBOutlet var addFormTable: UITableView!
+    
+    //repeat outlets and variables
     @IBOutlet weak var repeatOption: UISwitch!
     @IBOutlet weak var repeatIntervalCell: UITableViewCell!
-    var noteSpaceIsVisible : Bool = false {
-        didSet {
-            noteCell.isHidden = !noteSpaceIsVisible
-            
-        }
-    }
+    var intervalIsVisible : Bool = false
+    @IBOutlet weak var repeatStart: UITableViewCell!
+    var startIsVisible : Bool = false
+    @IBOutlet weak var repeatEnd: UITableViewCell!
+    var endIsVisible : Bool = false
     
-    var attachmentIsVisible : Bool = false {
-        didSet {
-            imageCell.isHidden = !attachmentIsVisible
-            
-        }
-    }
+    
+    var noteSpaceIsVisible : Bool = false
+    
+    var attachmentIsVisible : Bool = false
+    
+  
+
     
     
     let repeatIntervalCellIndexPath = IndexPath(row: 1, section: 1)
+    let repeatStartCellIndexPath = IndexPath(row: 2, section: 1)
+    let repeatEndCellIndexPath = IndexPath(row: 3, section: 1)
     
     let attachOptionCellIndexPath = IndexPath(row: 4, section: 1)
     let attachmentCellIndexPath = IndexPath(row: 5, section: 1)
@@ -63,16 +67,53 @@ class AddTransactionTVC: UITableViewController {
         }
     }*/
     
+    
+    @IBAction func repeatSwitchClicked(_ sender: UISwitch) {
+        if sender.isOn {
+            intervalIsVisible = true
+            startIsVisible = true
+            endIsVisible = true
+        }
+        else {
+            intervalIsVisible = false
+            startIsVisible = false
+            endIsVisible = false
+        }
+        //intervalIsVisible.toggle()
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    
+    
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath {
     case notesSpaceeCllIndexPath where noteSpaceIsVisible == false:
         return 0
     case notesSpaceeCllIndexPath where noteSpaceIsVisible == true:
         return 150
+        
     case attachmentCellIndexPath where attachmentIsVisible == false:
         return 0
     case attachmentCellIndexPath where attachmentIsVisible == true:
         return 250
+        
+    case repeatIntervalCellIndexPath where intervalIsVisible == false:
+        return 0
+    case repeatIntervalCellIndexPath where intervalIsVisible == true:
+        return 55
+        
+    case repeatStartCellIndexPath where startIsVisible == false:
+        return 0
+    case repeatStartCellIndexPath where startIsVisible == true:
+        return 55
+        
+    case repeatEndCellIndexPath where endIsVisible == false:
+        return 0
+    case repeatEndCellIndexPath where endIsVisible == true:
+        return 55
+        
     default:
         return UITableView.automaticDimension
     }
