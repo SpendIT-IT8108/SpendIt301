@@ -9,9 +9,35 @@ import UIKit
 
 class TransactionTableViewController: UITableViewController {    
 
- var transactions=[Transaction]()
+  
+    @IBAction func EditPressed(_ sender: Any) {
+        
+         let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+//        navigationItem.rightBarButtonItem = editButtonItem
+
+  
+    }
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+    
+    override func tableView(_ tableView: UITableView,
+       commit editingStyle: UITableViewCell.EditingStyle,
+       forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            transactions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: . automatic)
+        }
+    }
+    var transactions=[Transaction]()
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+
 
         if let saveTransaction=Transaction.loadTransaction(){
             transactions=saveTransaction

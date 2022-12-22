@@ -103,7 +103,13 @@
                             <outlet property="delegate" destination="foq-fw-BnD" id="ath-DR-qj7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Transactions" id="hAZ-je-MBQ"/>
+                    <navigationItem key="navigationItem" title="Transactions" id="hAZ-je-MBQ">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="qy7-zZ-Bkq">
+                            <connections>
+                                <action selector="EditPressed:" destination="foq-fw-BnD" id="T2M-O7-Tyl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZQ-S5-Rfg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
