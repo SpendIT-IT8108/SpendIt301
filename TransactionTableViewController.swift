@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TransactionTableViewController: UITableViewController {    
+class TransactionTableViewController: UITableViewController, UISearchController {
 
-  
+  let searchController=UISearchController()
     @IBAction func EditPressed(_ sender: Any) {
         
          let tableViewEditingMode = tableView.isEditing
@@ -34,10 +34,13 @@ class TransactionTableViewController: UITableViewController {
         }
     }
     var transactions=[Transaction]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-
+      title="Transactions"
+//        searchController.searchResultsUpdater=self
+        navigationItem.searchController=searchController
 
         if let saveTransaction=Transaction.loadTransaction(){
             transactions=saveTransaction
@@ -46,6 +49,11 @@ class TransactionTableViewController: UITableViewController {
             transactions=Transaction.loadSampleTransacion()
         }
     }
+//    func updateSearchResults(for searchController: UISearchController){
+//        guard let text = searchController.searchBar.text else{
+//            return
+//        }
+//    }
 
     // MARK: - Table view data source
 
