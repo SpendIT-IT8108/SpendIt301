@@ -49,11 +49,21 @@
                             <outlet property="delegate" destination="zpy-72-0Wo" id="sKh-gy-BTp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Category Manager" id="pJ5-lg-kb3"/>
+                    <navigationItem key="navigationItem" title="Category Manager" id="pJ5-lg-kb3">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="SKG-xR-xGs"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukX-uQ-4Tv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2365" y="-364"/>
+        </scene>
+        <!--AddTransaction-->
+        <scene sceneID="KXD-ga-yAc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddTransaction" id="sGF-LK-4M8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dk-dD-g5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3028" y="-398"/>
         </scene>
     </scenes>
     <resources>

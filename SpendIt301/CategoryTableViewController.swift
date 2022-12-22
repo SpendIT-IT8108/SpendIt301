@@ -59,10 +59,12 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
              let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
            //  cell.textLabel?.text = categories[indexPath.section][indexPath.row].name + categories[indexPath.section][indexPath.row].symbol
             // cell.imageView?.image = categories[indexPath.section][indexPath.row].symbol
-             let category = categories[indexPath.section][indexPath.row]
+        let category = categories[indexPath.section][indexPath.row]
             // var content = cell.defaultContentConfiguration()
              //content.text = "\(category.symbol)  \(category.name)"
              cell.imageView?.image = generateImageWithText(text: category.symbol)
@@ -86,8 +88,7 @@ class CategoryTableViewController: UITableViewController {
     
     
     func generateImageWithText(text: String) -> UIImage? {
-            let image = UIImage(named: "Expense")!
-
+            var image = UIImage(named: "Expense")!
             let imageView = UIImageView(image: image)
             imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
 
