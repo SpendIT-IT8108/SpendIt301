@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private let floatingButton: UIButton = {
         let button = UIButton(frame: CGRect(x:0, y:0, width:60, height:60))
        
-        button.backgroundColor = .systemPink
+        button.backgroundColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0)
         
         let image = UIImage(systemName: "plus",
                             withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
@@ -31,12 +31,12 @@ class ViewController: UIViewController {
         //shadow options
         button.layer.shadowRadius = 10
         button.layer.shadowOpacity = 0.3
-        
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         //corner radius
         
         //uncomment this to remove the shadow
-        //button.layer.masksToBounds = true
+        button.layer.masksToBounds = true
         button.layer.cornerRadius = 30
         
         return button
@@ -46,9 +46,11 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         floatingButton.frame = CGRect(x:view.frame.size.width/2 - 30,
-                                      y:view.frame.size.height - 110,
+                                      y:view.frame.size.height - 115,
                                       width:60, height:60)
     }
+    
+    
 
 }
 
