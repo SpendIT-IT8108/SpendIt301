@@ -2,39 +2,54 @@
 //  CategoryTableViewController.swift
 //  SpendIt301
 //
-//  Created by Mohammed Taraif on 22/12/2022.
+//  Created by Maryam Taraif on 22/12/2022.
 //
 
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
   
-    var searchedCountry = [String]()
-       let sections = ["Expenses","Incomes"];
-       var categories:[[Category]] = [
-           //expenses
-           [
-               Category(name: "Food", symbol: "🍔", spendingLimit: nil),
-               Category(name: "Transportaion", symbol: "🚆", spendingLimit: nil),
-               Category(name: "Health Care", symbol: "🏥", spendingLimit: nil),
-               Category(name: "Education", symbol: "🏫", spendingLimit: nil),
-               Category(name: "Gifts", symbol: "🎁", spendingLimit: nil),
-               Category(name: "Shopping", symbol: "🛍️", spendingLimit: nil),
-               Category(name: "Clothing", symbol: "👚", spendingLimit: nil),
-               Category(name: "Car", symbol: "🚘", spendingLimit: nil),
-               Category(name: "Work", symbol: "👔", spendingLimit: nil),
-           ] ,
-           //incomes
-           [
-               Category(name: "Salary", symbol: "💵", spendingLimit: nil),
-               Category(name: "Investments", symbol: "📈", spendingLimit: nil),
-
-           ]
-           
-       ]
+  
+    
+    var cat = [[Category]] ()
+    let sections = ["Expenses","Incomes"];
+    
+    
+    
+    //let sections = ["Expenses","Incomes"];
+//    var categories:[[Category]] = [
+//           //expenses
+//           [
+//               Category(name: "Food", symbol: "🍔", spendingLimit: nil),
+//               Category(name: "Transportaion", symbol: "🚆", spendingLimit: nil),
+//               Category(name: "Health Care", symbol: "🏥", spendingLimit: nil),
+//               Category(name: "Education", symbol: "🏫", spendingLimit: nil),
+//               Category(name: "Gifts", symbol: "🎁", spendingLimit: nil),
+//               Category(name: "Shopping", symbol: "🛍️", spendingLimit: nil),
+//               Category(name: "Clothing", symbol: "👚", spendingLimit: nil),
+//               Category(name: "Car", symbol: "🚘", spendingLimit: nil),
+//               Category(name: "Work", symbol: "👔", spendingLimit: nil),
+//           ] ,
+//           //incomes
+//           [
+//               Category(name: "Salary", symbol: "💵", spendingLimit: nil),
+//               Category(name: "Investments", symbol: "📈", spendingLimit: nil),
+//
+//           ]
+//
+//       ]
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(floatingButton)
+        
+        if let savedCategories = Category.loadCategories() {
+            cat = savedCategories
+        } else{
+            cat = Category.loadSampleCategories()
+        }
+        
+        navigationItem.leftBarButtonItem = editButtonItem
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -49,27 +64,29 @@ class CategoryTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return sections.count
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return  categories[section].count
+        return cat[section].count
+        //categories[section].count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print(indexPath.section)
         func generateImageWithText(text: String) -> UIImage? {
-                let image:UIImage = UIImage(named: "Expense")!
-//            if sections[indexPath.section] == "Expenses"{
-//               image = UIImage(named: "Expense")!
-//            }else{
-//                image = UIImage(named: "income")!
-//            }
+
+            var image:UIImage
+            if indexPath.section == 0{
+               image = UIImage(named: "Expense")!
+            }else{
+                image = UIImage(named: "Income")!
+            }
                 let imageView = UIImageView(image: image)
                 imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-         
+
 
 
                 let label = UILabel(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
@@ -91,11 +108,13 @@ class CategoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
            //  cell.textLabel?.text = categories[indexPath.section][indexPath.row].name + categories[indexPath.section][indexPath.row].symbol
             // cell.imageView?.image = categories[indexPath.section][indexPath.row].symbol
-        let category = categories[indexPath.section][indexPath.row]
+      //  let category = categories[indexPath.section][indexPath.row]
+        let category = cat[indexPath.section][indexPath.row]
             // var content = cell.defaultContentConfiguration()
              //content.text = "\(category.symbol)  \(category.name)"
-             cell.imageView?.image = generateImageWithText(text: category.symbol)
-             cell.textLabel?.text = categories[indexPath.section][indexPath.row].name
+            cell.imageView?.image = generateImageWithText(text: category.symbol)
+             //cell.textLabel?.text = categories[indexPath.section][indexPath.row].name
+        cell.textLabel?.text = cat[indexPath.section][indexPath.row].name
             // cell.contentConfiguration = content
            //  cell.contentView.backgroundColor = UIColor.blue
              
@@ -112,6 +131,8 @@ class CategoryTableViewController: UITableViewController {
        override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
            return sections[section]
        }
+    
+    
     
     
     
@@ -162,25 +183,33 @@ class CategoryTableViewController: UITableViewController {
 
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
+    
+    
+    
+    //error index out of range
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            self.cat[indexPath.section].remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
+    @IBAction  func unwindCategoryList (segue:UIStoryboardSegue){
+        
+    }
+   
 
     /*
     // Override to support rearranging the table view.
