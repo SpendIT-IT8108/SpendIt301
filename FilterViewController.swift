@@ -10,7 +10,7 @@ import UIKit
 class FilterViewController: UIViewController {
 
     var transactions=Transaction.loadSampleTransacion()
-    @IBOutlet weak var categoryImg: UIImageView!
+    @IBOutlet weak var transactionCategoryImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

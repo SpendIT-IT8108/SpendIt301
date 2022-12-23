@@ -122,8 +122,8 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" id="vcq-lU-Sax">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JH1-VJ-Vgd">
-                                    <rect key="frame" x="228" y="-1" width="47" height="44"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JH1-VJ-Vgd">
+                                    <rect key="frame" x="305.5" y="0.0" width="51" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal.decrease" catalog="system"/>
@@ -212,7 +212,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="U2a-Ne-jJm"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="categoryImg" destination="qTC-xP-bTy" id="Nvk-IF-4x2"/>
+                        <outlet property="transactionCategoryImg" destination="qTC-xP-bTy" id="Nvk-IF-4x2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygb-Sg-nIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
