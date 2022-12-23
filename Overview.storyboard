@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="ora-kO-1f5" kind="show" id="QLU-UU-UTH"/>
+                                    <segue destination="ora-kO-1f5" kind="presentation" id="Bna-6d-CNy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -36,15 +36,15 @@
             </objects>
             <point key="canvasLocation" x="1577" y="-2572"/>
         </scene>
-        <!--AddTransaction-->
+        <!--addForm-->
         <scene sceneID="VBd-yo-acr">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="addForm" storyboardName="AddTransaction" id="ora-kO-1f5" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="addForm" storyboardName="AddTransaction" referencedIdentifier="addForm" id="ora-kO-1f5" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4s4-lb-zEv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g87-Zt-tvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="-2572"/>
+            <point key="canvasLocation" x="2283" y="-2581"/>
         </scene>
     </scenes>
     <resources>
