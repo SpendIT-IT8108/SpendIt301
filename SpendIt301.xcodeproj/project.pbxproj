@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BEE12252955A64C007E1DAD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEE12242955A64C007E1DAD /* FilterViewController.swift */; };
+		0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */; };
 		0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */; };
 		0BF0975829536A56000CC354 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975729536A56000CC354 /* Transaction.swift */; };
 		0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BEE12242955A64C007E1DAD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionFilterTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975729536A56000CC354 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -58,7 +58,6 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
-				0BEE12242955A64C007E1DAD /* FilterViewController.swift */,
 				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
 				0BF0975729536A56000CC354 /* Transaction.swift */,
@@ -66,6 +65,7 @@
 				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
+				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
 				2130B02E294AEBEB001EC43C /* SpendIt301 */,
 				2130B02D294AEBEB001EC43C /* Products */,
@@ -172,8 +172,8 @@
 			files = (
 				0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */,
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
-				0BEE12252955A64C007E1DAD /* FilterViewController.swift in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
+				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */,
 				0BF0975829536A56000CC354 /* Transaction.swift in Sources */,

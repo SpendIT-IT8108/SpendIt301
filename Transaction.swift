@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Transaction{
+struct Transaction: Equatable{
     var transactionName: String
     var amount: Double
     var date: Date
@@ -16,6 +16,10 @@ struct Transaction{
     var transactionType: Bool
     var note: String?
     var categoryType: UIImage?
+    
+    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.transactionName == rhs.transactionName
+      }
     
     static func loadTransaction()->[Transaction]?{
         return nil
@@ -27,5 +31,9 @@ struct Transaction{
         return [trans1,trans2,trans3]
     }
 
-}
-
+}//test
+//var transactionss:[Transaction]=[
+//     Transaction(transactionName: "Phone Bills", amount: 3.9, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil),
+//    Transaction(transactionName: "Talabat", amount: 30.9, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil),
+//     Transaction(transactionName: "Savings", amount: 8.6, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
+//]

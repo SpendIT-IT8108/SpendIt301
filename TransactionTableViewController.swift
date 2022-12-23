@@ -6,19 +6,48 @@
 //
 
 import UIKit
+class ResultVC: UITableViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       // if Transaction==searched{
 
-class TransactionTableViewController: UITableViewController{
-    @IBOutlet weak var filterBtn: UIButton!
+        }
+    }
+//
+//}
+
+class TransactionTableViewController: UITableViewController, UISearchResultsUpdating{
+  
     
-    let searchController=UISearchController()
+    @IBOutlet weak var filterBtn: UIButton!
+    var transactions=[Transaction]()
+    let searchController=UISearchController(searchResultsController: ResultVC())
    
     @IBAction func EditPressed(_ sender: Any) {
-        
          let tableViewEditingMode = tableView.isEditing
         tableView.setEditing(!tableViewEditingMode, animated: true)
         navigationItem.rightBarButtonItem = editButtonItem
-
   
+    }
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+      title="Transactions"
+        searchController.searchResultsUpdater=self
+        navigationItem.searchController=searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+      
+
+       
+
+        if let saveTransaction=Transaction.loadTransaction(){
+            transactions=saveTransaction
+
+        }else{
+            transactions=Transaction.loadSampleTransacion()
+        }
     }
   
     override func viewWillAppear(_ animated: Bool) {
@@ -35,28 +64,32 @@ class TransactionTableViewController: UITableViewController{
             tableView.deleteRows(at: [indexPath], with: . automatic)
         }
     }
-    var transactions=[Transaction]()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      title="Transactions"
-  //      searchController.searchResultsUpdater=UISearchController
-        navigationItem.searchController=searchController
-        
-
-        if let saveTransaction=Transaction.loadTransaction(){
-            transactions=saveTransaction
-
-        }else{
-            transactions=Transaction.loadSampleTransacion()
+    var searchedItem: [Transaction] = Transaction.loadSampleTransacion()
+    
+   
+    func updateSearchResults(for searchController: UISearchController){
+        if let searchString = searchController.searchBar.text,
+           searchString.isEmpty==false{
+            print(searchString)//works properly
+            searchedItem = Transaction.loadSampleTransacion().filter{ (item) in
+                item.transactionName.localizedCaseInsensitiveContains(searchString)
+            }
         }
-    }
-//    func updateSearchResults(for searchController: UISearchController){
-//        guard let text = searchController.searchBar.text else{
-//            return
-//        }
-       
+            else{
+                
+                searchedItem = transactions
+            }
+        tableView.reloadData()
+        }
+        
+        
+    
+    
+    //search
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//
 //    }
 
     // MARK: - Table view data source
@@ -68,7 +101,7 @@ class TransactionTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return transactions.count
+        return searchedItem.count
     }
 
    
@@ -77,11 +110,11 @@ class TransactionTableViewController: UITableViewController{
 
 //         Configure the cell...
 
-        let transaction = transactions[indexPath.row]
-
-
+        let transaction = searchedItem[indexPath.item]
+        
+        
+        
         cell.update(with: transaction)
-        cell.showsReorderControl=true
 
         return cell
     }
