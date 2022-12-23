@@ -20,6 +20,9 @@ struct Transaction: Equatable{
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
         return lhs.transactionName == rhs.transactionName
       }
+    static func compareName(transactionName: String)->Bool{
+       return transactionName == transactionName.self
+    }
     
     static func loadTransaction()->[Transaction]?{
         return nil
@@ -28,7 +31,9 @@ struct Transaction: Equatable{
         let trans1=Transaction(transactionName: "Phone Bills", amount: 3.9, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
         let trans2=Transaction(transactionName: "Talabat", amount: 30.9, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
         let trans3=Transaction(transactionName: "Savings", amount: 8.6, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
-        return [trans1,trans2,trans3]
+        let trans4=Transaction(transactionName: "Shopping", amount: 8.6, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
+        let trans5=Transaction(transactionName: "summer vacation", amount: 8.6, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
+        return [trans1,trans2,trans3,trans4,trans5]
     }
 
 }//test

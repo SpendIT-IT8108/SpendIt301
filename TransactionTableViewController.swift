@@ -6,22 +6,18 @@
 //
 
 import UIKit
-class ResultVC: UITableViewController{
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       // if Transaction==searched{
 
-        }
-    }
-//
-//}
 
 class TransactionTableViewController: UITableViewController, UISearchResultsUpdating{
   
     
     @IBOutlet weak var filterBtn: UIButton!
     var transactions=[Transaction]()
-    let searchController=UISearchController(searchResultsController: ResultVC())
+    let searchController=UISearchController()
+   // var filterdTransaction: [Transaction]=[]
+ 
+
+    
    
     @IBAction func EditPressed(_ sender: Any) {
          let tableViewEditingMode = tableView.isEditing
@@ -33,10 +29,10 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         
         super.viewDidLoad()
       title="Transactions"
-        searchController.searchResultsUpdater=self
         navigationItem.searchController=searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater=self
         
       
 
@@ -61,7 +57,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
        forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             transactions.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: . automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -70,18 +66,20 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
    
     func updateSearchResults(for searchController: UISearchController){
+       // print(searchedItem)
         if let searchString = searchController.searchBar.text,
-           searchString.isEmpty==false{
-            print(searchString)//works properly
-            searchedItem = Transaction.loadSampleTransacion().filter{ (item) in
+           searchString.isEmpty==false {
+            searchedItem = transactions.filter({ item in
                 item.transactionName.localizedCaseInsensitiveContains(searchString)
+
+            })
             }
-        }
             else{
-                
+
                 searchedItem = transactions
             }
-        tableView.reloadData()
+                    tableView.reloadData()
+        
         }
         
         
