@@ -17,11 +17,8 @@
 		2130B047294AF4EC001EC43C /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B045294AF4EC001EC43C /* Transactions.storyboard */; };
 		2130B04A294AF518001EC43C /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B048294AF518001EC43C /* Categories.storyboard */; };
 		2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */; };
-
-		36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36025E6929533D8E0035C71F /* AddTransactionTVC.swift */; };
-
 		264DA2CF29519D05006BC7CC /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DA2CE29519D05006BC7CC /* Setup.storyboard */; };
-
+		36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36025E6929533D8E0035C71F /* AddTransactionTVC.swift */; };
 		36D485B5294B018700D0D297 /* AddTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D485B4294B018700D0D297 /* AddTransaction.storyboard */; };
 		CD8973F629543C740030075F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8973F529543C740030075F /* Category.swift */; };
 		CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8973F729543CBC0030075F /* CategoryTableViewController.swift */; };
@@ -40,9 +37,8 @@
 		2130B046294AF4EC001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Transactions.storyboard; sourceTree = "<group>"; };
 		2130B049294AF518001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Categories.storyboard; sourceTree = "<group>"; };
 		2130B04E294AF6DB001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/SettingsPage.storyboard; sourceTree = "<group>"; };
-		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
-
 		264DA2CE29519D05006BC7CC /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
+		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
 		36D485B4294B018700D0D297 /* AddTransaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTransaction.storyboard; sourceTree = "<group>"; };
 		CD8973F529543C740030075F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CD8973F729543CBC0030075F /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -185,11 +181,8 @@
 			files = (
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
-
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
-
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
-
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				CD8973F629543C740030075F /* Category.swift in Sources */,
 			);
@@ -358,7 +351,6 @@
 		2130B041294AEBEF001EC43C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -387,7 +379,6 @@
 		2130B042294AEBEF001EC43C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
