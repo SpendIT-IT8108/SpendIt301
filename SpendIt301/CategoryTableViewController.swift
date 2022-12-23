@@ -8,6 +8,7 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
+  
     var searchedCountry = [String]()
        let sections = ["Expenses","Incomes"];
        var categories:[[Category]] = [
@@ -23,26 +24,26 @@ class CategoryTableViewController: UITableViewController {
                Category(name: "Car", symbol: "🚘", spendingLimit: nil),
                Category(name: "Work", symbol: "👔", spendingLimit: nil),
            ] ,
-           
            //incomes
            [
                Category(name: "Salary", symbol: "💵", spendingLimit: nil),
                Category(name: "Investments", symbol: "📈", spendingLimit: nil),
-              
-               
+
            ]
            
        ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.addSubview(floatingButton)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+
 
     // MARK: - Table view data source
 
@@ -59,9 +60,35 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        func generateImageWithText(text: String) -> UIImage? {
+                let image:UIImage = UIImage(named: "Expense")!
+//            if sections[indexPath.section] == "Expenses"{
+//               image = UIImage(named: "Expense")!
+//            }else{
+//                image = UIImage(named: "income")!
+//            }
+                let imageView = UIImageView(image: image)
+                imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+         
+
+
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+                label.backgroundColor = UIColor.clear
+                label.textAlignment = .center
+                label.textColor = UIColor.white
+                label.text = text
+
+                UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
+                imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+                label.layer.render(in: UIGraphicsGetCurrentContext()!)
+                let imageWithText = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+
+                return imageWithText
+            }
         
         
-             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
            //  cell.textLabel?.text = categories[indexPath.section][indexPath.row].name + categories[indexPath.section][indexPath.row].symbol
             // cell.imageView?.image = categories[indexPath.section][indexPath.row].symbol
         let category = categories[indexPath.section][indexPath.row]
@@ -87,25 +114,52 @@ class CategoryTableViewController: UITableViewController {
        }
     
     
-    func generateImageWithText(text: String) -> UIImage? {
-            var image = UIImage(named: "Expense")!
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+    
+    //floating button
+    private let floatingButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 150, y: 550, width: 75, height: 75))
+       
+        button.backgroundColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0)
+        
+        let image = UIImage(systemName: "plus",
+                            withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
+        
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        
+        //shadow options
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.3
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        //corner radius
+        
+        //uncomment this to remove the shadow
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 30
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+   
+      
+        
+        return button
+        
+    }()
+    
+    //subView for floating button
+    override func viewDidLayoutSubviews() {
+      super.viewDidLayoutSubviews()
+        floatingButton.frame = CGRect(x:view.frame.size.width/2 - 30,
+                                    y:view.frame.size.height - 115,
+                                    width:60, height:60)
 
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-            label.backgroundColor = UIColor.clear
-            label.textAlignment = .center
-            label.textColor = UIColor.white
-            label.text = text
 
-            UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
-            imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
-            label.layer.render(in: UIGraphicsGetCurrentContext()!)
-            let imageWithText = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
+        
+    }
+  
+    
 
-            return imageWithText
-        }
     
 
     /*
