@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddTransactionTVC: UITableViewController {
+class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
     
@@ -66,18 +66,52 @@ class AddTransactionTVC: UITableViewController {
     //function with actions to perform when UIImage view is tapped on
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            print("UIImageView tapped")
+            //create alert controller of type action sheet
+            let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+            
+                let alertController = UIAlertController(title:
+                   nil, message: nil,
+                   preferredStyle: .actionSheet)
+            //if there is an image attached by user, add a delete option
+            if !attachmentImageView.image!.isSymbolImage {
+                let deleteAction = UIAlertAction(title: "Delete Photo",
+                   style: .destructive, handler: nil)
+                alertController.addAction(deleteAction)
+            }
+            
+            //add a cancel option
+                let cancelAction = UIAlertAction(title: "Cancel",
+                   style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+            
+            //add taking a photo option that has camera as the source
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    let cameraAction = UIAlertAction(title: "Take Photo",
+                       style: .default, handler: { action in
+                        imagePicker.sourceType = .camera
+                        self.present(imagePicker, animated: true, completion: nil)
+                    })
+                    alertController.addAction(cameraAction)
+                }
+            
+            //add choosing an existing photo option that has photo library as the source
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                    let existingPhotoAction = UIAlertAction(title: "Choose Existing",
+                       style: .default, handler: { action in
+                        imagePicker.sourceType = .photoLibrary
+                        self.present(imagePicker, animated: true, completion: nil)
+                    })
+                    alertController.addAction(existingPhotoAction)
+                }
+            
+            //present the action sheet
+                alertController.popoverPresentationController?.sourceView = attachmentImageView
+                present(alertController, animated: true, completion: nil)
+            
         }
     }
-        /*override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-         switch indexPath {
-         case notesSpaceeCllIndexPath:
-         return 150
-         default:
-         return UITableView.automaticDimension
-         }
-         }*/
-        
+ 
         
         @IBAction func repeatSwitchClicked(_ sender: UISwitch) {
             if sender.isOn {
@@ -114,12 +148,10 @@ class AddTransactionTVC: UITableViewController {
                 return 0
             case repeatIntervalCellIndexPath where intervalIsVisible == true:
                 return 55
-                
             case repeatStartCellIndexPath where startIsVisible == false:
                 return 0
             case repeatStartCellIndexPath where startIsVisible == true:
                 return 75
-                
             case repeatEndCellIndexPath where endIsVisible == false:
                 return 0
             case repeatEndCellIndexPath where endIsVisible == true:
@@ -149,15 +181,6 @@ class AddTransactionTVC: UITableViewController {
             default:
                 return
             }
-            //if user select the note option cell
-            /*if indexPath == notesOptionCellIndexPath {
-             //change the state of visibility
-             noteSpaceIsVisible.toggle()
-             }
-             else {
-             return
-             }*/
-            
             tableView.beginUpdates()
             tableView.endUpdates()
         }
