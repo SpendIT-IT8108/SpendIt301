@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Transaction{
     var transactionName: String
@@ -14,7 +15,7 @@ struct Transaction{
     var repeatedTransaction: Bool
     var transactionType: Bool
     var note: String?
-   // var categoryType: Categories
+    var categoryType: UIImage?
     
     static func loadTransaction()->[Transaction]?{
         return nil
