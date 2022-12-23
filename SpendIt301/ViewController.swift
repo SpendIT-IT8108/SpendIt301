@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         //shadow options
         button.layer.shadowRadius = 10
         button.layer.shadowOpacity = 0.3
-        
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         //corner radius
         
@@ -49,6 +49,8 @@ class ViewController: UIViewController {
                                       y:view.frame.size.height - 115,
                                       width:60, height:60)
     }
+    
+    
 
 }
 
