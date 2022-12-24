@@ -8,7 +8,7 @@
 import UIKit
 
 
-class TransactionTableViewController: UITableViewController, UISearchResultsUpdating{
+class TransactionTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate{
   
     
     @IBOutlet weak var filterBtn: UIButton!
@@ -32,18 +32,40 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         navigationItem.searchController=searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.showsScopeBar = true
         searchController.searchResultsUpdater=self
-        
-      
-
+        searchController.searchBar.delegate=self
+        searchController.searchBar.placeholder="Transaction Name"
+        searchController.searchBar.scopeButtonTitles = ["All", "Expenses", "Income"]
+    // searchController.searchBar.selectedScopeButtonIndex
        
-
         if let saveTransaction=Transaction.loadTransaction(){
             transactions=saveTransaction
 
         }else{
             transactions=Transaction.loadSampleTransacion()
         }
+    }
+    
+        //not working
+    
+  
+//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//       print(selectedScope)
+//    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        switch selectedScope{
+            //case for expenses
+        case 1:  print( searchedItem = transactions.filter({ item in
+            item.transactionName=="Expenses"
+        }))
+            //case for income
+    case 2: print(searchedItem = transactions.filter({ item in
+        item.transactionType.localizedCaseInsensitiveContains("incomes")
+    }))
+        default: break
+        }
+        tableView.reloadData()
     }
   
     override func viewWillAppear(_ animated: Bool) {
