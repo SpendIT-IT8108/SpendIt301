@@ -8,29 +8,44 @@
 import UIKit
 
 class TrasactionFilterTableViewController: UITableViewController {
-
+    var transactions = TransactionTableViewController().searchedItem
+    var filteredTransactions: [Transaction] = []
+    @IBOutlet weak var LtHLable: UILabel!
+    @IBOutlet weak var LtHSwith: UISwitch!
+    @IBOutlet weak var filterSwitch: UISwitch!
+    @IBOutlet weak var filterLable: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 2
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 
-
+    @IBAction func switchPressedLtH(_ sender: UISwitch) {
+        if sender.isOn {
+                //low to high
+            filterSwitch.setOn( false, animated: true)
+           filteredTransactions = transactions.sorted {
+                $0.amount < $1.amount
+            }
+            }
+    }
+    
+    @IBAction func switchPressed(_ sender: UISwitch) {
+        if sender.isOn {
+            LtHSwith.setOn( false, animated: true)
+           // high to low
+            filteredTransactions = transactions.sorted {
+                $0.amount > $1.amount
+            }
+            
+            }
+        
+    }
+    
 
 }
