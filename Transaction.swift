@@ -19,10 +19,8 @@ struct Transaction: Equatable{
     
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
         return lhs.transactionName == rhs.transactionName
+        && lhs.transactionType == rhs.transactionType
       }
-    static func compareName(transactionName: String)->Bool{
-       return transactionName == transactionName.self
-    }
     
     static func loadTransaction()->[Transaction]?{
         return nil
@@ -30,15 +28,10 @@ struct Transaction: Equatable{
     static func loadSampleTransacion()-> [Transaction]{
         let trans1=Transaction(transactionName: "Phone Bills", amount: 3.9, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
         let trans2=Transaction(transactionName: "Talabat", amount: 30.9, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
-        let trans3=Transaction(transactionName: "Savings", amount: 8.6, date: Date(), repeatedTransaction: true, transactionType: "Income", note: nil)
+        let trans3=Transaction(transactionName: "Savings", amount: 8.6, date: Date(), repeatedTransaction: true, transactionType: "Incomes", note: nil)
         let trans4=Transaction(transactionName: "Shopping", amount: 8.6, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
-        let trans5=Transaction(transactionName: "summer vacation", amount: 8.6, date: Date(), repeatedTransaction: true, transactionType: "expenses", note: nil)
+        let trans5=Transaction(transactionName: "summer vacation", amount: 8.6, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
         return [trans1,trans2,trans3,trans4,trans5]
     }
 
-}//test
-//var transactionss:[Transaction]=[
-//     Transaction(transactionName: "Phone Bills", amount: 3.9, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil),
-//    Transaction(transactionName: "Talabat", amount: 30.9, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil),
-//     Transaction(transactionName: "Savings", amount: 8.6, date: Date.now, repeatedTransaction: true, transactionType: true, note: nil)
-//]
+}
