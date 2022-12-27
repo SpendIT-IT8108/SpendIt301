@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="ora-kO-1f5" kind="presentation" id="Bna-6d-CNy"/>
+                                    <segue destination="ora-kO-1f5" kind="show" id="xJA-K1-xvE"/>
                                 </connections>
                             </button>
                         </subviews>
