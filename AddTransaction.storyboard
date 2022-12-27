@@ -166,7 +166,7 @@
                             <tableViewSection headerTitle="ADDITIONAL DETAILS" id="MLM-ov-NRg">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="qfl-X6-XND">
-                                        <rect key="frame" x="20" y="388.99999999999994" width="350" height="55"/>
+                                        <rect key="frame" x="20" y="389" width="350" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qfl-X6-XND" id="q1t-NI-6yC">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
@@ -210,7 +210,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="2EC-jM-ufO">
-                                        <rect key="frame" x="20" y="443.99999999999994" width="350" height="55"/>
+                                        <rect key="frame" x="20" y="444" width="350" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2EC-jM-ufO" id="QeP-To-fh7">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
