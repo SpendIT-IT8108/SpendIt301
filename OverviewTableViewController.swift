@@ -6,15 +6,12 @@
 //
 
 import UIKit
-
+import Charts
 class OverviewTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //spaces between section
-        tableView.sectionFooterHeight=6.0
-        tableView.sectionHeaderHeight=6.0
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,46 +23,23 @@ class OverviewTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //check and register the chart cell
-        if  indexPath.section == 0 && indexPath.row == 0 {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BarChartTableViewCell", for: indexPath) as! BarChartTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-            self.tableView.rowHeight = 290
+
         return cell
-        }
-        //check and register the most spent cell
-        else if  indexPath.section == 1 && indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MostSpentTableViewCell", for: indexPath) as! MostSpentTableViewCell
-
-            // Configure the cell...
-                self.tableView.rowHeight = 160
-            return cell
-            //check and register the most tracked cell
-        }else if  indexPath.section == 2 && indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MostTrackedTableViewCell", for: indexPath) as! MostTrackedTableViewCell
-
-            // Configure the cell...
-                self.tableView.rowHeight = 160
-            return cell
-        }
-        
-        
-        else {
-            return UITableViewCell()
-        }
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
