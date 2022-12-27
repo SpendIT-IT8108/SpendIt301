@@ -16,17 +16,6 @@
                     <view key="view" contentMode="scaleToFill" id="wW1-Rv-PKI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe5-Un-oh7">
-                                <rect key="frame" x="170" y="118" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="ora-kO-1f5" kind="presentation" id="Bna-6d-CNy"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rFN-Xn-df6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -35,16 +24,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2t-j1-gGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1577" y="-2572"/>
-        </scene>
-        <!--addForm-->
-        <scene sceneID="VBd-yo-acr">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="addForm" storyboardName="AddTransaction" referencedIdentifier="addForm" id="ora-kO-1f5" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4s4-lb-zEv"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g87-Zt-tvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2283" y="-2581"/>
         </scene>
     </scenes>
     <resources>

@@ -79,9 +79,8 @@
 				216874532958E1900031BC7B /* OverviewTableViewController.swift */,
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
 				0BF0975729536A56000CC354 /* Transaction.swift */,
-				36D485B4294B018700D0D297 /* AddTransaction.storyboard */,
 				36025E6929533D8E0035C71F /* AddTransactionTVC.swift */,
-				36025E6B29533DCB0035C71F /* Add transaction */,
+				36D485B4294B018700D0D297 /* AddTransaction.storyboard */,
 				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
@@ -118,13 +117,6 @@
 				CD8973F729543CBC0030075F /* CategoryTableViewController.swift */,
 			);
 			path = SpendIt301;
-			sourceTree = "<group>";
-		};
-		36025E6B29533DCB0035C71F /* Add transaction */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Add transaction";
 			sourceTree = "<group>";
 		};
 		49FCAB54FEFD176E97329A10 /* Frameworks */ = {
