@@ -443,6 +443,7 @@
 				DEVELOPMENT_TEAM = HG84WPP7B7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpendIt301/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -472,6 +473,7 @@
 				DEVELOPMENT_TEAM = HG84WPP7B7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpendIt301/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

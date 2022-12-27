@@ -10,7 +10,9 @@ import UIKit
 class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
+    @IBOutlet weak var intervalPopUpButton: UIButton!
     
+    @IBOutlet weak var endRepeatPopUpButton: UIButton!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var NotestextView: UITextView!
     
@@ -24,6 +26,12 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     var noteSpaceIsVisible : Bool = false
     
     var attachmentIsVisible : Bool = false
+    
+    var endDatePickerIsVisisble : Bool = false {
+        didSet {
+            endDatePicker.isHidden = !endDatePickerIsVisisble
+        }
+    }
     
     @IBOutlet weak var attachmentImageView: UIImageView!
     
@@ -49,7 +57,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     
     
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -59,7 +66,8 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         attachmentImageView.addGestureRecognizer(tapGR)
         attachmentImageView.isUserInteractionEnabled = true
         
-        
+        //populate popUpButton with data 
+        setupPopUpButton()
         //set end date after one month
         //endDatePicker.date = Calendar.current.date(byAdding: .month, value: 6, to: Date.now)
         // Uncomment the following line to preserve selection between presentations
@@ -69,8 +77,46 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    
+    func setupPopUpButton(){
+        //specify the action to be taken after selection
+        let optionClosure = {(action : UIAction) in print(action.title)}
+        
+        //add actions to select from as options to the popupButton
+        intervalPopUpButton.menu = UIMenu(children : [ UIAction(title:"Monthly", state: .on, handler: optionClosure),UIAction(title:"Weekly", state: .on, handler: optionClosure),UIAction(title:"Daily", state: .on, handler: optionClosure)])
+        
+        //let the button track the selection 
+        intervalPopUpButton.showsMenuAsPrimaryAction = true
+        intervalPopUpButton.changesSelectionAsPrimaryAction = true
+        
+        //setup the endPopUpButton
+        let optionClosure2 = {(action : UIAction) in
+            if action.title == "Specific Date"{
+                self.endDatePickerIsVisisble = true }
+            else {
+                self.endDatePickerIsVisisble = false
+            }
+            //update table cell height
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
+        //add actions to select from as options to the popupButton
+        endRepeatPopUpButton.menu = UIMenu(children : [UIAction(title:"Forever", state: .on, handler: optionClosure2), UIAction(title:"Specific Date", state: .on, handler: optionClosure2)])
+        
+        //let the button track the selection
+        endRepeatPopUpButton.showsMenuAsPrimaryAction = true
+        endRepeatPopUpButton.changesSelectionAsPrimaryAction = true
+        
+        
+    }
+    
+    
+    
+    
+    
     //function with actions to perform when UIImage view is tapped on
     @objc func imageTapped(sender: UITapGestureRecognizer) {
+        let placeholderImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
         if sender.state == .ended {
             //create alert controller of type action sheet
             let imagePicker = UIImagePickerController()
@@ -80,9 +126,9 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                    nil, message: nil,
                    preferredStyle: .actionSheet)
             //if there is an image attached by user, add a delete option
-            if !attachmentImageView.image!.isSymbolImage {
+            if attachmentImageView.image != placeholderImage {
                 let deleteAction = UIAlertAction(title: "Delete Photo",
-                   style: .destructive, handler: nil)
+                                                 style: .destructive, handler:  { action in self.attachmentImageView.image = placeholderImage} )
                 alertController.addAction(deleteAction)
             }
             
@@ -118,7 +164,12 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         }
     }
  
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {return}
+        attachmentImageView.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
+    
         @IBAction func repeatSwitchClicked(_ sender: UISwitch) {
             if sender.isOn {
                 intervalIsVisible = true
@@ -149,19 +200,21 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 return 0
             case attachmentCellIndexPath where attachmentIsVisible == true:
                 return 250
-                
+            
             case repeatIntervalCellIndexPath where intervalIsVisible == false:
                 return 0
             case repeatIntervalCellIndexPath where intervalIsVisible == true:
-                return 55
+                return 65
             case repeatStartCellIndexPath where startIsVisible == false:
                 return 0
             case repeatStartCellIndexPath where startIsVisible == true:
                 return 85
             case repeatEndCellIndexPath where endIsVisible == false:
                 return 0
-            case repeatEndCellIndexPath where endIsVisible == true:
-                return 85
+            case repeatEndCellIndexPath where (endIsVisible == true && endDatePickerIsVisisble == true ):
+                return 130
+            case repeatEndCellIndexPath where (endIsVisible == true && endDatePickerIsVisisble == false):
+                return 65
             case amountCellIndexPath:
                 return 100
             case titleCellIndexPath:
@@ -184,10 +237,30 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             tableView.deselectRow(at: indexPath, animated: true)
             
             switch indexPath {
+            case repeatOptionCellIndexPath where repeatOption.isOn:
+                //change the visisbility of its properties
+                intervalIsVisible.toggle()
+                startIsVisible.toggle()
+                endIsVisible.toggle()
+                //and hide all other sub-fields
+                noteSpaceIsVisible = false
+                attachmentIsVisible = false
             case notesOptionCellIndexPath:
+                //change the visisbility of its properties
                 noteSpaceIsVisible.toggle()
+                //and hide all other sub-fields
+                intervalIsVisible = false
+                startIsVisible = false
+                endIsVisible = false
+                attachmentIsVisible = false
             case attachOptionCellIndexPath:
+                //change the visisbility of its properties
                 attachmentIsVisible.toggle()
+                //and hide all other sub-fields
+                intervalIsVisible = false
+                startIsVisible = false
+                endIsVisible = false
+                noteSpaceIsVisible = false
             default:
                 return
             }

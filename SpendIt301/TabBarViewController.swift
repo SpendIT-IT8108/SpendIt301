@@ -12,6 +12,8 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(floatingButton)
+        floatingButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+
         // Do any additional setup after loading the view.
     }
     
@@ -41,11 +43,13 @@ class TabBarViewController: UITabBarController {
         
         button.translatesAutoresizingMaskIntoConstraints = false
    
-      
-        
         return button
         
     }()
+
+    @objc func addButtonClicked(){
+            performSegue(withIdentifier: "showAddForm", sender: floatingButton)
+    }
     
     //subView for floating button
     override func viewDidLayoutSubviews() {
@@ -53,8 +57,6 @@ class TabBarViewController: UITabBarController {
         floatingButton.frame = CGRect(x:view.frame.size.width/2 - 30,
                                     y:view.frame.size.height - 115,
                                     width:60, height:60)
-
-
         
     }
     /*
