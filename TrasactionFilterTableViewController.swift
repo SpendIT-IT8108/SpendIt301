@@ -8,7 +8,9 @@
 import UIKit
 
 class TrasactionFilterTableViewController: UITableViewController {
-    var transactions = TransactionTableViewController().searchedItem
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    var transactions = Transaction.loadSampleTransacion()
     var filteredTransactions: [Transaction] = []
     @IBOutlet weak var LtHLable: UILabel!
     @IBOutlet weak var LtHSwith: UISwitch!
@@ -25,13 +27,24 @@ class TrasactionFilterTableViewController: UITableViewController {
         return 2
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let toTransactions = segue.destination as? TransactionTableViewController{
+            toTransactions.transactions=filteredTransactions
+            toTransactions.searchController.searchBar.selectedScopeButtonIndex=0
+            
+        }
+                
+        }
+    
+
     @IBAction func switchPressedLtH(_ sender: UISwitch) {
         if sender.isOn {
                 //low to high
-            filterSwitch.setOn( false, animated: true)
+           filterSwitch.setOn( false, animated: true)
            filteredTransactions = transactions.sorted {
                 $0.amount < $1.amount
             }
+            
             }
     }
     

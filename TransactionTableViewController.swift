@@ -14,10 +14,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     @IBOutlet weak var filterBtn: UIButton!
     var transactions=[Transaction]()
     let searchController=UISearchController()
-    
- 
-
-    
+    var searchedItem: [Transaction] = []
+   
    
     @IBAction func EditPressed(_ sender: Any) {
          let tableViewEditingMode = tableView.isEditing
@@ -47,6 +45,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }else{
             transactions=Transaction.loadSampleTransacion()
         }
+        searchedItem=transactions
     }
   
 
@@ -69,8 +68,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }
     }
     
-    
-    var searchedItem: [Transaction]=Transaction.loadSampleTransacion()
+      
     
    
     func updateSearchResults(for searchController: UISearchController){
@@ -83,7 +81,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
 //
     func filterForSearchAndScope(searchText: String, scopeButton: String = "All"){
       
-      searchedItem =   transactions.filter(
+      searchedItem = transactions.filter(
             { item in
                 let scopeMatch = (scopeButton == "All" || item.transactionType.localizedCaseInsensitiveContains(scopeButton))
             if(searchController.searchBar.text != "" ){
@@ -96,21 +94,42 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         tableView.reloadData()
 
     }
+    var isUnwind=false
     
-    
-
+    @IBAction func unwindFromFilter(sender: UIStoryboardSegue){
+        tableView.reloadData()
+        isUnwind=true
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return searchedItem.count
+       
+        
+        if searchController.isActive{
+            return searchedItem.count
+           
+        } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2{
+            return searchedItem.count
+        }
+        else{
+            return transactions.count
+        }
     }
 
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
 
 //         Configure the cell...
-        
-        let  transaction=searchedItem[indexPath.row]
+        var  transaction:Transaction
+        if searchController.isActive{
+            transaction=searchedItem[indexPath.row]
+           
+        } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
+            transaction=searchedItem[indexPath.row]
+        }
+        else{
+            transaction=transactions[indexPath.row]
+        }
+       
         
         cell.update(with: transaction)
 
