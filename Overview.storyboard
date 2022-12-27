@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="1577" y="-2572"/>
         </scene>
-        <!--addForm-->
+        <!--AddTransaction-->
         <scene sceneID="VBd-yo-acr">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="addForm" storyboardName="AddTransaction" referencedIdentifier="addForm" id="ora-kO-1f5" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="addForm" storyboardName="AddTransaction" id="ora-kO-1f5" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4s4-lb-zEv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g87-Zt-tvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
