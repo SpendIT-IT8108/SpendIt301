@@ -8,16 +8,14 @@
 import UIKit
 
 
-class TransactionTableViewController: UITableViewController, UISearchResultsUpdating{
+class TransactionTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate{
   
     
     @IBOutlet weak var filterBtn: UIButton!
     var transactions=[Transaction]()
     let searchController=UISearchController()
-   // var filterdTransaction: [Transaction]=[]
- 
-
-    
+    var searchedItem: [Transaction] = []
+   
    
     @IBAction func EditPressed(_ sender: Any) {
          let tableViewEditingMode = tableView.isEditing
@@ -28,23 +26,33 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        //
+        
+        //search bar properties
       title="Transactions"
         navigationItem.searchController=searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.showsScopeBar = true
         searchController.searchResultsUpdater=self
+        searchController.searchBar.delegate=self
+        searchController.searchBar.placeholder="Transaction Name"
+        searchController.searchBar.scopeButtonTitles = ["All", "Expenses", "Incomes"]
         
-      
-
-       
-
+       //transactions
         if let saveTransaction=Transaction.loadTransaction(){
             transactions=saveTransaction
 
         }else{
             transactions=Transaction.loadSampleTransacion()
         }
+        searchedItem=transactions
     }
+  
+
+//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//
+//    }
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,56 +69,68 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }
     }
     
-    
-    var searchedItem: [Transaction] = Transaction.loadSampleTransacion()
+      
     
    
     func updateSearchResults(for searchController: UISearchController){
-       // print(searchedItem)
-        if let searchString = searchController.searchBar.text,
-           searchString.isEmpty==false {
-            searchedItem = transactions.filter({ item in
-                item.transactionName.localizedCaseInsensitiveContains(searchString)
-
-            })
-            }
-            else{
-
-                searchedItem = transactions
-            }
-                    tableView.reloadData()
         
+        let searchString = searchController.searchBar.text!
+        let scopeButton = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
+           filterForSearchAndScope(searchText: searchString, scopeButton: scopeButton)
+
         }
-        
-        
-    
-    
-    //search
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //
-//    }
+    func filterForSearchAndScope(searchText: String, scopeButton: String = "All"){
+      
+      searchedItem = transactions.filter(
+            { item in
+                let scopeMatch = (scopeButton == "All" || item.transactionType.localizedCaseInsensitiveContains(scopeButton))
+            if(searchController.searchBar.text != "" ){
+                let searchedTextMatch = item.transactionName.localizedCaseInsensitiveContains(searchText)
+                return scopeMatch&&searchedTextMatch
+            } else {
+                return scopeMatch
+            }
+            })
+        tableView.reloadData()
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
+    }
+    var isUnwind=false
+    
+    @IBAction func unwindFromFilter(sender: UIStoryboardSegue){
+        tableView.reloadData()
+        isUnwind=true
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return searchedItem.count
+       
+        
+        if searchController.isActive{
+            return searchedItem.count
+           
+        } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2{
+            return searchedItem.count
+        }
+        else{
+            return transactions.count
+        }
     }
 
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
 
 //         Configure the cell...
-
-        let transaction = searchedItem[indexPath.item]
-        
-        
+        var  transaction:Transaction
+        if searchController.isActive{
+            transaction=searchedItem[indexPath.row]
+           
+        } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
+            transaction=searchedItem[indexPath.row]
+        }
+        else{
+            transaction=transactions[indexPath.row]
+        }
+       
         
         cell.update(with: transaction)
 
@@ -118,8 +138,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     }
 //
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Transaction Name"
-        
+            return "Transaction"
     }
 
   
