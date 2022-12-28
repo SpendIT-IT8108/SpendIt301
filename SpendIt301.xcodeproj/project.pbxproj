@@ -11,6 +11,11 @@
 		0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */; };
 		0BF0975829536A56000CC354 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975729536A56000CC354 /* Transaction.swift */; };
 		0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */; };
+		21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */; };
+		21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */; };
+		21236C61295C0AF00040B7AE /* MostTrackedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */; };
+		21236C63295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */; };
+		21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */; };
 		2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130B02F294AEBEB001EC43C /* AppDelegate.swift */; };
 		2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130B031294AEBEB001EC43C /* SceneDelegate.swift */; };
 		2130B034294AEBEB001EC43C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130B033294AEBEB001EC43C /* ViewController.swift */; };
@@ -36,6 +41,11 @@
 		0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975729536A56000CC354 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
+		21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSpentTableViewCell.swift; sourceTree = "<group>"; };
+		21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostTrackedTableViewCell.swift; sourceTree = "<group>"; };
+		21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSpentCollectionViewCell.swift; sourceTree = "<group>"; };
+		21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostTrackedCollectionViewCell.swift; sourceTree = "<group>"; };
 		2130B02C294AEBEB001EC43C /* SpendIt301.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendIt301.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2130B02F294AEBEB001EC43C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2130B031294AEBEB001EC43C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +97,11 @@
 				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 				264DA2CE29519D05006BC7CC /* Setup.storyboard */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
+				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
+				21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */,
+				21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */,
+				21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */,
+				21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */,
 				2130B02E294AEBEB001EC43C /* SpendIt301 */,
 				2130B02D294AEBEB001EC43C /* Products */,
 				B3928D0FDB476E7DD91A5665 /* Pods */,
@@ -257,10 +272,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21236C63295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift in Sources */,
 				0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */,
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
+				21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */,
+				21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
 				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
+				21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */,
 				216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */,
@@ -268,6 +287,7 @@
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
 				21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */,
+				21236C61295C0AF00040B7AE /* MostTrackedTableViewCell.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				CD8973F629543C740030075F /* Category.swift in Sources */,
 			);
