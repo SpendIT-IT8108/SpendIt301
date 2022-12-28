@@ -73,6 +73,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H6L-IH-Sh5">
                                                     <rect key="frame" x="291" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                                                    <connections>
+                                                        <action selector="notificationSwitchHasChanged:" destination="Lv0-hC-jEm" eventType="valueChanged" id="eUf-Wy-vsf"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -113,6 +116,9 @@
                                                         <segment title="EN" width="50"/>
                                                         <segment title="AR" width="50"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="languageSegmentHasChanged:" destination="Lv0-hC-jEm" eventType="valueChanged" id="k6H-dG-fIL"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -152,6 +158,9 @@
                                                         <segment title="BHD" width="50"/>
                                                         <segment title="USD" width="50"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="currencySegmentHasChanged:" destination="Lv0-hC-jEm" eventType="valueChanged" id="L3Z-Ve-8gN"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -298,7 +307,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="880" id="Om2-lU-gBe"/>
                                 </constraints>
-                                <mutableString key="text">Last Update: Dec 2022
+                                <string key="text">Last Update: Dec 2022
 
 Our philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.
 - Spend It is designed to protect your information and enable you to choose what you share.
@@ -309,7 +318,7 @@ In order to maximize the quality of your experience and to use the highest data 
 Google Firebase: https://firebase.google.com/support/faq/
 
 Before using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.
-This policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.</mutableString>
+This policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

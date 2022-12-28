@@ -45,8 +45,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             //set email parts
             mailComposer.setToRecipients(["example@example.com"])
             mailComposer.setSubject("Look at this")
-            mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)
-       //present mail composer
+            mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)        //present mail composer
             present(mailComposer, animated: true, completion: nil)
 
         }
@@ -60,6 +59,35 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
 
             dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func languageSegmentHasChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+    case 0:
+        break
+    case 1:
+        break
+        default:
+            break
+        }
+    }
+    
+    @IBAction func currencySegmentHasChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+    case 0:
+        break
+    case 1:
+        break
+        default:
+            break
+        }
+    }
+    
+    @IBAction func notificationSwitchHasChanged(_ sender: UISwitch) {
+    }
+    
+    
 
 }
 

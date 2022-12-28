@@ -35,7 +35,7 @@ class MostTrackedTableViewCell: UITableViewCell, UICollectionViewDataSource,UICo
 
         mostTrackedCollection.collectionViewLayout =
            UICollectionViewCompositionalLayout(section: section)
-        
+        mostTrackedCollection.isScrollEnabled = false
         mostTrackedArray.append(mostTrackedCategories(emoji: "🍔", categoryName: "Food", itemsNo: "5 times"))
         mostTrackedArray.append(mostTrackedCategories(emoji: "📚", categoryName: "Books", itemsNo: "3 times"))
         mostTrackedArray.append(mostTrackedCategories(emoji: "🐱", categoryName: "Cat", itemsNo: "2 times"))
