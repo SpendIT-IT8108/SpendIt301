@@ -145,5 +145,22 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     
     
+    
+    //MARK: Navigation (Segue)
+    /*
+    @IBSegueAction func showDetails(_ coder: NSCoder, sender: Any?) -> UIViewController? {
+       
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            //transaction object passed to new controller
+            let transaction = transactions[indexPath.row]
+            return TransactionDetailsTVC(coder: coder, transaction: transaction)
+        }
+        else {
+            return nil
+        }
+     
+    }     */
+    
+    
 
 }
