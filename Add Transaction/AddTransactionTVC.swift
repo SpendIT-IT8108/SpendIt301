@@ -14,7 +14,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     var category : Category?
     
     //user interface components (outlets and variables)
-    @IBOutlet weak var categorySymbol: UILabel!
+    @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var categoryNameTextField: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
@@ -59,6 +59,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
        
+
         
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
@@ -326,7 +327,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
-        categorySymbol.text = self.category?.symbol
+        //categorySymbol.text = self.category?.symbol
         
     }
     
@@ -336,18 +337,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         return ChooseCategoryTVC(coder: coder, type: type)
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        /*switch segue.identifier{
-        case "editCategory":
-           var type = type.titleForSegment(at: type.selectedSegmentIndex)
-        default:
-            return
-        }*/
-        // Pass the selected type to the new view controller.
-        
-        
-    }
+    
     
 
 }

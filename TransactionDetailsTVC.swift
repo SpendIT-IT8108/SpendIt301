@@ -1,27 +1,15 @@
 //
-//  ChooseCategoryTVC.swift
-//  Pods
+//  TransactionDetailsTVC.swift
+//  SpendIt301
 //
-//  Created by A'laa Alekri on 28/12/2022.
+//  Created by A'laa Alekri on 29/12/2022.
 //
 
 import UIKit
 
-class ChooseCategoryTVC: UITableViewController {
+class TransactionDetailsTVC: UITableViewController {
 
-    //SELECTED CATEGORY
-    var type : String
-    var category : Category?
-    
-    init?(coder: NSCoder, type: String){
-        self.type = type
-        super.init(coder: coder)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    var transaction : Transaction?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,51 +19,38 @@ class ChooseCategoryTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    init? (coder: NSCoder, transaction: Transaction?){
+        self.transaction = transaction
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // determine number or rows based on teh type
-        if  self.type == "Expense" {
-            return Category.loadSampleCategories()[0].count
-        }
-        else {
-            return Category.loadSampleCategories()[1].count
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.type
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        let category : Category
-        if  self.type == "Expense" {
-            category = Category.loadSampleCategories()[0][indexPath.row]
-        }
-        else {
-            category = Category.loadSampleCategories()[1][indexPath.row]
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
         // Configure the cell...
-        var content = cell.defaultContentConfiguration()
-        content.text = category.name
-        cell.contentConfiguration = content
+
         return cell
     }
-    
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //get the selected category object from the category array
-        
-    }
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -111,23 +86,14 @@ class ChooseCategoryTVC: UITableViewController {
     }
     */
 
-    
-    // MARK: - Navigation (Segues)
+    /*
+    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        guard segue.identifier == "DoneUnwind" else { return }
         // Pass the selected object to the new view controller.
-        if type == "Expense" {
-            self.category = Category.loadSampleCategories()[0][  tableView.indexPathForSelectedRow!.row]
-        }
-        else {
-            self.category = Category.loadSampleCategories()[1][  tableView.indexPathForSelectedRow!.row]
-        }
-      
-        //get selected category details and assign it to category variable
     }
-    
+    */
 
 }
