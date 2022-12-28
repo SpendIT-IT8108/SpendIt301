@@ -1,35 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S8X-Sq-Xse">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9K-Zn-r55">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Overview-->
-        <scene sceneID="JLU-Ly-3dY">
+        <scene sceneID="vwc-88-GOr">
             <objects>
-                <viewController id="S8X-Sq-Xse" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wW1-Rv-PKI">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X9K-Zn-r55" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Overview" image="chart.bar.xaxis" catalog="system" id="bw5-fd-NSC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SBJ-ps-hsx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HUd-tZ-Cfl" kind="relationship" relationship="rootViewController" id="79c-ZT-UGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPJ-ln-5bS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576.8115942028987" y="-2572.0982142857142"/>
+        </scene>
+        <!--Overview-->
+        <scene sceneID="XM2-eD-JNd">
+            <objects>
+                <tableViewController id="HUd-tZ-Cfl" customClass="OverviewTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="3MZ-hv-rtk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="rFN-Xn-df6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Overview" image="chart.bar.xaxis" catalog="system" id="bw5-fd-NSC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G2t-j1-gGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarChartTableViewCell" rowHeight="265" id="umv-WZ-nf4" customClass="BarChartTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                <rect key="frame" x="20" y="32" width="374" height="265"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="umv-WZ-nf4" id="7Zu-VC-P2i">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="265"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROj-No-F5S" customClass="BarChartView" customModule="Charts">
+                                            <rect key="frame" x="20" y="11" width="334" height="243"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ROj-No-F5S" firstAttribute="top" secondItem="7Zu-VC-P2i" secondAttribute="topMargin" id="8T4-yU-fWk"/>
+                                        <constraint firstItem="ROj-No-F5S" firstAttribute="leading" secondItem="7Zu-VC-P2i" secondAttribute="leadingMargin" id="Foj-Gz-Qwb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ROj-No-F5S" secondAttribute="trailing" id="OgM-my-OmV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ROj-No-F5S" secondAttribute="bottom" id="VN1-id-PM7"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="BarChart" destination="ROj-No-F5S" id="tLE-45-iwP"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MostSpentTableViewCell" rowHeight="229" id="0ho-QU-mK2" customClass="MostSpentTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                <rect key="frame" x="20" y="297" width="374" height="229"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ho-QU-mK2" id="9eH-Fe-4iR">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="229"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MostTrackedTableViewCell" rowHeight="223" id="bnQ-OH-vcR" customClass="MostTrackedTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                <rect key="frame" x="20" y="526" width="374" height="223"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bnQ-OH-vcR" id="vXM-uV-mZ6">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="223"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HUd-tZ-Cfl" id="2hG-Rk-WIY"/>
+                            <outlet property="delegate" destination="HUd-tZ-Cfl" id="EEs-VX-HOC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Overview" largeTitleDisplayMode="always" id="dte-zd-fiN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ksm-u6-1pJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="-2572"/>
+            <point key="canvasLocation" x="2405.7971014492755" y="-2572.0982142857142"/>
         </scene>
     </scenes>
     <resources>
-        <image name="chart.bar.xaxis" catalog="system" width="128" height="99"/>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
