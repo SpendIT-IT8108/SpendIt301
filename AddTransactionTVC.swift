@@ -59,6 +59,8 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        categorySymbol.layer.cornerRadius = categorySymbol.frame.height/2
+        categorySymbol.clipsToBounds = true
         
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))

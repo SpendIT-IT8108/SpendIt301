@@ -117,13 +117,13 @@ class ChooseCategoryTVC: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        guard segue.identifier == "DoneUnwind" else { return }
+        guard segue.identifier == "DoneUnwind", let selected =  tableView.indexPathForSelectedRow else { return }
         // Pass the selected object to the new view controller.
         if type == "Expense" {
-            self.category = Category.loadSampleCategories()[0][  tableView.indexPathForSelectedRow!.row]
+            self.category = Category.loadSampleCategories()[0][  selected.row]
         }
         else {
-            self.category = Category.loadSampleCategories()[1][  tableView.indexPathForSelectedRow!.row]
+            self.category = Category.loadSampleCategories()[1][  selected.row]
         }
       
         //get selected category details and assign it to category variable
