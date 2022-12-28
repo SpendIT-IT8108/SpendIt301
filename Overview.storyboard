@@ -67,10 +67,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mst-uX-ht2">
-                                            <rect key="frame" x="20" y="11" width="334" height="69"/>
+                                            <rect key="frame" x="20" y="11" width="334" height="29.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Spent Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UJ-NP-lbv">
-                                                    <rect key="frame" x="80" y="24.5" width="174.5" height="20.5"/>
+                                                    <rect key="frame" x="80" y="4.5" width="174.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                             </constraints>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nWm-St-Iri">
-                                            <rect key="frame" x="20" y="90" width="334" height="128"/>
+                                            <rect key="frame" x="20" y="50.5" width="334" height="128"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="128" id="z31-q7-ELD"/>
@@ -148,12 +148,13 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="nWm-St-Iri" firstAttribute="leading" secondItem="9eH-Fe-4iR" secondAttribute="leadingMargin" id="3br-Ne-1Qm"/>
+                                        <constraint firstItem="nWm-St-Iri" firstAttribute="centerX" secondItem="9eH-Fe-4iR" secondAttribute="centerX" id="3wc-Lm-gF5"/>
                                         <constraint firstItem="mst-uX-ht2" firstAttribute="leading" secondItem="9eH-Fe-4iR" secondAttribute="leadingMargin" id="4Ua-gz-I6K"/>
+                                        <constraint firstItem="nWm-St-Iri" firstAttribute="centerY" secondItem="9eH-Fe-4iR" secondAttribute="centerY" id="BVq-hS-sL4"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="mst-uX-ht2" secondAttribute="trailing" id="Mmc-DE-jMU"/>
                                         <constraint firstItem="nWm-St-Iri" firstAttribute="top" secondItem="mst-uX-ht2" secondAttribute="bottom" constant="10" id="Uot-iA-xm5"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="nWm-St-Iri" secondAttribute="trailing" id="WhI-5x-KoQ"/>
                                         <constraint firstItem="mst-uX-ht2" firstAttribute="top" secondItem="9eH-Fe-4iR" secondAttribute="topMargin" id="Xz7-wV-Mtc"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="nWm-St-Iri" secondAttribute="bottom" id="tXN-rW-f8Q"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
