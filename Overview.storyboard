@@ -106,8 +106,8 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-8N-Ztv">
-                                                                <rect key="frame" x="52.5" y="8" width="23" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="50" y="-1" width="28" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -190,55 +190,64 @@
                                                 <constraint firstAttribute="height" constant="128" id="beG-Ha-uP8"/>
                                             </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FxL-YT-ZBw">
-                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="itemSize" width="131" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yUy-7g-fa1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128.5" height="128"/>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MostTrackedCollectionViewCell" id="yUy-7g-fa1" customClass="MostTrackedCollectionViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KOt-xz-OWw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128.5" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="131" height="128"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wVE-yr-cZ3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="131" height="128"/>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGw-kC-Zeg">
-                                                                <rect key="frame" x="53" y="17.5" width="23" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGw-kC-Zeg">
+                                                                <rect key="frame" x="0.0" y="8" width="131" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laptop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AR-Wi-8En">
+                                                                <rect key="frame" x="39" y="45" width="53.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laptop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AR-Wi-8En">
-                                                                <rect key="frame" x="37.5" y="45" width="53.5" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGV-I7-vst">
-                                                                <rect key="frame" x="36" y="74" width="56.5" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 times" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGV-I7-vst">
+                                                                <rect key="frame" x="0.0" y="74" width="131" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="KGw-kC-Zeg" secondAttribute="trailing" id="AoD-Qt-2G3"/>
+                                                            <constraint firstItem="wVE-yr-cZ3" firstAttribute="trailing" secondItem="KGw-kC-Zeg" secondAttribute="trailing" id="CHv-9E-yg2"/>
                                                             <constraint firstAttribute="bottom" secondItem="wVE-yr-cZ3" secondAttribute="bottom" id="DEA-I8-2J6"/>
                                                             <constraint firstItem="YGV-I7-vst" firstAttribute="centerX" secondItem="KOt-xz-OWw" secondAttribute="centerX" id="HcX-wM-iXe"/>
-                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="top" secondItem="KOt-xz-OWw" secondAttribute="top" constant="45" id="OJS-oD-XLi"/>
-                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="centerX" secondItem="KOt-xz-OWw" secondAttribute="centerX" id="P1X-hl-0w4"/>
+                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="top" secondItem="KGw-kC-Zeg" secondAttribute="bottom" constant="7" id="IKE-AX-NO2"/>
+                                                            <constraint firstItem="YGV-I7-vst" firstAttribute="top" secondItem="8AR-Wi-8En" secondAttribute="bottom" constant="8" symbolic="YES" id="KBl-4L-RDe"/>
                                                             <constraint firstItem="wVE-yr-cZ3" firstAttribute="leading" secondItem="KOt-xz-OWw" secondAttribute="leading" id="QSq-iv-51i"/>
-                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="centerX" secondItem="wVE-yr-cZ3" secondAttribute="centerX" id="TjI-fU-cGl"/>
-                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="top" secondItem="KGw-kC-Zeg" secondAttribute="bottom" constant="7" id="YgL-05-SEV"/>
-                                                            <constraint firstItem="YGV-I7-vst" firstAttribute="top" secondItem="8AR-Wi-8En" secondAttribute="bottom" constant="8" symbolic="YES" id="bDt-n5-zP4"/>
-                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="leading" secondItem="KOt-xz-OWw" secondAttribute="leading" constant="37.5" id="oTk-h6-rQe"/>
+                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="centerX" secondItem="KOt-xz-OWw" secondAttribute="centerX" id="Xxg-uy-k44"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YGV-I7-vst" secondAttribute="trailing" id="bE8-c5-D4o"/>
+                                                            <constraint firstItem="YGV-I7-vst" firstAttribute="leading" secondItem="KOt-xz-OWw" secondAttribute="leading" id="dT8-Xj-fji"/>
+                                                            <constraint firstItem="KGw-kC-Zeg" firstAttribute="leading" secondItem="KOt-xz-OWw" secondAttribute="leading" id="eDA-Pp-pLx"/>
                                                             <constraint firstItem="KGw-kC-Zeg" firstAttribute="centerX" secondItem="KOt-xz-OWw" secondAttribute="centerX" id="vUf-8c-Slp"/>
                                                             <constraint firstItem="wVE-yr-cZ3" firstAttribute="top" secondItem="KOt-xz-OWw" secondAttribute="top" id="vjZ-O8-3Zy"/>
+                                                            <constraint firstItem="8AR-Wi-8En" firstAttribute="top" secondItem="KOt-xz-OWw" secondAttribute="top" constant="45" id="zzq-zX-mK5"/>
                                                         </constraints>
                                                     </collectionViewCellContentView>
+                                                    <size key="customSize" width="131" height="128"/>
+                                                    <connections>
+                                                        <outlet property="categoryLbl" destination="8AR-Wi-8En" id="H1p-Nb-xb6"/>
+                                                        <outlet property="emojiLbl" destination="KGw-kC-Zeg" id="UiC-sx-yX8"/>
+                                                        <outlet property="timesLbl" destination="YGV-I7-vst" id="Kue-ss-U9r"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
@@ -254,6 +263,9 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="hms-n7-qDm" secondAttribute="trailing" id="j1o-6D-UQQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mostTrackedCollection" destination="hms-n7-qDm" id="PqT-QG-i0C"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
