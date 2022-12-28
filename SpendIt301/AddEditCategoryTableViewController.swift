@@ -10,8 +10,11 @@ import UIKit
 class AddEditCategoryTableViewController: UITableViewController {
     var category: Category?
     
+    @IBOutlet weak var categoryImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var symbolTextField: UITextField!
+    //@IBOutlet weak var symbolTextField: UITextField!
+    @IBOutlet weak var spendingLimitTextField: UITextField!
+    @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     init?(coder:NSCoder , category:Category?){
         self.category = category
         super.init(coder: coder)
@@ -21,35 +24,82 @@ class AddEditCategoryTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
+
  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let category = category {
-            symbolTextField.text = category.symbol
+           // symbolTextField.text = category.symbol
             nameTextField.text = category.name
-            //limit
-            //type
+            if let spendingLimit = category.spendingLimit {
+                spendingLimitTextField.text = String (spendingLimit)
+            }
+            if category.type == "Expense"{
+                typeSegmentedControl.selectedSegmentIndex = 0
+                typeSegmentedControl.backgroundColor = UIColor(red: 27/255, green: 87/255, blue: 95/255, alpha: 1)
+                
+            }else{
+                typeSegmentedControl.selectedSegmentIndex = 1
+                typeSegmentedControl.backgroundColor = UIColor(red: 224/255, green: 223/255, blue: 119/255, alpha: 1)
+              
+            }
+            
+            func generateImageWithText(text: String) -> UIImage? {
+                var image:UIImage
+                if category.type == "Expense" {
+                   image = UIImage(named: "Expense")!
+                } else {
+                    image = UIImage(named: "Income")!
+                }
+                    let imageView = UIImageView(image: image)
+                    imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+
+
+
+                    let label = UILabel(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+                    label.backgroundColor = UIColor.clear
+                    label.textAlignment = .center
+                    label.textColor = UIColor.white
+                    label.text = text
+
+                    UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
+                    imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+                    label.layer.render(in: UIGraphicsGetCurrentContext()!)
+                    let imageWithText = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+
+                    return imageWithText
+                }
+            
+            categoryImage.image = generateImageWithText(text: category.symbol)
+            
+            
+            
+            
             title = "Edit Category"
         }
             else{
                 title = "Add Category"
             }
+        
     }
     
     
     @IBAction func cancelBtn(_ sender: Any) {
+        showAlertView()
+    }
+    func showAlertView(){
         let alert = UIAlertController (title: "Discard Changed", message: "Are you sure you want to discard any changes that you have made?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                         
-        alert.addAction(UIAlertAction(title: "Discard", style: .default, handler: {action in print("action 2 clicked")}))
+        alert.addAction(UIAlertAction(title: "Discard", style: .destructive, handler: {action in print("action 2 clicked")}))
         present(alert, animated: true, completion: nil)
         
     }
-    func showAlertView(){
-       
-    }
+    
+   
+    
     
        
      

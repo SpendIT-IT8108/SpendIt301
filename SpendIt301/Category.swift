@@ -42,7 +42,7 @@ struct Category: Equatable{
             let categories:[[Category]] = [
                    //expenses
                    [
-                    Category(name: "Food", symbol: "🍔", spendingLimit: nil,type: "Expense"),
+                    Category(name: "Food", symbol: "🍔", spendingLimit: 55.7,type: "Expense"),
                        Category(name: "Transportaion", symbol: "🚆", spendingLimit: nil, type: "Expense"),
                        Category(name: "Health Care", symbol: "🏥", spendingLimit: nil, type: "Expense"),
                        Category(name: "Education", symbol: "🏫", spendingLimit: nil, type: "Expense"),
