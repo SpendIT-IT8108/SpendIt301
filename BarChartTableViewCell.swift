@@ -17,13 +17,15 @@ class BarChartTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        customizeChart()
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        BarChart.isUserInteractionEnabled = false
         // Configure the view for the selected state
-        customizeChart()
+      
     }
     func customizeChart() {
         //set up chart settings

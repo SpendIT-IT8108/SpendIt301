@@ -46,7 +46,7 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
 
         mostSpentCollection.collectionViewLayout =
            UICollectionViewCompositionalLayout(section: section)
-        
+        mostSpentCollection.isScrollEnabled = false
 
         mostSpentArray.append(mostSpentCategories(emoji: "💻", categoryName: "Laptop", price: "212 BHD"))
         mostSpentArray.append(mostSpentCategories(emoji: "🍔", categoryName: "Food", price: "100 BHD"))

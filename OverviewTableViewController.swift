@@ -15,7 +15,8 @@ class OverviewTableViewController: UITableViewController {
         //spaces between section
         tableView.sectionFooterHeight=6.0
         tableView.sectionHeaderHeight=6.0
-
+        tableView.allowsSelection = false
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
