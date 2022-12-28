@@ -9,7 +9,7 @@
         <!--Settings-->
         <scene sceneID="lQQ-UT-X6R">
             <objects>
-                <tableViewController title="Settings" id="Lv0-hC-jEm" sceneMemberID="viewController">
+                <tableViewController title="Settings" id="Lv0-hC-jEm" customClass="SettingsTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Pfy-fg-sbL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
