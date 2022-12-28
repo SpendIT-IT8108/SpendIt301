@@ -12,6 +12,7 @@ class ChooseCategoryTVC: UITableViewController {
     //SELECTED CATEGORY
     var type : String
     var category : Category?
+    var symbolImage : UIImage?
     
     init?(coder: NSCoder, type: String){
         self.type = type
@@ -56,7 +57,7 @@ class ChooseCategoryTVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTVCell
         let category : Category
         if  self.type == "Expense" {
             category = Category.loadSampleCategories()[0][indexPath.row]
@@ -65,9 +66,12 @@ class ChooseCategoryTVC: UITableViewController {
             category = Category.loadSampleCategories()[1][indexPath.row]
         }
         // Configure the cell...
-        var content = cell.defaultContentConfiguration()
-        content.text = category.name
-        cell.contentConfiguration = content
+        cell.update(with: category)
+        cell.showsReorderControl = true
+        
+        //var content = cell.defaultContentConfiguration()
+        //content.text = category.name
+        //cell.contentConfiguration = content
         return cell
     }
     

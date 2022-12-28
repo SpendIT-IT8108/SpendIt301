@@ -14,7 +14,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     var category : Category?
     
     //user interface components (outlets and variables)
-    @IBOutlet weak var categorySymbol: UILabel!
+    @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var categoryNameTextField: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
@@ -59,8 +59,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        categorySymbol.layer.cornerRadius = categorySymbol.frame.height/2
-        categorySymbol.clipsToBounds = true
+
         
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
@@ -328,7 +327,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
-        categorySymbol.text = self.category?.symbol
+        //categorySymbol.text = self.category?.symbol
         
     }
     
