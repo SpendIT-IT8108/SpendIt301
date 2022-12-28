@@ -10,14 +10,22 @@ import UIKit
 class TrasactionFilterTableViewController: UITableViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    var transactions = Transaction.loadSampleTransacion()
+    var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
     @IBOutlet weak var LtHLable: UILabel!
     @IBOutlet weak var LtHSwith: UISwitch!
     @IBOutlet weak var filterSwitch: UISwitch!
     @IBOutlet weak var filterLable: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let saveTransaction=Transaction.loadTransaction(){
+            transactions=saveTransaction
+
+        }else{
+            transactions=Transaction.loadSampleTransacion()
+        }
 
     }
 
