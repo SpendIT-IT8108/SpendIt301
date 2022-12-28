@@ -6,9 +6,26 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController,MFMailComposeViewControllerDelegate  {
 
+    //index pathes
+    //first section
+    let profileIndexPath = IndexPath(row: 0, section: 0)
+    
+    //second section
+    let notificationIndexPath = IndexPath(row: 0, section: 1)
+    let languageIndexPath = IndexPath(row: 1, section: 1)
+    let currencyIndexPath = IndexPath(row: 2, section: 1)
+    let darkModeIndexPath = IndexPath(row: 3, section: 1)
+    let emailIndexPath = IndexPath(row: 4, section: 1)
+    let guideIndexPath = IndexPath(row: 5, section: 1)
+    let aboutUsIndexPath = IndexPath(row: 6, section: 1)
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +35,34 @@ class SettingsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == emailIndexPath {
+            guard MFMailComposeViewController.canSendMail() else { return }
+            //Create an instance of MFMailComposeViewController and set the view controller as the mailComposeDelegate
+           
+                let mailComposer = MFMailComposeViewController()
+                mailComposer.mailComposeDelegate = self
+            //set email parts
+            mailComposer.setToRecipients(["example@example.com"])
+            mailComposer.setSubject("Look at this")
+            mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)
+       //present mail composer
+            present(mailComposer, animated: true, completion: nil)
+
+        }
+    }
+    
+
+    //dismiss the mail compose view controller and return to the app.
+    func mailComposeController(_ controller:
+       MFMailComposeViewController, didFinishWith result:
+       MFMailComposeResult, error: Error?) {
+
+            dismiss(animated: true, completion: nil)
+    }
+
+}
+
 
     // MARK: - Table view data source
 
@@ -77,4 +122,4 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
-}
+
