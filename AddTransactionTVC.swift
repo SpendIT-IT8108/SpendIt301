@@ -9,48 +9,47 @@ import UIKit
 
 class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    //CURRENT TRANSACTION OBJECT
+    var transaction : Transaction?
+    var category : Category?
     
+    //user interface components (outlets and variables)
+    @IBOutlet weak var categorySymbol: UILabel!
+    @IBOutlet weak var categoryNameTextField: UILabel!
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var type: UISegmentedControl!
+    @IBOutlet weak var transactionDate: UIDatePicker!
+    @IBOutlet weak var attachmentImageView: UIImageView!
     @IBOutlet weak var intervalPopUpButton: UIButton!
-    
     @IBOutlet weak var endRepeatPopUpButton: UIButton!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var NotestextView: UITextView!
-    
-    //repeat outlets and variables
     @IBOutlet weak var repeatOption: UISwitch!
     var intervalIsVisible : Bool = false
     var startIsVisible : Bool = false
     var endIsVisible : Bool = false
-    
-    
     var noteSpaceIsVisible : Bool = false
-    
     var attachmentIsVisible : Bool = false
-    
     var endDatePickerIsVisisble : Bool = false {
         didSet {
             endDatePicker.isHidden = !endDatePickerIsVisisble
         }
     }
-    
-    @IBOutlet weak var attachmentImageView: UIImageView!
-    
-    
+
+    //Index Pathes for the table view cells
     //first section
     let amountCellIndexPath = IndexPath(row: 0, section: 0)
     let titleCellIndexPath = IndexPath(row: 1, section: 0)
     let typeCellIndexPath = IndexPath(row: 2, section: 0)
     let dateCellIndexPath = IndexPath(row: 3, section: 0)
-    
     //second section
     let repeatOptionCellIndexPath = IndexPath(row: 0, section:  1)
     let repeatIntervalCellIndexPath = IndexPath(row: 1, section: 1)
     let repeatStartCellIndexPath = IndexPath(row: 2, section: 1)
     let repeatEndCellIndexPath = IndexPath(row: 3, section: 1)
-    
     let attachOptionCellIndexPath = IndexPath(row: 4, section: 1)
     let attachmentCellIndexPath = IndexPath(row: 5, section: 1)
-    
     let notesOptionCellIndexPath = IndexPath(row: 6, section: 1)
     let notesSpaceeCllIndexPath = IndexPath(row: 7, section: 1)
     
@@ -58,63 +57,54 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+       
         
-        //creating a tap gesture recognizer for the attachment UIImage to eb able to perform actions when it's tapped
+        //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         attachmentImageView.addGestureRecognizer(tapGR)
         attachmentImageView.isUserInteractionEnabled = true
         
-        //populate popUpButton with data 
+        //setup popUpButtons once page is loaded
         setupPopUpButton()
-        //set end date after one month
-        //endDatePicker.date = Calendar.current.date(byAdding: .month, value: 6, to: Date.now)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the  navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     
-    func setupPopUpButton(){
+    // MARK: function to create the popUpButtons (drop-down menues)
+    func setupPopUpButton() {
+        //first popUp Button (Repeating Interval)
         //specify the action to be taken after selection
         let optionClosure = {(action : UIAction) in print(action.title)}
-        
         //add actions to select from as options to the popupButton
-        intervalPopUpButton.menu = UIMenu(children : [ UIAction(title:"Monthly", state: .on, handler: optionClosure),UIAction(title:"Weekly", state: .on, handler: optionClosure),UIAction(title:"Daily", state: .on, handler: optionClosure)])
-        
+        intervalPopUpButton.menu = UIMenu(children : [
+            UIAction(title:"Monthly", state: .on, handler: optionClosure),
+            UIAction(title:"Weekly", state: .on, handler: optionClosure),
+            UIAction(title:"Daily", state: .on, handler: optionClosure)])
         //let the button track the selection 
         intervalPopUpButton.showsMenuAsPrimaryAction = true
         intervalPopUpButton.changesSelectionAsPrimaryAction = true
         
-        //setup the endPopUpButton
+        //Second popUp Button (End Reapet)
         let optionClosure2 = {(action : UIAction) in
             if action.title == "Specific Date"{
-                self.endDatePickerIsVisisble = true }
+                self.endDatePickerIsVisisble = true}
             else {
                 self.endDatePickerIsVisisble = false
             }
             //update table cell height
             self.tableView.beginUpdates()
-            self.tableView.endUpdates()
-        }
+            self.tableView.endUpdates() }
         //add actions to select from as options to the popupButton
-        endRepeatPopUpButton.menu = UIMenu(children : [UIAction(title:"Forever", state: .on, handler: optionClosure2), UIAction(title:"Specific Date", state: .on, handler: optionClosure2)])
-        
+        endRepeatPopUpButton.menu = UIMenu(children : [
+            UIAction(title:"Forever", state: .on, handler: optionClosure2), UIAction(title:"Specific Date", state: .on, handler: optionClosure2)])
         //let the button track the selection
         endRepeatPopUpButton.showsMenuAsPrimaryAction = true
         endRepeatPopUpButton.changesSelectionAsPrimaryAction = true
-        
-        
     }
     
     
     
-    
-    
-    //function with actions to perform when UIImage view is tapped on
+    // MARK: function with actions to perform when UIImage view is tapped on
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         let placeholderImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
         if sender.state == .ended {
@@ -164,6 +154,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         }
     }
  
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {return}
         attachmentImageView.image = selectedImage
@@ -188,7 +179,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         
         
         
-        
+        // MARK: Table View Overriden Functions
         override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             switch indexPath {
             case notesSpaceeCllIndexPath where noteSpaceIsVisible == false:
@@ -216,7 +207,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             case repeatEndCellIndexPath where (endIsVisible == true && endDatePickerIsVisisble == false):
                 return 65
             case amountCellIndexPath:
-                return 100
+                return 150
             case titleCellIndexPath:
                 return 55
             case typeCellIndexPath:
@@ -267,9 +258,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             tableView.beginUpdates()
             tableView.endUpdates()
         }
-    
-    
-    
     
 
     // MARK: - Table view data source
@@ -329,14 +317,37 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     }
     */
 
-    /*
-    // MARK: - Navigation
+    
+    // MARK: - Navigation (Segues)
+    
+    @IBAction func unwindToAddForm(segue: UIStoryboardSegue){
+        guard segue.identifier == "DoneUnwind",
+                let sourceViewController = segue.source as? ChooseCategoryTVC else {return}
+        //assign the category object recieved from the ChooseCategoryTVC to the current category
+        self.category = sourceViewController.category
+        categoryNameTextField.text = self.category?.name
+        categorySymbol.text = self.category?.symbol
+        
+    }
+    
 
+    @IBSegueAction func editCategory(_ coder: NSCoder) -> UITableViewController? {
+        let type = type.titleForSegment(at: type.selectedSegmentIndex)!
+        return ChooseCategoryTVC(coder: coder, type: type)
+    }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        /*switch segue.identifier{
+        case "editCategory":
+           var type = type.titleForSegment(at: type.selectedSegmentIndex)
+        default:
+            return
+        }*/
+        // Pass the selected type to the new view controller.
+        
+        
     }
-    */
+    
 
 }
