@@ -84,9 +84,9 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
       
       searchedItem = transactions.filter(
             { item in
-                let scopeMatch = (scopeButton == "All" || item.transactionType.localizedCaseInsensitiveContains(scopeButton))
+                let scopeMatch = (scopeButton == "All" || item.category.type.localizedCaseInsensitiveContains(scopeButton))
             if(searchController.searchBar.text != "" ){
-                let searchedTextMatch = item.transactionName.localizedCaseInsensitiveContains(searchText)
+                let searchedTextMatch = item.name.localizedCaseInsensitiveContains(searchText)
                 return scopeMatch&&searchedTextMatch
             } else {
                 return scopeMatch
