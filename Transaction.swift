@@ -9,28 +9,33 @@ import Foundation
 import UIKit
 
 struct Transaction: Equatable{
-    var transactionName: String
+    var id = UUID()
+    var name: String
     var amount: Double
+    var category: Category
     var date: Date
-    var repeatedTransaction: Bool
-    var transactionType: String
+    var repeated: Bool
+    var repeatingInterval : String?
+    var repeatFrom : Date?
+    var repeatUntil : Date?
     var note: String?
-    var categoryType: UIImage?
+    var attachment : UIImage?
     
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
-        return lhs.transactionName == rhs.transactionName
-        && lhs.transactionType == rhs.transactionType
+        return lhs.id == rhs.id
       }
     
     static func loadTransaction()->[Transaction]?{
         return nil
     }
+    
     static func loadSampleTransacion()-> [Transaction]{
-        let trans1=Transaction(transactionName: "Phone Bills", amount: 10.9, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
-        let trans2=Transaction(transactionName: "Talabat", amount: 30.9, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
-        let trans3=Transaction(transactionName: "Savings", amount: 20.6, date: Date(), repeatedTransaction: true, transactionType: "Incomes", note: nil)
-        let trans4=Transaction(transactionName: "Shopping", amount: 20, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
-        let trans5=Transaction(transactionName: "summer vacation", amount: 80.6, date: Date(), repeatedTransaction: true, transactionType: "Expenses", note: nil)
+        let trans1 = Transaction(name: "Phone Bills", amount: 10.9, category:                        Category(name: "Phone", symbol: "📱", spendingLimit: nil, type: "Expense"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
+        let trans2 = Transaction(name: "Talabat", amount: 15.5, category:                        Category(name: "Food", symbol: "🍔", spendingLimit: 55.7,type: "Expense"), date: Date(), repeated: false)
+        let trans3 = Transaction(name: "Monthly Salary", amount: 200, category:                        Category(name: "Salary", symbol: "💵", spendingLimit: nil, type: "Income"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
+        let trans4 = Transaction(name: "Winter Clothes", amount: 35, category:                        Category(name: "Clothing", symbol: "👚", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans5 = Transaction(name: "Maintenance", amount: 15.7, category:                                Category(name: "Car", symbol: "🚘", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        
         return [trans1,trans2,trans3,trans4,trans5]
     }
 
