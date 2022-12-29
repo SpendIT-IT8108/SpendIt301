@@ -15,7 +15,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     func update(with transaction: Transaction){
             //transactionSymbolLable.
-            transactionNameLable.text=transaction.transactionName
+            transactionNameLable.text=transaction.name
             transactionAmountLable.text=String(transaction.amount)
         }
     override func awakeFromNib() {
