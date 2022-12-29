@@ -195,6 +195,9 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="84" height="30"/>
+                                                            <connections>
+                                                                <outlet property="categoryImg" destination="YLK-2g-US9" id="GfW-T4-jQO"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -282,10 +285,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filter" id="Qct-jT-l8U">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="YoW-7d-sY6"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="YoW-7d-sY6">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="9Ru-fs-dvu" id="IV7-tD-oYU"/>
+                                <segue destination="uhQ-wG-Uer" kind="unwind" unwindAction="unwindToTransactionListCancelWithSender:" id="rWy-WK-hhY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="WtN-SS-rEO">
                             <connections>
-                                <segue destination="uhQ-wG-Uer" kind="unwind" unwindAction="unwindFromFilterWithSender:" id="jhz-C0-Qr3"/>
+                                <segue destination="uhQ-wG-Uer" kind="unwind" unwindAction="unwindtoTransactionListDoneWithSender:" id="Cxl-yX-g8y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -97,10 +97,15 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     }
     var isUnwind=false
     
-    @IBAction func unwindFromFilter(sender: UIStoryboardSegue){
+    @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
         tableView.reloadData()
         isUnwind=true
     }
+    
+    @IBAction func unwindToTransactionListCancel(sender: UIStoryboardSegue){
+
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
        

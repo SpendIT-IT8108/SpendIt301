@@ -9,6 +9,7 @@ import UIKit
 
 class CatogeryForTransactionCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var categoryImg: UIImageView!
     
     
 }
