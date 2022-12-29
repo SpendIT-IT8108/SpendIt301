@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n7w-gS-jTY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n7w-gS-jTY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +15,7 @@
                     <tabBarItem key="tabBarItem" title="Transactions" image="arrow.up.arrow.down" catalog="system" selectedImage="arrow.up.arrow.down" id="SCV-Be-JME"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JBD-JA-nNu">
-                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -38,7 +37,7 @@
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionCell" id="vLL-xp-ITE" customClass="TransactionTableViewCell" customModule="SpendIt301" customModuleProvider="target">
-                                <rect key="frame" x="20" y="38" width="374" height="54.5"/>
+                                <rect key="frame" x="20" y="32" width="374" height="54.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vLL-xp-ITE" id="c8C-3C-r4U">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="54.5"/>
@@ -154,7 +153,7 @@
             <objects>
                 <tableViewController id="9Ru-fs-dvu" customClass="TrasactionFilterTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="TSl-Jm-tEn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <sections>
@@ -291,6 +290,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="CollectionViewCell" destination="rHg-wB-0Fv" id="kGx-Ld-hbZ"/>
                         <outlet property="LtHLable" destination="Mhi-88-mMZ" id="WYu-Wq-G5r"/>
                         <outlet property="LtHSwith" destination="goe-tr-jlk" id="2O6-8H-aFl"/>
                         <outlet property="cancelButton" destination="YoW-7d-sY6" id="Pnx-kK-hkV"/>
@@ -324,7 +324,7 @@
     </scenes>
     <resources>
         <image name="Expense" width="34" height="32"/>
-        <image name="arrow.up.arrow.down" catalog="system" width="128" height="97"/>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

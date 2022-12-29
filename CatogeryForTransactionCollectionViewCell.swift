@@ -9,4 +9,6 @@ import UIKit
 
 class CatogeryForTransactionCollectionViewCell: UICollectionViewCell {
     
+    
+    
 }

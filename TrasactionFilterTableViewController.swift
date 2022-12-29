@@ -17,6 +17,7 @@ class TrasactionFilterTableViewController: UITableViewController {
     @IBOutlet weak var filterSwitch: UISwitch!
     @IBOutlet weak var filterLable: UILabel!
     
+    @IBOutlet weak var CollectionViewCell: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class TrasactionFilterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
