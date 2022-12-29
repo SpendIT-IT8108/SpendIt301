@@ -2,7 +2,7 @@
 //  AddTransactionTVC.swift
 //  SpendIt301
 //
-//  Created by A'laa Alekri on 21/12/2022.
+//  Created by Kawthar Alakri on 21/12/2022.
 //
 
 import UIKit

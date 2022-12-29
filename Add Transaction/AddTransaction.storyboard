@@ -33,16 +33,16 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="70"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZBH-CG-1px">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="42.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="26"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uom-yU-NGE">
-                                                                    <rect key="frame" x="53.666666666666657" y="42.333333333333336" width="50" height="16.333333333333336"/>
+                                                                    <rect key="frame" x="53.666666666666657" y="26" width="50" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buA-Du-rZi">
-                                                                    <rect key="frame" x="52" y="58.666666666666679" width="53.333333333333343" height="11.333333333333336"/>
+                                                                    <rect key="frame" x="52" y="52" width="53.333333333333343" height="18"/>
                                                                     <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Edit"/>
@@ -171,24 +171,24 @@
                                                     <rect key="frame" x="17.666666666666657" y="8.3333333333333321" width="315" height="38.333333333333343"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vpj-BB-fgu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="257.66666666666669" height="38.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="254.33333333333334" height="38.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9t-CU-0k8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="257.66666666666669" height="17.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="254.33333333333334" height="17.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let your bills repeat automatically." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMP-vv-3d6">
-                                                                    <rect key="frame" x="0.0" y="21.333333333333336" width="257.66666666666669" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="21.333333333333336" width="254.33333333333334" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lrf-M1-CRf">
-                                                            <rect key="frame" x="257.66666666666663" y="0.0" width="59.333333333333314" height="38.333333333333336"/>
+                                                            <rect key="frame" x="254.33333333333334" y="0.0" width="62.666666666666657" height="38.333333333333336"/>
                                                             <connections>
                                                                 <action selector="repeatSwitchClicked:" destination="yib-cI-dTl" eventType="valueChanged" id="fKa-eX-W3x"/>
                                                             </connections>
