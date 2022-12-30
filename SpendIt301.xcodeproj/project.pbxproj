@@ -13,8 +13,8 @@
 		0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */; };
 		0BF0975829536A56000CC354 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975729536A56000CC354 /* Transaction.swift */; };
 		0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */; };
-		0BF2784F295F0A45007A6FFF /* FilterPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2784E295F0A45007A6FFF /* FilterPriceTableViewCell.swift */; };
 		0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */; };
+		0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */; };
 		2112D363295C35F80033A07C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112D362295C35F80033A07C /* SettingsTableViewController.swift */; };
 		21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */; };
 		21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */; };
@@ -53,8 +53,8 @@
 		0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975729536A56000CC354 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
-		0BF2784E295F0A45007A6FFF /* FilterPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPriceTableViewCell.swift; sourceTree = "<group>"; };
 		0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCatTableViewCell.swift; sourceTree = "<group>"; };
+		0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2112D362295C35F80033A07C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
 		21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSpentTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
+				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
 				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
-				0BF2784E295F0A45007A6FFF /* FilterPriceTableViewCell.swift */,
 				369E17DE295CF6BC00400D6D /* TransactionDetails.storyboard */,
 				0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */,
 				0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */,
@@ -321,6 +321,7 @@
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
 				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
+				0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */,
 				CD06402E295C386F0084A17B /* AddEditCategoryTableViewController.swift in Sources */,
 				21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */,
 				0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */,
@@ -337,7 +338,6 @@
 				2112D363295C35F80033A07C /* SettingsTableViewController.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				CD8973F629543C740030075F /* Category.swift in Sources */,
-				0BF2784F295F0A45007A6FFF /* FilterPriceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,23 +13,23 @@ class TrasactionFilterTableViewController: UITableViewController {
     var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
 //    @IBOutlet weak var LtHLable: UILabel!
-//    @IBOutlet weak var LtHSwith: UISwitch!
- //   @IBOutlet weak var HtLSwitch: UISwitch!
+
 //    @IBOutlet weak var HtLLable: UILabel!
 //    @IBOutlet weak var CollectionViewCell: UICollectionView!
+    let price = ["high to low", "low to high"]
+//
+//    @IBAction func HtLPressed(_ sender: UISwitch) {
+//        if sender.isOn {
+//                   //low to high
+//           // HtLSwitch.setOn( false, animated: true)
+//              filteredTransactions = transactions.sorted {
+//                   $0.amount > $1.amount
+//               }
+//
+//               }
+//    }
     
-    @IBAction func HtLPressed(_ sender: UISwitch) {
-        if sender.isOn {
-                   //low to high
-           // HtLSwitch.setOn( false, animated: true)
-              filteredTransactions = transactions.sorted {
-                   $0.amount > $1.amount
-               }
-   
-               }
-    }
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         if let saveTransaction=Transaction.loadTransaction(){
@@ -41,33 +41,49 @@ class TrasactionFilterTableViewController: UITableViewController {
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cat: Category
-        let categories=[Category]()
+        //var cat: Category
+     //   let categories=[Category]()
        
 
         if indexPath.section == 0 {
-            var filteredCateegory: [[Category]] = Category.loadSampleCategories()
-           let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! FilterCatTableViewCell
-            //let symbol = categories
- cell.catLbl?.text = filteredCateegory[indexPath.section][indexPath.row].symbol
-            
+//            var filteredCateegory: [[Category]] = Category.loadSampleCategories()
+//           let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! FilterCatTableViewCell
+//            //let symbol = categories
+// cell.catLbl?.text = filteredCateegory[indexPath.section][indexPath.row].symbol
+    let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! FilterCatTableViewCell
+//            cell.collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionViewCell
+//            cell.catLbl?.text = cell.filteredCateegory[indexPath.section][indexPath.row].symbol
+            // cell.catLbl?.text = filteredCateegory[indexPath.section][indexPath.row].symbol
             return cell
     
         }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath) as! FilterPriceTableViewCell
+        else if indexPath.row == 1{
+           
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath)
             
+            HtLLbh?.text  = "High to low"
+
+            return cell
+        } else {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath)
+            LtHLbl?.text = "Low To High"
             return cell
         }
         
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if section == 0 {
+            return 1
+        } else{
+            return 2
+            
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,17 +141,34 @@ class TrasactionFilterTableViewController: UITableViewController {
                 }
             }
     }
-//    @IBAction func switchPressed(_ sender: UISwitch) {
-//        if sender.isOn {
-//            LtHSwith.setOn( false, animated: true)
-//           // high to low
-//            filteredTransactions = transactions.sorted {
-//                $0.amount > $1.amount
-//            }
-//
-//            }
-//
-//    }
+    
+    @IBOutlet weak var HtLLbh: UILabel!
+    @IBOutlet weak var LtHLbl: UILabel!
+    
+    
+    @IBAction func LtHSwitch(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            
+            filteredTransactions = transactions.sorted {
+              $0.amount < $1.amount
+            }
+      
+            }
+    }
+    
+    
+    @IBAction func switchPressed(_ sender: UISwitch) {
+        if sender.isOn {
+            //LtHSwith.setOn( false, animated: true)
+           // high to low
+            filteredTransactions = transactions.sorted {
+              $0.amount > $1.amount
+            }
+      
+            }
+
+    }
     
 
 }

@@ -100,6 +100,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
         tableView.reloadData()
         isUnwind=true
+        
     }
     
     @IBAction func unwindToTransactionListCancel(sender: UIStoryboardSegue){
