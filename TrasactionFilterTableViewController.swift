@@ -90,7 +90,6 @@ class TrasactionFilterTableViewController: UITableViewController {
         if let toTransactions = segue.destination as? TransactionTableViewController{
             toTransactions.transactions=filteredTransactions
             toTransactions.searchController.searchBar.selectedScopeButtonIndex=0
-            
         }
                 
         }
@@ -112,35 +111,35 @@ class TrasactionFilterTableViewController: UITableViewController {
 //
 //    }
     // notification>>
-    func scheduleNotifications(){
-        // if notification when (+) button is pressed, if not just add in viewdidload()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted{
-                // scheduleNotifications()
-            }
-           
-        }
-        
-        
-        UNUserNotificationCenter.current().getNotificationSettings{(settings) in
-            if settings.authorizationStatus == .authorized{
-                let content = UNMutableNotificationContent()
-                    content.title="Spend It"
-                    content.subtitle="Have you recorded your spending today?💲"
-                    content.sound = .default
-    
-                var date = DateComponents()
-                date.calendar = Calendar.current
-                date.hour = 19 //everyday @7pm aka 19
-                date.minute = 0
-                //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(60), repeats: true)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request)
-            
-                }
-            }
-    }
+//    func scheduleNotifications(){
+//        // if notification when (+) button is pressed, if not just add in viewdidload()
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+//            if granted{
+//                // scheduleNotifications()
+//            }
+//           
+//        }
+//        
+//        
+//        UNUserNotificationCenter.current().getNotificationSettings{(settings) in
+//            if settings.authorizationStatus == .authorized{
+//                let content = UNMutableNotificationContent()
+//                    content.title="Spend It"
+//                    content.subtitle="Have you recorded your spending today?💲"
+//                    content.sound = .default
+//    
+//                var date = DateComponents()
+//                date.calendar = Calendar.current
+//                date.hour = 19 //everyday @7pm aka 19
+//                date.minute = 0
+//                //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(60), repeats: true)
+//                let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+//                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//                UNUserNotificationCenter.current().add(request)
+//            
+//                }
+//            }
+//    }
     
     @IBOutlet weak var HtLLbh: UILabel!
     @IBOutlet weak var LtHLbl: UILabel!

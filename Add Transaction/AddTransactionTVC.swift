@@ -320,9 +320,10 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
-
         
+   
     }
+  
     
 
     @IBSegueAction func editCategory(_ coder: NSCoder) -> UITableViewController? {
@@ -362,7 +363,37 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             //create new transaction instance
             transaction = Transaction(name: title, amount: doubleAmount, category: cat!, date: date, repeated: repeatOption, repeatingInterval: interval, repeatFrom: from, repeatUntil: endDate, note: notes, attachment: attachment)
             
+            //requesting notification permission
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                        if granted{
+                            self.scheduleNotifications()
+                        }
+            
+                    }
+            
         }
+    }
+    
+    func scheduleNotifications(){
+        
+        UNUserNotificationCenter.current().getNotificationSettings{(settings) in
+            if settings.authorizationStatus == .authorized{
+                let content = UNMutableNotificationContent()
+                    content.title="Spend It"
+                    content.subtitle="Have you recorded your spending today?💲"
+                    content.sound = .default
+    
+                var date = DateComponents()
+                date.calendar = Calendar.current
+                date.hour = 19 //everyday @7pm aka 19
+                date.minute = 0
+
+                let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+            
+                }
+            }
     }
 
 }
