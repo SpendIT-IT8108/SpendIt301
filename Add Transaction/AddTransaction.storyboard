@@ -33,16 +33,16 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="70"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZBH-CG-1px">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="42.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="26"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uom-yU-NGE">
-                                                                    <rect key="frame" x="53.666666666666657" y="42.333333333333336" width="50" height="16.333333333333336"/>
+                                                                    <rect key="frame" x="53.666666666666657" y="26" width="50" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buA-Du-rZi">
-                                                                    <rect key="frame" x="52" y="58.666666666666679" width="53.333333333333343" height="11.333333333333336"/>
+                                                                    <rect key="frame" x="52" y="52" width="53.333333333333343" height="18"/>
                                                                     <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Edit"/>
@@ -56,6 +56,9 @@
                                                             <rect key="frame" x="157.33333333333337" y="0.0" width="157.66666666666663" height="70"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                            <connections>
+                                                                <action selector="textEditingChanged:" destination="yib-cI-dTl" eventType="editingDidEnd" id="b7I-7q-NlB"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -79,6 +82,9 @@
                                                     <rect key="frame" x="17.666666666666657" y="8.3333333333333321" width="315" height="38.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="yib-cI-dTl" eventType="editingDidEnd" id="Jjh-Cn-pMu"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -405,25 +411,38 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Transaction" id="YwM-Rb-ulD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Dxd-bN-wVf"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="9Em-oA-wtx"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Dxd-bN-wVf">
+                            <connections>
+                                <action selector="discardChanges:" destination="yib-cI-dTl" id="tyD-6E-UHI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="9Em-oA-wtx">
+                            <connections>
+                                <segue destination="pJT-GF-Uec" kind="unwind" identifier="saveUnwind" unwindAction="unwindToListWithSegue:" id="bYJ-cr-aLH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="NotestextView" destination="XwT-ri-VXt" id="odZ-Sr-GcK"/>
                         <outlet property="amountTextField" destination="DLe-bA-C0D" id="rRk-iN-wOp"/>
                         <outlet property="attachmentImageView" destination="DsD-vJ-mz9" id="0pA-KS-6Ul"/>
+                        <outlet property="cancelButton" destination="Dxd-bN-wVf" id="Vn6-3J-KXL"/>
                         <outlet property="categoryNameTextField" destination="Uom-yU-NGE" id="uwS-kp-dV5"/>
                         <outlet property="endDatePicker" destination="YsW-Db-W6c" id="XMp-5j-4QH"/>
                         <outlet property="endRepeatPopUpButton" destination="VKN-Nb-2g6" id="Ino-o1-vyq"/>
+                        <outlet property="fromDatePicker" destination="h8S-ix-wew" id="Ldw-3r-U73"/>
                         <outlet property="intervalPopUpButton" destination="855-7j-0mz" id="PHF-XM-9i7"/>
                         <outlet property="repeatOption" destination="lrf-M1-CRf" id="jwg-eU-OZw"/>
+                        <outlet property="saveButton" destination="9Em-oA-wtx" id="cki-kh-S5g"/>
                         <outlet property="symbolImageView" destination="ZBH-CG-1px" id="WOq-9h-Gc0"/>
                         <outlet property="titleTextField" destination="BRD-aQ-wgH" id="Gvo-EI-8mb"/>
                         <outlet property="transactionDate" destination="cgb-SW-iDe" id="nNd-LY-5xG"/>
                         <outlet property="type" destination="AfV-QJ-lvs" id="Ppx-XY-Tdx"/>
+                        <segue destination="pJT-GF-Uec" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToListWithSegue:" id="CbJ-1P-Gcw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCt-We-LeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="pJT-GF-Uec" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4131" y="448"/>
         </scene>
@@ -502,7 +521,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="yib-cI-dTl" kind="relationship" relationship="rootViewController" id="JV7-W3-5t0"/>
+                        <segue destination="yib-cI-dTl" kind="relationship" relationship="rootViewController" destinationCreationSelector="showForm:sender:" id="JV7-W3-5t0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9L-Hn-CT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
