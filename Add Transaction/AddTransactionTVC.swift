@@ -9,6 +9,16 @@ import UIKit
 
 class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    //INITIALIZERS
+    init?(coder: NSCoder, transaction : Transaction?){
+        self.transaction = transaction
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //CURRENT TRANSACTION OBJECT
     var transaction : Transaction?
     var category : Category?
@@ -22,10 +32,13 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var transactionDate: UIDatePicker!
     @IBOutlet weak var attachmentImageView: UIImageView!
     @IBOutlet weak var intervalPopUpButton: UIButton!
+    @IBOutlet weak var fromDatePicker: UIDatePicker!
     @IBOutlet weak var endRepeatPopUpButton: UIButton!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var NotestextView: UITextView!
     @IBOutlet weak var repeatOption: UISwitch!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var intervalIsVisible : Bool = false
     var startIsVisible : Bool = false
     var endIsVisible : Bool = false
@@ -56,11 +69,15 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        if category == nil {
+            //set the default catgeory to the most tracked (temporarly first element for testing)
+            category = Category.loadSampleCategories().first?.first
+            categoryNameTextField.text = self.category?.name
+        }
 
-        
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         attachmentImageView.addGestureRecognizer(tapGR)
@@ -68,10 +85,16 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         
         //setup popUpButtons once page is loaded
         setupPopUpButton()
+        
+        //check if in edit or add mode
+        if self.transaction != nil {
+            title = "Edit Transaction"
+        }
+        
+        updateSaveButton()
     }
     
-    
-    // MARK: function to create the popUpButtons (drop-down menues)
+    //creating popUpButtons
     func setupPopUpButton() {
         //first popUp Button (Repeating Interval)
         //specify the action to be taken after selection
@@ -81,7 +104,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             UIAction(title:"Monthly", state: .on, handler: optionClosure),
             UIAction(title:"Weekly", state: .on, handler: optionClosure),
             UIAction(title:"Daily", state: .on, handler: optionClosure)])
-        //let the button track the selection 
+        //let the button track the selection
         intervalPopUpButton.showsMenuAsPrimaryAction = true
         intervalPopUpButton.changesSelectionAsPrimaryAction = true
         
@@ -103,6 +126,17 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         endRepeatPopUpButton.changesSelectionAsPrimaryAction = true
     }
     
+    
+    //update Save button to be enabled only when all data is provided
+    func updateSaveButton(){
+        let amount = amountTextField.text ?? ""
+        let title = titleTextField.text ?? ""
+        saveButton.isEnabled = !amount.isEmpty && !title.isEmpty
+    }
+    
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        updateSaveButton()
+    }
     
     
     // MARK: function with actions to perform when UIImage view is tapped on
@@ -180,9 +214,9 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         
         
         
-        // MARK: Table View Overriden Functions
-        override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            switch indexPath {
+    // MARK: Table View Overriden Functions
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath {
             case notesSpaceeCllIndexPath where noteSpaceIsVisible == false:
                 return 0
             case notesSpaceeCllIndexPath where noteSpaceIsVisible == true:
@@ -219,16 +253,16 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 return 55
             default:
                 return UITableView.automaticDimension
-            }
         }
+    }
         
         
         
         
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            switch indexPath {
+        switch indexPath {
             case repeatOptionCellIndexPath where repeatOption.isOn:
                 //change the visisbility of its properties
                 intervalIsVisible.toggle()
@@ -255,71 +289,30 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 noteSpaceIsVisible = false
             default:
                 return
-            }
-            tableView.beginUpdates()
-            tableView.endUpdates()
         }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
     
-
-    // MARK: - Table view data source
-
-    /*override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }*/
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     
     // MARK: - Navigation (Segues)
+    
+    @IBAction func discardChanges(_ sender: Any) {
+        let alertController = UIAlertController(title:
+           "Discard Changes", message: "Are you sure you want to discard any chnages that you have made?",
+           preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel",
+                                   style: .cancel, handler: nil )
+        alertController.addAction(cancel)
+
+        let discard = UIAlertAction(title: "Discard Changes",
+                                    style: .destructive, handler: {action in self.performSegue(withIdentifier: "cancelUnwind", sender: self.cancelButton)} )
+        alertController.addAction(discard)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
     @IBAction func unwindToAddForm(segue: UIStoryboardSegue){
         guard segue.identifier == "DoneUnwind",
@@ -327,7 +320,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
-        //categorySymbol.text = self.category?.symbol
+
         
     }
     
@@ -338,6 +331,38 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveUnwind" {
+            //get the data from fields and create new object
+            let amount = amountTextField.text!
+            let doubleAmount = Double(amount)!
+            let title = titleTextField.text!
+            let date = transactionDate.date
+            let repeatOption = repeatOption.isOn
+            //define all optional values
+            var interval : String? = nil
+            var from : Date? = nil
+            var endOption : String? = nil
+            var endDate : Date? = nil
+            var attachment : UIImage? = nil
+            var notes : String? = nil
+            //collect optional values
+            if repeatOption {
+                interval = intervalPopUpButton.menu?.selectedElements.first?.title
+                 from = fromDatePicker.date
+                 endOption = endRepeatPopUpButton.menu?.selectedElements.first?.title
+                if endOption == "Specific Date" {
+                   endDate = endDatePicker.date
+                }
+            }
+             attachment = attachmentImageView.image
+             notes = NotestextView.text
+            //get the first category for testing only
+            let cat = category
+            //create new transaction instance
+            transaction = Transaction(name: title, amount: doubleAmount, category: cat!, date: date, repeated: repeatOption, repeatingInterval: interval, repeatFrom: from, repeatUntil: endDate, note: notes, attachment: attachment)
+            
+        }
+    }
 
 }

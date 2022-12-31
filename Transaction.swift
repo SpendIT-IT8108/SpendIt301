@@ -25,6 +25,19 @@ struct Transaction: Equatable{
         return lhs.id == rhs.id
       }
     
+    init(name: String, amount: Double, category: Category, date: Date, repeated: Bool, repeatingInterval: String? = nil, repeatFrom: Date? = nil, repeatUntil: Date? = nil, note: String? = nil, attachment: UIImage? = nil) {
+        self.name = name
+        self.amount = amount
+        self.category = category
+        self.date = date
+        self.repeated = repeated
+        self.repeatingInterval = repeatingInterval
+        self.repeatFrom = repeatFrom
+        self.repeatUntil = repeatUntil
+        self.note = note
+        self.attachment = attachment
+    }
+    
     static func loadTransaction()->[Transaction]?{
         return nil
     }

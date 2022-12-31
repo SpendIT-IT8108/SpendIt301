@@ -47,8 +47,12 @@ class TabBarViewController: UITabBarController {
         
     }()
 
+   
     @objc func addButtonClicked(){
             performSegue(withIdentifier: "showAddForm", sender: floatingButton)
+    }
+    @IBSegueAction func showForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
+        return AddTransactionTVC(coder: coder, transaction: nil)
     }
     
     //subView for floating button
@@ -59,14 +63,16 @@ class TabBarViewController: UITabBarController {
                                     width:60, height:60)
         
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
-}
+

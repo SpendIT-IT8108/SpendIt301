@@ -100,7 +100,6 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
         tableView.reloadData()
         isUnwind=true
-        
     }
     
     @IBAction func unwindToTransactionListCancel(sender: UIStoryboardSegue){
@@ -150,12 +149,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
   
     
     
-    
-    
     //MARK: Navigation (Segue)
-    /*
-    @IBSegueAction func showDetails(_ coder: NSCoder, sender: Any?) -> UIViewController? {
-       
+    @IBSegueAction func showDetails(_ coder: NSCoder, sender: Any?) -> TransactionDetailsTVC? {
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             //transaction object passed to new controller
             let transaction = transactions[indexPath.row]
@@ -164,9 +159,25 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         else {
             return nil
         }
-     
-    }     */
+        
+    }
     
-    
+    @IBAction func unwindToList(segue: UIStoryboardSegue){
+        
+        if segue.identifier == "saveUnwind",
+           let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction {
+            //if editied, update the row
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                transactions[selectedIndexPath.row] = transaction
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            //if added, add new row
+            else {
+                let newIndexPath = IndexPath(row: transactions.count, section: 0)
+                transactions.append(transaction)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
 
 }
