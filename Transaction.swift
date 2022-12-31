@@ -43,11 +43,11 @@ struct Transaction: Equatable{
     }
     
     static func loadSampleTransacion()-> [Transaction]{
-        let trans1 = Transaction(name: "Phone Bills", amount: 10.9, category:  Category(name: "Phone", symbol: "📱", spendingLimit: nil, type: "Expenses"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
-        let trans2 = Transaction(name: "Talabat", amount: 15.5, category: Category(name: "Food", symbol: "🍔", spendingLimit: 55.7,type: "Expenses"), date: Date(), repeated: false)
-        let trans3 = Transaction(name: "Monthly Salary", amount: 200, category: Category(name: "Salary", symbol: "💵", spendingLimit: nil, type: "Incomes"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
-        let trans4 = Transaction(name: "Winter Clothes", amount: 35, category: Category(name: "Clothing", symbol: "👚", spendingLimit: nil, type: "Expenses"), date: Date(), repeated: false)
-        let trans5 = Transaction(name: "Maintenance", amount: 15.7, category: Category(name: "Car", symbol: "🚘", spendingLimit: nil, type: "Expenses"), date: Date(), repeated: false)
+        let trans1 = Transaction(name: "Phone Bills", amount: 10.9, category:  Category(name: "Phone", symbol: "📱", spendingLimit: nil, type: "Expense"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
+        let trans2 = Transaction(name: "Talabat", amount: 15.5, category: Category(name: "Food", symbol: "🍔", spendingLimit: 55.7,type: "Expense"), date: Date(), repeated: false)
+        let trans3 = Transaction(name: "Monthly Salary", amount: 200, category: Category(name: "Salary", symbol: "💵", spendingLimit: nil, type: "Income"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
+        let trans4 = Transaction(name: "Winter Clothes", amount: 35, category: Category(name: "Clothing", symbol: "👚", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans5 = Transaction(name: "Maintenance", amount: 15.7, category: Category(name: "Car", symbol: "🚘", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
         
         return [trans1,trans2,trans3,trans4,trans5]
     }
