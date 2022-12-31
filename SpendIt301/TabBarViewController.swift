@@ -51,9 +51,7 @@ class TabBarViewController: UITabBarController {
     @objc func addButtonClicked(){
             performSegue(withIdentifier: "showAddForm", sender: floatingButton)
     }
-    @IBSegueAction func showForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
-        return AddTransactionTVC(coder: coder, transaction: nil)
-    }
+    
     
     //subView for floating button
     override func viewDidLayoutSubviews() {
