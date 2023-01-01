@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */; };
 		0BA4536B295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */; };
 		0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */; };
 		0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPriceTableViewCell.swift; sourceTree = "<group>"; };
 		0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogeryForTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogeryForTransactionCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionFilterTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
+				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
 				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 				264DA2CE29519D05006BC7CC /* Setup.storyboard */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
@@ -328,6 +331,7 @@
 				CD06402E295C386F0084A17B /* AddEditCategoryTableViewController.swift in Sources */,
 				36B480432960ECF800C9A4B6 /* NavigationViewController.swift in Sources */,
 				21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */,
+				0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */,
 				0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */,
