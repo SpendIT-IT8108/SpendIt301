@@ -37,7 +37,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchResultsUpdater=self
         searchController.searchBar.delegate=self
         searchController.searchBar.placeholder="Transaction Name"
-        searchController.searchBar.scopeButtonTitles = ["All", "Expenses", "Incomes"]
+        searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
        //transactions
         if let saveTransaction=Transaction.loadTransaction(){
@@ -99,12 +99,12 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
        if sender.identifier == "doneIdentifier" {
-            self.tableView.reloadData()
+           tableView.reloadData()
         }
         else if sender.identifier == "saveUnwind" {
         
         }else if sender.identifier == "cancelIdentifier"{
-            print("cancel id")
+           
         }
         
         isUnwind=true

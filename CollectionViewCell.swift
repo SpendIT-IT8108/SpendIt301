@@ -9,8 +9,9 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var categoryLbl: UILabel!
+   
     
+    @IBOutlet weak var catogrySymbol: UIButton!
     @IBOutlet weak var catogryName: UILabel!
 
 }

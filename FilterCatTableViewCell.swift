@@ -23,7 +23,7 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
       
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionViewCell
         //let symbol = categories
-        cell.categoryLbl?.text = catogries[indexPath.section][indexPath.row].symbol
+        cell.catogrySymbol.setTitle(catogries[indexPath.section][indexPath.row].symbol, for: .normal)  
         cell.catogryName?.text = catogries[indexPath.section][indexPath.row].name
         
         return cell

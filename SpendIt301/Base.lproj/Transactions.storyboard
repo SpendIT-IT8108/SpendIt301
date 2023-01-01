@@ -185,12 +185,11 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-96-zGx">
                                                                 <rect key="frame" x="8" y="8" width="112" height="112"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-rN-Sj0">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shM-Wa-LzP">
                                                                         <rect key="frame" x="0.0" y="0.0" width="112" height="56"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                                    </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-zn-MPr">
                                                                         <rect key="frame" x="0.0" y="56" width="112" height="56"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -208,8 +207,8 @@
                                                         </constraints>
                                                     </collectionViewCellContentView>
                                                     <connections>
-                                                        <outlet property="categoryLbl" destination="qEp-rN-Sj0" id="9KF-b1-Mgr"/>
                                                         <outlet property="catogryName" destination="x6W-zn-MPr" id="dez-nV-hJf"/>
+                                                        <outlet property="catogrySymbol" destination="shM-Wa-LzP" id="gQy-bp-jNM"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -226,7 +225,7 @@
                                     <outlet property="collectionView" destination="eTU-Kx-4nd" id="OaN-GV-7PL"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortCell" id="dv2-Qr-h06" customClass="FilterPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortCell" id="dv2-Qr-h06" customClass="SortTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                 <rect key="frame" x="20" y="164.5" width="374" height="53.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dv2-Qr-h06" id="FQJ-vC-fVT">
@@ -245,7 +244,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="egp-n5-tji">
                                                     <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
                                                     <connections>
-                                                        <action selector="switchPressed:" destination="sqE-3l-leW" eventType="valueChanged" id="oDV-4Q-NwA"/>
+                                                        <action selector="switchPressed:" destination="sqE-3l-leW" eventType="valueChanged" id="N6z-Z0-Bl1"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -258,8 +257,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="4Qi-a5-PyR" secondAttribute="bottom" id="l1Z-VM-w11"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="HtLSwitch" destination="egp-n5-tji" id="5pq-bg-dNT"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LtHCell" id="Ydf-YZ-Y3G" customClass="FilterPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LtHCell" id="Ydf-YZ-Y3G" customClass="SortTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                 <rect key="frame" x="20" y="218" width="374" height="53.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ydf-YZ-Y3G" id="TjU-hi-nRx">
@@ -275,10 +277,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="L5l-42-a2x">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" title="lTh" translatesAutoresizingMaskIntoConstraints="NO" id="L5l-42-a2x">
                                                     <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
                                                     <connections>
-                                                        <action selector="LtHSwitch:" destination="sqE-3l-leW" eventType="valueChanged" id="BCd-et-PXb"/>
+                                                        <action selector="LtHSwitch:" destination="sqE-3l-leW" eventType="valueChanged" id="fMR-L9-M6I"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -291,6 +293,9 @@
                                         <constraint firstItem="m2z-hK-exD" firstAttribute="top" secondItem="TjU-hi-nRx" secondAttribute="topMargin" id="tqw-Ya-Eob"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="LtHSwitchOutlet" destination="L5l-42-a2x" id="5ZX-Dh-XMH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -301,15 +306,18 @@
                     <navigationItem key="navigationItem" title="Filter" id="AmM-x1-0ZA">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="ii6-Tr-FeX">
                             <connections>
-                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindToTransactionListCancelWithSender:" id="wmS-V3-T01"/>
+                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="cancelIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="In8-bj-PGk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="DAk-q1-TDe">
                             <connections>
-                                <segue destination="H2t-9c-dX6" kind="unwind" unwindAction="unwindtoTransactionListDoneWithSender:" id="hRU-sU-s6T"/>
+                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="oJz-4v-CCf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="DAk-q1-TDe" id="V52-yF-ejS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUQ-HM-VrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="H2t-9c-dX6" userLabel="Exit" sceneMemberID="exit"/>
