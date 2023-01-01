@@ -1,51 +1,55 @@
+
 //
 //  CategoryTableViewController.swift
-//  SpendIt301
 //
-//  Created by Maryam Taraif on 22/12/2022.
+//  Created by Maryam Taraif on 26/12/2022.
 //
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController,UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        //
-    }
-    
-  
+class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UISearchResultsUpdating {
+
     @available(iOS 15, *)
        
-        var categories = [[Category]] ()
-        let sections = ["Expenses","Incomes"];
+        //categories list
+        var categories = [Category] ()
+        var filteredCategories: [Category] = []
+        
+        //search controller
         let searchController = UISearchController()
         var scopebuttonPressed = false;
-        var searching = false;
-        var filteredCateegory: [[Category]] = Category.loadSampleCategories()
+
       
         override func viewDidLoad() {
             super.viewDidLoad()
          
-            
-            
+            //load categories
             if let savedCategories = Category.loadCategories() {
                 categories = savedCategories
             } else {
                 categories = Category.loadSampleCategories()
             }
             
+            
             navigationItem.leftBarButtonItem = editButtonItem
+            
+            //search controller proprties
+            searchController.searchBar.delegate = self
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
-            
             searchController.obscuresBackgroundDuringPresentation = false
-        
-            searchController.searchBar.showsScopeBar = true
-            searchController.searchBar.delegate = self
             searchController.searchBar.placeholder = "Search by name"
-            searchController.searchBar.scopeButtonTitles = ["All","Expenses","Incomes"]
-            
-            filteredCateegory = categories
             searchController.searchResultsUpdater = self
+            
+            
+            //scope bars
+            searchController.searchBar.showsScopeBar = true
+            searchController.searchBar.scopeButtonTitles = ["All","Expense","Income"]
+            
+    
+            filteredCategories = categories
+            
+
 
           
             // Uncomment the following line to preserve selection between presentations
@@ -61,238 +65,170 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate, UI
       
 
         // MARK: - Table view data source
-
+        
         override func numberOfSections(in tableView: UITableView) -> Int {
             // #warning Incomplete implementation, return the number of sections
-            if searching == true {
-                return filteredCateegory.count
-            }else{
-                return categories.count
-            }
+                return 1
             }
         
 
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of rows
-            if searching == true {
-                return filteredCateegory[section].count }
-            else{
-                    return categories[section].count
-                }
+           
+            //check if user is searching
+            if (searchController.isActive) {
+                //count the filtered categories list
+                return filteredCategories.count
+               
+            } else if searchController.searchBar.selectedScopeButtonIndex == 1 || searchController.searchBar.selectedScopeButtonIndex == 2{
+                //count the filtered categories list
+                return filteredCategories.count
+            }
+            else {
+                //count the original categories list
+                return categories.count
+            }
         }
+            
+        
 
         
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             var category:Category
+            
             //fetch model object to display
-            category = filteredCateegory[indexPath.section][indexPath.row]
-//            if searching == true {
-//                if category.type == "Expense"{
-//                    category = filteredCateegory[0][indexPath.row]
-//                }else{
-//                    category = filteredCateegory[1][indexPath.row]
-//                }
-//
-//                 }else{
-//                    category = filteredCateegory[indexPath.section][indexPath.row]
-//
-//                }
-            //print(indexPath.section)
+            if searchController.isActive{
+                category=filteredCategories[indexPath.row]
+               
+            } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
+               category=filteredCategories[indexPath.row]
+            }
+            else{
+               category=categories[indexPath.row]
+            }
             
-            
-            //image based on category type
-            func generateImageWithText(text: String) -> UIImage? {
 
-                var image:UIImage
-                if category.type == "Expense" {
-                   image = UIImage(named: "Expense")!
-                } else {
-                    image = UIImage(named: "Income")!
-                }
-                    let imageView = UIImageView(image: image)
-                    imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-
-
-
-                    let label = UILabel(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-                    label.backgroundColor = UIColor.clear
-                    label.textAlignment = .center
-                    label.textColor = UIColor.white
-                    label.text = text
-
-                    UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
-                    imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
-                    label.layer.render(in: UIGraphicsGetCurrentContext()!)
-                    let imageWithText = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-
-                    return imageWithText
-                }
-          //  let category = categories[indexPath.section][indexPath.row]
             //dequeue cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
          
-            
-            cell.imageView?.image = generateImageWithText(text: category.symbol)
-            if searching == true {
-                 //cell.textLabel?.text = categories[indexPath.section][indexPath.row].name
-                cell.textLabel?.text = filteredCateegory[indexPath.section][indexPath.row].name
-                 }
-            else{
-                cell.textLabel?.text = filteredCateegory[indexPath.section][indexPath.row].name
-                }
-                 
-                 //disclosure indicator accessory
-                cell.accessoryType = .disclosureIndicator
-                cell.showsReorderControl = true
-             
+            //content configuration
+            var content = cell.defaultContentConfiguration()
+            content.text = category.name
+            content.image = category.icon
+            cell.contentConfiguration = content
+          
 
-                 return cell
+            //disclosure indicator accessory
+            cell.accessoryType = .disclosureIndicator
+            
+            cell.showsReorderControl = true
+             
+            return cell
+            
         }
         
-//        // section title
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-////        if searching == true {
-////            return " "
-////        }else{
-////            return "Expenses", "Incomes"?
-////        }
-//    }
-//    func updateSearchResults(for searchController: UISearchController) {
-//        searching = true
-//        var result = categories.filter { (dataArray:[Category]) -> Bool in
-//                    return dataArray.filter({ (category : Category) -> Bool in
-//                        return category.name.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
-//                        }).count > 0
-//                        }
-//                tableView.reloadData()
-//
-//
-//
-//    }
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searching = true
-//        var result = categories.filter { (dataArray:[Category]) -> Bool in
-//                    return dataArray.filter({ (category : Category) -> Bool in
-//                        return category.name.localizedCaseInsensitiveContains(searchText)
-//                        }).count > 0
-//                        }
-//        filteredCateegory = result
-//        tableView.reloadData()
-//    }
-//
-    
-        
+        // title for header
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if searchController.isActive {
+            return ""
+            //expense scope bar
+        }else if searchController.searchBar.selectedScopeButtonIndex == 1 {
+            return "Expenses"
+            //income scope bar
+        }else if searchController.searchBar.selectedScopeButtonIndex == 2 {
+            return "Income"
+        }else{
+            //all scope bar
+            return "All Categories"
+        }
+     
+    }
     
 
-        
-        
-        
-        
-
-      
-    //error index out of range
-        
         override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            //delete row
             if editingStyle == .delete {
-                // Delete the row from the data source
-                self.categories[indexPath.section].remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                if searchController.isActive{
+                    self.categories.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                   
+                } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
+                    self.categories.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                else{
+                    self.categories.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+               
+               
             }
         }
-        
-        @IBAction  func unwindCategoryList (segue:UIStoryboardSegue){
-            
-        }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        searching = true
-        if selectedScope == 1 {
-            var result = categories.filter { (dataArray:[Category]) -> Bool in
-                        return dataArray.filter({ (category : Category) -> Bool in
-                            return category.type.localizedCaseInsensitiveContains("Expense")
-                            }).count > 0
-                            }
-            filteredCateegory = result
-            tableView.reloadData()
-        } else if selectedScope == 2{
-            var result = categories.filter { (dataArray:[Category]) -> Bool in
-                        return dataArray.filter({ (category : Category) -> Bool in
-                            return category.type.localizedCaseInsensitiveContains("Income")
-                            }).count > 0
-                            }
-            filteredCateegory = result
-            tableView.reloadData()
-        }else if selectedScope == 0{
-            filteredCateegory = categories
-            tableView.reloadData()
-            
-        }
+ 
+    //search results update
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scopeButtton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        let searchText = searchBar.text!
+        filterForSearchTextAndScopeButton(searchText: searchText, scopeButtton:scopeButtton)
         
     }
-        
-        
-        
-      
-        
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            filteredCateegory = []
-            searching = true
-            if searchText == "" {
-                filteredCateegory = categories
-            }else {
-
-            for (index, item) in categories.enumerated() {
-                for category in item {
-                    if category.name.localizedCaseInsensitiveContains(searchText){
-                        filteredCateegory.append([category])
-                        print(filteredCateegory)
-                        print(category)
-                }
-            } }
-
-            self.tableView.reloadData()
-            searching = false
-
-        }
-        }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     
-
-             searchBar.text = ""
-
-            filteredCateegory = categories
-
-            searchBar.endEditing(true)
-
-            self.tableView.reloadData()
-
-       
+    //scope bar and filters
+    func filterForSearchTextAndScopeButton(searchText:String, scopeButtton:String="All") {
+        filteredCategories = categories.filter ( {
+            category in let scopeMatch = ( scopeButtton == "All" || category.type.localizedCaseInsensitiveContains(scopeButtton))
+            if (searchController.searchBar.text != ""){
+                let searchTextMatch = category.name.localizedCaseInsensitiveContains(searchText)
+                return scopeMatch && searchTextMatch
+                
+            }else{
+                return scopeMatch
+            }
+        } )
+        tableView.reloadData()
+        
     }
     
     
     //add edit
-
+    @IBSegueAction func addEditCategory(_ coder: NSCoder, sender: Any?) -> AddEditCategoryTableViewController? {
+        var categoryToEdit:Category
+            if let cell = sender as? UITableViewCell,
+               let indexPath = tableView.indexPath(for: cell){
+                //editing emoji
+                if searchController.isActive{
+                    categoryToEdit=filteredCategories[indexPath.row]
+                   
+                } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
+                    categoryToEdit=filteredCategories[indexPath.row]
+                }
+                else{
+                    categoryToEdit = categories[indexPath.row]
+                }
+               
+                
+                return AddEditCategoryTableViewController(coder: coder, category: categoryToEdit )
+            }else{
+                //adding emoji
+                return AddEditCategoryTableViewController(coder: coder, category: nil )
+            }
+    }
     
-
+    //sabe emoji to tabke view and insert new row
+    @IBAction func unwindToCategoryTableView(segue:UIStoryboardSegue){
+        guard segue.identifier == "saveSegue" else {return}
+        let sourceViewController = segue.source as! AddEditCategoryTableViewController
+        
+        if let category = sourceViewController.category {
+            let newIndexPath = IndexPath(row: categories.count, section: 0)
+            categories.append(category)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+  
+        
+    }
     
       
-    @IBSegueAction func addEditCategory(_ coder: NSCoder, sender: Any?) -> AddEditCategoryTableViewController? {
-        if let cell = sender as? UITableViewCell,
-           let indexPath = tableView.indexPath(for: cell){
-            //editing category
-            let categoryToEdit = categories[indexPath.section][indexPath.row]
-            print(categoryToEdit)
-            return AddEditCategoryTableViewController(coder: coder, category: categoryToEdit )
-        }else{
-            //add category
-            return AddEditCategoryTableViewController(coder: coder, category: nil )
-        }
-    }
-    //    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-    //
-    //    }
-    //
 
         /*
         // Override to support conditional rearranging of the table view.
@@ -312,4 +248,6 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate, UI
         }
         */
 
-}
+    }
+
+

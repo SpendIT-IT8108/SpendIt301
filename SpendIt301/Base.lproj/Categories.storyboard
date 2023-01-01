@@ -109,20 +109,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="emoji" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-i7-RyD">
-                                                    <rect key="frame" x="32" y="24" width="40" height="34"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="emoji" textAlignment="natural" minimumFontSize="17" background="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-i7-RyD">
+                                                    <rect key="frame" x="20" y="23" width="70" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" red="0.1760954857" green="0.33663812279999999" blue="0.36079037190000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMF-Nb-s5z">
-                                                    <rect key="frame" x="20" y="20" width="64" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TlU-yE-OWy">
-                                                    <rect key="frame" x="110" y="20" width="244" height="40"/>
+                                                    <rect key="frame" x="110" y="30" width="244" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -216,22 +213,23 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="categoryImage" destination="AMF-Nb-s5z" id="QMb-I2-XVu"/>
                         <outlet property="nameTextField" destination="TlU-yE-OWy" id="fdC-4T-EqC"/>
                         <outlet property="spendingLimitTextField" destination="Ogh-ca-cNP" id="jXz-og-6LG"/>
+                        <outlet property="symbolTextField" destination="0CN-i7-RyD" id="qES-sV-cN1"/>
                         <outlet property="typeSegmentedControl" destination="RC7-zy-LvJ" id="o2J-sa-MSd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jk7-0R-P1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rcD-Av-wY7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4433" y="-364"/>
+            <point key="canvasLocation" x="4431.884057971015" y="-364.28571428571428"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="pbQ-jy-Xwv"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
