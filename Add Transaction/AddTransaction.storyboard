@@ -522,7 +522,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="yib-cI-dTl" kind="relationship" relationship="rootViewController" id="FlI-zG-cel"/>
+                        <segue destination="yib-cI-dTl" kind="relationship" relationship="rootViewController" destinationCreationSelector="showAddForm:sender:" id="FlI-zG-cel"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9L-Hn-CT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

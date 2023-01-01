@@ -49,7 +49,12 @@ class TabBarViewController: UITabBarController {
 
    
     @objc func addButtonClicked(){
-            performSegue(withIdentifier: "showAddForm", sender: floatingButton)
+        performSegue(withIdentifier: "showAddForm", sender: self)
+    }
+    
+    
+    @IBSegueAction func showAddForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
+        return AddTransactionTVC(coder: coder, transaction: nil)
     }
     
     

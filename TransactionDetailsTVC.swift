@@ -118,6 +118,10 @@ class TransactionDetailsTVC: UITableViewController {
      }
      */
     
+    @IBAction func editButtonClicked() {
+        performSegue(withIdentifier: "editTrans", sender: self)
+    }
+    
     @IBSegueAction func showForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
         return AddTransactionTVC(coder: coder, transaction: self.transaction)
         
