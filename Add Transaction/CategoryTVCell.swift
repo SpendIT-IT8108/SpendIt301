@@ -24,35 +24,7 @@ class CategoryTVCell: UITableViewCell {
 
     func update(with category: Category) {
         categoryNameLabel.text = category.name
-        symbolImageView.image = generateImageWithText(symbol: category.symbol, type: category.type)
+        symbolImageView.image = category.icon
     }
     
-    
-    func generateImageWithText(symbol: String, type: String) -> UIImage? {
-
-        var image:UIImage
-        if type == "Expense" {
-           image = UIImage(named: "Expense")!
-        } else {
-            image = UIImage(named: "Income")!
-        }
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-
-
-
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-            label.backgroundColor = UIColor.clear
-            label.textAlignment = .center
-            label.textColor = UIColor.white
-            label.text = symbol
-
-            UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
-            imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
-            label.layer.render(in: UIGraphicsGetCurrentContext()!)
-            let imageWithText = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-
-            return imageWithText
-        }
 }

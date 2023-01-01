@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:NavigationViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:SpendIt301.xcodeproj">
    </FileRef>
    <FileRef

@@ -237,7 +237,8 @@
                     <navigationItem key="navigationItem" title="Transaction Details" largeTitleDisplayMode="always" id="ybH-Ne-dI9">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="5NY-Zn-tM4">
                             <connections>
-                                <segue destination="Jwc-5R-6UK" kind="show" id="QOd-zI-d8z"/>
+                                <action selector="editButtonClicked" destination="smI-QA-HsZ" id="pTM-wv-hcc"/>
+                                <segue destination="Jwc-5R-6UK" kind="show" identifier="editTrans" id="QOd-zI-d8z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -54,3 +54,4 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     }
 
 }
+

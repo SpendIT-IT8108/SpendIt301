@@ -20,47 +20,43 @@ class TransactionDetailsTVC: UITableViewController {
     @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var attachmentImageView: UIImageView!
-    var transaction : Transaction?
+    var transaction : Transaction
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if transaction?.category.type == "Incomes" {
+        if transaction.category.type == "Income" {
             coloredView.backgroundColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0)
             categoryNameLabel.textColor = .black
             amountLabel.textColor = .black
             currencyLabel.textColor = .black
         }
-        categorySymbolLabel.text = transaction?.category.symbol
-        categoryNameLabel.text = transaction?.category.name
-        transactionNameLabel.text = transaction?.name
-        typeLabel.text = transaction?.category.type
-        dateLabel.text = transaction?.date.formatted(date: .numeric, time: .omitted)
-        notesLabel.text = transaction?.note
-        if let amount = transaction?.amount {
-            amountLabel.text = String(format: "%.2f", amount)
-        }
-        if let note = transaction?.note {
+        categorySymbolLabel.text = transaction.category.symbol
+        categoryNameLabel.text = transaction.category.name
+        transactionNameLabel.text = transaction.name
+        typeLabel.text = transaction.category.type
+        dateLabel.text = transaction.date.formatted(date: .numeric, time: .omitted)
+        notesLabel.text = transaction.note
+        amountLabel.text = String(format: "%.2f", transaction.amount)
+        if let note = transaction.note {
             notesLabel.text = note
         } else{
             notesLabel.text = "Nothing"
         }
-        if let repeating = transaction?.repeated {
-            if repeating == true {
-                if let interval = transaction?.repeatingInterval, let from = transaction?.repeatFrom?.formatted(date: .numeric, time: .omitted) {
-                    if let end = transaction?.repeatUntil?.formatted(date: .numeric, time: .omitted) {
-                        repeatLabel.text = "\(interval), Starting from \(from) Until \(end)"
-                    }
-                    repeatLabel.text = "\(interval), Starting from \(from)"
+        if transaction.repeated  == true {
+            if let interval = transaction.repeatingInterval, let from = transaction.repeatFrom?.formatted(date: .numeric, time: .omitted) {
+                if let end = transaction.repeatUntil?.formatted(date: .numeric, time: .omitted) {
+                    repeatLabel.text = "\(interval), Starting from \(from) Until \(end)"
                 }
+                repeatLabel.text = "\(interval), Starting from \(from)"
             }
-            else {
-                repeatLabel.text = "Never"
-            }
+        }
+        else {
+            repeatLabel.text = "Never"
         }
     }
     
     
-    init? (coder: NSCoder, transaction: Transaction?){
+    init? (coder: NSCoder, transaction: Transaction){
         self.transaction = transaction
         super.init(coder: coder)
     }
@@ -122,7 +118,20 @@ class TransactionDetailsTVC: UITableViewController {
      }
      */
     
+    @IBAction func editButtonClicked() {
+        performSegue(withIdentifier: "editTrans", sender: self)
+    }
     
+    @IBSegueAction func showForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
+        return AddTransactionTVC(coder: coder, transaction: self.transaction)
+        
+    }
+    
+    @IBAction func unwindToDetails(segue: UIStoryboardSegue){
+        if segue.identifier == "cancelEditUnwind", let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction {
+            self.transaction = transaction
+        }
+    }
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -72,11 +72,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if category == nil {
-            //set the default catgeory to the most tracked (temporarly first element for testing)
-            category = Category.loadSampleCategories().first?.first
-            categoryNameTextField.text = self.category?.name
-        }
 
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
@@ -87,9 +82,42 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         setupPopUpButton()
         
         //check if in edit or add mode
-        if self.transaction != nil {
+        if let transaction = self.transaction {
             title = "Edit Transaction"
+            category = transaction.category
+            symbolImageView.image = category?.icon
+            amountTextField.text = String(format: "%.2f", transaction.amount)
+            titleTextField.text = transaction.name
+            transactionDate.date = transaction.date
+            if transaction.category.type == "Expense" {
+                type.selectedSegmentIndex = 0
+            }
+            else {
+                type.selectedSegmentIndex = 1
+            }
+            if transaction.repeated {
+                repeatOption.isOn = true
+                // set interval
+                
+                fromDatePicker.date = transaction.repeatFrom!
+                if transaction.repeatUntil != nil {
+                    //set the selected to specific date
+                    endDatePicker.date = transaction.repeatUntil!
+                }
+                else {
+                    //set to forever
+                }
+            }
+            
         }
+        else {
+            //set the default catgeory to the most tracked (temporarly first element for testing)
+            title = "Add Transaction"
+            category = Category.loadSampleCategories().first
+            categoryNameTextField.text = self.category?.name
+            symbolImageView.image = self.category?.icon
+        }
+       
         
         updateSaveButton()
     }
@@ -139,7 +167,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     }
     
     
-    // MARK: function with actions to perform when UIImage view is tapped on
+    // MARK: attachment process
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         let placeholderImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
         if sender.state == .ended {
@@ -214,7 +242,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         
         
         
-    // MARK: Table View Overriden Functions
+    // MARK: Hide and Show Collapsed rows
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
             case notesSpaceeCllIndexPath where noteSpaceIsVisible == false:
@@ -258,7 +286,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         
         
         
-        
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
             
@@ -294,11 +321,20 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         tableView.endUpdates()
     }
     
+
     
     
     // MARK: - Navigation (Segues)
+    @IBAction func cancelForm(_ sender: Any) {
+        if self.transaction != nil {
+            discardChanges()
+        }
+        else {
+            performSegue(withIdentifier: "cancelAddUnwind", sender: self)
+        }
+    }
     
-    @IBAction func discardChanges(_ sender: Any) {
+    func discardChanges() {
         let alertController = UIAlertController(title:
            "Discard Changes", message: "Are you sure you want to discard any chnages that you have made?",
            preferredStyle: .alert)
@@ -306,32 +342,28 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                                    style: .cancel, handler: nil )
         alertController.addAction(cancel)
 
-        let discard = UIAlertAction(title: "Discard Changes",
-                                    style: .destructive, handler: {action in self.performSegue(withIdentifier: "cancelUnwind", sender: self.cancelButton)} )
+        let discard = UIAlertAction(title: "Discard",
+                                    style: .destructive, handler: {action in self.performSegue(withIdentifier: "cancelEditUnwind", sender: self.cancelButton)} )
         alertController.addAction(discard)
         
         present(alertController, animated: true, completion: nil)
     }
     
+    @IBSegueAction func editCategory(_ coder: NSCoder) -> UITableViewController? {
+        let type = type.titleForSegment(at: type.selectedSegmentIndex)!
+        return ChooseCategoryTVC(coder: coder, type: type)
+    }
     
+    //back from editing category
     @IBAction func unwindToAddForm(segue: UIStoryboardSegue){
         guard segue.identifier == "DoneUnwind",
                 let sourceViewController = segue.source as? ChooseCategoryTVC else {return}
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
-        
-   
     }
-  
     
-
-    @IBSegueAction func editCategory(_ coder: NSCoder) -> UITableViewController? {
-        let type = type.titleForSegment(at: type.selectedSegmentIndex)!
-        return ChooseCategoryTVC(coder: coder, type: type)
-    }
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
+    //collect data from fields and prepare for saving
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveUnwind" {
             //get the data from fields and create new object
