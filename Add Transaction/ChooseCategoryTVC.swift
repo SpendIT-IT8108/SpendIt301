@@ -9,6 +9,9 @@ import UIKit
 
 class ChooseCategoryTVC: UITableViewController {
 
+    //categories to be displayed in the list
+    var categories : [Category] = []
+    
     //SELECTED CATEGORY
     var type : String
     var category : Category?
@@ -25,7 +28,12 @@ class ChooseCategoryTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        for cat in Category.loadSampleCategories() {
+            if cat.type == type {
+                categories.append(cat)
+            }
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,12 +50,7 @@ class ChooseCategoryTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // determine number or rows based on teh type
-        if  self.type == "Expense" {
-            return Category.loadSampleCategories()[0].count
-        }
-        else {
-            return Category.loadSampleCategories()[1].count
-        }
+        categories.count
         
     }
     
@@ -58,13 +61,7 @@ class ChooseCategoryTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTVCell
-        let category : Category
-        if  self.type == "Expense" {
-            category = Category.loadSampleCategories()[0][indexPath.row]
-        }
-        else {
-            category = Category.loadSampleCategories()[1][indexPath.row]
-        }
+        let category = categories[indexPath.row]
         // Configure the cell...
         cell.update(with: category)
         cell.showsReorderControl = true
@@ -77,8 +74,8 @@ class ChooseCategoryTVC: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //get the selected category object from the category array
-        
+        //get the selected category object from the category array and assign to the category instance
+        category = categories[indexPath.row]
     }
     /*
     // Override to support conditional editing of the table view.
@@ -118,7 +115,8 @@ class ChooseCategoryTVC: UITableViewController {
     
     // MARK: - Navigation (Segues)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little
+    /*preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         guard segue.identifier == "DoneUnwind", let selected =  tableView.indexPathForSelectedRow else { return }
@@ -132,6 +130,6 @@ class ChooseCategoryTVC: UITableViewController {
       
         //get selected category details and assign it to category variable
     }
-    
+    */
 
 }

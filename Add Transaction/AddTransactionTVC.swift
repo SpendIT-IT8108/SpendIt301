@@ -85,6 +85,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         if let transaction = self.transaction {
             title = "Edit Transaction"
             category = transaction.category
+            symbolImageView.image = category?.icon
             amountTextField.text = String(format: "%.2f", transaction.amount)
             titleTextField.text = transaction.name
             transactionDate.date = transaction.date
@@ -112,8 +113,9 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         else {
             //set the default catgeory to the most tracked (temporarly first element for testing)
             title = "Add Transaction"
-            category = Category.loadSampleCategories().first?.first
+            category = Category.loadSampleCategories().first
             categoryNameTextField.text = self.category?.name
+            symbolImageView.image = self.category?.icon
         }
        
         
