@@ -9,10 +9,10 @@ import UIKit
 
 class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-     var catogries: [[Category]] = Category.loadSampleCategories()
+     var catogries: [Category] = Category.loadSampleCategories()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return catogries[section].count
+        return catogries.count
     }
     
     
@@ -23,8 +23,8 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
       
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionViewCell
         //let symbol = categories
-        cell.categoryLbl?.text = catogries[indexPath.section][indexPath.row].symbol
-        cell.catogryName?.text = catogries[indexPath.section][indexPath.row].name
+        cell.catogryIcon.setTitle(catogries[indexPath.row].symbol, for: .normal)
+        cell.catogryName?.text = catogries[indexPath.row].name
         
         return cell
         

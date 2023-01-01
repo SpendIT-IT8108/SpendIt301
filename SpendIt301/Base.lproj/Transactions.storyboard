@@ -185,13 +185,12 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-96-zGx">
                                                                 <rect key="frame" x="8" y="8" width="112" height="112"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-rN-Sj0">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-em-H8y">
                                                                         <rect key="frame" x="0.0" y="0.0" width="112" height="56"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-zn-MPr">
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-zn-MPr">
                                                                         <rect key="frame" x="0.0" y="56" width="112" height="56"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -208,7 +207,7 @@
                                                         </constraints>
                                                     </collectionViewCellContentView>
                                                     <connections>
-                                                        <outlet property="categoryLbl" destination="qEp-rN-Sj0" id="9KF-b1-Mgr"/>
+                                                        <outlet property="catogryIcon" destination="Rp5-em-H8y" id="AxJ-oI-idB"/>
                                                         <outlet property="catogryName" destination="x6W-zn-MPr" id="dez-nV-hJf"/>
                                                     </connections>
                                                 </collectionViewCell>
@@ -226,7 +225,7 @@
                                     <outlet property="collectionView" destination="eTU-Kx-4nd" id="OaN-GV-7PL"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortCell" id="dv2-Qr-h06" customClass="FilterPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortCell" id="dv2-Qr-h06" customClass="SortPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                 <rect key="frame" x="20" y="164.5" width="374" height="53.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dv2-Qr-h06" id="FQJ-vC-fVT">
@@ -258,8 +257,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="4Qi-a5-PyR" secondAttribute="bottom" id="l1Z-VM-w11"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="HtLSwitch" destination="egp-n5-tji" id="4hy-mf-6fJ"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LtHCell" id="Ydf-YZ-Y3G" customClass="FilterPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LtHCell" id="Ydf-YZ-Y3G" customClass="SortPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                 <rect key="frame" x="20" y="218" width="374" height="53.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ydf-YZ-Y3G" id="TjU-hi-nRx">
@@ -291,6 +293,9 @@
                                         <constraint firstItem="m2z-hK-exD" firstAttribute="top" secondItem="TjU-hi-nRx" secondAttribute="topMargin" id="tqw-Ya-Eob"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="LtHSwitch" destination="L5l-42-a2x" id="rzV-xR-IF5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -301,12 +306,12 @@
                     <navigationItem key="navigationItem" title="Filter" id="AmM-x1-0ZA">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="ii6-Tr-FeX">
                             <connections>
-                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindToTransactionListCancelWithSender:" id="wmS-V3-T01"/>
+                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="cancelIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="TzW-19-1T3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="DAk-q1-TDe">
                             <connections>
-                                <segue destination="H2t-9c-dX6" kind="unwind" unwindAction="unwindtoTransactionListDoneWithSender:" id="hRU-sU-s6T"/>
+                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="1O5-f7-eb3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

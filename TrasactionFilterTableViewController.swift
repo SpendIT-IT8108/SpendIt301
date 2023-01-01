@@ -61,12 +61,12 @@ class TrasactionFilterTableViewController: UITableViewController {
            
             let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath)
             
-            HtLLbh?.text  = "High to low"
+           
 
             return cell
         } else {
            let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath)
-            LtHLbl?.text = "Low To High"
+            
             return cell
         }
         
@@ -93,6 +93,22 @@ class TrasactionFilterTableViewController: UITableViewController {
         }
                 
         }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           if indexPath.section == 0 {
+                  return 80
+           } else {
+               return 50
+           }
+
+
+       }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+           if section == 0 {
+               return "Filtery by Catogries"
+           }else {
+               return "Filter by Price"
+           }
+       }
     
 
 //    @IBAction func switchPressedLtH(_ sender: UISwitch) {
@@ -141,8 +157,7 @@ class TrasactionFilterTableViewController: UITableViewController {
 //            }
 //    }
     
-    @IBOutlet weak var HtLLbh: UILabel!
-    @IBOutlet weak var LtHLbl: UILabel!
+
     
     
     @IBAction func LtHSwitch(_ sender: UISwitch) {

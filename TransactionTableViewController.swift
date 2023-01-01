@@ -99,20 +99,18 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
        if sender.identifier == "doneIdentifier" {
-            self.tableView.reloadData()
+           tableView.reloadData()
         }
         else if sender.identifier == "saveUnwind" {
         
         }else if sender.identifier == "cancelIdentifier"{
-            print("cancel id")
+           
         }
         
         isUnwind=true
     }
     
-    @IBAction func unwindToTransactionListCancel(sender: UIStoryboardSegue){
-
-    }
+   
     
     
 

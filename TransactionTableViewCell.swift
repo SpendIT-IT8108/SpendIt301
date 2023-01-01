@@ -15,7 +15,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     func update(with transaction: Transaction){
             //transactionSymbolLable.
-//            categorySymbolLable=(transaction.category.symbol)
+        categorySymbolLable.image=transaction.category.icon
             transactionNameLable.text=transaction.name
             transactionAmountLable.text=String(transaction.amount)
         }
