@@ -106,9 +106,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		210651D0296328F60047CE7B /* Overview  */ = {
+			isa = PBXGroup;
+			children = (
+				216874532958E1900031BC7B /* OverviewTableViewController.swift */,
+				21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */,
+				21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */,
+				21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */,
+				21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */,
+				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
+				2130B043294AF4AB001EC43C /* Overview.storyboard */,
+			);
+			path = "Overview ";
+			sourceTree = "<group>";
+		};
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
+				210651D0296328F60047CE7B /* Overview  */,
 				36B480422960ECF800C9A4B6 /* NavigationViewController.swift */,
 				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
 				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
@@ -117,7 +132,6 @@
 				0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */,
 				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
 				369E17E1295CF97600400D6D /* TransactionDetailsTVC.swift */,
-				216874532958E1900031BC7B /* OverviewTableViewController.swift */,
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
 				0BF0975729536A56000CC354 /* Transaction.swift */,
 				369E17DA295CE0E500400D6D /* Add Transaction */,
@@ -128,12 +142,6 @@
 				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
 				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 				264DA2CE29519D05006BC7CC /* Setup.storyboard */,
-				2130B043294AF4AB001EC43C /* Overview.storyboard */,
-				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
-				21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */,
-				21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */,
-				21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */,
-				21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */,
 				2130B02E294AEBEB001EC43C /* SpendIt301 */,
 				2130B02D294AEBEB001EC43C /* Products */,
 				B3928D0FDB476E7DD91A5665 /* Pods */,
