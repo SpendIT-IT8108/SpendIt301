@@ -32,7 +32,8 @@
 		2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */; };
 		216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216874532958E1900031BC7B /* OverviewTableViewController.swift */; };
 		21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */; };
-		264DA2CF29519D05006BC7CC /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DA2CE29519D05006BC7CC /* Setup.storyboard */; };
+		2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601B05529636E810045F9BC /* userSetupPVC.swift */; };
+		268F58EC296330B0007F77B5 /* UserSetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268F58EB296330B0007F77B5 /* UserSetup.storyboard */; };
 		36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36025E6929533D8E0035C71F /* AddTransactionTVC.swift */; };
 		3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */; };
 		369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369E17DB295CE24A00400D6D /* CategoryTVCell.swift */; };
@@ -74,7 +75,8 @@
 		2130B04E294AF6DB001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/SettingsPage.storyboard; sourceTree = "<group>"; };
 		216874532958E1900031BC7B /* OverviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		264DA2CE29519D05006BC7CC /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
+		2601B05529636E810045F9BC /* userSetupPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSetupPVC.swift; sourceTree = "<group>"; };
+		268F58EB296330B0007F77B5 /* UserSetup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSetup.storyboard; sourceTree = "<group>"; };
 		357C3171B533C475835C844D /* Pods-SpendIt301.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendIt301.debug.xcconfig"; path = "Target Support Files/Pods-SpendIt301/Pods-SpendIt301.debug.xcconfig"; sourceTree = "<group>"; };
 		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
 		3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryTVC.swift; sourceTree = "<group>"; };
@@ -102,10 +104,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
 		0B3590A0296336A0003C979F /* Transaction List */ = {
 			isa = PBXGroup;
 			children = (
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
+
+		210651D0296328F60047CE7B /* Overview  */ = {
+			isa = PBXGroup;
+			children = (
+				216874532958E1900031BC7B /* OverviewTableViewController.swift */,
+				21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */,
+				21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */,
+				21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */,
+				21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */,
+				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
+				2130B043294AF4AB001EC43C /* Overview.storyboard */,
+			);
+			path = "Overview ";
+			sourceTree = "<group>";
+		};
+		2130B023294AEBEB001EC43C = {
+			isa = PBXGroup;
+			children = (
+				2601B05529636E810045F9BC /* userSetupPVC.swift */,
+				21687277296337D800F4FF0A /* Settings */,
+
+				210651D0296328F60047CE7B /* Overview  */,
+				36B480422960ECF800C9A4B6 /* NavigationViewController.swift */,
+
 				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
 				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
 				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
@@ -122,13 +149,11 @@
 				369E17DE295CF6BC00400D6D /* TransactionDetails.storyboard */,
 				0B3590A0296336A0003C979F /* Transaction List */,
 				369E17E1295CF97600400D6D /* TransactionDetailsTVC.swift */,
-				216874532958E1900031BC7B /* OverviewTableViewController.swift */,
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
 				0BF0975729536A56000CC354 /* Transaction.swift */,
 				369E17DA295CE0E500400D6D /* Add Transaction */,
-				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
-				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
+
 				264DA2CE29519D05006BC7CC /* Setup.storyboard */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
 				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
@@ -136,6 +161,11 @@
 				21236C64295C14730040B7AE /* MostTrackedCollectionViewCell.swift */,
 				21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */,
 				21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */,
+
+				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
+				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
+				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
+
 				2130B02E294AEBEB001EC43C /* SpendIt301 */,
 				2130B02D294AEBEB001EC43C /* Products */,
 				B3928D0FDB476E7DD91A5665 /* Pods */,
@@ -161,12 +191,22 @@
 				21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */,
 				2130B038294AEBEF001EC43C /* Assets.xcassets */,
 				2130B03A294AEBEF001EC43C /* LaunchScreen.storyboard */,
+				268F58EB296330B0007F77B5 /* UserSetup.storyboard */,
 				2130B03D294AEBEF001EC43C /* Info.plist */,
 				CD8973F529543C740030075F /* Category.swift */,
 				CD8973F729543CBC0030075F /* CategoryTableViewController.swift */,
 				CD06402D295C386F0084A17B /* AddEditCategoryTableViewController.swift */,
 			);
 			path = SpendIt301;
+			sourceTree = "<group>";
+		};
+		21687277296337D800F4FF0A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
+				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		369E17DA295CE0E500400D6D /* Add Transaction */ = {
@@ -260,8 +300,8 @@
 				2130B03C294AEBEF001EC43C /* LaunchScreen.storyboard in Resources */,
 				2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */,
 				2130B044294AF4AB001EC43C /* Overview.storyboard in Resources */,
-				264DA2CF29519D05006BC7CC /* Setup.storyboard in Resources */,
 				369E17E0295CF6BC00400D6D /* TransactionDetails.storyboard in Resources */,
+				268F58EC296330B0007F77B5 /* UserSetup.storyboard in Resources */,
 				2130B039294AEBEF001EC43C /* Assets.xcassets in Resources */,
 				2130B037294AEBEB001EC43C /* Main.storyboard in Resources */,
 				2130B04A294AF518001EC43C /* Categories.storyboard in Resources */,
@@ -337,6 +377,7 @@
 				0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */,
 				216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */,
 				0BF0975829536A56000CC354 /* Transaction.swift in Sources */,
+				2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */,
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
 				3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */,

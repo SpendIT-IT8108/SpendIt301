@@ -12,8 +12,12 @@ class BarChartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var BarChart: BarChartView!
     //fake data
-    let income = [100,200,300]
-    let expenses = [20,10,30,5,4,400]
+   // let income = [100,200,300]
+   // let expenses = [20,10,30,5,4,400]
+    var inc: Double = 0.0
+    var exp : Double = 0.0
+    var total : Double = 0.0
+    var transactions : [Transaction] = Transaction.loadSampleTransacion()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -43,13 +47,30 @@ class BarChartTableViewCell: UITableViewCell {
         var dataEntries = [BarChartDataEntry]()
         var dataEntries1 = [BarChartDataEntry]()
         
+    //testtt
+        total = 0
+        exp = 0
+        inc = 0
+        for transaction in transactions {
+            if transaction.category.type == "Expense" {
+                exp += transaction.amount
+                
+            }else {
+                inc += transaction.amount
+            }
+        }
+        
+        
+        
+        
+        
 //        for i in 0..<self.xaxisValue.count {
         let i = 0
-           let sumOfIncome = income.reduce(0,+)
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(sumOfIncome))
+           //let sumOfIncome = inc.reduce(0,+)
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(inc))
             dataEntries.append(dataEntry)
-        let sumOfExpenses = expenses.reduce(0,+)
-            let dataEntry1 = BarChartDataEntry(x: Double(i), y: Double(sumOfExpenses))
+       // let sumOfExpenses = expenses.reduce(0,+)
+            let dataEntry1 = BarChartDataEntry(x: Double(i), y: Double(exp))
             dataEntries1.append(dataEntry1)
 //        }
         
