@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */; };
-		0BA4536B295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */; };
-		0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */; };
 		0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */; };
 		0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */; };
 		0BF0975829536A56000CC354 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975729536A56000CC354 /* Transaction.swift */; };
@@ -50,8 +48,6 @@
 
 /* Begin PBXFileReference section */
 		0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPriceTableViewCell.swift; sourceTree = "<group>"; };
-		0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogeryForTransactionTableViewCell.swift; sourceTree = "<group>"; };
-		0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogeryForTransactionCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionFilterTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975729536A56000CC354 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -106,16 +102,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3590A0296336A0003C979F /* Transaction List */ = {
+			isa = PBXGroup;
+			children = (
+				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
+				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
+				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
+				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
+				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
+				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
+			);
+			path = "Transaction List";
+			sourceTree = "<group>";
+		};
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
 				36B480422960ECF800C9A4B6 /* NavigationViewController.swift */,
-				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
-				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
 				369E17DE295CF6BC00400D6D /* TransactionDetails.storyboard */,
-				0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */,
-				0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */,
-				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
+				0B3590A0296336A0003C979F /* Transaction List */,
 				369E17E1295CF97600400D6D /* TransactionDetailsTVC.swift */,
 				216874532958E1900031BC7B /* OverviewTableViewController.swift */,
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
@@ -124,9 +129,6 @@
 				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
-				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
-				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
-				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 				264DA2CE29519D05006BC7CC /* Setup.storyboard */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
 				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
@@ -321,7 +323,6 @@
 				0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */,
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
 				21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */,
-				0BA4536B295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift in Sources */,
 				0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */,
 				21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */,
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
@@ -332,7 +333,6 @@
 				36B480432960ECF800C9A4B6 /* NavigationViewController.swift in Sources */,
 				21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */,
 				0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */,
-				0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */,
 				216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */,
