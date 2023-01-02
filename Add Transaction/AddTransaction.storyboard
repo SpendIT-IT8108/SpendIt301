@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Transaction-->
+        <!--Add TransactionTVC-->
         <scene sceneID="nEk-sB-1h8">
             <objects>
                 <tableViewController id="yib-cI-dTl" customClass="AddTransactionTVC" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,12 +24,11 @@
                                     <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Sk-Xz-Azv">
                                         <connections>
                                             <action selector="cancelForm:" destination="yib-cI-dTl" id="dsa-bx-Fpb"/>
-                                            <segue destination="pJT-GF-Uec" kind="unwind" identifier="cancelEditUnwind" unwindAction="unwindToDetailsWithSegue:" id="p7l-6f-4YW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="aBk-0V-kad">
                                         <connections>
-                                            <segue destination="pJT-GF-Uec" kind="unwind" identifier="saveUnwind" unwindAction="unwindToListWithSegue:" id="9wP-LF-Opg"/>
+                                            <segue destination="pJT-GF-Uec" kind="unwind" identifier="saveUnwind" unwindAction="unwindToListWithSegue:" id="Dfh-W7-dCO"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -66,7 +65,7 @@
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                                                                     <connections>
-                                                                        <segue destination="jqe-nv-oup" kind="show" identifier="editCategory" destinationCreationSelector="editCategory:" id="n29-X3-cPS"/>
+                                                                        <segue destination="VRh-jx-csQ" kind="show" destinationCreationSelector="editCategory:" id="Wio-eM-wQe"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -429,19 +428,11 @@
                             <outlet property="delegate" destination="yib-cI-dTl" id="bjJ-Nw-o2m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Transaction" id="YwM-Rb-ulD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Dxd-bN-wVf">
-                            <connections>
-                                <action selector="cancelForm:" destination="yib-cI-dTl" id="F9p-n6-k9r"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="9Em-oA-wtx"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="NotestextView" destination="XwT-ri-VXt" id="odZ-Sr-GcK"/>
                         <outlet property="amountTextField" destination="DLe-bA-C0D" id="rRk-iN-wOp"/>
                         <outlet property="attachmentImageView" destination="DsD-vJ-mz9" id="0pA-KS-6Ul"/>
-                        <outlet property="cancelButton" destination="Dxd-bN-wVf" id="Vn6-3J-KXL"/>
+                        <outlet property="cancelButton" destination="1Sk-Xz-Azv" id="vLk-DS-ATA"/>
                         <outlet property="categoryNameTextField" destination="Uom-yU-NGE" id="uwS-kp-dV5"/>
                         <outlet property="endDatePicker" destination="YsW-Db-W6c" id="XMp-5j-4QH"/>
                         <outlet property="endRepeatPopUpButton" destination="VKN-Nb-2g6" id="Ino-o1-vyq"/>
@@ -449,13 +440,13 @@
                         <outlet property="intervalPopUpButton" destination="855-7j-0mz" id="PHF-XM-9i7"/>
                         <outlet property="navigationBar" destination="IX7-Yc-I7C" id="RgL-qL-CN1"/>
                         <outlet property="repeatOption" destination="lrf-M1-CRf" id="jwg-eU-OZw"/>
-                        <outlet property="saveButton" destination="9Em-oA-wtx" id="cki-kh-S5g"/>
+                        <outlet property="saveButton" destination="aBk-0V-kad" id="OeC-b8-8pr"/>
                         <outlet property="symbolImageView" destination="ZBH-CG-1px" id="WOq-9h-Gc0"/>
                         <outlet property="titleTextField" destination="BRD-aQ-wgH" id="Gvo-EI-8mb"/>
                         <outlet property="transactionDate" destination="cgb-SW-iDe" id="nNd-LY-5xG"/>
                         <outlet property="type" destination="AfV-QJ-lvs" id="Ppx-XY-Tdx"/>
-                        <segue destination="pJT-GF-Uec" kind="unwind" identifier="saveEditUnwind" unwindAction="unwindToDetailsWithSegue:" id="mO7-Q8-qef"/>
                         <segue destination="pJT-GF-Uec" kind="unwind" identifier="cancelAddUnwind" unwindAction="unwindToListWithSegue:" id="JGi-EB-sRr"/>
+                        <segue destination="pJT-GF-Uec" kind="unwind" identifier="cancelEditUnwind" unwindAction="unwindToDetailsWithSegue:" id="gHa-lW-aCN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCt-We-LeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -512,41 +503,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Category" id="ffT-7M-as8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wNk-eT-3Dw">
-                            <connections>
-                                <segue destination="eEn-0s-VJ4" kind="unwind" unwindAction="unwindToAddFormWithSegue:" id="nXw-l6-yo4"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="RjL-Jb-VeG">
-                            <connections>
-                                <segue destination="eEn-0s-VJ4" kind="unwind" identifier="DoneUnwind" unwindAction="unwindToAddFormWithSegue:" id="26u-z1-UJW"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wNk-eT-3Dw"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="RjL-Jb-VeG"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="eEn-0s-VJ4" kind="unwind" identifier="DoneUnwind" unwindAction="unwindToAddFormWithSegue:" id="dfp-vv-AH5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIy-08-k8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="eEn-0s-VJ4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5903.0769230769229" y="447.86729857819904"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MpB-rY-qZp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqe-nv-oup" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="o0m-r1-fTT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGQ-kO-nO8">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="VRh-jx-csQ" kind="relationship" relationship="rootViewController" id="65p-4Y-14D"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UGw-Nb-L6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4973.8461538461534" y="447.86729857819904"/>
+            <point key="canvasLocation" x="4965" y="448"/>
         </scene>
     </scenes>
     <resources>

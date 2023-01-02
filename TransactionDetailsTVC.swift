@@ -40,7 +40,7 @@ class TransactionDetailsTVC: UITableViewController {
         if let note = transaction.note {
             notesLabel.text = note
         } else{
-            notesLabel.text = "Nothing"
+            notesLabel.text = " "
         }
         if transaction.repeated  == true {
             if let interval = transaction.repeatingInterval, let from = transaction.repeatFrom?.formatted(date: .numeric, time: .omitted) {
@@ -52,6 +52,9 @@ class TransactionDetailsTVC: UITableViewController {
         }
         else {
             repeatLabel.text = "Never"
+        }
+        if let attachment = transaction.attachment {
+            attachmentImageView.image = attachment
         }
     }
     

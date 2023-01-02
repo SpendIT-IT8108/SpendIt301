@@ -115,6 +115,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         else {
             //set the default catgeory to the most tracked (temporarly first element for testing)
             navigationBar.title = "Add Transaction"
+            category = Category.loadSampleCategories().first
             categoryNameTextField.text = self.category?.name
             symbolImageView.image = self.category?.icon
         }
@@ -325,6 +326,8 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     
     // MARK: - Navigation (Segues)
+    
+    
     @IBAction func cancelForm(_ sender: Any) {
         if self.transaction != nil {
             discardChanges()
@@ -361,6 +364,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
+        symbolImageView.image = category?.icon
     }
     
     //collect data from fields and prepare for saving
