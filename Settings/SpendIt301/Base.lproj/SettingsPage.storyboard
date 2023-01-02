@@ -337,7 +337,7 @@ This policy also explains your choices about how we use information about you. Y
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axR-KS-kRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3330.7692307692305" y="236.72985781990519"/>
+            <point key="canvasLocation" x="2523" y="-63"/>
         </scene>
         <!--Settings-->
         <scene sceneID="RHk-ca-xxi">

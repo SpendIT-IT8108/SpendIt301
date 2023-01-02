@@ -54,6 +54,39 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
         mostSpentArray.append(mostSpentCategories(emoji: "🐱", categoryName: "Cat", price: "50 BHD"))
        
     }
+    func addToCell(){
+        let transactions : [Transaction] = Transaction.loadSampleTransacion()
+        var   max1: Double = 0.0
+        var   max2 : Double = 0.0
+        var   max3 : Double = 0.0
+        for transaction in transactions {
+            if transaction.category.type == "Expense"
+            {
+                for i in transactions {
+                    let  x = i.amount
+                if (x > max1) {
+                    max3 = max2;
+                    max2 = max1;
+                    max1 = x;
+                    
+                }
+                    else if (x > max2 && x != max1)
+                    {
+                   max3 = max2
+                    max2 = x
+                }
+                    else if (x > max3 && x != max3)
+                    {
+                    
+                     max3 = x
+                 }
+                   
+            }
+                
+            }
+        }
+        
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         3
     }
