@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class CollectionViewCell: UICollectionViewCell{
     
     
     @IBOutlet weak var catogryIcon: UIButton!
-    @IBOutlet weak var catogryName: UILabel!
-
+    
+   
 }

@@ -8,30 +8,17 @@
 import UIKit
 
 class TrasactionFilterTableViewController: UITableViewController {
-  //  @IBOutlet weak var doneButton: UIBarButtonItem!
-//    @IBOutlet weak var cancelButton: UIBarButtonItem!
+
     var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
-//    @IBOutlet weak var LtHLable: UILabel!
 
-//    @IBOutlet weak var HtLLable: UILabel!
-//    @IBOutlet weak var CollectionViewCell: UICollectionView!
-    let price = ["high to low", "low to high"]
 //
-//    @IBAction func HtLPressed(_ sender: UISwitch) {
-//        if sender.isOn {
-//                   //low to high
-//           // HtLSwitch.setOn( false, animated: true)
-//              filteredTransactions = transactions.sorted {
-//                   $0.amount > $1.amount
-//               }
-//
-//               }
-//    }
     
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        doneBtn.isEnabled=false
+        clearBtn.isEnabled=false
         if let saveTransaction=Transaction.loadTransaction(){
             transactions=saveTransaction
 
@@ -57,20 +44,72 @@ class TrasactionFilterTableViewController: UITableViewController {
             return cell
     
         }
-        else if indexPath.row == 1{
-           
+else if indexPath.row == 1 {
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath)
-            
-           
+
+           //sortCell
 
             return cell
-        } else {
+        }
+            else {
            let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath)
-            
+                
             return cell
+        }
+       
+        
+    
+}
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
+    @IBAction func clearChoices(_ sender: Any) {
+        //doneBtn.isEnabled=false
+        if let isButton = sender as? UIButton{
+            isButton.isEnabled = true
+            isButton.isSelected = false
+        }
+        if let isSwitch = sender as? UISwitch {
+            isSwitch.setOn(false, animated: true)
         }
         
     }
+    
+    @IBOutlet weak var clearBtn: UIBarButtonItem!
+    
+    @IBAction func categoryPressed(_ sender: UIButton) {
+        //shows button's selected
+    
+        //choose transactions based on selected category
+      filteredTransactions = transactions.filter(
+            {item in
+                item.category.name.localizedStandardContains(sender.currentTitle!)
+            })
+        
+        // if selected catogory has no transactions
+        if filteredTransactions.isEmpty {
+            let alert = UIAlertController(title: "Category is empty", message: "There is no transactions with \(sender.currentTitle!) category", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+           present(alert, animated: true) {
+               sender.isEnabled=true
+               
+           }
+            filteredTransactions = transactions
+        }
+        else{
+            doneBtn.isEnabled=true
+            clearBtn.isEnabled=true
+           
+        }
+            
+//       if clearBtn.primaryAction != nil{
+//            sender.isEnabled=true
+//        }
+        
+        
+     
+        
+    }
+
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -111,78 +150,45 @@ class TrasactionFilterTableViewController: UITableViewController {
        }
     
 
-//    @IBAction func switchPressedLtH(_ sender: UISwitch) {
-//        if sender.isOn {
-//                //low to high
-//           filterSwitch.setOn( false, animated: true)
-//           filteredTransactions = transactions.sorted {
-//                $0.amount < $1.amount
-//            }
-//
-//            }
-//    }
-
-//    @IBAction func cancelButtonPressed(_ sender: Any) {
-//
-//
-//    }
-    // notification>>
-//    func scheduleNotifications(){
-//        // if notification when (+) button is pressed, if not just add in viewdidload()
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-//            if granted{
-//                // scheduleNotifications()
-//            }
-//           
-//        }
-//        
-//        
-//        UNUserNotificationCenter.current().getNotificationSettings{(settings) in
-//            if settings.authorizationStatus == .authorized{
-//                let content = UNMutableNotificationContent()
-//                    content.title="Spend It"
-//                    content.subtitle="Have you recorded your spending today?💲"
-//                    content.sound = .default
-//    
-//                var date = DateComponents()
-//                date.calendar = Calendar.current
-//                date.hour = 19 //everyday @7pm aka 19
-//                date.minute = 0
-//                //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(60), repeats: true)
-//                let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-//                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//                UNUserNotificationCenter.current().add(request)
-//            
-//                }
-//            }
-//    }
-    
 
     
     
     @IBAction func LtHSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
-            
+            doneBtn.isEnabled=true
+            clearBtn.isEnabled=true
             filteredTransactions = transactions.sorted {
               $0.amount < $1.amount
             }
       
             }
+//        if clearBtn.isSelected{
+//            sender.isOn=false
+//        }
     }
     
+    @IBAction func HtLSwitch(_ sender: UISwitch) {
     
-    @IBAction func switchPressed(_ sender: UISwitch) {
         if sender.isOn {
-            //LtHSwith.setOn( false, animated: true)
-           // high to low
+           
+            doneBtn.isEnabled=true
+            clearBtn.isEnabled=true
             filteredTransactions = transactions.sorted {
               $0.amount > $1.amount
             }
       
-            }
+         }
+        else{
+            
+        }
+        if clearBtn.isSelected{
+            clearChoices(sender)
+        }
+//        clearChoices(sender)
 
     }
+    
     
 
 }
