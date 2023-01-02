@@ -40,7 +40,6 @@
 		369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369E17DB295CE24A00400D6D /* CategoryTVCell.swift */; };
 		369E17E0295CF6BC00400D6D /* TransactionDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369E17DE295CF6BC00400D6D /* TransactionDetails.storyboard */; };
 		369E17E2295CF97700400D6D /* TransactionDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369E17E1295CF97600400D6D /* TransactionDetailsTVC.swift */; };
-		36B480432960ECF800C9A4B6 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B480422960ECF800C9A4B6 /* NavigationViewController.swift */; };
 		36D485B5294B018700D0D297 /* AddTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D485B4294B018700D0D297 /* AddTransaction.storyboard */; };
 		9BBD0A5AD149F4ACB9A8AA74 /* Pods_SpendIt301.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8E2E6063AFC481B910A38B /* Pods_SpendIt301.framework */; };
 		CD06402E295C386F0084A17B /* AddEditCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06402D295C386F0084A17B /* AddEditCategoryTableViewController.swift */; };
@@ -86,7 +85,6 @@
 		369E17DB295CE24A00400D6D /* CategoryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVCell.swift; sourceTree = "<group>"; };
 		369E17DF295CF6BC00400D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/TransactionDetails.storyboard; sourceTree = "<group>"; };
 		369E17E1295CF97600400D6D /* TransactionDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsTVC.swift; sourceTree = "<group>"; };
-		36B480422960ECF800C9A4B6 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		36D485B4294B018700D0D297 /* AddTransaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTransaction.storyboard; sourceTree = "<group>"; };
 		5F8E2E6063AFC481B910A38B /* Pods_SpendIt301.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendIt301.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8662D7007597A717A661E864 /* Pods-SpendIt301.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendIt301.release.xcconfig"; path = "Target Support Files/Pods-SpendIt301/Pods-SpendIt301.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
-				36B480422960ECF800C9A4B6 /* NavigationViewController.swift */,
 				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
 				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
 				369E17DE295CF6BC00400D6D /* TransactionDetails.storyboard */,
@@ -331,7 +328,6 @@
 				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
 				0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */,
 				CD06402E295C386F0084A17B /* AddEditCategoryTableViewController.swift in Sources */,
-				36B480432960ECF800C9A4B6 /* NavigationViewController.swift in Sources */,
 				21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */,
 				0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */,
 				0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */,

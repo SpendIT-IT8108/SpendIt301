@@ -100,14 +100,54 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             if transaction.repeated {
                 repeatOption.isOn = true
                 // set interval
+                if let menu = intervalPopUpButton.menu {
+                    for item in menu.children {
+                        if let action = item as? UIAction {
+                            if action.title == transaction.repeatingInterval {
+                                action.state = .on
+                            }
+                            else {
+                                action.state = .off
+                            }
+                        }
+                    }
+                }
                 
                 fromDatePicker.date = transaction.repeatFrom!
+                //if there is an end date
                 if transaction.repeatUntil != nil {
-                    //set the selected to specific date
+                    //set the selected option in the menu to specific date
+                    if let menu = endRepeatPopUpButton.menu {
+                        for item in menu.children {
+                            if let action = item as? UIAction {
+                                if action.title == "Specific Date" {
+                                    action.state = .on
+                                }
+                                else {
+                                    action.state = .off
+                                }
+                            }
+                        }
+                    }
+                    endDatePickerIsVisisble = true
                     endDatePicker.date = transaction.repeatUntil!
                 }
+                // if end date is nil
                 else {
-                    //set to forever
+                    //set selected action to forever
+                    if let menu = endRepeatPopUpButton.menu {
+                        for item in menu.children {
+                            if let action = item as? UIAction {
+                                if action.title == "Forever" {
+                                    action.state = .on
+                                }
+                                else {
+                                    action.state = .off
+                                }
+                            }
+                        }
+                    }
+                    
                 }
             }
             
@@ -149,7 +189,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             self.tableView.endUpdates() }
         //add actions to select from as options to the popupButton
         endRepeatPopUpButton.menu = UIMenu(children : [
-            UIAction(title:"Forever", state: .on, handler: optionClosure2), UIAction(title:"Specific Date", state: .on, handler: optionClosure2)])
+            UIAction(title:"Forever", state: .on, handler: optionClosure2), UIAction(title:"Specific Date", state: .off, handler: optionClosure2)])
         //let the button track the selection
         endRepeatPopUpButton.showsMenuAsPrimaryAction = true
         endRepeatPopUpButton.changesSelectionAsPrimaryAction = true
@@ -356,7 +396,12 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         let type = type.titleForSegment(at: type.selectedSegmentIndex)!
         return ChooseCategoryTVC(coder: coder, type: type)
     }
-    
+    /*
+    @IBSegueAction func editCategory(_ coder: NSCoder) -> UITableViewController? {
+        let type = type.titleForSegment(at: type.selectedSegmentIndex)!
+        return ChooseCategoryTVC(coder: coder, type: type)
+    }
+    */
     //back from editing category
     @IBAction func unwindToAddForm(segue: UIStoryboardSegue){
         guard segue.identifier == "DoneUnwind",

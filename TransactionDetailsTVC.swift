@@ -47,7 +47,9 @@ class TransactionDetailsTVC: UITableViewController {
                 if let end = transaction.repeatUntil?.formatted(date: .numeric, time: .omitted) {
                     repeatLabel.text = "\(interval), Starting from \(from) Until \(end)"
                 }
-                repeatLabel.text = "\(interval), Starting from \(from)"
+                else {
+                    repeatLabel.text = "\(interval), Starting from \(from)"
+                }
             }
         }
         else {
