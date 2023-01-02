@@ -2,7 +2,7 @@
 //  AddEditCategoryTableViewController.swift
 //  SpendIt301
 //
-//  Created by Mohammed Taraif on 28/12/2022.
+//  Created by Maryam Taraif on 28/12/2022.
 //
 
 import UIKit
@@ -40,21 +40,26 @@ class AddEditCategoryTableViewController: UITableViewController {
             }
             if category.type == "Expense"{
                 typeSegmentedControl.selectedSegmentIndex = 0
-                symbolTextField.background = UIImage(named: "Expense")
+                symbolTextField.tintColor = UIColor(red: 27/255, green: 87/255, blue: 95/255, alpha: 1)
+
                 
             }else {
                 typeSegmentedControl.selectedSegmentIndex = 1
-                symbolTextField.background = UIImage(named: "Income")
+                symbolTextField.tintColor = UIColor(red: 224/255, green: 223/255, blue: 119/255, alpha: 1)
+
+
             }
-            
             
             title = "Edit Category"
         }
             else {
-                title = "Add Category"}
+                title = "Add Category"
+                
+            }
 
         
         updateSaveButtonState()
+    
             }
         
         
@@ -74,7 +79,7 @@ class AddEditCategoryTableViewController: UITableViewController {
         saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty
     }
     
-    //text fields event to check if fields contains text
+   // text fields event to check if fields contains text
     @IBAction func textEditingChanged (_ sender:UITextField){
         updateSaveButtonState()
     }
@@ -86,15 +91,30 @@ class AddEditCategoryTableViewController: UITableViewController {
         let symbol = symbolTextField.text!
         let name = nameTextField.text!
         let categoryType = typeSegmentedControl.titleForSegment(at: typeSegmentedControl.selectedSegmentIndex)!
-        let spendingLimit = Float(spendingLimitTextField.text!) ?? 0.0
+        let spendingLimit = Float(spendingLimitTextField.text!) ?? nil
         //set to category property
         category = Category(name: name, symbol: symbol, spendingLimit: spendingLimit, type: categoryType)
     }
     
-    
-    
-    
 
+    
+    
+    @IBAction func segmentedChanged(_ sender: Any) {
+        if typeSegmentedControl.selectedSegmentIndex == 0 {
+            symbolTextField.tintColor = UIColor(red: 27/255, green: 87/255, blue: 95/255, alpha: 1)
+
+        }else if typeSegmentedControl.selectedSegmentIndex == 1{
+            symbolTextField.tintColor = UIColor(red: 224/255, green: 223/255, blue: 119/255, alpha: 1)
+        }
+        
+    }
+    
+   
+    
+    
+    
+    
+    
     // MARK: - Table view data source
  
     
