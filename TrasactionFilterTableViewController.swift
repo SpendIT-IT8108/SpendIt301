@@ -11,7 +11,8 @@ class TrasactionFilterTableViewController: UITableViewController {
 
     var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
-
+    var HtLSwitchOutlet: UISwitch!
+    var LtHSwitchOutlet: UISwitch!
 //
     
  
@@ -25,6 +26,8 @@ class TrasactionFilterTableViewController: UITableViewController {
         }else{
             transactions=Transaction.loadSampleTransacion()
         }
+        
+     
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,34 +49,34 @@ class TrasactionFilterTableViewController: UITableViewController {
         }
 else if indexPath.row == 1 {
 
-            let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath) as! SortPriceTableViewCell
 
-           //sortCell
+           //content config
+      HtLSwitchOutlet=cell.HtLSwitch!
+  
 
             return cell
         }
             else {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath)
-                
+           let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath) as! SortPriceTableViewCell
+                LtHSwitchOutlet=cell.LtHSwitch
             return cell
         }
        
-        
+
     
 }
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBAction func clearChoices(_ sender: Any) {
-        //doneBtn.isEnabled=false
-        if let isButton = sender as? UIButton{
-            isButton.isEnabled = true
-            isButton.isSelected = false
-        }
-        if let isSwitch = sender as? UISwitch {
-            isSwitch.setOn(false, animated: true)
-        }
+        HtLSwitchOutlet.setOn(false, animated: true)
+        LtHSwitchOutlet.setOn(false, animated: true)
+      
         
     }
     
+    @IBAction func donePressed(_ sender: Any) {
+      
+    }
     @IBOutlet weak var clearBtn: UIBarButtonItem!
     
     @IBAction func categoryPressed(_ sender: UIButton) {
@@ -96,7 +99,7 @@ else if indexPath.row == 1 {
             filteredTransactions = transactions
         }
         else{
-            doneBtn.isEnabled=true
+//            doneBtn.isEnabled=true
             clearBtn.isEnabled=true
            
         }
@@ -156,13 +159,21 @@ else if indexPath.row == 1 {
     @IBAction func LtHSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
+            HtLSwitchOutlet.setOn(false, animated: true)
             doneBtn.isEnabled=true
             clearBtn.isEnabled=true
             filteredTransactions = transactions.sorted {
               $0.amount < $1.amount
+               
             }
       
-            }
+        } else{
+            doneBtn.isEnabled=false
+           
+        }
+//        if HtLSwitchOutlet != LtHSwitchOutlet {
+//            HtLSwitchOutlet.setOn(false, animated: true)
+//        }
 //        if clearBtn.isSelected{
 //            sender.isOn=false
 //        }
@@ -171,21 +182,26 @@ else if indexPath.row == 1 {
     @IBAction func HtLSwitch(_ sender: UISwitch) {
     
         if sender.isOn {
-           
-            doneBtn.isEnabled=true
+            LtHSwitchOutlet.setOn(false, animated: true)
+         doneBtn.isEnabled=true
             clearBtn.isEnabled=true
             filteredTransactions = transactions.sorted {
               $0.amount > $1.amount
             }
       
-         }
-        else{
-            
+        } else{
+            doneBtn.isEnabled=false
+           
         }
-        if clearBtn.isSelected{
-            clearChoices(sender)
-        }
+//        if LtHSwitchOutlet != HtLSwitchOutlet {
+//
+//        }
+//        if clearBtn.isSelected{
+//            clearChoices(sender)
+//        }
 //        clearChoices(sender)
+        
+        
 
     }
     

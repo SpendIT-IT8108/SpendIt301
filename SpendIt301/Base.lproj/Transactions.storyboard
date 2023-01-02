@@ -292,6 +292,9 @@
                                         <constraint firstItem="m2z-hK-exD" firstAttribute="top" secondItem="TjU-hi-nRx" secondAttribute="topMargin" id="tqw-Ya-Eob"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="LtHSwitch" destination="L5l-42-a2x" id="T7p-Np-6Mz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -308,6 +311,7 @@
                         <rightBarButtonItems>
                             <barButtonItem style="plain" systemItem="done" id="DAk-q1-TDe">
                                 <connections>
+                                    <action selector="donePressed:" destination="sqE-3l-leW" id="V9X-G0-jcf"/>
                                     <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="1O5-f7-eb3"/>
                                 </connections>
                             </barButtonItem>

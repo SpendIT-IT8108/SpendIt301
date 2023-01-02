@@ -17,15 +17,14 @@ class SortPriceTableViewCell: UITableViewCell {
     }
    
 
+    @IBOutlet weak var LtHSwitch: UISwitch!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     @IBAction func HtLSwitch(_ sender: UISwitch) {
-        if HtLSwitch.isOn {
-    
-        }
+        
         
     }
   
