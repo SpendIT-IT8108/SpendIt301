@@ -126,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				2601B05529636E810045F9BC /* userSetupPVC.swift */,
+				21687277296337D800F4FF0A /* Settings */,
+
 				210651D0296328F60047CE7B /* Overview  */,
 				36B480422960ECF800C9A4B6 /* NavigationViewController.swift */,
 				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
@@ -138,8 +140,6 @@
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
 				0BF0975729536A56000CC354 /* Transaction.swift */,
 				369E17DA295CE0E500400D6D /* Add Transaction */,
-				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
-				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
 				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
 				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
@@ -176,6 +176,15 @@
 				CD06402D295C386F0084A17B /* AddEditCategoryTableViewController.swift */,
 			);
 			path = SpendIt301;
+			sourceTree = "<group>";
+		};
+		21687277296337D800F4FF0A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
+				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		369E17DA295CE0E500400D6D /* Add Transaction */ = {
