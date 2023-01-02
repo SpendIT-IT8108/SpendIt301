@@ -13,4 +13,7 @@ class CollectionViewCell: UICollectionViewCell{
     @IBOutlet weak var catogryIcon: UIButton!
     
    
+    @IBAction func categoryPressed(_ sender: UIButton) {
+        
+    }
 }

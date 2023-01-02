@@ -18,7 +18,7 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var categoryBtn: UIButton!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       
@@ -26,18 +26,15 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         //let symbol = categories
         cell.catogryIcon.setTitle(catogries[indexPath.row].name, for: .normal)
         cell.catogryIcon.setImage(catogries[indexPath.row].icon, for: .normal)
-        
+        categoryBtn=cell.catogryIcon!
         return cell
         
     }
-//    @IBAction func categoryPressed(_ sender: UIButton) {
-//        trasForCat = transactions.filter(
-//            {item in
-//                sender.currentTitle==item.category.name
-//            })
-//        print(trasForCat)
-//
-//    }
+    @IBAction func categoryPressed(_ sender: Any) {
+        //categoryBtn.isEnabled=false
+       // print()
+    
+    }
     
   
 
