@@ -122,11 +122,10 @@ class TransactionDetailsTVC: UITableViewController {
         performSegue(withIdentifier: "editTrans", sender: self)
     }
     
-    @IBSegueAction func showForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
+    @IBSegueAction func showEditForm(_ coder: NSCoder, sender: Any?) -> UIViewController? {
         return AddTransactionTVC(coder: coder, transaction: self.transaction)
-        
     }
-    
+   
     @IBAction func unwindToDetails(segue: UIStoryboardSegue){
         if segue.identifier == "cancelEditUnwind", let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction {
             self.transaction = transaction

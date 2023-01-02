@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Transaction: Equatable{
+struct Transaction: Equatable {
     var id = UUID()
     var name: String
     var amount: Double

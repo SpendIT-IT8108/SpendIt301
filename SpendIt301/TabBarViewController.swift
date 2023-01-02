@@ -53,7 +53,7 @@ class TabBarViewController: UITabBarController {
     }
     
     
-    @IBSegueAction func showAddForm(_ coder: NSCoder, sender: Any?) -> AddTransactionTVC? {
+    @IBSegueAction func showAddForm(_ coder: NSCoder) -> UIViewController? {
         return AddTransactionTVC(coder: coder, transaction: nil)
     }
     

@@ -238,7 +238,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="5NY-Zn-tM4">
                             <connections>
                                 <action selector="editButtonClicked" destination="smI-QA-HsZ" id="pTM-wv-hcc"/>
-                                <segue destination="Jwc-5R-6UK" kind="show" identifier="editTrans" id="QOd-zI-d8z"/>
+                                <segue destination="Jwc-5R-6UK" kind="presentation" identifier="editTrans" destinationCreationSelector="showEditForm:sender:" id="QOd-zI-d8z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

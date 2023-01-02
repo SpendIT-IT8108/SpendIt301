@@ -82,6 +82,7 @@
 		357C3171B533C475835C844D /* Pods-SpendIt301.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendIt301.debug.xcconfig"; path = "Target Support Files/Pods-SpendIt301/Pods-SpendIt301.debug.xcconfig"; sourceTree = "<group>"; };
 		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
 		3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryTVC.swift; sourceTree = "<group>"; };
+		36916AFB2962306A00E90759 /* Codablemage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codablemage.swift; sourceTree = SOURCE_ROOT; };
 		369E17DB295CE24A00400D6D /* CategoryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVCell.swift; sourceTree = "<group>"; };
 		369E17DF295CF6BC00400D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/TransactionDetails.storyboard; sourceTree = "<group>"; };
 		369E17E1295CF97600400D6D /* TransactionDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsTVC.swift; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		369E17DA295CE0E500400D6D /* Add Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				36916AFB2962306A00E90759 /* Codablemage.swift */,
 				36025E6929533D8E0035C71F /* AddTransactionTVC.swift */,
 				36D485B4294B018700D0D297 /* AddTransaction.storyboard */,
 				3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */,

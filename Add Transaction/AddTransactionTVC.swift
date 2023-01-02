@@ -23,7 +23,9 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     var transaction : Transaction?
     var category : Category?
     
+   
     //user interface components (outlets and variables)
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var categoryNameTextField: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
@@ -83,7 +85,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         
         //check if in edit or add mode
         if let transaction = self.transaction {
-            title = "Edit Transaction"
+            navigationBar.title = "Edit Transaction"
             category = transaction.category
             symbolImageView.image = category?.icon
             amountTextField.text = String(format: "%.2f", transaction.amount)
@@ -112,13 +114,11 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         }
         else {
             //set the default catgeory to the most tracked (temporarly first element for testing)
-            title = "Add Transaction"
-            category = Category.loadSampleCategories().first
+            navigationBar.title = "Add Transaction"
             categoryNameTextField.text = self.category?.name
             symbolImageView.image = self.category?.icon
         }
        
-        
         updateSaveButton()
     }
     

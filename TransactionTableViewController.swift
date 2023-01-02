@@ -172,7 +172,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     @IBAction func unwindToList(segue: UIStoryboardSegue){
         
-        if segue.identifier == "saveUnwind",
+        if segue.identifier == "saveAddUnwind",
            let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction {
             //if editied, update the row
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
