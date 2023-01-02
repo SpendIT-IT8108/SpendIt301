@@ -34,10 +34,6 @@ struct Category: Equatable {
     }
     
 
-    
-    
-    
-    
     //load categories available
     static func loadCategories() -> [Category]? {
         return nil

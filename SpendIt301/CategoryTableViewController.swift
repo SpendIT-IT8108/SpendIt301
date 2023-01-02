@@ -18,7 +18,6 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         //search controller
         let searchController = UISearchController()
         var scopebuttonPressed = false;
-
       
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -31,7 +30,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             }
             
             
-            navigationItem.leftBarButtonItem = editButtonItem
+           navigationItem.leftBarButtonItem = editButtonItem
             
             //search controller proprties
             searchController.searchBar.delegate = self
@@ -115,14 +114,16 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             content.text = category.name
             content.image = category.icon
             cell.contentConfiguration = content
+            cell.showsReorderControl = true
           
 
             //disclosure indicator accessory
             cell.accessoryType = .disclosureIndicator
             
-            cell.showsReorderControl = true
+
              
             return cell
+
             
         }
         
@@ -145,24 +146,46 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
     
 
         override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
             //delete row
             if editingStyle == .delete {
-                if searchController.isActive{
-                    self.categories.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                   
-                } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
-                    self.categories.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                }
-                else{
-                    self.categories.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                }
-               
-               
+                deleteShowAlert(indexPath: indexPath)
             }
         }
+    
+    
+    func deleteShowAlert(indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: "Are you sure you'd like to delete this Category", preferredStyle: .alert)
+
+        // delete Action
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            //delete category
+            if self.searchController.isActive{
+                self.categories.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+               
+            } else if self.searchController.searchBar.selectedScopeButtonIndex==1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
+                self.filteredCategories.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            else{
+                self.categories.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+        }
+
+        alert.addAction(deleteAction)
+
+        // cancel action
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
  
     //search results update
     func updateSearchResults(for searchController: UISearchController) {
@@ -214,21 +237,27 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             }
     }
     
-    //sabe emoji to tabke view and insert new row
+    //save emoji to tabke view and insert new row
     @IBAction func unwindToCategoryTableView(segue:UIStoryboardSegue){
-        guard segue.identifier == "saveSegue" else {return}
-        let sourceViewController = segue.source as! AddEditCategoryTableViewController
+        guard segue.identifier == "saveSegue" ,
+        let sourceViewController = segue.source as? AddEditCategoryTableViewController,
+        let category = sourceViewController.category else { return }
         
-        if let category = sourceViewController.category {
+        //unwind for editing
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            categories[selectedIndexPath.row] = category
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        //add new category
+        }else{
+            //calculate index path for the new row
             let newIndexPath = IndexPath(row: categories.count, section: 0)
+            //add item
             categories.append(category)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
-  
+        
         
     }
-    
-      
 
         /*
         // Override to support conditional rearranging of the table view.
