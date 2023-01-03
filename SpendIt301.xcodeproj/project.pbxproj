@@ -109,9 +109,14 @@
 		0BC4EBD92964955500F7365B /* Transaction List */ = {
 			isa = PBXGroup;
 			children = (
+				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
+				0BF0975729536A56000CC354 /* Transaction.swift */,
+				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
 				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
 				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
 				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
+				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
+				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 			);
 			path = "Transaction List";
 			sourceTree = "<group>";
@@ -140,13 +145,8 @@
 				0BC4EBD92964955500F7365B /* Transaction List */,
 				0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */,
 				36A52D502964451C00E4EFE3 /* Transaction Details */,
-				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
-				0BF0975729536A56000CC354 /* Transaction.swift */,
 				369E17DA295CE0E500400D6D /* Add Transaction */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
-				2130B045294AF4EC001EC43C /* Transactions.storyboard */,
-				0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */,
-				0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */,
 				2130B02E294AEBEB001EC43C /* SpendIt301 */,
 				2130B02D294AEBEB001EC43C /* Products */,
 				B3928D0FDB476E7DD91A5665 /* Pods */,
