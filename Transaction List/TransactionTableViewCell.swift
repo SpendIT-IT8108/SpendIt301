@@ -15,10 +15,16 @@ class TransactionTableViewCell: UITableViewCell {
     
     func update(with transaction: Transaction){
             //transactionSymbolLable.
-        categorySymbolLable.image=transaction.category.icon
-            transactionNameLable.text=transaction.name
-            transactionAmountLable.text=String(transaction.amount)
+        if transaction.category.type=="Expense"{
+            transactionAmountLable.textColor=UIColor.red
+            transactionAmountLable.text=("- \(String(transaction.amount))")
         }
+        else if transaction.category.type=="Income"{
+            transactionAmountLable.textColor=UIColor.systemGreen
+            transactionAmountLable.text=("+ \(String(transaction.amount))")
+        }
+        categorySymbolLable.image=transaction.category.icon
+            transactionNameLable.text=transaction.name   }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

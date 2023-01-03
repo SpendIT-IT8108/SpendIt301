@@ -9,6 +9,7 @@ import UIKit
 
 class SortPriceTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var repeatedSwitch: UISwitch!
     @IBOutlet weak var LtHSwitch: UISwitch!
     @IBOutlet weak var HtLSwitch: UISwitch!
     override func awakeFromNib() {

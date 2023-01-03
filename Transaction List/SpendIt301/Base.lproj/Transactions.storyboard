@@ -152,7 +152,7 @@
         <scene sceneID="KYx-X8-1qW">
             <objects>
                 <tableViewController id="sqE-3l-leW" customClass="TrasactionFilterTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W0v-ir-VeN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W0v-ir-VeN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
@@ -186,16 +186,13 @@
                                                                 <rect key="frame" x="8" y="8" width="112" height="112"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-em-H8y">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="56"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
                                                                         <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" image="Expense" imagePlacement="top" title="Button"/>
+                                                                        <connections>
+                                                                            <action selector="categoryPressed:" destination="sqE-3l-leW" eventType="touchUpInside" id="4wX-oS-2NY"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-zn-MPr">
-                                                                        <rect key="frame" x="0.0" y="56" width="112" height="56"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
@@ -208,7 +205,6 @@
                                                     </collectionViewCellContentView>
                                                     <connections>
                                                         <outlet property="catogryIcon" destination="Rp5-em-H8y" id="AxJ-oI-idB"/>
-                                                        <outlet property="catogryName" destination="x6W-zn-MPr" id="dez-nV-hJf"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -244,7 +240,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="egp-n5-tji">
                                                     <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
                                                     <connections>
-                                                        <action selector="switchPressed:" destination="sqE-3l-leW" eventType="valueChanged" id="oDV-4Q-NwA"/>
+                                                        <action selector="HtLSwitch:" destination="sqE-3l-leW" eventType="valueChanged" id="Qwd-lx-BFi"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -297,6 +293,42 @@
                                     <outlet property="LtHSwitch" destination="L5l-42-a2x" id="rzV-xR-IF5"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="repeatedCell" id="gr3-EL-ngx" customClass="SortPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                <rect key="frame" x="20" y="271.5" width="374" height="53.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gr3-EL-ngx" id="N77-OO-Fxf">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="53.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLe-Bp-ad9">
+                                            <rect key="frame" x="20" y="11" width="334" height="31.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeated" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hem-IH-Wvl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="31.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Sl2-xE-o1d">
+                                                    <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
+                                                    <connections>
+                                                        <action selector="repeatedPresed:" destination="sqE-3l-leW" eventType="valueChanged" id="pvM-XR-2pW"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QLe-Bp-ad9" firstAttribute="leading" secondItem="N77-OO-Fxf" secondAttribute="leadingMargin" id="F71-MR-GrW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QLe-Bp-ad9" secondAttribute="bottom" id="YET-yr-cBz"/>
+                                        <constraint firstItem="QLe-Bp-ad9" firstAttribute="top" secondItem="N77-OO-Fxf" secondAttribute="topMargin" id="hsj-Af-Llh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QLe-Bp-ad9" secondAttribute="trailing" id="vJ5-Qg-oET"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="repeatedSwitch" destination="Sl2-xE-o1d" id="avs-iH-kPs"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="sqE-3l-leW" id="iGE-cO-R8K"/>
@@ -309,12 +341,23 @@
                                 <segue destination="H2t-9c-dX6" kind="unwind" identifier="cancelIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="TzW-19-1T3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="DAk-q1-TDe">
-                            <connections>
-                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="1O5-f7-eb3"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="done" id="DAk-q1-TDe">
+                                <connections>
+                                    <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="1O5-f7-eb3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" systemItem="refresh" id="Xug-sW-xoP">
+                                <connections>
+                                    <action selector="clearPressed:" destination="sqE-3l-leW" id="bj8-OK-zKH"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="clearBtn" destination="Xug-sW-xoP" id="Mxd-Ph-dOn"/>
+                        <outlet property="doneBtn" destination="DAk-q1-TDe" id="zyP-qA-8tL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUQ-HM-VrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="H2t-9c-dX6" userLabel="Exit" sceneMemberID="exit"/>
