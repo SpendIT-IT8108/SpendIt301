@@ -46,6 +46,7 @@
 		CD06402E295C386F0084A17B /* AddEditCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06402D295C386F0084A17B /* AddEditCategoryTableViewController.swift */; };
 		CD8973F629543C740030075F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8973F529543C740030075F /* Category.swift */; };
 		CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8973F729543CBC0030075F /* CategoryTableViewController.swift */; };
+		CDE4A5FD2964C68400D7D7CE /* CodableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4A5FC2964C68400D7D7CE /* CodableImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		CD06402D295C386F0084A17B /* AddEditCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryTableViewController.swift; sourceTree = "<group>"; };
 		CD8973F529543C740030075F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CD8973F729543CBC0030075F /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		CDE4A5FC2964C68400D7D7CE /* CodableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				36A52D502964451C00E4EFE3 /* Transaction Details */,
 				369E17DA295CE0E500400D6D /* Add Transaction */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
+				CDE4A5FC2964C68400D7D7CE /* CodableImage.swift */,
 				2130B02E294AEBEB001EC43C /* SpendIt301 */,
 				2130B02D294AEBEB001EC43C /* Products */,
 				B3928D0FDB476E7DD91A5665 /* Pods */,
@@ -373,6 +376,7 @@
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
 				3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */,
 				369E17E2295CF97700400D6D /* TransactionDetailsTVC.swift in Sources */,
+				CDE4A5FD2964C68400D7D7CE /* CodableImage.swift in Sources */,
 				21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */,
 				21236C61295C0AF00040B7AE /* MostTrackedTableViewCell.swift in Sources */,
 				2112D363295C35F80033A07C /* SettingsTableViewController.swift in Sources */,

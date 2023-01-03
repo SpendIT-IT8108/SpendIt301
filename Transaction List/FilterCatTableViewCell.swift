@@ -27,7 +27,7 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionViewCell
          //let symbol = categories
          cell.catogryIcon.setTitle(catogries[indexPath.row].name, for: .normal)
-         cell.catogryIcon.setImage(catogries[indexPath.row].icon, for: .normal)
+        cell.catogryIcon.setImage(catogries[indexPath.row].icon?.image, for: .normal)
          categoryBtn=cell.catogryIcon!
          return cell
         

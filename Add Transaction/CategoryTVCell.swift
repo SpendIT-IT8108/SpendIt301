@@ -24,7 +24,7 @@ class CategoryTVCell: UITableViewCell {
 
     func update(with category: Category) {
         categoryNameLabel.text = category.name
-        symbolImageView.image = category.icon
+        symbolImageView.image = category.icon?.image
     }
     
 }
