@@ -151,6 +151,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 }
             }
             
+            attachmentImageView.image = transaction.attachment?.image
         }
         else {
             //set the default catgeory to the most tracked (temporarly first element for testing)
