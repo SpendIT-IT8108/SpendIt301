@@ -152,7 +152,7 @@
         <scene sceneID="KYx-X8-1qW">
             <objects>
                 <tableViewController id="sqE-3l-leW" customClass="TrasactionFilterTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W0v-ir-VeN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W0v-ir-VeN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
@@ -169,46 +169,46 @@
                                             <viewLayoutGuide key="contentLayoutGuide" id="pch-IP-8PR"/>
                                             <viewLayoutGuide key="frameLayoutGuide" id="6ZP-8O-aPF"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M9W-C7-rwW">
-                                                <size key="itemSize" width="172" height="121.5"/>
+                                                <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="diH-QJ-UCR" customClass="CollectionViewCell" customModule="SpendIt301" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="-3.5" width="172" height="121.5"/>
+                                                    <rect key="frame" x="0.0" y="-6.5" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="v2P-8k-58P">
-                                                        <rect key="frame" x="0.0" y="0.0" width="172" height="121.5"/>
+                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="v9f-rs-lqa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-96-zGx">
-                                                                <rect key="frame" x="0.0" y="0.0" width="172" height="122"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-96-zGx">
+                                                                <rect key="frame" x="8" y="8" width="112" height="112"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-em-H8y">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="56"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-zn-MPr">
+                                                                        <rect key="frame" x="0.0" y="56" width="112" height="56"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-em-H8y">
-                                                                <rect key="frame" x="8" y="8" width="156" height="105.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="Expense" imagePlacement="top" title="Button" imagePadding="0.0" titleAlignment="automatic">
-                                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                                                </buttonConfiguration>
-                                                                <connections>
-                                                                    <action selector="categoryPressed:" destination="sqE-3l-leW" eventType="touchUpInside" id="LBb-OK-bHh"/>
-                                                                    <action selector="categoryPressed:" destination="dBs-0V-xCl" eventType="touchUpInside" id="sve-Wj-pNx"/>
-                                                                    <action selector="categoryPressed:" destination="diH-QJ-UCR" eventType="touchUpInside" id="tR0-7a-L4A"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="Rp5-em-H8y" firstAttribute="top" secondItem="v2P-8k-58P" secondAttribute="topMargin" id="Rnx-eE-wUw"/>
-                                                            <constraint firstItem="Rp5-em-H8y" firstAttribute="leading" secondItem="v2P-8k-58P" secondAttribute="leadingMargin" id="eTd-so-pRt"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="Rp5-em-H8y" secondAttribute="trailing" id="gsM-od-hoa"/>
-                                                            <constraint firstAttribute="bottomMargin" secondItem="Rp5-em-H8y" secondAttribute="bottom" id="ktS-dC-a8w"/>
+                                                            <constraint firstItem="mLr-96-zGx" firstAttribute="leading" secondItem="v9f-rs-lqa" secondAttribute="leadingMargin" id="FCh-8v-pI1"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="mLr-96-zGx" secondAttribute="trailing" id="Odl-oi-1bz"/>
+                                                            <constraint firstItem="mLr-96-zGx" firstAttribute="top" secondItem="v9f-rs-lqa" secondAttribute="topMargin" id="YhP-lk-CHV"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="mLr-96-zGx" secondAttribute="bottom" id="pyf-4y-hyy"/>
                                                         </constraints>
                                                     </collectionViewCellContentView>
-                                                    <size key="customSize" width="172" height="121.5"/>
                                                     <connections>
                                                         <outlet property="catogryIcon" destination="Rp5-em-H8y" id="AxJ-oI-idB"/>
+                                                        <outlet property="catogryName" destination="x6W-zn-MPr" id="dez-nV-hJf"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -244,7 +244,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="egp-n5-tji">
                                                     <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
                                                     <connections>
-                                                        <action selector="HtLSwitch:" destination="sqE-3l-leW" eventType="valueChanged" id="3c7-IB-oPh"/>
+                                                        <action selector="switchPressed:" destination="sqE-3l-leW" eventType="valueChanged" id="oDV-4Q-NwA"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -259,7 +259,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="HtLSwitch" destination="egp-n5-tji" id="4hy-mf-6fJ"/>
-                                    <outlet property="firstSwitch" destination="egp-n5-tji" id="zjz-yo-N5w"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LtHCell" id="Ydf-YZ-Y3G" customClass="SortPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
@@ -281,7 +280,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="L5l-42-a2x">
                                                     <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
                                                     <connections>
-                                                        <action selector="LtHSwitch:" destination="sqE-3l-leW" eventType="valueChanged" id="zvh-HG-sNe"/>
+                                                        <action selector="LtHSwitch:" destination="sqE-3l-leW" eventType="valueChanged" id="BCd-et-PXb"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -295,43 +294,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="LtHSwitch" destination="L5l-42-a2x" id="T7p-Np-6Mz"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="repeatedCell" id="kSm-q6-dGb" customClass="SortPriceTableViewCell" customModule="SpendIt301" customModuleProvider="target">
-                                <rect key="frame" x="20" y="271.5" width="374" height="53.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kSm-q6-dGb" id="Bhz-xF-gm4">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="53.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-RE-jNr">
-                                            <rect key="frame" x="20" y="11" width="334" height="31.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeated" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJb-0H-Arr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="31.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R95-xZ-CID">
-                                                    <rect key="frame" x="285" y="0.0" width="51" height="31.5"/>
-                                                    <connections>
-                                                        <action selector="repeatedPresed:" destination="sqE-3l-leW" eventType="valueChanged" id="Xiy-cU-Caz"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Jsy-RE-jNr" firstAttribute="top" secondItem="Bhz-xF-gm4" secondAttribute="topMargin" id="9d6-WW-E6b"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Jsy-RE-jNr" secondAttribute="trailing" id="eNb-wU-5DX"/>
-                                        <constraint firstItem="Jsy-RE-jNr" firstAttribute="leading" secondItem="Bhz-xF-gm4" secondAttribute="leadingMargin" id="qPe-Pq-ImR"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Jsy-RE-jNr" secondAttribute="bottom" id="ykH-v5-Qnc"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="LtHSwitch" destination="R95-xZ-CID" id="JZz-gR-796"/>
+                                    <outlet property="LtHSwitch" destination="L5l-42-a2x" id="rzV-xR-IF5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -346,24 +309,12 @@
                                 <segue destination="H2t-9c-dX6" kind="unwind" identifier="cancelIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="TzW-19-1T3"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" systemItem="done" id="DAk-q1-TDe">
-                                <connections>
-                                    <action selector="donePressed:" destination="sqE-3l-leW" id="V9X-G0-jcf"/>
-                                    <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="1O5-f7-eb3"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" systemItem="refresh" id="zU8-cj-odj">
-                                <connections>
-                                    <action selector="clearPressed:" destination="sqE-3l-leW" id="tjO-wQ-Sr2"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="DAk-q1-TDe">
+                            <connections>
+                                <segue destination="H2t-9c-dX6" kind="unwind" identifier="doneIdentifier" unwindAction="unwindtoTransactionListDoneWithSender:" id="1O5-f7-eb3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="clearBtn" destination="zU8-cj-odj" id="Fqv-rh-AcU"/>
-                        <outlet property="doneBtn" destination="DAk-q1-TDe" id="4bc-0m-FzR"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUQ-HM-VrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="H2t-9c-dX6" userLabel="Exit" sceneMemberID="exit"/>
