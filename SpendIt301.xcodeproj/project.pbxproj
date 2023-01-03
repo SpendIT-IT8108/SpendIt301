@@ -106,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BC4EBD92964955500F7365B /* Transaction List */ = {
+			isa = PBXGroup;
+			children = (
+				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
+				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
+				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
+			);
+			path = "Transaction List";
+			sourceTree = "<group>";
+		};
 		210651D0296328F60047CE7B /* Overview  */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,11 +136,9 @@
 				2601B05529636E810045F9BC /* userSetupPVC.swift */,
 				21687277296337D800F4FF0A /* Settings */,
 				210651D0296328F60047CE7B /* Overview  */,
-				0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */,
-				0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */,
 				0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */,
+				0BC4EBD92964955500F7365B /* Transaction List */,
 				0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */,
-				0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */,
 				36A52D502964451C00E4EFE3 /* Transaction Details */,
 				0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */,
 				0BF0975729536A56000CC354 /* Transaction.swift */,
