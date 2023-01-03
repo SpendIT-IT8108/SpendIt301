@@ -112,7 +112,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             //content configuration
             var content = cell.defaultContentConfiguration()
             content.text = category.name
-            content.image = category.icon
+            content.image = category.icon?.image
             cell.contentConfiguration = content
             cell.showsReorderControl = true
           
@@ -150,6 +150,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             //delete row
             if editingStyle == .delete {
                 deleteShowAlert(indexPath: indexPath)
+               
             }
         }
     
@@ -163,14 +164,18 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             if self.searchController.isActive{
                 self.categories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                Category.saveCategories(self.categories)
+                
                
             } else if self.searchController.searchBar.selectedScopeButtonIndex==1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
                 self.filteredCategories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                Category.saveCategories(self.categories)
             }
             else{
                 self.categories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                Category.saveCategories(self.categories)
             }
             
         }
@@ -255,6 +260,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             categories.append(category)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
+        Category.saveCategories(categories)
         
         
     }

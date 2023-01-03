@@ -23,7 +23,7 @@ class TransactionTableViewCell: UITableViewCell {
             transactionAmountLable.textColor=UIColor.systemGreen
             transactionAmountLable.text=("+ \(String(transaction.amount))")
         }
-        categorySymbolLable.image=transaction.category.icon
+        categorySymbolLable.image=transaction.category.icon?.image
             transactionNameLable.text=transaction.name   }
     override func awakeFromNib() {
         super.awakeFromNib()

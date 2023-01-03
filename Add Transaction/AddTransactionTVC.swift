@@ -87,7 +87,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         if let transaction = self.transaction {
             navigationBar.title = "Edit Transaction"
             category = transaction.category
-            symbolImageView.image = category?.icon
+            symbolImageView.image = category?.icon?.image
             amountTextField.text = String(format: "%.2f", transaction.amount)
             titleTextField.text = transaction.name
             transactionDate.date = transaction.date
@@ -157,7 +157,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             navigationBar.title = "Add Transaction"
             category = Category.loadSampleCategories().first
             categoryNameTextField.text = self.category?.name
-            symbolImageView.image = self.category?.icon
+            symbolImageView.image = self.category?.icon?.image
         }
         
         updateSaveButton()
@@ -409,7 +409,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         //assign the category object recieved from the ChooseCategoryTVC to the current category
         self.category = sourceViewController.category
         categoryNameTextField.text = self.category?.name
-        symbolImageView.image = category?.icon
+        symbolImageView.image = category?.icon?.image
     }
     
     //collect data from fields and prepare for saving

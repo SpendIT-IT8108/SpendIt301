@@ -6,25 +6,24 @@
 //
 import Foundation
 import UIKit
-struct Category: Equatable {
-    let id = UUID()
+struct Category: Equatable,Codable {
+    let id :UUID
     var name:String
     var symbol:String
     var spendingLimit:Float?
     var type: String
-    var icon:UIImage?
+    var icon:CodableImage?
     
     
     
     init(name:String, symbol:String, spendingLimit:Float?, type:String) {
-      
+        self.id = UUID()
         self.name = name
         self.symbol = symbol
         self.spendingLimit = spendingLimit
         self.type = type
         self.icon = generateImageWithText(text: symbol)
  
-        
     }
     
     
@@ -36,7 +35,9 @@ struct Category: Equatable {
 
     //load categories available
     static func loadCategories() -> [Category]? {
-        return nil
+        guard let codedCategories = try? Data(contentsOf: archiveURL) else {return nil}
+        let propertyListDecoder = PropertyListDecoder()
+        return try? propertyListDecoder.decode(Array<Category>.self, from: codedCategories)
     }
     
     //load sampple categories from
@@ -66,7 +67,8 @@ struct Category: Equatable {
         return categories
     }
     
-    func generateImageWithText(text: String) -> UIImage? {
+    //generate icon with symbol
+    func generateImageWithText(text: String) -> CodableImage? {
 
     var image:UIImage
     if self.type == "Expense" {
@@ -91,8 +93,20 @@ struct Category: Equatable {
         let imageWithText = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return imageWithText
+        return CodableImage(imageWithText!)
     }
+    
+    
+    
+    static let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentDirectory.appendingPathComponent("Categories").appendingPathExtension("plist")
+    
+    static func saveCategories(_ categories:[Category]){
+         let propertListEncoder = PropertyListEncoder()
+         let codedCategories = try? propertListEncoder.encode(categories)
+         try? codedCategories?.write(to: Category.archiveURL, options: .noFileProtection)
+     }
+     
 
   
 }
