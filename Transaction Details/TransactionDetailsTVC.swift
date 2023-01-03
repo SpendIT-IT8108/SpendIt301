@@ -66,7 +66,7 @@ class TransactionDetailsTVC: UITableViewController {
             repeatLabel.text = "Never"
         }
         if let attachment = transaction.attachment {
-            attachmentImageView.image = attachment
+            attachmentImageView.image = attachment.image
         }
     }
 

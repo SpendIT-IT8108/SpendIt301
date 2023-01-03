@@ -40,12 +40,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
        //transactions
-        if let saveTransaction=Transaction.loadTransaction(){
-            transactions=saveTransaction
-
-        }else{
-            transactions=Transaction.loadSampleTransacion()
-        }
+       transactions=Transaction.loadTransactions()
+        
         searchedItem=transactions
     }
   
@@ -181,6 +177,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             transactions.append(transaction)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
+        Transaction.saveTransactions(transactions)
+
        
     }
 

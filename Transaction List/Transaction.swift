@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Transaction: Equatable{
+struct Transaction: Equatable, Codable{
     var id = UUID()
     var name: String
     var amount: Double
@@ -19,7 +19,7 @@ struct Transaction: Equatable{
     var repeatFrom : Date?
     var repeatUntil : Date?
     var note: String?
-    var attachment : UIImage?
+    var attachment : CodableImage?
     
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
         return lhs.id == rhs.id
@@ -35,11 +35,35 @@ struct Transaction: Equatable{
         self.repeatFrom = repeatFrom
         self.repeatUntil = repeatUntil
         self.note = note
-        self.attachment = attachment
+        if let attachment = attachment {
+            self.attachment = CodableImage(attachment)
+        } else {
+            self.attachment = nil
+        }
+        
     }
     
-    static func loadTransaction()->[Transaction]?{
-        return nil
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL  = documentsDirectory.appendingPathComponent("Transactions").appendingPathExtension("plist")
+    
+    static func saveTransactions(_ transactions: [Transaction]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedTransactions = try? propertyListEncoder.encode(transactions)
+        
+        try? encodedTransactions?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    static func loadTransactions() -> [Transaction] {
+        var transactions : [Transaction] = []
+        let propertyListDecoder = PropertyListDecoder()
+        if let retreivedTransactionsData = try? Data(contentsOf: archiveURL), let decodedTransactions = try? propertyListDecoder.decode(Array<Transaction>.self, from: retreivedTransactionsData) {
+            transactions = decodedTransactions
+        }
+        else {
+            transactions = loadSampleTransacion()
+        }
+        return transactions
+        
     }
     
     static func loadSampleTransacion()-> [Transaction]{

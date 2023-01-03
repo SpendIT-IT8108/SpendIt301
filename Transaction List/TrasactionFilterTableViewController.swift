@@ -23,14 +23,9 @@ class TrasactionFilterTableViewController: UITableViewController {
         super.viewDidLoad()
         doneBtn.isEnabled=false
         clearBtn.isEnabled=true
-        if let saveTransaction=Transaction.loadTransaction(){
-//            filteredTransactions=saveTransaction
-            transactions=saveTransaction
+//      filteredTransactions=saveTransaction
+        transactions=Transaction.loadTransactions()
 
-        }else{
-            transactions=Transaction.loadSampleTransacion()
-          
-        }
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

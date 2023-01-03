@@ -43,12 +43,8 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         collectionView.delegate=self
         collectionView.dataSource=self
         
-        if let saveTransaction=Transaction.loadTransaction(){
-            transactions=saveTransaction
-
-        }else{
-            transactions=Transaction.loadSampleTransacion()
-        }
+        transactions = Transaction.loadTransactions()
+        
         
         if let saveCategory=Category.loadCategories(){
             catogries=saveCategory
