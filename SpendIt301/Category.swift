@@ -35,12 +35,20 @@ struct Category: Equatable,Codable {
 
     //load categories available
     static func loadCategories() -> [Category]? {
-        guard let codedCategories = try? Data(contentsOf: archiveURL) else {return nil}
+        var categories:[Category] = []
         let propertyListDecoder = PropertyListDecoder()
-        return try? propertyListDecoder.decode(Array<Category>.self, from: codedCategories)
+        
+        if let retreviedCategoriesData = try? Data(contentsOf: archiveURL), let decodedCategories = try? propertyListDecoder.decode(Array<Category>.self, from: retreviedCategoriesData) {
+            categories = decodedCategories
+        }else{
+            categories = loadSampleCategories()
+        }
+        return categories
+        
+        
     }
     
-    //load sampple categories from
+    //load sample categories from
     static func loadSampleCategories() -> [Category]{
         
         let categories:[Category] =

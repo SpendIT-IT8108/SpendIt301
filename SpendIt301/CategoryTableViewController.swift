@@ -23,12 +23,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             super.viewDidLoad()
          
             //load categories
-            if let savedCategories = Category.loadCategories() {
-                categories = savedCategories
-            } else {
-                categories = Category.loadSampleCategories()
-            }
-            
+            categories = Category.loadCategories()!
             
            navigationItem.leftBarButtonItem = editButtonItem
             
