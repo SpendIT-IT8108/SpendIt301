@@ -8,91 +8,79 @@
 import UIKit
 
 class TrasactionFilterTableViewController: UITableViewController {
-  //  @IBOutlet weak var doneButton: UIBarButtonItem!
-//    @IBOutlet weak var cancelButton: UIBarButtonItem!
+ 
     var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
-//    @IBOutlet weak var LtHLable: UILabel!
-
-//    @IBOutlet weak var HtLLable: UILabel!
-//    @IBOutlet weak var CollectionViewCell: UICollectionView!
-    let price = ["high to low", "low to high"]
-//
-//    @IBAction func HtLPressed(_ sender: UISwitch) {
-//        if sender.isOn {
-//                   //low to high
-//           // HtLSwitch.setOn( false, animated: true)
-//              filteredTransactions = transactions.sorted {
-//                   $0.amount > $1.amount
-//               }
-//
-//               }
-//    }
+    var HtLSwitchOutlet: UISwitch!
+    var LtHSwitchOutlet: UISwitch!
+    var repeated: UISwitch!
+    
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
+    @IBOutlet weak var clearBtn: UIBarButtonItem!
     
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        doneBtn.isEnabled=false
+        clearBtn.isEnabled=true
         if let saveTransaction=Transaction.loadTransaction(){
+//            filteredTransactions=saveTransaction
             transactions=saveTransaction
 
         }else{
             transactions=Transaction.loadSampleTransacion()
+          
         }
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //var cat: Category
-     //   let categories=[Category]()
-       
-
         if indexPath.section == 0 {
-//            var filteredCateegory: [[Category]] = Category.loadSampleCategories()
-//           let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! FilterCatTableViewCell
-//            //let symbol = categories
-// cell.catLbl?.text = filteredCateegory[indexPath.section][indexPath.row].symbol
+
     let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! FilterCatTableViewCell
-//            cell.collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionViewCell
-//            cell.catLbl?.text = cell.filteredCateegory[indexPath.section][indexPath.row].symbol
-            // cell.catLbl?.text = filteredCateegory[indexPath.section][indexPath.row].symbol
+
             return cell
     
         }
-        else if indexPath.row == 1{
-           
-            let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath)
-            
-           
+else if indexPath.row == 0 {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sortCell", for: indexPath) as! SortPriceTableViewCell
+
+      HtLSwitchOutlet=cell.HtLSwitch!
+  
 
             return cell
-        } else {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath)
-            
+        }
+        else if indexPath.row == 1 {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "LtHCell", for: indexPath) as! SortPriceTableViewCell
+                LtHSwitchOutlet=cell.LtHSwitch!
             return cell
         }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "repeatedCell", for: indexPath) as! SortPriceTableViewCell
+            repeated=cell.repeatedSwitch
+            return cell
+        }
+       
+
         
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else{
-            return 2
+            return 3
             
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let toTransactions = segue.destination as? TransactionTableViewController{
-            toTransactions.transactions=filteredTransactions
-            toTransactions.searchController.searchBar.selectedScopeButtonIndex=0
-        }
                 
-        }
+        
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            if indexPath.section == 0 {
                   return 80
@@ -109,80 +97,126 @@ class TrasactionFilterTableViewController: UITableViewController {
                return "Filter by Price"
            }
        }
-    
 
-//    @IBAction func switchPressedLtH(_ sender: UISwitch) {
-//        if sender.isOn {
-//                //low to high
-//           filterSwitch.setOn( false, animated: true)
-//           filteredTransactions = transactions.sorted {
-//                $0.amount < $1.amount
-//            }
-//
-//            }
-//    }
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let toTransactions = segue.destination as? TransactionTableViewController{
+        toTransactions.transactions=filteredTransactions
+        toTransactions.searchController.searchBar.selectedScopeButtonIndex=0
+    }
+}
 
-//    @IBAction func cancelButtonPressed(_ sender: Any) {
-//
-//
-//    }
-    // notification>>
-//    func scheduleNotifications(){
-//        // if notification when (+) button is pressed, if not just add in viewdidload()
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-//            if granted{
-//                // scheduleNotifications()
-//            }
-//           
-//        }
-//        
-//        
-//        UNUserNotificationCenter.current().getNotificationSettings{(settings) in
-//            if settings.authorizationStatus == .authorized{
-//                let content = UNMutableNotificationContent()
-//                    content.title="Spend It"
-//                    content.subtitle="Have you recorded your spending today?💲"
-//                    content.sound = .default
-//    
-//                var date = DateComponents()
-//                date.calendar = Calendar.current
-//                date.hour = 19 //everyday @7pm aka 19
-//                date.minute = 0
-//                //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(60), repeats: true)
-//                let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-//                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//                UNUserNotificationCenter.current().add(request)
-//            
-//                }
-//            }
-//    }
-    
-
-    
     
     @IBAction func LtHSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
-            
+            HtLSwitchOutlet.setOn(false, animated: true)
+            doneBtn.isEnabled=true
+            clearBtn.isEnabled=true
             filteredTransactions = transactions.sorted {
               $0.amount < $1.amount
+               
             }
       
-            }
+        } else{
+            doneBtn.isEnabled=false
+           
+        }
     }
     
     
-    @IBAction func switchPressed(_ sender: UISwitch) {
-        if sender.isOn {
-            //LtHSwith.setOn( false, animated: true)
-           // high to low
-            filteredTransactions = transactions.sorted {
-              $0.amount > $1.amount
-            }
-      
+    @IBAction func HtLSwitch(_ sender: UISwitch) {
+        
+            if sender.isOn {
+                LtHSwitchOutlet.setOn(false, animated: true)
+             doneBtn.isEnabled=true
+                clearBtn.isEnabled=true
+                filteredTransactions = transactions.sorted {
+                  $0.amount > $1.amount
+                }
+          
+            } else{
+                doneBtn.isEnabled=false
+               
             }
 
     }
     
+    @IBAction func repeatedPresed(_ sender: UISwitch) {
+        if sender.isOn{
+            doneBtn.isEnabled=true
+        filteredTransactions = transactions.filter(
+              {item in
+                  item.repeated==true
+              })
+        } else{
+            doneBtn.isEnabled=false
+        }
+        
+    }
+    
+    @IBAction func categoryPressed(_ sender: UIButton) {
+        var catTrans: [Transaction]
+        
+        var countClickedButtons = 0
+         //shows button's selected
+        
+        if sender.isSelected {
+                 countClickedButtons -= 1     // It will be deselected
+           
 
+             }
+                else {
+                 countClickedButtons += 1    // It will be selected
+                 doneBtn.isEnabled=true
+                  //choose transactions based on selected category
+                    catTrans = transactions.filter(
+                      {item in
+                          item.category.name.localizedStandardContains(sender.currentTitle!)
+                      })
+                    //placing the transaction in an array if the selected item is different
+                    if filteredTransactions.contains(where: { item in
+                        item.category.name.localizedStandardContains(sender.currentTitle!)
+                    }) == false
+                    {
+                        filteredTransactions = filteredTransactions + catTrans
+                    }                    
+                    
+                  // if selected catogory has no transactions
+                  if filteredTransactions.isEmpty {
+                      // sending alert to user explaining the issue
+                      let alert = UIAlertController(title: "Category is empty", message: "There is no transactions with \(sender.currentTitle!) category", preferredStyle: .alert)
+                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                     present(alert, animated: true) {
+                         //deselecting
+                         sender.isSelected = !sender.isSelected
+                     }
+                      filteredTransactions = transactions
+                  }
+                  else{
+          //            doneBtn.isEnabled=true
+                      clearBtn.isEnabled=true
+                     
+                  }
+                
+                      
+
+          }
+             sender.isSelected = !sender.isSelected
+        
+
+          
+         
+     }
+    
+    
+    @IBAction func clearPressed(_ sender: UIButton) {
+        filteredTransactions=transactions
+                HtLSwitchOutlet.setOn(false, animated: true)
+                LtHSwitchOutlet.setOn(false, animated: true)
+                    repeated.setOn(false, animated: true)
+        doneBtn.isEnabled = true
+               
+               
+    }
+    
 }

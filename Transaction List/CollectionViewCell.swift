@@ -9,8 +9,16 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var catogryIcon: UIButton!
-    @IBOutlet weak var catogryName: UILabel!
+    
+   
+    override func prepareForReuse() {
+           super.prepareForReuse()
+
+           // reset
+        catogryIcon.isSelected = false
+        catogryIcon.isHighlighted = false
+
+       }
 
 }
