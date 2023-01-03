@@ -53,7 +53,7 @@ struct Transaction: Equatable, Codable{
         try? encodedTransactions?.write(to: archiveURL, options: .noFileProtection)
     }
     
-    static func loadTransactions()->[Transaction]?{
+    static func loadTransactions() -> [Transaction] {
         var transactions : [Transaction] = []
         let propertyListDecoder = PropertyListDecoder()
         if let retreivedTransactionsData = try? Data(contentsOf: archiveURL), let decodedTransactions = try? propertyListDecoder.decode(Array<Transaction>.self, from: retreivedTransactionsData) {
