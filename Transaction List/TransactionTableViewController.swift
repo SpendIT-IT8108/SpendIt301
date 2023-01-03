@@ -37,7 +37,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchResultsUpdater=self
         searchController.searchBar.delegate=self
         searchController.searchBar.placeholder="Transaction Name"
-        searchController.searchBar.scopeButtonTitles = ["All", "Expenses", "Incomes"]
+        searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
        //transactions
         if let saveTransaction=Transaction.loadTransaction(){
