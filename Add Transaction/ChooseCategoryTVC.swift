@@ -15,7 +15,6 @@ class ChooseCategoryTVC: UITableViewController {
     //SELECTED CATEGORY
     var type : String
     var category : Category?
-    var symbolImage : UIImage?
     
     init?(coder: NSCoder, type: String){
         self.type = type
@@ -34,6 +33,8 @@ class ChooseCategoryTVC: UITableViewController {
             }
         }
         
+        self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0);
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -73,10 +74,16 @@ class ChooseCategoryTVC: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        category = categories[indexPath.row]
+        performSegue(withIdentifier: "DoneUnwind", sender: self)
+    }
+    /*
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //get the selected category object from the category array and assign to the category instance
         category = categories[indexPath.row]
     }
+     */
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -93,7 +100,7 @@ class ChooseCategoryTVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

@@ -171,21 +171,17 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue){
-        
-        if segue.identifier == "saveUnwind",
-           let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction {
-            //if editied, update the row
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                transactions[selectedIndexPath.row] = transaction
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            }
-            //if added, add new row
-            else {
-                let newIndexPath = IndexPath(row: transactions.count, section: 0)
-                transactions.append(transaction)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
+        guard segue.identifier == "saveUnwind", let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction else {return}
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            transactions[selectedIndexPath.row] = transaction
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
         }
+        else {
+            let newIndexPath = IndexPath(row: transactions.count, section: 0)
+            transactions.append(transaction)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+       
     }
 
 }
