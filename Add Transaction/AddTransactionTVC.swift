@@ -449,6 +449,8 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
                 if granted{
                     self.scheduleNotifications()
+                    self.checkingLimit()
+
                 }
                 
             }
@@ -476,6 +478,45 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 
             }
         }
+    }
+    func checkingLimit(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+      if granted{
+          var count = Double(self.amountTextField.text!)
+          let name = self.category!.name
+        let trans =  Transaction.loadSampleTransacion().filter({
+              item in
+              item.category.name.localizedStandardContains(name)
+          })
+          trans.forEach({
+              item in
+              count = count! + item.amount
+          })
+          
+          if let countLimit = self.category?.spendingLimit{
+              
+              if count! > (Double)(countLimit)
+              {
+                  UNUserNotificationCenter.current().getNotificationSettings{(settings) in
+                      if settings.authorizationStatus == .authorized{
+                          let content = UNMutableNotificationContent()
+                          content.title="You have reached \(self.category!.name)'s limit 🤑"
+                              content.sound = .default
+
+
+                          let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(5), repeats: false)
+                          let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                          UNUserNotificationCenter.current().add(request)
+                      
+                          }
+                      }
+              }
+             
+          } 
+           
+        }
+          }
+          
     }
 }
 
