@@ -19,7 +19,11 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         let searchController = UISearchController()
         var scopebuttonPressed = false;
       
-        override func viewDidLoad() {
+  
+    
+    
+    
+    override func viewDidLoad() {
             super.viewDidLoad()
          
             //load categories
@@ -42,7 +46,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             
     
             filteredCategories = categories
-            populateMenu()
+           // populateMenu()
 
 
           
@@ -212,7 +216,37 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         
     }
     
+    @IBOutlet weak var sortButton: UIButton!
     
+    @IBAction func sortButtonClicked(_ sender: Any) {
+        populateButton()
+    }
+    //populate pop up button with actions
+    func populateButton(){
+        //sort A-Z
+        sortButton.menu = UIMenu(children : [
+            UIAction(title:"Sort A-Z", state: .on, handler: { action in
+                self.categories.sort(by: {$0.name < $1.name})
+                self.searchController.searchBar.selectedScopeButtonIndex = 0
+                self.tableView.reloadData()
+              }),
+            //sort Z-A
+            UIAction(title:"Sort Z-A", state: .on, handler: { action in
+                self.categories.sort(by: {$0.name > $1.name})
+                self.searchController.searchBar.selectedScopeButtonIndex = 0
+                self.tableView.reloadData()
+               
+                
+            }),
+           ])
+            sortButton.showsMenuAsPrimaryAction = true
+        
+            sortButton.changesSelectionAsPrimaryAction = true
+        
+       
+    }
+    
+  
     //add edit
     @IBSegueAction func addEditCategory(_ coder: NSCoder, sender: Any?) -> AddEditCategoryTableViewController? {
         var categoryToEdit:Category
