@@ -11,6 +11,8 @@ class TrasactionFilterTableViewController: UITableViewController {
  
     var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
+    var catTrans: [Transaction] = []
+    var catBtn: UIButton!
     var HtLSwitchOutlet: UISwitch!
     var LtHSwitchOutlet: UISwitch!
     var repeated: UISwitch!
@@ -107,11 +109,18 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             HtLSwitchOutlet.setOn(false, animated: true)
             doneBtn.isEnabled=true
             clearBtn.isEnabled=true
-            filteredTransactions = transactions.sorted {
-              $0.amount < $1.amount
-               
+            
+            if catTrans.isEmpty {
+                filteredTransactions = transactions.sorted {
+                  $0.amount < $1.amount
             }
-      
+            }
+            else {
+            filteredTransactions = catTrans.sorted {
+              $0.amount < $1.amount
+               }
+            }
+            
         } else{
             doneBtn.isEnabled=false
            
@@ -125,10 +134,17 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 LtHSwitchOutlet.setOn(false, animated: true)
              doneBtn.isEnabled=true
                 clearBtn.isEnabled=true
-                filteredTransactions = transactions.sorted {
+                if catTrans.isEmpty {
+                    filteredTransactions = transactions.sorted {
+                      $0.amount > $1.amount
+                }
+                }
+                else{
+
+                filteredTransactions = catTrans.sorted {
                   $0.amount > $1.amount
                 }
-          
+                }
             } else{
                 doneBtn.isEnabled=false
                
@@ -139,19 +155,27 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     @IBAction func repeatedPresed(_ sender: UISwitch) {
         if sender.isOn{
             doneBtn.isEnabled=true
-        filteredTransactions = transactions.filter(
-              {item in
-                  item.repeated==true
-              })
-        } else{
+            
+            if catTrans.isEmpty {
+                filteredTransactions = transactions.filter (
+                    {item in item.repeated==true})
+            }
+            else {
+
+        filteredTransactions = catTrans.filter(
+              {item in item.repeated==true})
+                
+            }
+        }
+        else{
             doneBtn.isEnabled=false
         }
         
     }
-    
+
     @IBAction func categoryPressed(_ sender: UIButton) {
-        var catTrans: [Transaction]
-        
+//        var catTrans: [Transaction]
+        catBtn = sender
         var countClickedButtons = 0
          //shows button's selected
         
@@ -177,15 +201,16 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                     }                    
                     
                   // if selected catogory has no transactions
-                  if filteredTransactions.isEmpty {
+                  if catTrans.isEmpty {
                       // sending alert to user explaining the issue
                       let alert = UIAlertController(title: "Category is empty", message: "There is no transactions with \(sender.currentTitle!) category", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                      present(alert, animated: true) {
                          //deselecting
-                         sender.isSelected = !sender.isSelected
+                         self.catBtn.isSelected = !self.catBtn.isSelected
                      }
-                      filteredTransactions = transactions
+//                      filteredTransactions = transactions
+                    
                   }
                   else{
           //            doneBtn.isEnabled=true
@@ -196,21 +221,25 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                       
 
           }
-             sender.isSelected = !sender.isSelected
+        catBtn.isSelected = !catBtn.isSelected
         
 
-          
          
      }
     
     
     @IBAction func clearPressed(_ sender: UIButton) {
+        //clearing the filtered array
         filteredTransactions=transactions
+        catTrans=transactions
+        //switching of the buttons ans switches
                 HtLSwitchOutlet.setOn(false, animated: true)
                 LtHSwitchOutlet.setOn(false, animated: true)
-                    repeated.setOn(false, animated: true)
-        doneBtn.isEnabled = true
-               
+                repeated.setOn(false, animated: true)
+                doneBtn.isEnabled = true
+        if let catoegoryButton = catBtn{
+            catoegoryButton.isSelected = !catoegoryButton.isSelected
+        }
                
     }
     
