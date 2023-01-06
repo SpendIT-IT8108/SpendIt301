@@ -10,7 +10,7 @@ import UIKit
 class ChooseCategoryTVC: UITableViewController {
 
     //categories to be displayed in the list
-    var categories : [Category] = []
+    var categories : [Category] = Category.loadCategories()!
     
     //SELECTED CATEGORY
     var type : String
@@ -27,7 +27,7 @@ class ChooseCategoryTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for cat in Category.loadSampleCategories() {
+        for cat in categories {
             if cat.type == type {
                 categories.append(cat)
             }
