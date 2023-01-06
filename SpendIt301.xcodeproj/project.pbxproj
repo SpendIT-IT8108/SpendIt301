@@ -47,6 +47,7 @@
 		CD8973F629543C740030075F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8973F529543C740030075F /* Category.swift */; };
 		CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8973F729543CBC0030075F /* CategoryTableViewController.swift */; };
 		CDE4A5FD2964C68400D7D7CE /* CodableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4A5FC2964C68400D7D7CE /* CodableImage.swift */; };
+		CDE4A605296886AB00D7D7CE /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE4A604296886AB00D7D7CE /* CHCSVParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,9 @@
 		CD8973F529543C740030075F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CD8973F729543CBC0030075F /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		CDE4A5FC2964C68400D7D7CE /* CodableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableImage.swift; sourceTree = "<group>"; };
+		CDE4A602296886AA00D7D7CE /* SpendIt301-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpendIt301-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDE4A603296886AB00D7D7CE /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		CDE4A604296886AB00D7D7CE /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,9 @@
 				CD8973F529543C740030075F /* Category.swift */,
 				CD8973F729543CBC0030075F /* CategoryTableViewController.swift */,
 				CD06402D295C386F0084A17B /* AddEditCategoryTableViewController.swift */,
+				CDE4A603296886AB00D7D7CE /* CHCSVParser.h */,
+				CDE4A604296886AB00D7D7CE /* CHCSVParser.m */,
+				CDE4A602296886AA00D7D7CE /* SpendIt301-Bridging-Header.h */,
 			);
 			path = SpendIt301;
 			sourceTree = "<group>";
@@ -264,6 +271,7 @@
 				TargetAttributes = {
 					2130B02B294AEBEB001EC43C = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -360,6 +368,7 @@
 				0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */,
 				21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */,
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
+				CDE4A605296886AB00D7D7CE /* CHCSVParser.m in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
 				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
 				0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */,
@@ -558,11 +567,13 @@
 			baseConfigurationReference = 357C3171B533C475835C844D /* Pods-SpendIt301.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HG84WPP7B7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpendIt301/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -578,6 +589,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bh.polytechnic.SpendIt301;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SpendIt301/SpendIt301-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -588,11 +601,13 @@
 			baseConfigurationReference = 8662D7007597A717A661E864 /* Pods-SpendIt301.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HG84WPP7B7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpendIt301/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -608,6 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bh.polytechnic.SpendIt301;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SpendIt301/SpendIt301-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

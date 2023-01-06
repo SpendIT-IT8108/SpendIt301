@@ -23,6 +23,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     let emailIndexPath = IndexPath(row: 4, section: 1)
     let guideIndexPath = IndexPath(row: 5, section: 1)
     let aboutUsIndexPath = IndexPath(row: 6, section: 1)
+    let exportToCsvPath = IndexPath(row: 0, section: 2)
     
 
     
@@ -48,6 +49,80 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)        //present mail composer
             present(mailComposer, animated: true, completion: nil)
 
+        }
+        
+        
+        if indexPath == exportToCsvPath {
+            //stream data to memory
+            let output = OutputStream.toMemory()
+            //csv writer
+            let csvWriter = CHCSVWriter(outputStream: output, encoding: String.Encoding.utf8.rawValue, delimiter: ",".utf16.first!)
+            //file name
+            let sFileName = "transactions.csv"
+            //documet directory path
+            let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) [0] as String
+            
+            let documentURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(sFileName)
+            
+            //create csv file
+            //header for csv writer
+            csvWriter?.writeField("Transaction Name")
+            csvWriter?.writeField("Transaction Amount")
+            csvWriter?.writeField("Transaction Category")
+            csvWriter?.writeField("Repeated")
+            csvWriter?.writeField("Repeating interval")
+            csvWriter?.writeField("Repeating From")
+            csvWriter?.writeField("Repeating Until")
+            csvWriter?.writeField("Transaction Note")
+            //new row
+            csvWriter?.finishLine()
+            
+            
+            //array of transactions
+            let arrayOfTransactions = Transaction.loadTransactions()
+            
+            for transaction in arrayOfTransactions {
+                //name
+                csvWriter?.writeField(transaction.name)
+                //amount
+                csvWriter?.writeField(transaction.amount)
+                //category
+                csvWriter?.writeField(transaction.category.name + transaction.category.symbol)
+                //repated
+                if transaction.repeated == true {
+                    csvWriter?.writeField("yes")
+                }else{
+                    csvWriter?.writeField("no")
+                }
+                //from //until
+                csvWriter?.writeField(transaction.repeatFrom)
+                csvWriter?.writeField(transaction.repeatUntil)
+                //note
+                csvWriter?.writeField(transaction.note)
+
+                csvWriter?.finishLine()
+            }
+            
+            csvWriter?.closeStream()
+            
+            //save to file
+            let buffer = (output.property(forKey: .dataWrittenToMemoryStreamKey) as? Data)!
+            do {
+                try buffer.write(to: documentURL)
+            }catch{
+                
+            }
+            // create the alert
+                    let alert = UIAlertController(title: "", message: " SpendIt Would you like to acceess your files app", preferredStyle: UIAlertController.Style.alert)
+
+                    // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Allow", style: UIAlertAction.Style.default, handler: {action in self.openSharedFilesApp()}))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
+            
+            
         }
     }
     
@@ -86,6 +161,18 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     
     @IBAction func notificationSwitchHasChanged(_ sender: UISwitch) {
     }
+    
+    func openSharedFilesApp() {
+       
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let sharedurl = documentsUrl.absoluteString.replacingOccurrences(of: "file://", with: "shareddocuments://")
+        let furl:URL = URL(string: sharedurl)!
+        if UIApplication.shared.canOpenURL(furl) {
+            UIApplication.shared.open(furl, options: [:])
+        }
+    }
+    
+    
     
     
 
