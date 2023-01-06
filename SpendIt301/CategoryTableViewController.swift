@@ -42,7 +42,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             
     
             filteredCategories = categories
-            
+            populateMenu()
 
 
           
@@ -259,6 +259,33 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         
         
     }
+    
+    
+    func populateMenu(){
+    navigationItem.leftBarButtonItem = .init(systemItem: .edit)
+        navigationItem.leftBarButtonItem!.menu = UIMenu(children : [
+        UIAction(title:"Sort A-Z", state: .on, handler: { action in
+            self.categories.sort(by: {$0.name < $1.name})
+            self.tableView.reloadData()
+        }),
+        UIAction(title:"Sort Z-A", state: .on, handler: { action in
+            self.categories.sort(by: {$0.name > $1.name})
+            self.tableView.reloadData()
+            
+        }),
+        UIAction(title:"Default", state: .on, handler: { action in
+            self.filteredCategories = self.categories
+            self.tableView.reloadData()
+            
+        } )])
+        navigationItem.leftBarButtonItem?.changesSelectionAsPrimaryAction = true
+       // navigationItem.leftBarButtonItem.showsMenuAsPrimaryAction = true
+    }
+    
+    
+    
+    
+    
 
         /*
         // Override to support conditional rearranging of the table view.
