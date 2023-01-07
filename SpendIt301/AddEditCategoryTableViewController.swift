@@ -119,7 +119,7 @@
         }
         func showDiscardAlert(){
             // create the alert
-            let alert = UIAlertController(title: "Discard Changes", message: "Are you sure you want to discard changes?.", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Discard Changes", message: "Are you sure you want to discard changes that you have made?", preferredStyle: UIAlertController.Style.alert)
 
                     // add an action (button)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))

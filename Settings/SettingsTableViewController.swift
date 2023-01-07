@@ -67,6 +67,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             //create csv file
             //header for csv writer
             csvWriter?.writeField("Transaction Name")
+            csvWriter?.writeField("Transaction Type")
             csvWriter?.writeField("Transaction Amount")
             csvWriter?.writeField("Transaction Category")
             csvWriter?.writeField("Repeated")
@@ -84,8 +85,16 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             for transaction in arrayOfTransactions {
                 //name
                 csvWriter?.writeField(transaction.name)
-                //amount
-                csvWriter?.writeField(transaction.amount)
+                
+                //Type and amount (based on transaction's category type)
+                if transaction.category.type == "Expense"{
+                    csvWriter?.writeField("Expense")
+                    csvWriter?.writeField("- \(transaction.amount)")
+                }else{
+                    csvWriter?.writeField("Income")
+                    csvWriter?.writeField(transaction.amount)
+                }
+               
                 //category
                 csvWriter?.writeField(transaction.category.name + transaction.category.symbol)
                 //repated
@@ -95,6 +104,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                     csvWriter?.writeField("no")
                 }
                 //from //until
+                csvWriter?.writeField(transaction.repeatingInterval)
                 csvWriter?.writeField(transaction.repeatFrom)
                 csvWriter?.writeField(transaction.repeatUntil)
                 //note
@@ -113,7 +123,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                 
             }
             // create the alert
-                    let alert = UIAlertController(title: "", message: " SpendIt Would you like to acceess your files app", preferredStyle: UIAlertController.Style.alert)
+                    let alert = UIAlertController(title: "SpendIt Would you like to acceess your files app", message: "Allow access to files to preview your csv file", preferredStyle: UIAlertController.Style.alert)
 
                     // add the actions (buttons)
             alert.addAction(UIAlertAction(title: "Allow", style: UIAlertAction.Style.default, handler: {action in self.openSharedFilesApp()}))
