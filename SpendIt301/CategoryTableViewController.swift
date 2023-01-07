@@ -19,9 +19,6 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         let searchController = UISearchController()
         var scopebuttonPressed = false;
       
-  
-    
-    
     
     override func viewDidLoad() {
             super.viewDidLoad()
@@ -112,6 +109,14 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             var content = cell.defaultContentConfiguration()
             content.text = category.name
             content.image = category.icon?.image
+            var count = 0
+           
+            for categoryTransactions in Transaction.loadTransactions() {
+                if categoryTransactions.category.name == category.name {
+                    count += 1
+                }
+                content.secondaryText = String(count) + " Transactions"
+            }
             cell.contentConfiguration = content
             cell.showsReorderControl = true
           
@@ -188,6 +193,13 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
     }
     
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.categories[sourceIndexPath.row]
+        categories.remove(at: sourceIndexPath.row)
+        categories.insert(movedObject, at: destinationIndexPath.row)
+    }
+    
+    
     
     
  
@@ -235,13 +247,22 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
                 self.categories.sort(by: {$0.name > $1.name})
                 self.searchController.searchBar.selectedScopeButtonIndex = 0
                 self.tableView.reloadData()
-               
-                
             }),
+            
+            UIAction(title:"Default", state: .on, handler: { action in
+                self.categories = self.filteredCategories
+                self.searchController.searchBar.selectedScopeButtonIndex = 0
+                self.tableView.reloadData()
+
+              })
+            
            ])
-            sortButton.showsMenuAsPrimaryAction = true
+        sortButton.showsMenuAsPrimaryAction = true
+        self.sortButton.changesSelectionAsPrimaryAction = true
+       
         
-            sortButton.changesSelectionAsPrimaryAction = true
+        
+           // sortButton.changesSelectionAsPrimaryAction = true
         
        
     }
@@ -271,7 +292,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             }
     }
     
-    //save emoji to tabke view and insert new row
+    //save emoji to table view and insert new row
     @IBAction func unwindToCategoryTableView(segue:UIStoryboardSegue){
         guard segue.identifier == "saveSegue" ,
         let sourceViewController = segue.source as? AddEditCategoryTableViewController,
@@ -293,34 +314,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         
         
     }
-    
-    
-    func populateMenu(){
-    navigationItem.leftBarButtonItem = .init(systemItem: .edit)
-        navigationItem.leftBarButtonItem!.menu = UIMenu(children : [
-        UIAction(title:"Sort A-Z", state: .on, handler: { action in
-            self.categories.sort(by: {$0.name < $1.name})
-            self.tableView.reloadData()
-        }),
-        UIAction(title:"Sort Z-A", state: .on, handler: { action in
-            self.categories.sort(by: {$0.name > $1.name})
-            self.tableView.reloadData()
-            
-        }),
-        UIAction(title:"Default", state: .on, handler: { action in
-            self.filteredCategories = self.categories
-            self.tableView.reloadData()
-            
-        } )])
-        navigationItem.leftBarButtonItem?.changesSelectionAsPrimaryAction = true
-       // navigationItem.leftBarButtonItem.showsMenuAsPrimaryAction = true
-    }
-    
-    
-    
-    
-    
-
+ 
         /*
         // Override to support conditional rearranging of the table view.
         override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
