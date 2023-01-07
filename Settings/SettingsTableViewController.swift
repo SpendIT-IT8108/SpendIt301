@@ -163,7 +163,6 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     }
     
     func openSharedFilesApp() {
-       
         let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let sharedurl = documentsUrl.absoluteString.replacingOccurrences(of: "file://", with: "shareddocuments://")
         let furl:URL = URL(string: sharedurl)!

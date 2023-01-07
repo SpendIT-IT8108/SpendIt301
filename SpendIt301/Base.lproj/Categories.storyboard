@@ -86,7 +86,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukX-uQ-4Tv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="-382"/>
+            <point key="canvasLocation" x="2913" y="-716"/>
         </scene>
         <!--AddTransaction-->
         <scene sceneID="KXD-ga-yAc">
@@ -113,7 +113,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUG-wR-DBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3443" y="-382"/>
+            <point key="canvasLocation" x="3857" y="-747"/>
         </scene>
         <!--Add Category-->
         <scene sceneID="pWl-Uo-Vya">
@@ -137,6 +137,7 @@
                                                     <rect key="frame" x="36" y="8" width="81" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.1760954857" green="0.33663812279999999" blue="0.36079037190000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -144,11 +145,11 @@
                                                     </connections>
                                                 </textField>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YVr-rf-IZS">
-                                                    <rect key="frame" x="140" y="11" width="199" height="78"/>
+                                                    <rect key="frame" x="151" y="11" width="188" height="78"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TlU-yE-OWy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="199" height="78"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="78"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="27"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="textEditingChanged:" destination="blH-hZ-5T8" eventType="editingChanged" id="0hw-ZS-ioA"/>
@@ -216,7 +217,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="ZUt-ul-s0R">
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="ZUt-ul-s0R">
                                                     <rect key="frame" x="20" y="11" width="334" height="33"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spending Limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaT-Yu-ehE">
@@ -226,7 +227,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00 BHD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-ca-cNP">
-                                                            <rect key="frame" x="212" y="0.0" width="122" height="33"/>
+                                                            <rect key="frame" x="223" y="0.0" width="111" height="33"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -253,8 +254,7 @@
                     <navigationItem key="navigationItem" title="Add Category" id="44V-VY-dlA">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="eSo-n1-tHW">
                             <connections>
-                                <action selector="cancelBtn:" destination="blH-hZ-5T8" id="7DP-Q6-3pg"/>
-                                <segue destination="rcD-Av-wY7" kind="unwind" identifier="cancelSegue" unwindAction="unwindToCategoryTableViewWithSegue:" id="YT3-yT-LsI"/>
+                                <action selector="cancelButtonClicked:" destination="blH-hZ-5T8" id="bHj-vD-P3n"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="EWg-tb-x0N">
@@ -264,17 +264,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="eSo-n1-tHW" id="zb1-8T-ux2"/>
                         <outlet property="nameTextField" destination="TlU-yE-OWy" id="fdC-4T-EqC"/>
                         <outlet property="saveButton" destination="EWg-tb-x0N" id="7JP-yI-LpH"/>
                         <outlet property="spendingLimitTextField" destination="Ogh-ca-cNP" id="jXz-og-6LG"/>
                         <outlet property="symbolTextField" destination="0CN-i7-RyD" id="qES-sV-cN1"/>
                         <outlet property="typeSegmentedControl" destination="RC7-zy-LvJ" id="o2J-sa-MSd"/>
+                        <segue destination="rcD-Av-wY7" kind="unwind" identifier="cancelSegue" unwindAction="unwindToCategoryTableViewWithSegue:" id="amX-pv-kPR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jk7-0R-P1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rcD-Av-wY7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4306" y="-382"/>
+            <point key="canvasLocation" x="4693" y="-747"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
