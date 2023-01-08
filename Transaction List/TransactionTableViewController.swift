@@ -42,7 +42,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
        //transactions
         updateRepeated()
        transactions=Transaction.loadTransactions()
-        
+        print(transactions)
         searchedItem=transactions
     }
   
