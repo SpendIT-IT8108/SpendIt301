@@ -3,24 +3,20 @@ PODS:
     - Charts/Core (= 4.1.0)
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
-  - MOLH (1.4.3)
   - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Charts
-  - MOLH
 
 SPEC REPOS:
   trunk:
     - Charts
-    - MOLH
     - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Charts: 354f86803d11d9c35de280587fef50d1af063978
-  MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 54c2a226d7e24beb70b63471da341c8d80430f5f
+PODFILE CHECKSUM: 594a9569acd2c65ab47fffbce2729417e6f615a8
 
 COCOAPODS: 1.11.3

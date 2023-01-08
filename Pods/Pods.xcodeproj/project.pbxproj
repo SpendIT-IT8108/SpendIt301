@@ -236,7 +236,7 @@
 		281C5688CAFE72956F7CC8A0D85CAC4F /* ScatterChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartRenderer.swift; path = Source/Charts/Renderers/ScatterChartRenderer.swift; sourceTree = "<group>"; };
 		2834CC3E3D8098CC83AD7B462B7F9CD9 /* PieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/PieChartDataSet.swift; sourceTree = "<group>"; };
 		28475FAFFBE57604D8BCD183B28FE5F1 /* XAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRenderer.swift; path = Source/Charts/Renderers/XAxisRenderer.swift; sourceTree = "<group>"; };
-		29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods_SpendIt301.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendIt301.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods-SpendIt301 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SpendIt301"; path = Pods_SpendIt301.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A87E1AE6468AD67E13AC0860A4F6C1A /* BubbleChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartDataProvider.swift; path = Source/Charts/Interfaces/BubbleChartDataProvider.swift; sourceTree = "<group>"; };
 		2BB83A04510D446C719D4953057ABC2D /* Suffix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Suffix.swift; path = Sources/Algorithms/Suffix.swift; sourceTree = "<group>"; };
 		2BE6275C18AC001567C33C2C29DE58BA /* CandleChartDataSetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataSetProtocol.swift; path = Source/Charts/Data/Interfaces/CandleChartDataSetProtocol.swift; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 		9A05C6FAE220D9771E22921745EE0F41 /* Joined.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Joined.swift; path = Sources/Algorithms/Joined.swift; sourceTree = "<group>"; };
 		9A26491F4CC96489AB0197D4618B1ACA /* CandleStickChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleStickChartRenderer.swift; path = Source/Charts/Renderers/CandleStickChartRenderer.swift; sourceTree = "<group>"; };
 		9A57AA1ED1F885DBCF354E015E904619 /* LineScatterCandleRadarRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineScatterCandleRadarRenderer.swift; path = Source/Charts/Renderers/LineScatterCandleRadarRenderer.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E6CD2A932AA956B86CCB308CE9A29A9 /* ChartDataEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataEntry.swift; path = Source/Charts/Data/Implementations/Standard/ChartDataEntry.swift; sourceTree = "<group>"; };
 		9EB14C98C7B8F58587B6A5592D9716A3 /* Split.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Split.swift; path = Sources/Algorithms/Split.swift; sourceTree = "<group>"; };
 		9FE018E0BB8C1F24EBED4650BF20AC7C /* PieRadarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieRadarHighlighter.swift; path = Source/Charts/Highlight/PieRadarHighlighter.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts */,
-				29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods_SpendIt301.framework */,
+				29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods-SpendIt301 */,
 				F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */,
 			);
 			name = Products;
@@ -501,6 +501,7 @@
 				BC8AC016FBFFC557E50D474F7140EA01 /* Windows.swift */,
 				F16395E079A8B8537D5B492D0173099F /* Support Files */,
 			);
+			name = SwiftAlgorithms;
 			path = SwiftAlgorithms;
 			sourceTree = "<group>";
 		};
@@ -519,6 +520,7 @@
 				FF2D49F227471164825DAD1A455553B4 /* Core */,
 				7797338AAB33F027B3E72F98C6916F53 /* Support Files */,
 			);
+			name = Charts;
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -786,7 +788,7 @@
 			);
 			name = "Pods-SpendIt301";
 			productName = Pods_SpendIt301;
-			productReference = 29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods_SpendIt301.framework */;
+			productReference = 29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods-SpendIt301 */;
 			productType = "com.apple.product-type.framework";
 		};
 		BF03B0B2B8B052092CB5F90CC5FB3757 /* Charts */ = {
