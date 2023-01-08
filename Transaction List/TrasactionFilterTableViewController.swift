@@ -224,7 +224,6 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         sender.isSelected = !sender.isSelected
         catogeryBtn = sender
         categoryBtns.append(catogeryBtn)
-
          
      }
     
