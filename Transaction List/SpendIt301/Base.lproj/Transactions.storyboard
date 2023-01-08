@@ -116,15 +116,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Transactions" largeTitleDisplayMode="always" id="hAZ-je-MBQ">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal.decrease" catalog="system" style="plain" id="OiN-Dn-prD">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UBg-J7-Ewz">
-                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="KuC-yi-mUr" kind="presentation" identifier="filterSegue" id="YlL-n7-uuo"/>
-                                </connections>
-                            </button>
+                            <connections>
+                                <segue destination="KuC-yi-mUr" kind="presentation" id="1IP-Fe-H4v"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="qy7-zZ-Bkq">
                             <connections>

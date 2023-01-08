@@ -12,7 +12,8 @@ class TrasactionFilterTableViewController: UITableViewController {
     var transactions = [Transaction]()
     var filteredTransactions: [Transaction] = []
     var catTrans: [Transaction] = []
-    var catBtn: UIButton!
+    var catogeryBtn: UIButton!
+    var categoryBtns: [UIButton] = []
     var HtLSwitchOutlet: UISwitch!
     var LtHSwitchOutlet: UISwitch!
     var repeated: UISwitch!
@@ -91,7 +92,7 @@ else if indexPath.row == 0 {
            if section == 0 {
                return "Filtery by Catogries"
            }else {
-               return "Filter by Price"
+               return "Sort"
            }
        }
 
@@ -174,8 +175,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 
     @IBAction func categoryPressed(_ sender: UIButton) {
-//        var catTrans: [Transaction]
-        catBtn = sender
+       
         var countClickedButtons = 0
          //shows button's selected
         
@@ -198,6 +198,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                     }) == false
                     {
                         filteredTransactions = filteredTransactions + catTrans
+                        catTrans = filteredTransactions
                     }                    
                     
                   // if selected catogory has no transactions
@@ -207,10 +208,9 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                      alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                      present(alert, animated: true) {
                          //deselecting
-                         self.catBtn.isSelected = !self.catBtn.isSelected
+                         sender.isSelected = !sender.isSelected
                      }
-//                      filteredTransactions = transactions
-                    
+                  
                   }
                   else{
           //            doneBtn.isEnabled=true
@@ -218,11 +218,12 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                      
                   }
                 
-                      
+//                    sender.isSelected = !sender.isSelected
 
           }
-        catBtn.isSelected = !catBtn.isSelected
-        
+        sender.isSelected = !sender.isSelected
+        catogeryBtn = sender
+        categoryBtns.append(catogeryBtn)
 
          
      }
@@ -237,10 +238,15 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 LtHSwitchOutlet.setOn(false, animated: true)
                 repeated.setOn(false, animated: true)
                 doneBtn.isEnabled = true
-        if let catoegoryButton = catBtn{
-            catoegoryButton.isSelected = !catoegoryButton.isSelected
+        if let catoegoryButton = catogeryBtn{
+            for catoegoryButton in categoryBtns {
+                
+           
+                catoegoryButton.isSelected = !catoegoryButton.isSelected
+            
         }
                
     }
     
+}
 }
