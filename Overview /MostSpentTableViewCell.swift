@@ -10,7 +10,8 @@ import UIKit
 class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollectionViewDelegate  {
 
     
-
+    @IBOutlet weak var mostspentLbl: UILabel!
+    
     @IBOutlet weak var mostSpentCollection: UICollectionView!
     var mostSpentArray = [mostSpentCategories]()
     override func awakeFromNib() {
@@ -18,7 +19,7 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
         // Initialization code
         mostSpentCollection.delegate = self
         mostSpentCollection.dataSource = self
-        
+        mostspentLbl.text = NSLocalizedString("mostspent", comment: "")
 
         //define item size
         let itemSize =

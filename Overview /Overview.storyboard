@@ -159,6 +159,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="mostSpentCollection" destination="nWm-St-Iri" id="MaJ-tR-zSZ"/>
+                                    <outlet property="mostspentLbl" destination="1UJ-NP-lbv" id="XWY-Ai-b1c"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MostTrackedTableViewCell" rowHeight="223" id="bnQ-OH-vcR" customClass="MostTrackedTableViewCell" customModule="SpendIt301" customModuleProvider="target">
@@ -266,6 +267,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="mostTrackedCollection" destination="hms-n7-qDm" id="PqT-QG-i0C"/>
+                                    <outlet property="mosttrackedLbl" destination="4VG-SS-Bcp" id="f1j-qM-WS2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -275,6 +277,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Overview" largeTitleDisplayMode="always" id="dte-zd-fiN"/>
+                    <connections>
+                        <outlet property="overviewTitle" destination="dte-zd-fiN" id="xcl-Sm-BW4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksm-u6-1pJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

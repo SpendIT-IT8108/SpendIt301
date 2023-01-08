@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2qJ-F1-kma"; */
+"2qJ-F1-kma.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Filter"; ObjectID = "AmM-x1-0ZA"; */
+"AmM-x1-0ZA.title" = "Filter";
+
+/* Class = "UILabel"; text = "Repeated"; ObjectID = "Hem-IH-Wvl"; */
+"Hem-IH-Wvl.text" = "Repeated";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OiN-Dn-prD"; */
+"OiN-Dn-prD.title" = "Item";
+
+/* Class = "UILabel"; text = "High to Low"; ObjectID = "Qqp-xC-uXw"; */
+"Qqp-xC-uXw.text" = "High to Low";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "Rp5-em-H8y"; */
+"Rp5-em-H8y.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rp5-em-H8y"; */
+"Rp5-em-H8y.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Transactions"; ObjectID = "SCV-Be-JME"; */
+"SCV-Be-JME.title" = "Transactions";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "UBg-J7-Ewz"; */
+"UBg-J7-Ewz.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UBg-J7-Ewz"; */
+"UBg-J7-Ewz.normalTitle" = "Button";
+
+/* Class = "UITableViewController"; title = "transactionList"; ObjectID = "foq-fw-BnD"; */
+"foq-fw-BnD.title" = "transactionList";
+
+/* Class = "UINavigationItem"; title = "Transactions"; ObjectID = "hAZ-je-MBQ"; */
+"hAZ-je-MBQ.title" = "Transactions";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kdF-wb-mWm"; */
+"kdF-wb-mWm.text" = "Label";
+
+/* Class = "UILabel"; text = "Low to High"; ObjectID = "suh-SW-Ei5"; */
+"suh-SW-Ei5.text" = "Low to High";

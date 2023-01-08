@@ -1,0 +1,93 @@
+
+/* Class = "UISegmentedControl"; 3Au-UD-sgo.segmentTitles[0] = "EN"; ObjectID = "3Au-UD-sgo"; */
+"3Au-UD-sgo.segmentTitles[0]" = "EN";
+
+/* Class = "UISegmentedControl"; 3Au-UD-sgo.segmentTitles[1] = "AR"; ObjectID = "3Au-UD-sgo"; */
+"3Au-UD-sgo.segmentTitles[1]" = "AR";
+
+/* Class = "UITableViewSection"; headerTitle = "Reset App"; ObjectID = "BFL-CE-RUV"; */
+"BFL-CE-RUV.headerTitle" = "إعادة تعيين التطبيق";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "Ffz-n8-ybV"; */
+"Ffz-n8-ybV.text" = "اللغة";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "FgI-NP-h7P"; */
+"FgI-NP-h7P.title" = "الإعدادات";
+
+/* Class = "UINavigationItem"; title = "About Us"; ObjectID = "He0-Nr-ZjA"; */
+"He0-Nr-ZjA.title" = "عنّا";
+
+/* Class = "UILabel"; text = "John Smith"; ObjectID = "IJ7-Di-Swp"; */
+"IJ7-Di-Swp.text" = "جون سميث";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "Lv0-hC-jEm"; */
+"Lv0-hC-jEm.title" = "الإعدادات";
+
+/* Class = "UILabel"; text = "Delete all data "; ObjectID = "Tg6-dR-45J"; */
+"Tg6-dR-45J.text" = "مسح جميع البيانات";
+
+/* Class = "UISegmentedControl"; abU-qZ-QDp.segmentTitles[0] = "BHD"; ObjectID = "abU-qZ-QDp"; */
+"abU-qZ-QDp.segmentTitles[0]" = "BHD";
+
+/* Class = "UISegmentedControl"; abU-qZ-QDp.segmentTitles[1] = "USD"; ObjectID = "abU-qZ-QDp"; */
+"abU-qZ-QDp.segmentTitles[1]" = "USD";
+
+/* Class = "UINavigationItem"; title = "About Us"; ObjectID = "abW-8d-EOx"; */
+"abW-8d-EOx.title" = "عنّا";
+
+/* Class = "UILabel"; text = "Guide"; ObjectID = "eXz-a6-AGa"; */
+"eXz-a6-AGa.text" = "الدليل";
+
+/* Class = "UILabel"; text = "Last Update: Dec 2022\n\nOur philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.\n- Spend It is designed to protect your information and enable you to choose what you share.\n- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.\n- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.\n\nIn order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:\nGoogle Firebase: https://firebase.google.com/support/faq/\n\nBefore using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.\nThis policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business."; ObjectID = "ecu-bq-pzx"; */
+"ecu-bq-pzx.text" = "Last Update: Dec 2022\n\nOur philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.\n- Spend It is designed to protect your information and enable you to choose what you share.\n- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.\n- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.\n\nIn order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:\nGoogle Firebase: https://firebase.google.com/support/faq/\n\nBefore using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.\nThis policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.";
+
+/* Class = "UILabel"; text = "About Us"; ObjectID = "fgI-mQ-5eK"; */
+"fgI-mQ-5eK.text" = "عنّا";
+
+/* Class = "UITableViewSection"; headerTitle = "Notifications"; ObjectID = "jKu-LI-JrO"; */
+"jKu-LI-JrO.headerTitle" = "الإشعارات";
+
+/* Class = "UILabel"; text = "Daily Notifications"; ObjectID = "lOg-mX-6tE"; */
+"lOg-mX-6tE.text" = "الإشعارات اليومية";
+
+/* Class = "UINavigationController"; title = "Settings"; ObjectID = "m0a-lk-vuv"; */
+"m0a-lk-vuv.title" = "الإعدادات";
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "mUd-Dx-Gfb"; */
+"mUd-Dx-Gfb.text" = "العملة";
+
+/* Class = "UISegmentedControl"; odU-6f-t63.segmentTitles[0] = "First"; ObjectID = "odU-6f-t63"; */
+"odU-6f-t63.segmentTitles[0]" = "First";
+
+/* Class = "UISegmentedControl"; odU-6f-t63.segmentTitles[1] = "Second"; ObjectID = "odU-6f-t63"; */
+"odU-6f-t63.segmentTitles[1]" = "Second";
+
+/* Class = "UILabel"; text = "Export transactions to csv file"; ObjectID = "qOj-dU-qm0"; */
+"qOj-dU-qm0.text" = "تصدير البيانات إلى ملف csv";
+
+/* Class = "UILabel"; text = "Last Update: Dec 2022\n\nOur philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.\n- Spend It is designed to protect your information and enable you to choose what you share.\n- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.\n- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.\n\nIn order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:\nGoogle Firebase: https://firebase.google.com/support/faq/\n\nBefore using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.\nThis policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business."; ObjectID = "rHs-5K-0XS"; */
+"rHs-5K-0XS.text" = "Last Update: Dec 2022\n\nOur philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.\n- Spend It is designed to protect your information and enable you to choose what you share.\n- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.\n- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.\n\nIn order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:\nGoogle Firebase: https://firebase.google.com/support/faq/\n\nBefore using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.\nThis policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "sYy-w9-VEF"; */
+"sYy-w9-VEF.title" = "الإشعارات";
+
+/* Class = "UILabel"; text = "Overspending Notification"; ObjectID = "wAG-mi-HdW"; */
+"wAG-mi-HdW.text" = "إشعارات الإنفاق المفرط";
+
+/* Class = "UISegmentedControl"; wn4-5z-QH4.segmentTitles[0] = "Light"; ObjectID = "wn4-5z-QH4"; */
+"wn4-5z-QH4.segmentTitles[0]" = "Light";
+
+/* Class = "UISegmentedControl"; wn4-5z-QH4.segmentTitles[1] = "Dark"; ObjectID = "wn4-5z-QH4"; */
+"wn4-5z-QH4.segmentTitles[1]" = "Dark";
+
+/* Class = "UILabel"; text = "Email Us"; ObjectID = "y03-a7-2oz"; */
+"y03-a7-2oz.text" = "تواصل معنا";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "y9G-IB-evv"; */
+"y9G-IB-evv.title" = "الإعدادات";
+
+/* Class = "UILabel"; text = "Dark Mode"; ObjectID = "yAA-Do-ged"; */
+"yAA-Do-ged.text" = "Dark Mode";
+
+/* Class = "UITableViewSection"; headerTitle = "Export to csv"; ObjectID = "yjl-46-gpz"; */
+"yjl-46-gpz.headerTitle" = "تصدير إلى csv";
