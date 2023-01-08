@@ -39,7 +39,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="KFs-7p-2Jx">
             <objects>
-                <tabBarController id="Af2-Wf-5HZ" customClass="TabBarViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="tabBar" storyboardIdentifier="tabBar" id="Af2-Wf-5HZ" customClass="TabBarViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qu5-s4-HQN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

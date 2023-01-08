@@ -48,5 +48,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+    //handling quick actions
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    
+    switch shortcutItem.type {
+    case "add":
+    // perform the plus button clicked from the tab bar
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
+        self.window?.rootViewController = initialViewController
+        if let VC = initialViewController as? TabBarViewController {
+            VC.addButtonClicked()
+        }
+    default:
+        break
+    }
+     
+    }
+    
 }
 
