@@ -16,6 +16,7 @@
 		0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */; };
 		0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */; };
 		0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */; };
+		21098025296B52F10098EA31 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21098027296B52F10098EA31 /* Localizable.strings */; };
 		2112D363295C35F80033A07C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112D362295C35F80033A07C /* SettingsTableViewController.swift */; };
 		21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */; };
 		21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */; };
@@ -60,6 +61,14 @@
 		0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCatTableViewCell.swift; sourceTree = "<group>"; };
 		0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2109801D296B52B20098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/SettingsPage.strings; sourceTree = "<group>"; };
+		2109801E296B52B20098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/Transactions.strings; sourceTree = "<group>"; };
+		2109801F296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/TransactionDetails.strings; sourceTree = "<group>"; };
+		21098020296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/Categories.strings; sourceTree = "<group>"; };
+		21098021296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		21098022296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		21098026296B52F10098EA31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21098028296B52F20098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2112D362295C35F80033A07C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
 		21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSpentTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +153,7 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
+				21098027296B52F10098EA31 /* Localizable.strings */,
 				2601B05529636E810045F9BC /* userSetupPVC.swift */,
 				21687277296337D800F4FF0A /* Settings */,
 				210651D0296328F60047CE7B /* Overview  */,
@@ -282,6 +292,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 2130B023294AEBEB001EC43C;
 			productRefGroup = 2130B02D294AEBEB001EC43C /* Products */;
@@ -300,6 +311,7 @@
 			files = (
 				2130B03C294AEBEF001EC43C /* LaunchScreen.storyboard in Resources */,
 				2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */,
+				21098025296B52F10098EA31 /* Localizable.strings in Resources */,
 				2130B044294AF4AB001EC43C /* Overview.storyboard in Resources */,
 				369E17E0295CF6BC00400D6D /* TransactionDetails.storyboard in Resources */,
 				268F58EC296330B0007F77B5 /* UserSetup.storyboard in Resources */,
@@ -397,10 +409,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		21098027296B52F10098EA31 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21098026296B52F10098EA31 /* en */,
+				21098028296B52F20098EA31 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		2130B035294AEBEB001EC43C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2130B036294AEBEB001EC43C /* Base */,
+				21098021296B52B30098EA31 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -409,6 +431,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2130B03B294AEBEF001EC43C /* Base */,
+				21098022296B52B30098EA31 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -417,6 +440,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2130B046294AF4EC001EC43C /* Base */,
+				2109801E296B52B20098EA31 /* ar */,
 			);
 			name = Transactions.storyboard;
 			sourceTree = "<group>";
@@ -425,6 +449,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2130B049294AF518001EC43C /* Base */,
+				21098020296B52B30098EA31 /* ar */,
 			);
 			name = Categories.storyboard;
 			sourceTree = "<group>";
@@ -433,6 +458,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2130B04E294AF6DB001EC43C /* Base */,
+				2109801D296B52B20098EA31 /* ar */,
 			);
 			name = SettingsPage.storyboard;
 			sourceTree = "<group>";
@@ -441,6 +467,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				369E17DF295CF6BC00400D6D /* Base */,
+				2109801F296B52B30098EA31 /* ar */,
 			);
 			name = TransactionDetails.storyboard;
 			sourceTree = "<group>";
@@ -452,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -512,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
