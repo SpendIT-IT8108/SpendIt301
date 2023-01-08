@@ -163,6 +163,8 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
     func categoryHasTransactions(indexPath: IndexPath){
         //get list f transactions
     var transactions = Transaction.loadTransactions()
+    var trans:TransactionTableViewController!
+        
         //loop through the transactions list
     for (i , transaction) in transactions.enumerated() {
       //check if transaction is of the selected category type
@@ -172,11 +174,17 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             //remove transactions option
             alert2.addAction(UIAlertAction(title: "Remove Transactions", style: .destructive, handler: { action in
                 transactions.remove(at: i)
-                Transaction.saveTransactions(transactions)}))
+                Transaction.saveTransactions(transactions)
+               
+              
+              
+            }))
             //keep transaction
             alert2.addAction(UIAlertAction(title: "Keep Transactions", style: .default, handler: nil))
             //show alert
             self.present(alert2, animated: true, completion: nil)
+           
+            
         }
     }
     }
@@ -228,7 +236,10 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         
         alert.addAction(deleteAction)
         present(alert, animated: true, completion: nil)
+  
+        
     }
+   
     
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
