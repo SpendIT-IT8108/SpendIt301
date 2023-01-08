@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -238,7 +237,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cIk-Uj-jab" kind="show" id="a2e-PS-8fM"/>
+                                            <segue destination="sYy-w9-VEF" kind="show" id="Z0h-jG-28u"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -389,24 +388,28 @@
             <point key="canvasLocation" x="1616.9230769230769" y="237.44075829383885"/>
         </scene>
         <!--About Us-->
-        <scene sceneID="Hrj-Wk-dqG">
+        <scene sceneID="Y95-sn-tZg">
             <objects>
-                <viewController id="cIk-Uj-jab" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fcd-QB-sL4">
+                <tableViewController id="8em-2Q-WSJ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="A5A-zR-SKI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2as-7J-wQe">
-                                <rect key="frame" x="20" y="-18" width="350" height="880"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-Ki-dVI">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="880"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="880" id="FHI-RH-rBw"/>
-                                            <constraint firstAttribute="height" constant="880" id="Om2-lU-gBe"/>
-                                            <constraint firstAttribute="width" constant="350" id="hNG-0b-TfS"/>
-                                        </constraints>
-                                        <string key="text">Last Update: Dec 2022
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" red="0.94915026430000005" green="0.94868153330000005" blue="0.96863025430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.94915026430000005" green="0.94868153330000005" blue="0.96863025430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <sections>
+                            <tableViewSection id="OzY-Mp-xKX">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="800" id="xEe-M9-9sh">
+                                        <rect key="frame" x="0.0" y="18" width="390" height="800"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xEe-M9-9sh" id="aSX-bJ-lQz">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHs-5K-0XS">
+                                                    <rect key="frame" x="20" y="20" width="350" height="1095.6666666666667"/>
+                                                    <string key="text">Last Update: Dec 2022
 
 Our philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.
 - Spend It is designed to protect your information and enable you to choose what you share.
@@ -418,25 +421,31 @@ Google Firebase: https://firebase.google.com/support/faq/
 
 Before using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.
 This policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="arF-zc-uqH"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                        <constraints>
-                            <constraint firstItem="2as-7J-wQe" firstAttribute="centerX" secondItem="fcd-QB-sL4" secondAttribute="centerX" id="NTR-vp-IMw"/>
-                            <constraint firstItem="2as-7J-wQe" firstAttribute="centerY" secondItem="fcd-QB-sL4" secondAttribute="centerY" id="tyA-e2-p1h"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="About Us" largeTitleDisplayMode="always" id="iEq-pN-Nwx"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="axR-KS-kRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="rHs-5K-0XS" secondAttribute="trailing" constant="20" id="9ZK-9q-Qhm"/>
+                                                <constraint firstItem="rHs-5K-0XS" firstAttribute="top" secondItem="aSX-bJ-lQz" secondAttribute="top" constant="20" id="FX7-tm-omZ"/>
+                                                <constraint firstItem="rHs-5K-0XS" firstAttribute="leading" secondItem="aSX-bJ-lQz" secondAttribute="leading" constant="20" id="aAf-3L-yaf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="8em-2Q-WSJ" id="d0H-qW-rOH"/>
+                            <outlet property="delegate" destination="8em-2Q-WSJ" id="R8S-Bl-3hh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="About Us" id="He0-Nr-ZjA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJP-Rj-JDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2523" y="-63"/>
+            <point key="canvasLocation" x="2469.2307692307691" y="-188.38862559241704"/>
         </scene>
         <!--Settings-->
         <scene sceneID="RHk-ca-xxi">
@@ -463,7 +472,64 @@ This policy also explains your choices about how we use information about you. Y
                     </segments>
                 </segmentedControl>
             </objects>
-            <point key="canvasLocation" x="727.69230769230762" y="231.75355450236967"/>
+            <point key="canvasLocation" x="-705" y="237"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="o4J-bt-bZP">
+            <objects>
+                <tableViewController title="Settings" id="sYy-w9-VEF" customClass="SettingsTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="zIp-60-Ow0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <sections>
+                            <tableViewSection id="iRK-Jy-57W">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="600" id="rFD-pB-0nL" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="18" width="350" height="600"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rFD-pB-0nL" id="iac-Yc-jQU">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="600"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecu-bq-pzx">
+                                                    <rect key="frame" x="20" y="20" width="310" height="1217.3333333333333"/>
+                                                    <string key="text">Last Update: Dec 2022
+
+Our philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.
+- Spend It is designed to protect your information and enable you to choose what you share.
+- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.
+- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.
+
+In order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:
+Google Firebase: https://firebase.google.com/support/faq/
+
+Before using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.
+This policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ecu-bq-pzx" firstAttribute="top" secondItem="iac-Yc-jQU" secondAttribute="top" constant="20" id="1j6-lp-WFQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="ecu-bq-pzx" secondAttribute="trailing" constant="20" id="6Dr-Kk-nJ7"/>
+                                                <constraint firstItem="ecu-bq-pzx" firstAttribute="leading" secondItem="iac-Yc-jQU" secondAttribute="leading" constant="20" id="Ywl-A2-wax"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="sYy-w9-VEF" id="7UF-rh-rLa"/>
+                            <outlet property="delegate" destination="sYy-w9-VEF" id="1Q4-W6-RdP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="About Us" largeTitleDisplayMode="always" id="abW-8d-EOx"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Diz-k9-RNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="901"/>
         </scene>
     </scenes>
     <resources>
@@ -477,8 +543,8 @@ This policy also explains your choices about how we use information about you. Y
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
