@@ -61,7 +61,7 @@ struct Transaction: Equatable, Codable{
         var transactions : [Transaction] = []
         let propertyListDecoder = PropertyListDecoder()
         if let retreivedTransactionsData = try? Data(contentsOf: archiveURL), let decodedTransactions = try? propertyListDecoder.decode(Array<Transaction>.self, from: retreivedTransactionsData) {
-            transactions = decodedTransactions
+            transactions = decodedTransactions.sorted(by: { $0.date > $1.date })
         }
         else {
             transactions = loadSampleTransacion()
