@@ -243,35 +243,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Export to csv" id="yjl-46-gpz">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="qOj-dU-qm0" imageView="vLh-8O-urq" rowHeight="44" style="IBUITableViewCellStyleDefault" id="P5u-LV-g3x">
-                                        <rect key="frame" x="20" y="447.66666603088379" width="350" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P5u-LV-g3x" id="too-XA-dSh">
-                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Export transactions to csv file" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qOj-dU-qm0">
-                                                    <rect key="frame" x="55.666666666666686" y="0.0" width="257.66666666666663" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="square.and.arrow.up" catalog="system" id="vLh-8O-urq">
-                                                    <rect key="frame" x="20.833333333333336" y="10.666666666666664" width="19" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Notifications" id="jKu-LI-JrO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="Vla-Tk-Iyo" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="541.33333206176758" width="350" height="44"/>
+                                        <rect key="frame" x="20" y="447.66666603088379" width="350" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vla-Tk-Iyo" id="kcE-I1-fPc">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
@@ -310,7 +285,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="Gg0-Lb-kKM" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="585.33333206176758" width="350" height="44"/>
+                                        <rect key="frame" x="20" y="491.66666603088379" width="350" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gg0-Lb-kKM" id="FfO-Qe-2ch">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
@@ -350,6 +325,57 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Export to csv" id="yjl-46-gpz">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qOj-dU-qm0" imageView="vLh-8O-urq" rowHeight="44" style="IBUITableViewCellStyleDefault" id="P5u-LV-g3x">
+                                        <rect key="frame" x="20" y="585.33333206176758" width="350" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P5u-LV-g3x" id="too-XA-dSh">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Export transactions to csv file" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qOj-dU-qm0">
+                                                    <rect key="frame" x="55.666666666666657" y="0.0" width="274.33333333333331" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="square.and.arrow.up" catalog="system" id="vLh-8O-urq">
+                                                    <rect key="frame" x="20.833333333333336" y="10.666666666666664" width="19" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Reset App" id="BFL-CE-RUV">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Tg6-dR-45J" imageView="fJN-3Q-YAM" rowHeight="44" style="IBUITableViewCellStyleDefault" id="WWW-WQ-a2o">
+                                        <rect key="frame" x="20" y="678.99999809265137" width="350" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WWW-WQ-a2o" id="7qV-AP-9JJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Delete all data " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tg6-dR-45J">
+                                                    <rect key="frame" x="55.666666666666657" y="0.0" width="274.33333333333337" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="trash" catalog="system" id="fJN-3Q-YAM">
+                                                    <rect key="frame" x="20.833333333333336" y="11.000000000000002" width="18.999999999999996" height="20.666666666666668"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Lv0-hC-jEm" id="Enw-2H-mFT"/>
@@ -370,12 +396,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-Ki-dVI">
-                                <rect key="frame" x="20" y="160" width="350" height="614"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="880" id="Om2-lU-gBe"/>
-                                </constraints>
-                                <string key="text">Last Update: Dec 2022
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2as-7J-wQe">
+                                <rect key="frame" x="20" y="-18" width="350" height="880"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-Ki-dVI">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="880"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="880" id="FHI-RH-rBw"/>
+                                            <constraint firstAttribute="height" constant="880" id="Om2-lU-gBe"/>
+                                            <constraint firstAttribute="width" constant="350" id="hNG-0b-TfS"/>
+                                        </constraints>
+                                        <string key="text">Last Update: Dec 2022
 
 Our philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.
 - Spend It is designed to protect your information and enable you to choose what you share.
@@ -387,18 +418,18 @@ Google Firebase: https://firebase.google.com/support/faq/
 
 Before using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.
 This policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="arF-zc-uqH"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="arF-zc-uqH" firstAttribute="trailing" secondItem="Cj9-Ki-dVI" secondAttribute="trailing" constant="20" id="GcT-YH-RaO"/>
-                            <constraint firstItem="Cj9-Ki-dVI" firstAttribute="leading" secondItem="arF-zc-uqH" secondAttribute="leading" constant="20" id="RPW-IY-zrl"/>
-                            <constraint firstAttribute="bottom" secondItem="Cj9-Ki-dVI" secondAttribute="bottom" constant="20" id="Z9K-rf-7EA"/>
-                            <constraint firstItem="Cj9-Ki-dVI" firstAttribute="top" secondItem="arF-zc-uqH" secondAttribute="top" constant="20" id="syi-WX-kH4"/>
+                            <constraint firstItem="2as-7J-wQe" firstAttribute="centerX" secondItem="fcd-QB-sL4" secondAttribute="centerX" id="NTR-vp-IMw"/>
+                            <constraint firstItem="2as-7J-wQe" firstAttribute="centerY" secondItem="fcd-QB-sL4" secondAttribute="centerY" id="tyA-e2-p1h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Us" largeTitleDisplayMode="always" id="iEq-pN-Nwx"/>
@@ -445,8 +476,12 @@ This policy also explains your choices about how we use information about you. Y
         <image name="moon.fill" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
