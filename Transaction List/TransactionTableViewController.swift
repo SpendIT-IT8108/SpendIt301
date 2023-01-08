@@ -9,19 +9,19 @@ import UIKit
 
 
 class TransactionTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate{
-  
+    
     
     @IBOutlet weak var filterBtn: UIButton!
     var transactions=[Transaction]()
     let searchController=UISearchController()
     var searchedItem: [Transaction] = []
-   
-   
+    
+    
     @IBAction func EditPressed(_ sender: Any) {
-         let tableViewEditingMode = tableView.isEditing
+        let tableViewEditingMode = tableView.isEditing
         tableView.setEditing(!tableViewEditingMode, animated: true)
         navigationItem.rightBarButtonItem = editButtonItem
-  
+        
     }
     override func viewDidLoad() {
         
@@ -29,7 +29,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         
         
         //search bar properties
-      title="Transactions"
+        title="Transactions"
         navigationItem.searchController=searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
@@ -39,12 +39,12 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchBar.placeholder="Transaction Name"
         searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
-       //transactions
+        //transactions
         updateRepeated()
         transactions=Transaction.loadTransactions()
         searchedItem=transactions
     }
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -54,31 +54,31 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     func updateRepeated(){
         //MARK: REPEAT CODE
-         var trans = Transaction.loadTransactions()
-         for tran in trans {
-             var record = tran
-                 //if it has a nextDate (the original transaction of a repeated one only has this value)
-                 if tran.nextDate != nil , let interval = tran.repeatingInterval {
-                     var nextDate = tran.nextDate
-                     var valid = validate(nextTime: nextDate)
-                     //repeat while validated
-                     while valid {
-                         //add new transaction
-                         let newTran = Transaction(name: tran.name, amount: tran.amount,category: tran.category, date: nextDate!,  repeated: tran.repeated, repeatingInterval: tran.repeatingInterval, repeatFrom: tran.repeatFrom, repeatUntil: tran.repeatUntil, note: tran.note, attachment: tran.attachment?.image, nextDate: nil)
-                         trans.append(newTran)
-                         //calculate the next transaction date and update the original transaction record
-                        nextDate = calculateNext(interval: interval, nextTime: nextDate!, endDate: tran.repeatUntil)
-                         record.nextDate = nextDate
-                         //reaplce the old record with the new one in the array, and save to files
-                         if let index = trans.firstIndex(of: tran) {
-                             trans[index] = record
-                             Transaction.saveTransactions(trans)
-                         }
-                         //check validity using the new calculated nextDate to decide if we continue adding or stop
-                         valid = validate(nextTime: nextDate)
-                     }
-                 }
-         }
+        var trans = Transaction.loadTransactions()
+        for tran in trans {
+            var record = tran
+            //if it has a nextDate (the original transaction of a repeated one only has this value)
+            if tran.nextDate != nil , let interval = tran.repeatingInterval {
+                var nextDate = tran.nextDate
+                var valid = validate(nextTime: nextDate)
+                //repeat while validated
+                while valid {
+                    //add new transaction
+                    let newTran = Transaction(name: tran.name, amount: tran.amount,category: tran.category, date: nextDate!,  repeated: tran.repeated, repeatingInterval: tran.repeatingInterval, repeatFrom: tran.repeatFrom, repeatUntil: tran.repeatUntil, note: tran.note, attachment: tran.attachment?.image, nextDate: nil)
+                    trans.append(newTran)
+                    //calculate the next transaction date and update the original transaction record
+                    nextDate = calculateNext(interval: interval, nextTime: nextDate!, endDate: tran.repeatUntil)
+                    record.nextDate = nextDate
+                    //reaplce the old record with the new one in the array, and save to files
+                    if let index = trans.firstIndex(of: tran) {
+                        trans[index] = record
+                        Transaction.saveTransactions(trans)
+                    }
+                    //check validity using the new calculated nextDate to decide if we continue adding or stop
+                    valid = validate(nextTime: nextDate)
+                }
+            }
+        }
     }
     //calculate next repeated transaction date
     func calculateNext(interval:String, nextTime:Date, endDate:Date? ) -> Date? {
@@ -108,7 +108,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             return next
         }
     }
-
+    
     //function to check if the next transaction is valid to be added
     func validate(nextTime: Date?) -> Bool {
         var valid = false
@@ -120,70 +120,70 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }
         return valid
     }
-
+    
     
     
     override func tableView(_ tableView: UITableView,
-       commit editingStyle: UITableViewCell.EditingStyle,
-       forRowAt indexPath: IndexPath) {
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             transactions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
-      
     
-   
+    
+    
     func updateSearchResults(for searchController: UISearchController){
         
         let searchString = searchController.searchBar.text!
         let scopeButton = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
-           filterForSearchAndScope(searchText: searchString, scopeButton: scopeButton)
-
-        }
-//
+        filterForSearchAndScope(searchText: searchString, scopeButton: scopeButton)
+        
+    }
+    //
     func filterForSearchAndScope(searchText: String, scopeButton: String = "All"){
-      
-      searchedItem = transactions.filter(
+        
+        searchedItem = transactions.filter(
             { item in
                 let scopeMatch = (scopeButton == "All" || item.category.type.localizedCaseInsensitiveContains(scopeButton))
-            if(searchController.searchBar.text != "" ){
-                let searchedTextMatch = item.name.localizedCaseInsensitiveContains(searchText)
-                return scopeMatch&&searchedTextMatch
-            } else {
-                return scopeMatch
-            }
+                if(searchController.searchBar.text != "" ){
+                    let searchedTextMatch = item.name.localizedCaseInsensitiveContains(searchText)
+                    return scopeMatch&&searchedTextMatch
+                } else {
+                    return scopeMatch
+                }
             })
         tableView.reloadData()
-
+        
     }
     var isUnwind=false
     
     @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
-       if sender.identifier == "doneIdentifier" {
-           tableView.reloadData()
+        if sender.identifier == "doneIdentifier" {
+            tableView.reloadData()
         }
         else if sender.identifier == "saveUnwind" {
-        
+            
         }else if sender.identifier == "cancelIdentifier"{
-           
+            
         }
         
         isUnwind=true
     }
     
-   
     
     
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       
+        
         
         if searchController.isActive{
             return searchedItem.count
-           
+            
         } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2{
             return searchedItem.count
         }
@@ -191,30 +191,30 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             return transactions.count
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
-
-//         Configure the cell...
+        
+        //         Configure the cell...
         var  transaction:Transaction
         if searchController.isActive{
             transaction=searchedItem[indexPath.row]
-           
+            
         } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
             transaction=searchedItem[indexPath.row]
         }
         else{
             transaction=transactions[indexPath.row]
         }
-       
+        
         
         cell.update(with: transaction)
-
+        
         return cell
     }
-//
+    //
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return "Transaction"
+        return "Transaction"
     }
     
     
@@ -227,27 +227,40 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             //transaction object passed to new controller
             var transaction: Transaction
             if searchController.isActive{
-              transaction=searchedItem[indexPath.row]
+                transaction=searchedItem[indexPath.row]
             } else if searchController.searchBar.selectedScopeButtonIndex==1 ||
                         searchController.searchBar.selectedScopeButtonIndex==2{
                 transaction=searchedItem[indexPath.row]
                 
             } else{
-                 transaction = transactions[indexPath.row]
+                transaction = transactions[indexPath.row]
             }
             
-           
+            
             return TransactionDetailsTVC(coder: coder, transaction: transaction)
         }
         else {
             return nil
-    }
+        }
     }
     
+    //
     @IBAction func unwindToList(segue: UIStoryboardSegue){
+        
         guard segue.identifier == "saveUnwind", let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction else {return}
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            transactions[selectedIndexPath.row] = transaction
+            //if unwindAfterRedirected, get the original record index bath instead of previously selected
+            if transaction.nextDate != nil {
+                for tran in Transaction.loadTransactions() {
+                    if tran.name == transaction.name && tran.nextDate != nil {
+                        var originalIndex = Transaction.loadTransactions().firstIndex(of: tran)
+                        transactions[originalIndex!] = transaction
+                    }
+                }
+            }
+            else {
+                transactions[selectedIndexPath.row] = transaction
+            }
         }
         else {
             let newIndexPath = IndexPath(row: 0, section: 0)
@@ -258,7 +271,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         updateRepeated()
         transactions = Transaction.loadTransactions()
         tableView.reloadData()
-       
+        
+        
     }
-
+    
 }
