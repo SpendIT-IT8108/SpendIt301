@@ -11,7 +11,7 @@
         <!--Overview-->
         <scene sceneID="vwc-88-GOr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X9K-Zn-r55" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X9K-Zn-r55" customClass="OverviewViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Overview" image="chart.bar.xaxis" catalog="system" id="bw5-fd-NSC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SBJ-ps-hsx">
@@ -20,6 +20,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="overviewTabbarItem" destination="bw5-fd-NSC" id="rif-8d-qrR"/>
                         <segue destination="HUd-tZ-Cfl" kind="relationship" relationship="rootViewController" id="79c-ZT-UGh"/>
                     </connections>
                 </navigationController>

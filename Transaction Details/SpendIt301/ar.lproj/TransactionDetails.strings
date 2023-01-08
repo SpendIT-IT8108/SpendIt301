@@ -3,34 +3,34 @@
 "2gL-Kk-eKe.text" = "Title";
 
 /* Class = "UILabel"; text = "Nothing"; ObjectID = "3fC-ip-KyP"; */
-"3fC-ip-KyP.text" = "Nothing";
+"3fC-ip-KyP.text" = "لا شيء";
 
 /* Class = "UILabel"; text = "Notes"; ObjectID = "8Mc-YL-APq"; */
-"8Mc-YL-APq.text" = "Notes";
+"8Mc-YL-APq.text" = "ملاحظات";
 
 /* Class = "UILabel"; text = "Food"; ObjectID = "9BF-BT-Xq7"; */
 "9BF-BT-Xq7.text" = "Food";
 
 /* Class = "UILabel"; text = "Type"; ObjectID = "Edy-t9-Ie2"; */
-"Edy-t9-Ie2.text" = "Type";
+"Edy-t9-Ie2.text" = "طعام";
 
 /* Class = "UILabel"; text = "Repeat"; ObjectID = "XLw-Hm-fEq"; */
-"XLw-Hm-fEq.text" = "Repeat";
+"XLw-Hm-fEq.text" = "تكرار"
 
 /* Class = "UILabel"; text = "Attachment"; ObjectID = "Zce-3m-ShC"; */
-"Zce-3m-ShC.text" = "Attachment";
+"Zce-3m-ShC.text" = "مرفقات";
 
 /* Class = "UILabel"; text = "20.0"; ObjectID = "ctG-j3-K42"; */
 "ctG-j3-K42.text" = "20.0";
 
 /* Class = "UILabel"; text = "Added on"; ObjectID = "itX-LK-Fxh"; */
-"itX-LK-Fxh.text" = "Added on";
+"itX-LK-Fxh.text" = "إصافات";
 
 /* Class = "UINavigationItem"; title = "Transaction Details"; ObjectID = "mKW-3l-KiD"; */
-"mKW-3l-KiD.title" = "Transaction Details";
+"mKW-3l-KiD.title" = "تفاصيل ";
 
 /* Class = "UILabel"; text = "BHD"; ObjectID = "poZ-kK-2xG"; */
-"poZ-kK-2xG.text" = "BHD";
+"poZ-kK-2xG.text" = "دب";
 
 /* Class = "UILabel"; text = "🍔"; ObjectID = "rN4-kw-R22"; */
 "rN4-kw-R22.text" = "🍔";

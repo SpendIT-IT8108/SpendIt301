@@ -7,7 +7,7 @@
 
 import UIKit
 import Charts
-class OverviewTableViewController: UITableViewController {
+class OverviewTableViewController: UITableViewController{
 
     @IBOutlet weak var overviewTitle: UINavigationItem!
     
