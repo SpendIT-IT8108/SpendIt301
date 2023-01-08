@@ -161,9 +161,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
     var transactions = Transaction.loadTransactions()
     
     func deleteShowAlert(indexPath: IndexPath) {
-        let alert = UIAlertController(title: nil, message: "Are you sure you'd like to delete this Category", preferredStyle: .alert)
-       // let cell = tableView.cellForRow(at: indexPath)
-
+        let alert = UIAlertController(title: nil, message: "Are you sure you would like to delete this Category?", preferredStyle: .alert)
         // delete Action
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             //delete category
@@ -173,18 +171,22 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
                 Category.saveCategories(self.categories)
                 
                 
-            } else if self.searchController.searchBar.selectedScopeButtonIndex==1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
+            } else if self.searchController.searchBar.selectedScopeButtonIndex == 1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
                 self.filteredCategories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 Category.saveCategories(self.categories)
             }
-            else{
+            else {
+                
+                let alert2 = UIAlertController(title: "Delete Transactions", message: "By Deleting category \(self.categories[indexPath.row].name) all of it's transactions will be deleted, choose keep to keep your transactions of this category", preferredStyle: .alert)
+                //loop through transactions to check if category matches
                 for (i , transaction) in self.transactions.enumerated() {
-                    if transaction.category.name == self.categories[indexPath.row].name {
-                        self.transactions.remove(at: i)
-                        
-                        print(self.transactions)
-                        
+                    if transaction.category.name == self.categories[indexPath.row].name  {
+                        alert2.addAction(UIAlertAction(title: "Remove Transactions", style: .destructive, handler: { action in
+                            self.transactions.remove(at: i)
+                            Transaction.saveTransactions(self.transactions)}))
+                        alert2.addAction(UIAlertAction(title: "Keep Transactions", style: .default, handler: nil))
+                        self.present(alert2, animated: true, completion: nil)
                     }
                 }
                 self.categories.remove(at: indexPath.row)
