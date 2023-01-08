@@ -150,19 +150,23 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     @IBOutlet weak var languageSegment: UISegmentedControl!
     @IBAction func languageSegmentHasChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
+            //english
     case 0:
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "en" ? "en" : "en"
             UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+            
             exit(0)
         break
+            //arabic
     case 1:
+            languageSegment.selectedSegmentIndex = 1
+            languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "ar" ? "en" : "ar"
             UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
             exit(0)
-            languageSegment.selectedSegmentIndex = 1
-            languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
+         
         break
         default:
             break
@@ -172,6 +176,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     @IBAction func currencySegmentHasChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
     case 0:
+            
         break
     case 1:
         break

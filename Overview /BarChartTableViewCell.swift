@@ -11,9 +11,7 @@ class BarChartTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var BarChart: BarChartView!
-    //fake data
-   // let income = [100,200,300]
-   // let expenses = [20,10,30,5,4,400]
+
     var inc: Double = 0.0
     var exp : Double = 0.0
     var total : Double = 0.0
@@ -64,15 +62,15 @@ class BarChartTableViewCell: UITableViewCell {
         
         
         
-//        for i in 0..<self.xaxisValue.count {
+
         let i = 0
-           //let sumOfIncome = inc.reduce(0,+)
+      
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(inc))
             dataEntries.append(dataEntry)
-       // let sumOfExpenses = expenses.reduce(0,+)
+     
             let dataEntry1 = BarChartDataEntry(x: Double(i), y: Double(exp))
             dataEntries1.append(dataEntry1)
-//        }
+
         
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Income")
           let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses")
@@ -91,21 +89,19 @@ class BarChartTableViewCell: UITableViewCell {
          chartData.barWidth = barWidth
          chartData.setDrawValues(true)
         BarChart.xAxis.axisMinimum = 0.0
-//        BarChart.xAxis.axisMaximum = 0.0 + chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace) * Double(self.xaxisValue.count)
+
 
          chartData.groupBars(fromX: 0.0, groupSpace: groupSpace, barSpace: barSpace)
-//        BarChart.xAxis.granularity = BarChart.xAxis.axisMaximum / Double(self.xaxisValue.count)
+
         
         BarChart.drawValueAboveBarEnabled = true
        BarChart.keepPositionOnRotation = true
         BarChart.clipValuesToContentEnabled = true
 
-        //this code rotate the barss
-//       BarChart.getAxis(.left).inverted = true
+
 
         BarChart.notifyDataSetChanged()
-//        BarChart.setVisibleXRangeMaximum(4)
-//        BarChart.setVisibleXRangeMinimum(4)
+
         BarChart.animate(yAxisDuration: 1.0, easingOption: .linear)
         
 
