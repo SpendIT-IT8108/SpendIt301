@@ -41,6 +41,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var repeatOption: UISwitch!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    var dateIsVisible : Bool = true
     var intervalIsVisible : Bool = false
     var startIsVisible : Bool = false
     var endIsVisible : Bool = false
@@ -87,6 +88,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         if let transaction = self.transaction {
             navigationBar.title = "Edit Transaction"
             category = transaction.category
+            categoryNameTextField.text = category?.name
             symbolImageView.image = category?.icon?.image
             amountTextField.text = String(format: "%.2f", transaction.amount)
             titleTextField.text = transaction.name
@@ -99,6 +101,14 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             }
             if transaction.repeated {
                 repeatOption.isOn = true
+                //if not the original transaction, disable editing repeat details
+                if transaction.nextDate == nil {
+                    repeatOption.isEnabled = false
+                }
+                else {
+                    repeatOption.isEnabled = true
+                }
+                
                 // set interval
                 if let menu = intervalPopUpButton.menu {
                     for item in menu.children {
@@ -151,12 +161,15 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 }
             }
             
-            attachmentImageView.image = transaction.attachment?.image
+            if let attachment = transaction.attachment?.image {
+              attachmentImageView.image = attachment
+            }
+            
         }
         else {
             //set the default catgeory to the most tracked (temporarly first element for testing)
             navigationBar.title = "Add Transaction"
-            category = Category.loadSampleCategories().first
+            category = defaultCategory(type: "Expense")
             categoryNameTextField.text = self.category?.name
             symbolImageView.image = self.category?.icon?.image
         }
@@ -166,22 +179,28 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     //creating popUpButtons
     func setupPopUpButton() {
-        //first popUp Button (Repeating Interval)
+        
+    //first popUp Button (Repeating Interval)
         //specify the action to be taken after selection
-        let optionClosure = {(action : UIAction) in print(action.title)}
+        let setDate = {(action : UIAction) in self.setMinimumDate(interval:action.title, startDate: self.fromDatePicker.date) }
         //add actions to select from as options to the popupButton
         intervalPopUpButton.menu = UIMenu(children : [
-            UIAction(title:"Monthly", state: .on, handler: optionClosure),
-            UIAction(title:"Weekly", state: .on, handler: optionClosure),
-            UIAction(title:"Daily", state: .on, handler: optionClosure)])
+            UIAction(title:"Monthly", state: .on, handler: setDate),
+            UIAction(title:"Weekly", state: .off, handler: setDate),
+            UIAction(title:"Daily", state: .off, handler: setDate)])
         //let the button track the selection
         intervalPopUpButton.showsMenuAsPrimaryAction = true
         intervalPopUpButton.changesSelectionAsPrimaryAction = true
         
-        //Second popUp Button (End Reapet)
-        let optionClosure2 = {(action : UIAction) in
+        
+    //Second popUp Button (End Reapet)
+        let controlDatePicker = {(action : UIAction) in
             if action.title == "Specific Date"{
-                self.endDatePickerIsVisisble = true}
+                self.endDatePickerIsVisisble = true
+                let interval
+                = self.intervalPopUpButton.menu?.selectedElements.first?.title ?? "Monthly"
+                self.setMinimumDate(interval: interval, startDate: self.fromDatePicker.date)
+            }
             else {
                 self.endDatePickerIsVisisble = false
             }
@@ -190,7 +209,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             self.tableView.endUpdates() }
         //add actions to select from as options to the popupButton
         endRepeatPopUpButton.menu = UIMenu(children : [
-            UIAction(title:"Forever", state: .on, handler: optionClosure2), UIAction(title:"Specific Date", state: .off, handler: optionClosure2)])
+            UIAction(title:"Forever", state: .on, handler: controlDatePicker), UIAction(title:"Specific Date", state: .off, handler: controlDatePicker)])
         //let the button track the selection
         endRepeatPopUpButton.showsMenuAsPrimaryAction = true
         endRepeatPopUpButton.changesSelectionAsPrimaryAction = true
@@ -208,6 +227,31 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         updateSaveButton()
     }
     
+    //update end date picker to avoid invalid input
+    func setMinimumDate(interval:String, startDate: Date) {
+        switch interval {
+        case "Weekly":
+            endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate)!
+        case "Monthly" :
+            endDatePicker.minimumDate = Calendar.current.date(byAdding: .month, value: 1, to: startDate)!
+        case "Daily":
+            endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
+        default:
+           return
+        }
+    }
+    
+    //change category once type is changed
+    @IBAction func typeChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            category = defaultCategory(type: "Expense")
+        }else {
+            category = defaultCategory(type: "Income")
+        }
+        categoryNameTextField.text = category?.name
+        symbolImageView.image = category?.icon?.image
+
+    }
     
     // MARK: attachment process
     @objc func imageTapped(sender: UITapGestureRecognizer) {
@@ -271,23 +315,64 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             intervalIsVisible = true
             startIsVisible = true
             endIsVisible = true
+            dateIsVisible = false
         }
         else {
             intervalIsVisible = false
             startIsVisible = false
             endIsVisible = false
+            dateIsVisible = true
         }
         //intervalIsVisible.toggle()
         tableView.beginUpdates()
         tableView.endUpdates()
     }
     
+    //get default element of each type
+    func defaultCategory(type: String) -> Category {
+        var list : [Category] = []
+        for cat in Category.loadSampleCategories() {
+            if cat.type == type {
+                list.append(cat)
+            }
+        }
+        return list.first!
+    }
+    
+    func calculateNext(interval:String, currentDate:Date, endDate:Date? ) -> Date? {
+            var next : Date?
+            switch interval {
+            case "Monthly":
+                next = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)!
+            case "Weekly":
+                next = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)!
+            case "Daily":
+                next = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+            default:
+                next = nil
+            }
+            
+            //take the end date into consedaration if it's specified
+            if let endDate = endDate {
+                //if the calculated next date is less or equal then the end, return the date, otherwise return nil to end the repeat
+                if next! <= endDate {
+                    return next
+                }
+                else {
+                    return nil
+                }
+            }
+            else {
+                return next
+            }
+        }
     
     
     // MARK: Hide and Show Collapsed rows
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
         case notesSpaceeCllIndexPath where noteSpaceIsVisible == false:
+           // tableView.cellForRow(at: notesOptionCellIndexPath).se
             return 0
         case notesSpaceeCllIndexPath where noteSpaceIsVisible == true:
             return 150
@@ -317,8 +402,10 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             return 55
         case typeCellIndexPath:
             return 55
-        case dateCellIndexPath:
+        case dateCellIndexPath where dateIsVisible == true :
             return 55
+        case dateCellIndexPath where dateIsVisible == false :
+            return 0
         case repeatOptionCellIndexPath:
             return 55
         default:
@@ -332,7 +419,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         tableView.deselectRow(at: indexPath, animated: true)
         
         switch indexPath {
-        case repeatOptionCellIndexPath where repeatOption.isOn:
+        case repeatOptionCellIndexPath where repeatOption.isOn && repeatOption.isEnabled:
             //change the visisbility of its properties
             intervalIsVisible.toggle()
             startIsVisible.toggle()
@@ -340,6 +427,10 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             //and hide all other sub-fields
             noteSpaceIsVisible = false
             attachmentIsVisible = false
+        case repeatOptionCellIndexPath where repeatOption.isOn && !repeatOption.isEnabled:
+            //show message box to let user edit repeat details in the original transaction
+            editRepeatedAlert()
+            
         case notesOptionCellIndexPath:
             //change the visisbility of its properties
             noteSpaceIsVisible.toggle()
@@ -364,6 +455,39 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     }
     
     
+    func editRepeatedAlert() {
+        let alertController = UIAlertController(title:
+                                                    "Restricted Action", message: "You can't manage repeat on automatic records. Redirect you to the original transaction?",
+                                                preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel",
+                                   style: .cancel, handler: nil )
+        alertController.addAction(cancel)
+        
+        let redirect = UIAlertAction(title: "Redirect",
+                                    style: .default, handler: {action in
+            //get the original record
+            var originalRecord : Transaction?
+            for tran in Transaction.loadTransactions() {
+                if tran.name == self.transaction?.name && tran.nextDate != nil {
+                    originalRecord = tran
+                }
+            }
+            //redirect to the form
+            
+            //it just overwrite the details > then edit the current tran not the original which what i'm trying to avoid!
+            
+        /*
+            self.transaction = originalRecord
+            self.viewWillAppear(true)
+            self.viewDidLoad()
+            */
+        } )
+        
+        alertController.addAction(redirect)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+
     
     
     // MARK: - Navigation (Segues)
@@ -420,37 +544,46 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             let amount = amountTextField.text!
             let doubleAmount = Double(amount)!
             let title = titleTextField.text!
-            let date = transactionDate.date
             let repeatOption = repeatOption.isOn
             //define all optional values
+            var date : Date
             var interval : String? = nil
             var from : Date? = nil
             var endOption : String? = nil
             var endDate : Date? = nil
+            var nextDate : Date? = nil
             var attachment : UIImage? = nil
             var notes : String? = nil
             //collect optional values
             if repeatOption {
                 interval = intervalPopUpButton.menu?.selectedElements.first?.title
+                date = fromDatePicker.date
                 from = fromDatePicker.date
                 endOption = endRepeatPopUpButton.menu?.selectedElements.first?.title
                 if endOption == "Specific Date" {
                     endDate = endDatePicker.date
                 }
+                 nextDate = calculateNext(interval: interval!, currentDate: date, endDate: endDate)
+            }
+            else {
+               date = transactionDate.date
             }
             attachment = attachmentImageView.image
+            if attachment == UIImage(systemName: "photo.fill.on.rectangle.fill") {
+                attachment = nil
+            }
             notes = NotestextView.text
             //get the first category for testing only
             let cat = category
             //create new transaction instance
-            transaction = Transaction(name: title, amount: doubleAmount, category: cat!, date: date, repeated: repeatOption, repeatingInterval: interval, repeatFrom: from, repeatUntil: endDate, note: notes, attachment: attachment)
+            transaction = Transaction(name: title, amount: doubleAmount, category: cat!, date: date, repeated: repeatOption, repeatingInterval: interval, repeatFrom: from, repeatUntil: endDate, note: notes, attachment: attachment, nextDate: nextDate)
+            
+            
             
             //requesting notification permission
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
                 if granted{
                     self.scheduleNotifications()
-                    self.checkingLimit()
-
                 }
                 
             }
