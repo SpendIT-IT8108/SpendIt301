@@ -46,6 +46,7 @@ addToCell()
 //        mostSpentArray.append(mostSpentCategories(emoji: "📚", categoryName: "Books", price: " 50 BHD"))
 //        mostSpentArray.append(mostSpentCategories(emoji: "🐱", categoryName: "Cat", price: "50 BHD"))
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

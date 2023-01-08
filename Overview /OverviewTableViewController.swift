@@ -16,13 +16,19 @@ class OverviewTableViewController: UITableViewController {
         tableView.sectionFooterHeight=6.0
         tableView.sectionHeaderHeight=6.0
         tableView.allowsSelection = false
-        tableView.reloadData()
+        //tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.reloadData()
+        
+    }
+    
 
     // MARK: - Table view data source
 
