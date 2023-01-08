@@ -41,8 +41,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         
        //transactions
         updateRepeated()
-       transactions=Transaction.loadTransactions()
-        
+        transactions=Transaction.loadTransactions()
         searchedItem=transactions
     }
   
@@ -249,13 +248,12 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         guard segue.identifier == "saveUnwind", let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction else {return}
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             transactions[selectedIndexPath.row] = transaction
-            tableView.reloadRows(at: [selectedIndexPath], with: .none)
         }
         else {
-            let newIndexPath = IndexPath(row: transactions.count, section: 0)
+            let newIndexPath = IndexPath(row: 0, section: 0)
             transactions.append(transaction)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
+        //save list, update any possible repeats, and reload data after insert/edit
         Transaction.saveTransactions(transactions)
         updateRepeated()
         transactions = Transaction.loadTransactions()
