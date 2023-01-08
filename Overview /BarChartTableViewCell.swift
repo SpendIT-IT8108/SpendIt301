@@ -17,17 +17,17 @@ class BarChartTableViewCell: UITableViewCell {
     var inc: Double = 0.0
     var exp : Double = 0.0
     var total : Double = 0.0
-    var transactions : [Transaction] = Transaction.loadSampleTransacion()
+    var transactions : [Transaction] = Transaction.loadTransactions()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         customizeChart()
-       
+        BarChart.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        BarChart.isUserInteractionEnabled = false
+     
         // Configure the view for the selected state
       
     }
