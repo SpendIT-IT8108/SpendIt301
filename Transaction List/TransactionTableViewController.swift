@@ -216,8 +216,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             return "Transaction"
     }
-
-  
+    
+    
     
     
     //MARK: Navigation (Segue)
