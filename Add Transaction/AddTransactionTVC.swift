@@ -9,10 +9,12 @@ import UIKit
 
 class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    var coder: NSCoder?
     //INITIALIZERS
     init?(coder: NSCoder, transaction : Transaction?){
         self.transaction = transaction
         super.init(coder: coder)
+        self.coder = coder
     }
     
     required init?(coder: NSCoder) {
@@ -459,51 +461,46 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         tableView.endUpdates()
     }
     
-    
+    var originalIndex : Int?
     func editRepeatedAlert() {
         //restrict editing for repeated that already ended
-        if (transaction?.repeatUntil)! < Date() {
-            let alertController = UIAlertController(title:
-                                                        "Restricted Action", message: "You can't manage repeat preferences for repeated transactions that has already ended.",
-                                                    preferredStyle: .alert)
-            let OK = UIAlertAction(title: "OK",
+        if let endDate = transaction?.repeatUntil {
+            if endDate < Date() {
+                let alertController = UIAlertController(title:
+                                                            "Restricted Action", message: "You can't manage repeat preferences for repeated transactions that has already ended.",
+                                                        preferredStyle: .alert)
+                let OK = UIAlertAction(title: "OK",
                                        style: .default, handler: nil )
-            alertController.addAction(OK)
-            present(alertController, animated: true, completion: nil)
-        }
-        else {
-            let alertController = UIAlertController(title:
-                                                        "Restricted Action", message: "You can't manage repeat on automatic records. Redirect you to the original transaction?",
-                                                    preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Cancel",
-                                       style: .cancel, handler: nil )
-            alertController.addAction(cancel)
+                alertController.addAction(OK)
+                present(alertController, animated: true, completion: nil)
+            }
+            else {
+                let alertController = UIAlertController(title:
+                                                            "Restricted Action", message: "You can't manage repeat on automatic records. Redirect you to the original transaction?",
+                                                        preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Cancel",
+                                           style: .cancel, handler: nil )
+                alertController.addAction(cancel)
+                
+                let redirect = UIAlertAction(title: "Redirect",
+                                             style: .default, handler: {action in
             
-            let redirect = UIAlertAction(title: "Redirect",
-                                        style: .default, handler: {action in
-                //get the original record
-                var originalRecord : Transaction?
-                for tran in Transaction.loadTransactions() {
-                    if tran.name == self.transaction?.name && tran.nextDate != nil {
-                        originalRecord = tran
+                    //get the original record and reload the form with its data 
+                    for tran in Transaction.loadTransactions() {
+                        if tran.name == self.transaction?.name && tran.nextDate != nil {
+                            self.transaction = tran
+                            self.viewWillAppear(true)
+                            self.viewDidLoad()
+                        }
                     }
-                }
-                //redirect to the form
+               
+                } )
                 
-                //it just overwrite the details > then edit the current tran not the original which what i'm trying to avoid!
+                alertController.addAction(redirect)
                 
-            /*
-                self.transaction = originalRecord
-                self.viewWillAppear(true)
-                self.viewDidLoad()
-                */
-            } )
-            
-            alertController.addAction(redirect)
-            
-            present(alertController, animated: true, completion: nil)
+                present(alertController, animated: true, completion: nil)
+            }
         }
-        
 
     }
 
@@ -595,7 +592,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                             nextDate = nil
                         }
                         else {
-                            //otherwise, keep it the same 
+                            //otherwise, keep it the same
                             nextDate = next
                         }
                     }
