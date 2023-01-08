@@ -135,6 +135,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             self.present(alert, animated: true, completion: nil)
         }
         
+        //reset app
          if indexPath == resetApp {
              //get transaction list
            var transactions = Transaction.loadTransactions()
@@ -152,9 +153,9 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                  Category.saveCategories(categories)
                   
              }))
-             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                      // show the alert
-                     self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
         
     

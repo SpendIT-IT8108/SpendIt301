@@ -161,10 +161,8 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
     
     //function to check if category has transactions
     func categoryHasTransactions(indexPath: IndexPath){
-        //get list f transactions
+        //get list of transactions
     var transactions = Transaction.loadTransactions()
-    var trans:TransactionTableViewController!
-        
         //loop through the transactions list
     for (i , transaction) in transactions.enumerated() {
       //check if transaction is of the selected category type
@@ -175,16 +173,12 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             alert2.addAction(UIAlertAction(title: "Remove Transactions", style: .destructive, handler: { action in
                 transactions.remove(at: i)
                 Transaction.saveTransactions(transactions)
-               
-              
-              
             }))
             //keep transaction
             alert2.addAction(UIAlertAction(title: "Keep Transactions", style: .default, handler: nil))
             //show alert
             self.present(alert2, animated: true, completion: nil)
-           
-            
+
         }
     }
     }
