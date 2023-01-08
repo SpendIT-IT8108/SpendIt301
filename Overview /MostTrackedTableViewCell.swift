@@ -9,10 +9,12 @@ import UIKit
 
 class MostTrackedTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollectionViewDelegate {
 
+    @IBOutlet weak var mosttrackedLbl: UILabel!
     @IBOutlet weak var mostTrackedCollection: UICollectionView!
     var mostTrackedArray = [mostTrackedCategories]()
     override func awakeFromNib() {
         super.awakeFromNib()
+        mosttrackedLbl.text = NSLocalizedString("mosttracked", comment: "")
         // Initialization code
         mostTrackedCollection.delegate = self
         mostTrackedCollection.dataSource = self

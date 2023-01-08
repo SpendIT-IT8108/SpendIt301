@@ -2,7 +2,7 @@
 //  AddTransactionTVC.swift
 //  SpendIt301
 //
-//  Created by A'laa Alekri on 21/12/2022.
+//  Created by Kawthar Alakri on 21/12/2022.
 //
 
 import UIKit
@@ -101,12 +101,16 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             }
             if transaction.repeated {
                 repeatOption.isOn = true
-                //if not the original transaction, disable editing repeat details
+                //if not the original transaction or repeat has ended(no nextDate) > disable editing repeat
                 if transaction.nextDate == nil {
                     repeatOption.isEnabled = false
                 }
                 else {
+                    //if original, let user edit the end option only
                     repeatOption.isEnabled = true
+                    intervalPopUpButton.isUserInteractionEnabled = false
+                    fromDatePicker.isUserInteractionEnabled = false
+                   
                 }
                 
                 // set interval
@@ -157,8 +161,8 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                             }
                         }
                     }
-                    
                 }
+                
             }
             
             if let attachment = transaction.attachment?.image {
@@ -175,6 +179,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         }
         
         updateSaveButton()
+        
     }
     
     //creating popUpButtons
@@ -456,36 +461,50 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     
     func editRepeatedAlert() {
-        let alertController = UIAlertController(title:
-                                                    "Restricted Action", message: "You can't manage repeat on automatic records. Redirect you to the original transaction?",
-                                                preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel",
-                                   style: .cancel, handler: nil )
-        alertController.addAction(cancel)
-        
-        let redirect = UIAlertAction(title: "Redirect",
-                                    style: .default, handler: {action in
-            //get the original record
-            var originalRecord : Transaction?
-            for tran in Transaction.loadTransactions() {
-                if tran.name == self.transaction?.name && tran.nextDate != nil {
-                    originalRecord = tran
+        //restrict editing for repeated that already ended
+        if (transaction?.repeatUntil)! < Date() {
+            let alertController = UIAlertController(title:
+                                                        "Restricted Action", message: "You can't manage repeat preferences for repeated transactions that has already ended.",
+                                                    preferredStyle: .alert)
+            let OK = UIAlertAction(title: "OK",
+                                       style: .default, handler: nil )
+            alertController.addAction(OK)
+            present(alertController, animated: true, completion: nil)
+        }
+        else {
+            let alertController = UIAlertController(title:
+                                                        "Restricted Action", message: "You can't manage repeat on automatic records. Redirect you to the original transaction?",
+                                                    preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel",
+                                       style: .cancel, handler: nil )
+            alertController.addAction(cancel)
+            
+            let redirect = UIAlertAction(title: "Redirect",
+                                        style: .default, handler: {action in
+                //get the original record
+                var originalRecord : Transaction?
+                for tran in Transaction.loadTransactions() {
+                    if tran.name == self.transaction?.name && tran.nextDate != nil {
+                        originalRecord = tran
+                    }
                 }
-            }
-            //redirect to the form
+                //redirect to the form
+                
+                //it just overwrite the details > then edit the current tran not the original which what i'm trying to avoid!
+                
+            /*
+                self.transaction = originalRecord
+                self.viewWillAppear(true)
+                self.viewDidLoad()
+                */
+            } )
             
-            //it just overwrite the details > then edit the current tran not the original which what i'm trying to avoid!
+            alertController.addAction(redirect)
             
-        /*
-            self.transaction = originalRecord
-            self.viewWillAppear(true)
-            self.viewDidLoad()
-            */
-        } )
+            present(alertController, animated: true, completion: nil)
+        }
         
-        alertController.addAction(redirect)
-        
-        present(alertController, animated: true, completion: nil)
+
     }
 
     
@@ -554,20 +573,51 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             var nextDate : Date? = nil
             var attachment : UIImage? = nil
             var notes : String? = nil
-            //collect optional values
+            
+        //collect optional values
+            
+            //repeated transaction data saving
             if repeatOption {
                 interval = intervalPopUpButton.menu?.selectedElements.first?.title
-                date = fromDatePicker.date
                 from = fromDatePicker.date
                 endOption = endRepeatPopUpButton.menu?.selectedElements.first?.title
                 if endOption == "Specific Date" {
                     endDate = endDatePicker.date
                 }
-                 nextDate = calculateNext(interval: interval!, currentDate: date, endDate: endDate)
+                
+                //saving data for edited repeated
+                if let transaction = self.transaction {
+                    //original record, don't overrite the nextDate
+                    date = transactionDate.date
+                    if let next = transaction.nextDate {
+                        //only if it has end date, cancel next transaction if end date has changed to be before
+                        if next > endDatePicker.date && endOption == "Specific Date" {
+                            nextDate = nil
+                        }
+                        else {
+                            //otherwise, keep it the same 
+                            nextDate = next
+                        }
+                    }
+                    //automatic record, valid for date changing but not for nextDate
+                    else {
+                        date = transactionDate.date
+                        nextDate = nil
+                    }
+                }
+                //saving data for added repeated
+                else {
+                    //just added, set the transaction date = starting date, and calculate next based on it
+                    date = fromDatePicker.date
+                    nextDate = calculateNext(interval: interval!, currentDate: date, endDate: endDate)
+                }
+                
             }
+            //if not repeated collect the date from picker
             else {
                date = transactionDate.date
             }
+            
             attachment = attachmentImageView.image
             if attachment == UIImage(systemName: "photo.fill.on.rectangle.fill") {
                 attachment = nil

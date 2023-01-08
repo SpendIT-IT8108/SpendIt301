@@ -382,70 +382,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="y9G-IB-evv"/>
+                    <connections>
+                        <outlet property="languageSegment" destination="3Au-UD-sgo" id="xl8-fZ-i2s"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zf-DM-o4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616.9230769230769" y="237.44075829383885"/>
-        </scene>
-        <!--About Us-->
-        <scene sceneID="Y95-sn-tZg">
-            <objects>
-                <tableViewController id="8em-2Q-WSJ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="A5A-zR-SKI">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="separatorColor" red="0.94915026430000005" green="0.94868153330000005" blue="0.96863025430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexBackgroundColor" red="0.94915026430000005" green="0.94868153330000005" blue="0.96863025430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <sections>
-                            <tableViewSection id="OzY-Mp-xKX">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="800" id="xEe-M9-9sh">
-                                        <rect key="frame" x="0.0" y="18" width="390" height="800"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xEe-M9-9sh" id="aSX-bJ-lQz">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHs-5K-0XS">
-                                                    <rect key="frame" x="20" y="20" width="350" height="1095.6666666666667"/>
-                                                    <string key="text">Last Update: Dec 2022
-
-Our philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.
-- Spend It is designed to protect your information and enable you to choose what you share.
-- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.
-- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.
-
-In order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:
-Google Firebase: https://firebase.google.com/support/faq/
-
-Before using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.
-This policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="rHs-5K-0XS" secondAttribute="trailing" constant="20" id="9ZK-9q-Qhm"/>
-                                                <constraint firstItem="rHs-5K-0XS" firstAttribute="top" secondItem="aSX-bJ-lQz" secondAttribute="top" constant="20" id="FX7-tm-omZ"/>
-                                                <constraint firstItem="rHs-5K-0XS" firstAttribute="leading" secondItem="aSX-bJ-lQz" secondAttribute="leading" constant="20" id="aAf-3L-yaf"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="8em-2Q-WSJ" id="d0H-qW-rOH"/>
-                            <outlet property="delegate" destination="8em-2Q-WSJ" id="R8S-Bl-3hh"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="About Us" id="He0-Nr-ZjA"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FJP-Rj-JDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2469.2307692307691" y="-188.38862559241704"/>
         </scene>
         <!--Settings-->
         <scene sceneID="RHk-ca-xxi">
@@ -543,9 +486,6 @@ This policy also explains your choices about how we use information about you. Y
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

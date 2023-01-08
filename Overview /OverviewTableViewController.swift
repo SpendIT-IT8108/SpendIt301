@@ -9,9 +9,16 @@ import UIKit
 import Charts
 class OverviewTableViewController: UITableViewController {
 
+    @IBOutlet weak var overviewTitle: UINavigationItem!
+    
+   // @IBOutlet weak var mostspentLbl: UILabel!
+   // @IBOutlet weak var mostTrackedLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overviewTitle.title = NSLocalizedString("Overview", comment: "")
+//      //  mostspentLbl.text = NSLocalizedString("mostspent", comment: "")
+//        mostTrackedLbl.text = NSLocalizedString("mosttracked", comment: "")
         //spaces between section
         tableView.sectionFooterHeight=6.0
         tableView.sectionHeaderHeight=6.0

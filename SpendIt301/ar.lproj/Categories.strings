@@ -1,0 +1,39 @@
+
+/* Class = "UINavigationItem"; title = "Add Category"; ObjectID = "44V-VY-dlA"; */
+"44V-VY-dlA.title" = "Add Category";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8RD-CI-Tra"; */
+"8RD-CI-Tra.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Edit"; ObjectID = "CQJ-cJ-dFs"; */
+"CQJ-cJ-dFs.configuration.title" = "Edit";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CQJ-cJ-dFs"; */
+"CQJ-cJ-dFs.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Categories"; ObjectID = "Gbz-cI-BMg"; */
+"Gbz-cI-BMg.title" = "Categories";
+
+/* Class = "UILabel"; text = "Category Type"; ObjectID = "LJa-Vg-Cf2"; */
+"LJa-Vg-Cf2.text" = "Category Type";
+
+/* Class = "UILabel"; text = "Spending Limit"; ObjectID = "MaT-Yu-ehE"; */
+"MaT-Yu-ehE.text" = "Spending Limit";
+
+/* Class = "UITextField"; placeholder = "0.00 BHD"; ObjectID = "Ogh-ca-cNP"; */
+"Ogh-ca-cNP.placeholder" = "0.00 BHD";
+
+/* Class = "UISegmentedControl"; RC7-zy-LvJ.segmentTitles[0] = "Expense"; ObjectID = "RC7-zy-LvJ"; */
+"RC7-zy-LvJ.segmentTitles[0]" = "Expense";
+
+/* Class = "UISegmentedControl"; RC7-zy-LvJ.segmentTitles[1] = "Income"; ObjectID = "RC7-zy-LvJ"; */
+"RC7-zy-LvJ.segmentTitles[1]" = "Income";
+
+/* Class = "UITextField"; placeholder = "Category Name"; ObjectID = "TlU-yE-OWy"; */
+"TlU-yE-OWy.placeholder" = "Category Name";
+
+/* Class = "UINavigationItem"; title = "Add Category"; ObjectID = "dbt-Lv-dtR"; */
+"dbt-Lv-dtR.title" = "Add Category";
+
+/* Class = "UINavigationItem"; title = "Category Manager"; ObjectID = "pJ5-lg-kb3"; */
+"pJ5-lg-kb3.title" = "Category Manager";
