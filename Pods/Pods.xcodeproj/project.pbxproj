@@ -236,7 +236,7 @@
 		281C5688CAFE72956F7CC8A0D85CAC4F /* ScatterChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartRenderer.swift; path = Source/Charts/Renderers/ScatterChartRenderer.swift; sourceTree = "<group>"; };
 		2834CC3E3D8098CC83AD7B462B7F9CD9 /* PieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/PieChartDataSet.swift; sourceTree = "<group>"; };
 		28475FAFFBE57604D8BCD183B28FE5F1 /* XAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRenderer.swift; path = Source/Charts/Renderers/XAxisRenderer.swift; sourceTree = "<group>"; };
-		29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods-SpendIt301 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SpendIt301"; path = Pods_SpendIt301.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods_SpendIt301.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendIt301.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A87E1AE6468AD67E13AC0860A4F6C1A /* BubbleChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartDataProvider.swift; path = Source/Charts/Interfaces/BubbleChartDataProvider.swift; sourceTree = "<group>"; };
 		2BB83A04510D446C719D4953057ABC2D /* Suffix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Suffix.swift; path = Sources/Algorithms/Suffix.swift; sourceTree = "<group>"; };
 		2BE6275C18AC001567C33C2C29DE58BA /* CandleChartDataSetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataSetProtocol.swift; path = Source/Charts/Data/Interfaces/CandleChartDataSetProtocol.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts */,
-				29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods-SpendIt301 */,
+				29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods_SpendIt301.framework */,
 				F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */,
 			);
 			name = Products;
@@ -786,7 +786,7 @@
 			);
 			name = "Pods-SpendIt301";
 			productName = Pods_SpendIt301;
-			productReference = 29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods-SpendIt301 */;
+			productReference = 29B0A2DEA6ACAED02BCFFF67792205B3 /* Pods_SpendIt301.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BF03B0B2B8B052092CB5F90CC5FB3757 /* Charts */ = {
