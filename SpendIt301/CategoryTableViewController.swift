@@ -159,38 +159,81 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
     }
     
     
+    //function to check if category has transactions
+    func categoryHasTransactions(indexPath: IndexPath){
+        //get list of transactions
+    var transactions = Transaction.loadTransactions()
+        //loop through the transactions list
+    for (i , transaction) in transactions.enumerated() {
+      //check if transaction is of the selected category type
+        if transaction.category.name == categories[indexPath.row].name  {
+            //show alert controller
+            let alert2 = UIAlertController(title: "Delete Transactions", message: "By Deleting category \(categories[indexPath.row].name) all of it's transactions will be deleted, choose keep to keep your transactions of this category", preferredStyle: .alert)
+            //remove transactions option
+            alert2.addAction(UIAlertAction(title: "Remove Transactions", style: .destructive, handler: { action in
+                transactions.remove(at: i)
+                Transaction.saveTransactions(transactions)
+            }))
+            //keep transaction
+            alert2.addAction(UIAlertAction(title: "Keep Transactions", style: .default, handler: nil))
+            //show alert
+            self.present(alert2, animated: true, completion: nil)
+
+        }
+    }
+    }
+    
+    
     func deleteShowAlert(indexPath: IndexPath) {
-        let alert = UIAlertController(title: nil, message: "Are you sure you'd like to delete this Category", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Are you sure you would like to delete this Category?", preferredStyle: .alert)
+        
+        // cancel action
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         // delete Action
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [self] _ in
             //delete category
             if self.searchController.isActive{
+                //call function to check if category has transactions
+                self.categoryHasTransactions(indexPath: indexPath)
+                
                 self.categories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 Category.saveCategories(self.categories)
                 
                 
-            } else if self.searchController.searchBar.selectedScopeButtonIndex==1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
+            } else if self.searchController.searchBar.selectedScopeButtonIndex == 1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
+            
+                //call function to check if category has transactions
+                self.categoryHasTransactions(indexPath: indexPath)
+                //remove from categories
                 self.filteredCategories.remove(at: indexPath.row)
+                //remove from table view
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                //save data
                 Category.saveCategories(self.categories)
             }
-            else{
+            else {
+                
+                //call function to check if category has transactions
+                self.categoryHasTransactions(indexPath: indexPath)
+                
+                //remove from categories
                 self.categories.remove(at: indexPath.row)
+                //remove from table view
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                //save data
                 Category.saveCategories(self.categories)
             }
             
         }
         
         alert.addAction(deleteAction)
-        
-        // cancel action
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         present(alert, animated: true, completion: nil)
+  
+        
     }
+   
     
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
