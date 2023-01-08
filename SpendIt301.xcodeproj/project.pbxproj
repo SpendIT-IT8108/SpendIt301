@@ -17,6 +17,7 @@
 		0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */; };
 		0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */; };
 		21098025296B52F10098EA31 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21098027296B52F10098EA31 /* Localizable.strings */; };
+		2109802C296B5C3B0098EA31 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109802B296B5C3B0098EA31 /* OverviewViewController.swift */; };
 		2112D363295C35F80033A07C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112D362295C35F80033A07C /* SettingsTableViewController.swift */; };
 		21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */; };
 		21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */; };
@@ -69,6 +70,7 @@
 		21098022296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21098026296B52F10098EA31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21098028296B52F20098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2109802B296B5C3B0098EA31 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		2112D362295C35F80033A07C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		21236C5C295C0A160040B7AE /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
 		21236C5E295C0AC80040B7AE /* MostSpentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSpentTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				21236C60295C0AF00040B7AE /* MostTrackedTableViewCell.swift */,
 				21236C62295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift */,
 				2130B043294AF4AB001EC43C /* Overview.storyboard */,
+				2109802B296B5C3B0098EA31 /* OverviewViewController.swift */,
 			);
 			path = "Overview ";
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				0BF0975829536A56000CC354 /* Transaction.swift in Sources */,
 				2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */,
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
+				2109802C296B5C3B0098EA31 /* OverviewViewController.swift in Sources */,
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
 				3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */,
 				369E17E2295CF97700400D6D /* TransactionDetailsTVC.swift in Sources */,
