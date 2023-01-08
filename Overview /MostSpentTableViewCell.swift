@@ -55,8 +55,8 @@ addToCell()
     }
     func addToCell() {
         //variables declration
-    let transactions : [Transaction] = Transaction.loadSampleTransacion()
-        let categories : [Category] = Category.loadSampleCategories()
+        let transactions : [Transaction] = Transaction.loadTransactions()
+        let categories : [Category] = Category.loadCategories()!
     var   myDict = [String: Double]()
         var emoji1 : String = ""
         var categoryName1  : String = ""
