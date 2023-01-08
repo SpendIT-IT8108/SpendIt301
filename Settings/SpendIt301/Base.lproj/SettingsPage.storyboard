@@ -382,6 +382,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="y9G-IB-evv"/>
+                    <connections>
+                        <outlet property="languageSegment" destination="3Au-UD-sgo" id="xl8-fZ-i2s"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zf-DM-o4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

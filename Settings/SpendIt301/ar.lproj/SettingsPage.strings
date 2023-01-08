@@ -45,7 +45,7 @@
 "fgI-mQ-5eK.text" = "About Us";
 
 /* Class = "UITableViewSection"; headerTitle = "Notifications"; ObjectID = "jKu-LI-JrO"; */
-"jKu-LI-JrO.headerTitle" = "Notifications";
+"jKu-LI-JrO.headerTitle" = "الإشعارات";
 
 /* Class = "UILabel"; text = "Daily Notifications"; ObjectID = "lOg-mX-6tE"; */
 "lOg-mX-6tE.text" = "Daily Notifications";
