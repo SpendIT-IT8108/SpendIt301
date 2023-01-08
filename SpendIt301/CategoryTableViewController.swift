@@ -158,10 +158,12 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         }
     }
     
+    var transactions = Transaction.loadTransactions()
     
     func deleteShowAlert(indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: "Are you sure you'd like to delete this Category", preferredStyle: .alert)
-        
+       // let cell = tableView.cellForRow(at: indexPath)
+
         // delete Action
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             //delete category
@@ -177,6 +179,14 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
                 Category.saveCategories(self.categories)
             }
             else{
+                for (i , transaction) in self.transactions.enumerated() {
+                    if transaction.category.name == self.categories[indexPath.row].name {
+                        self.transactions.remove(at: i)
+                        
+                        print(self.transactions)
+                        
+                    }
+                }
                 self.categories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 Category.saveCategories(self.categories)
