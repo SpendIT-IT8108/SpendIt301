@@ -155,15 +155,26 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     //MARK: Navigation (Segue)
     @IBSegueAction func showDetails(_ coder: NSCoder, sender: Any?) -> TransactionDetailsTVC? {
+        
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             //transaction object passed to new controller
-            let transaction = transactions[indexPath.row]
+            var transaction: Transaction
+            if searchController.isActive{
+              transaction=searchedItem[indexPath.row]
+            } else if searchController.searchBar.selectedScopeButtonIndex==1 ||
+                        searchController.searchBar.selectedScopeButtonIndex==2{
+                transaction=searchedItem[indexPath.row]
+                
+            } else{
+                 transaction = transactions[indexPath.row]
+            }
+            
+           
             return TransactionDetailsTVC(coder: coder, transaction: transaction)
         }
         else {
             return nil
-        }
-        
+    }
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue){
