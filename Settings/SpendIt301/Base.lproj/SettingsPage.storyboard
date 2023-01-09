@@ -417,10 +417,10 @@
             </objects>
             <point key="canvasLocation" x="-705" y="237"/>
         </scene>
-        <!--Settings-->
+        <!--About Us-->
         <scene sceneID="o4J-bt-bZP">
             <objects>
-                <tableViewController title="Settings" id="sYy-w9-VEF" customClass="SettingsTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="About Us" id="sYy-w9-VEF" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="zIp-60-Ow0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

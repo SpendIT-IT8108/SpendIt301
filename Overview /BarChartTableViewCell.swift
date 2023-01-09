@@ -73,6 +73,7 @@ class BarChartTableViewCell: UITableViewCell {
 
         
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Income")
+      
           let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses")
         
         //color of the data sets(bars)
@@ -83,14 +84,14 @@ class BarChartTableViewCell: UITableViewCell {
         let chartData = BarChartData(dataSets: dataSets)
         BarChart.data = chartData
         let groupSpace = 0.4
-         let barSpace = 0.02
-        let barWidth = 0.05
+         let barSpace = 0.01
+        let barWidth = 0.045
 
          chartData.barWidth = barWidth
          chartData.setDrawValues(true)
         BarChart.xAxis.axisMinimum = 0.0
 
-
+        
          chartData.groupBars(fromX: 0.0, groupSpace: groupSpace, barSpace: barSpace)
 
         
@@ -105,8 +106,17 @@ class BarChartTableViewCell: UITableViewCell {
         BarChart.animate(yAxisDuration: 1.0, easingOption: .linear)
         
 
-        
-        
+        let legend = BarChart.legend
+        legend.horizontalAlignment = .center
+        legend.verticalAlignment = .bottom
+        legend.orientation = .horizontal
+        legend.textWidthMax = 2
+       // legend.formToTextSpace = 1
+        //legend.xEntrySpace = 5
+//        legend.xEntrySpace = 0
+//        legend.yEntrySpace = 0
+//        legend.yOffset = 10
+//        legend.xOffset = 10
     }
 
 }

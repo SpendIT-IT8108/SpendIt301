@@ -176,7 +176,8 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     @IBAction func currencySegmentHasChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
     case 0:
-            
+            let usrRegionCode = Locale.current.currencyCode!
+print(usrRegionCode)
         break
     case 1:
         break
