@@ -20,7 +20,6 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
         mostSpentCollection.delegate = self
         mostSpentCollection.dataSource = self
         mostspentLbl.text = NSLocalizedString("mostspent", comment: "")
-
         //define item size
         let itemSize =
            NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
@@ -94,7 +93,10 @@ addToCell()
             //assign the category name and the total to the variables
             categoryName1 =  i.key
             currencyCode_ = "BHD"
+           
             total1 = "\(i.value) \(currencyCode_)"
+//            _ = total1.replacingOccurrences(of: "BHD", with: "USD")
+
             //append it to the array
             mostSpentArray.append(mostSpentCategories(emoji: emoji1, categoryName: categoryName1, price: total1))
         }

@@ -31,7 +31,7 @@
         <!--Overview-->
         <scene sceneID="XM2-eD-JNd">
             <objects>
-                <tableViewController id="HUd-tZ-Cfl" customClass="OverviewTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="overview" id="HUd-tZ-Cfl" customClass="OverviewTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="3MZ-hv-rtk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

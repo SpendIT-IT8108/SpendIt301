@@ -118,7 +118,7 @@
         <!--Add Category-->
         <scene sceneID="pWl-Uo-Vya">
             <objects>
-                <tableViewController id="blH-hZ-5T8" customClass="AddEditCategoryTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="addedit" id="blH-hZ-5T8" customClass="AddEditCategoryTableViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Npk-tt-4T7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
