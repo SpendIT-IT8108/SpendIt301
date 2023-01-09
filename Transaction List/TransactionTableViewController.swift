@@ -80,16 +80,21 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             }
         }
     }
+    
+    
     //calculate next repeated transaction date
     func calculateNext(interval:String, nextTime:Date, endDate:Date? ) -> Date? {
         var next : Date?
         switch interval {
         case "Monthly":
             next = Calendar.current.date(byAdding: .month, value: 1, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
         case "Weekly":
             next = Calendar.current.date(byAdding: .day, value: 7, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
         case "Daily":
             next = Calendar.current.date(byAdding: .day, value: 1, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
         default:
             next = nil
         }
@@ -109,13 +114,13 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }
     }
     
+    
     //function to check if the next transaction is valid to be added
     func validate(nextTime: Date?) -> Bool {
         var valid = false
         if let nextTime = nextTime {
             if nextTime <= Date() {
                 valid = true
-                
             }
         }
         return valid

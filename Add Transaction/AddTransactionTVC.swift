@@ -346,33 +346,37 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         return list.first!
     }
     
-    func calculateNext(interval:String, currentDate:Date, endDate:Date? ) -> Date? {
-            var next : Date?
-            switch interval {
-            case "Monthly":
-                next = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)!
-            case "Weekly":
-                next = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)!
-            case "Daily":
-                next = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
-            default:
-                next = nil
-            }
-            
-            //take the end date into consedaration if it's specified
-            if let endDate = endDate {
-                //if the calculated next date is less or equal then the end, return the date, otherwise return nil to end the repeat
-                if next! <= endDate {
-                    return next
-                }
-                else {
-                    return nil
-                }
-            }
-            else {
+    //calculate next date for repeated transaction (used in prepare)
+    func calculateNext(interval:String, nextTime:Date, endDate:Date? ) -> Date? {
+        var next : Date?
+        switch interval {
+        case "Monthly":
+            next = Calendar.current.date(byAdding: .month, value: 1, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
+        case "Weekly":
+            next = Calendar.current.date(byAdding: .day, value: 7, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
+        case "Daily":
+            next = Calendar.current.date(byAdding: .day, value: 1, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
+        default:
+            next = nil
+        }
+        
+        //take the end date into consedaration if it's specified
+        if let endDate = endDate {
+            //if the calculated next date is less or equal then the end, return the date, otherwise return nil to end the repeat
+            if next! <= endDate {
                 return next
             }
+            else {
+                return nil
+            }
         }
+        else {
+            return next
+        }
+    }
     
     
     // MARK: Hide and Show Collapsed rows
@@ -461,7 +465,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         tableView.endUpdates()
     }
     
-    var originalIndex : Int?
     func editRepeatedAlert() {
         //restrict editing for repeated that already ended
         if let endDate = transaction?.repeatUntil {
