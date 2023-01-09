@@ -90,7 +90,7 @@ class BarChartTableViewCell: UITableViewCell {
            dataEntries2.append(dataEntry2)
         //set chart data set
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Income    ")
-        let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses  ")
+        let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses    ")
         let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: "Balance")
         //color of the data sets(bars)
         chartDataSet.colors = [UIColor(red: 224/255, green: 223/255, blue: 119/255, alpha: 1)]
