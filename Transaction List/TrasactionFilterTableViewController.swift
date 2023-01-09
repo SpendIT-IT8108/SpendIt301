@@ -110,11 +110,17 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             HtLSwitchOutlet.setOn(false, animated: true)
             doneBtn.isEnabled=true
             clearBtn.isEnabled=true
-            filteredTransactions = transactions.sorted {
-              $0.amount < $1.amount
-               
+            if catTrans.isEmpty {
+                filteredTransactions = transactions.sorted {
+                  $0.amount < $1.amount
             }
-      
+            }
+            else {
+            filteredTransactions = catTrans.sorted {
+              $0.amount < $1.amount
+               }
+            }
+            
         } else{
             doneBtn.isEnabled=false
            
@@ -128,10 +134,17 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 LtHSwitchOutlet.setOn(false, animated: true)
              doneBtn.isEnabled=true
                 clearBtn.isEnabled=true
-                filteredTransactions = transactions.sorted {
+                if catTrans.isEmpty {
+                    filteredTransactions = transactions.sorted {
+                      $0.amount > $1.amount
+                }
+                }
+                else{
+
+                filteredTransactions = catTrans.sorted {
                   $0.amount > $1.amount
                 }
-          
+                }
             } else{
                 doneBtn.isEnabled=false
                
@@ -142,11 +155,27 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     @IBAction func repeatedPresed(_ sender: UISwitch) {
         if sender.isOn{
             doneBtn.isEnabled=true
-        filteredTransactions = transactions.filter(
-              {item in
-                  item.repeated==true
-              })
-        } else{
+            if catTrans.isEmpty {
+                filteredTransactions = transactions.filter (
+                    {item in item.repeated==true})
+            }
+            else {
+
+        filteredTransactions = catTrans.filter(
+              {item in item.repeated==true})
+                
+            }
+            if filteredTransactions.isEmpty{
+                let alert = UIAlertController(title: "Transaction is empty", message: "There is no transactions in this filter", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+               present(alert, animated: true) {
+                   //deselecting
+                   sender.setOn(false, animated: true)
+               }
+
+            }
+        }
+        else{
             doneBtn.isEnabled=false
         }
         
@@ -169,14 +198,6 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                       {item in
                           item.category.name.localizedStandardContains(sender.currentTitle!)
                       })
-                    //placing the transaction in an array if the selected item is different
-                    if filteredTransactions.contains(where: { item in
-                        item.category.name.localizedStandardContains(sender.currentTitle!)
-                    }) == false
-                    {
-                        filteredTransactions = filteredTransactions + catTrans
-                        catTrans = filteredTransactions
-                    }
                     
                   // if selected catogory has no transactions
                   if catTrans.isEmpty {
@@ -189,6 +210,15 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                      }
                   
                   }
+                    
+                    //placing the transaction in an array if the selected item is different
+                    if filteredTransactions.contains(where: { item in
+                        item.category.name.localizedStandardContains(sender.currentTitle!)
+                    }) == false
+                    {
+                        filteredTransactions = filteredTransactions + catTrans
+                        catTrans = filteredTransactions
+                    }
                   else{
           //            doneBtn.isEnabled=true
                       clearBtn.isEnabled=true
@@ -213,7 +243,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 LtHSwitchOutlet.setOn(false, animated: true)
                 repeated.setOn(false, animated: true)
                 doneBtn.isEnabled = true
-        if let catoegoryButton = catogeryBtn{
+        if catogeryBtn != nil{
             for catoegoryButton in categoryBtns {
                 
            

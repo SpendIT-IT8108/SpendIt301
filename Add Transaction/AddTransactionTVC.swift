@@ -633,7 +633,10 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             //requesting notification permission
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
                 if granted{
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                     self.scheduleNotifications()
+                    self.checkingLimit()
+                    
                 }
                 
             }
@@ -645,8 +648,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     //MARK: Notifications
     func scheduleNotifications(){
         
-        UNUserNotificationCenter.current().getNotificationSettings{(settings) in
-            if settings.authorizationStatus == .authorized{
+        
                 let content = UNMutableNotificationContent()
                 content.title="Spend It"
                 content.subtitle="Have you recorded your spending today?💲"
@@ -654,55 +656,88 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 
                 var date = DateComponents()
                 date.calendar = Calendar.current
-                date.hour = 19 //everyday @7pm aka 19
+                date.hour = 20 //everyday @8pm aka 20
                 date.minute = 0
+                date.second = 00
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                 UNUserNotificationCenter.current().add(request)
                 
-            }
-        }
+            
+        
     }
     
     func checkingLimit(){
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-      if granted{
-          var count = Double(self.amountTextField.text!)
-          let name = self.category!.name
-        let trans =  Transaction.loadSampleTransacion().filter({
-              item in
-              item.category.name.localizedStandardContains(name)
-          })
+        var sum = 0.0
+        var reachedExpenseLimmit=false
+            var reachedIncomeLimmit=false
+        
+        DispatchQueue.main.async {
+            //get the amount entered
+            if let count: Double = Double(self.amountTextField.text!){
+          
+            //get the name of the category
+            let name = self.category!.name
+            //search the transactions for the amount
+            let trans =  Transaction.loadTransactions().filter({
+                transItem in
+                transItem.category.name.localizedStandardContains(name)
+            })
+         
           trans.forEach({
-              item in
-              count = count! + item.amount
-          })
-          
-          if let countLimit = self.category?.spendingLimit{
+              //calculate sum
+                transItem in
+              sum = sum + transItem.amount
               
-              if count! > (Double)(countLimit)
-              {
-                  UNUserNotificationCenter.current().getNotificationSettings{(settings) in
-                      if settings.authorizationStatus == .authorized{
-                          let content = UNMutableNotificationContent()
-                          content.title="You have reached \(self.category!.name)'s limit 🤑"
-                              content.sound = .default
-
-
-                          let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(5), repeats: false)
-                          let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                          UNUserNotificationCenter.current().add(request)
-                      
-                          }
+              
+              if let limit = transItem.category.spendingLimit {
+              //if the sum is greater than the limit
+                  if (Double)(limit) < sum+count {
+                     if transItem.category.type=="Expense" {
+                          reachedExpenseLimmit=true
                       }
-              }
-             
-          } 
-           
-        }
+                      else{
+                          reachedIncomeLimmit=true
+                      }
+                    
+                  }
+            }
+          })
+            //notification for expenses
+            if reachedExpenseLimmit{
+               
+                let content = UNMutableNotificationContent()
+                content.subtitle="You have reached \(self.category!.name)'s limit 🤑"
+                    content.sound = .default
+
+
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(5), repeats: false)
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+            }
+                
+                //notification for income
+                if reachedIncomeLimmit {
+                    let content = UNMutableNotificationContent()
+                    content.subtitle="Cheers, you have reached \(self.category!.name)'s goal 💰"
+                        content.sound = .default
+
+
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(5), repeats: false)
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request)
+                    
+                }
+              
           }
+            
+            
+            }
           
-    }
+            
+            }
+             
+      
 }
 

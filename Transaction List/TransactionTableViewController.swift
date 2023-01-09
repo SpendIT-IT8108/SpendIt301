@@ -20,7 +20,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     @IBAction func EditPressed(_ sender: Any) {
         let tableViewEditingMode = tableView.isEditing
         tableView.setEditing(!tableViewEditingMode, animated: true)
-        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem = editButtonItem
         
     }
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchBar.showsScopeBar = true
         searchController.searchResultsUpdater=self
         searchController.searchBar.delegate=self
-        searchController.searchBar.placeholder="Transaction Name"
+        searchController.searchBar.placeholder="Search by name or amount"
         searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
         //update repeated and load the transactions
@@ -48,7 +48,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     //MARK: REPEAT PROCESS
@@ -151,21 +151,29 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     func filterForSearchAndScope(searchText: String, scopeButton: String = "All"){
         
         searchedItem = transactions.filter(
-            { item in
-                let scopeMatch = (scopeButton == "All" || item.category.type.localizedCaseInsensitiveContains(scopeButton))
-                if(searchController.searchBar.text != "" ){
-                    let searchedTextMatch = item.name.localizedCaseInsensitiveContains(searchText)
-                    return scopeMatch&&searchedTextMatch
-                } else {
-                    return scopeMatch
-                }
-            })
-        tableView.reloadData()
+              { item in
+                  let scopeMatch = (scopeButton == "All" || item.category.type.localizedCaseInsensitiveContains(scopeButton))
+              if(searchController.searchBar.text != "" ){
+                  if Double(searchText) != nil{
+                      let  searchedTextMatch = ((String)(item.amount)).localizedCaseInsensitiveContains(searchText)
+                      return scopeMatch&&searchedTextMatch
+                      
+                  } else {
+                      let searchedTextMatch = item.name.localizedCaseInsensitiveContains(searchText)
+                      return scopeMatch&&searchedTextMatch
+                  }
+                  
+                  
+              } else {
+                  return scopeMatch
+              }
+              })
+          tableView.reloadData()
         
     }
     var isUnwind=false
     
-    @IBAction func unwindtoTransactionListDone(sender: UIStoryboardSegue){
+    @IBAction func unwindtoTransactionList(sender: UIStoryboardSegue){
         if sender.identifier == "doneIdentifier" {
             tableView.reloadData()
         }
@@ -258,7 +266,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             if transaction.nextDate != nil {
                 for tran in Transaction.loadTransactions() {
                     if tran.name == transaction.name && tran.nextDate != nil {
-                        var originalIndex = Transaction.loadTransactions().firstIndex(of: tran)
+                        let originalIndex = Transaction.loadTransactions().firstIndex(of: tran)
                         transactions[originalIndex!] = transaction
                         //reload the row to provide updating feedback to user
                         tableView.reloadRows(at: [IndexPath(row: originalIndex!, section: 0)], with: .automatic)
