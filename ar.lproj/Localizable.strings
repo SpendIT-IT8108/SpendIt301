@@ -9,3 +9,19 @@
 "Overview" = "نظرة عامة";
 "mostspent" = " الفئات الأكثر إنفاقا";
 "mosttracked" = "الفئات الأكثر تعقبا";
+//add transaction page
+"edit" = "تغيير";
+"transTitle" = "عنوان المعاملة";
+"type" = "نوع";
+"expense" = "مصروف";
+"income" = "دخل";
+"date" = "تاريخ";
+"repeat" = "تكرار";
+"letyourbill" = "دع فواتيرك تتكرر تلقائيًا";
+"repeatInterval" = "فترة التكرار";
+"from" = "من";
+"until" = "إلى";
+"attachment" = "مرفق";
+"taptoattach" = "انقر لإرفاق الفاتورة للرجوع إليها في المستقبل";
+"notes" = "ملاحظات";
+"notesdec" = "انقر لتسجيل أي معلومات إضافية";

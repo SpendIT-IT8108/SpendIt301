@@ -41,6 +41,19 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var repeatOption: UISwitch!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var editLbl: UIButton!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var repeatLbl: UILabel!
+    @IBOutlet weak var repeatSentenceLbl: UILabel!
+    @IBOutlet weak var repeatintervalLbl: UILabel!
+    @IBOutlet weak var fromLbl: UILabel!
+    @IBOutlet weak var untilLbl: UILabel!
+    @IBOutlet weak var attachementLbl: UILabel!
+    @IBOutlet weak var attachDescLbl: UILabel!
+    @IBOutlet weak var notesLbl: UILabel!
+    
+    @IBOutlet weak var notesDecLbl: UILabel!
     var dateIsVisible : Bool = true
     var intervalIsVisible : Bool = false
     var startIsVisible : Bool = false
@@ -74,6 +87,21 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //localization
+        titleTextField.placeholder = NSLocalizedString("transTitle", comment: "")
+        typeLbl.text = NSLocalizedString("type", comment: "")
+        editLbl.titleLabel?.text = NSLocalizedString("edit", comment: "")
+        dateLbl.text = NSLocalizedString("date", comment: "")
+        repeatLbl.text  = NSLocalizedString("repeat", comment: "")
+        repeatSentenceLbl.text = NSLocalizedString("letyourbill", comment: "")
+        repeatintervalLbl.text = NSLocalizedString("repeatInterval", comment: "")
+        fromLbl.text = NSLocalizedString("from", comment: "")
+        untilLbl.text = NSLocalizedString("until", comment: "")
+        attachementLbl.text = NSLocalizedString("attachment", comment: "")
+        attachDescLbl.text = NSLocalizedString("taptoattach", comment: "")
+        notesLbl.text = NSLocalizedString("notes", comment: "")
+        notesDecLbl.text = NSLocalizedString("notesdec", comment: "")
+        
         
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
