@@ -40,6 +40,8 @@
 		26DC9587296C5DD0002836A8 /* UserSetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */; };
 		26DC9589296C5E2F002836A8 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */; };
 		26DC958B296C5ECD002836A8 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */; };
+		26DC958F296C767A002836A8 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC958E296C767A002836A8 /* UserProfileViewController.swift */; };
+		26DC9591296C7F7E002836A8 /* HighlightingButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9590296C7F7E002836A8 /* HighlightingButtons.swift */; };
 		36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36025E6929533D8E0035C71F /* AddTransactionTVC.swift */; };
 		3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */; };
 		369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369E17DB295CE24A00400D6D /* CategoryTVCell.swift */; };
@@ -97,6 +99,8 @@
 		26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupPageViewController.swift; sourceTree = "<group>"; };
 		26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		26DC958E296C767A002836A8 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = FirstTimeLaunchingApp/UserProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		26DC9590296C7F7E002836A8 /* HighlightingButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HighlightingButtons.swift; path = FirstTimeLaunchingApp/HighlightingButtons.swift; sourceTree = "<group>"; };
 		357C3171B533C475835C844D /* Pods-SpendIt301.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendIt301.debug.xcconfig"; path = "Target Support Files/Pods-SpendIt301/Pods-SpendIt301.debug.xcconfig"; sourceTree = "<group>"; };
 		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
 		3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryTVC.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
+				26DC9590296C7F7E002836A8 /* HighlightingButtons.swift */,
 				26DC957D296C5BD9002836A8 /* FirstTimeLaunchingApp */,
 				21098027296B52F10098EA31 /* Localizable.strings */,
 				2601B05529636E810045F9BC /* userSetupPVC.swift */,
@@ -223,6 +228,7 @@
 				26DC9580296C5C4E002836A8 /* UserSetup.storyboard */,
 				26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */,
 				26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */,
+				26DC958E296C767A002836A8 /* UserProfileViewController.swift */,
 			);
 			path = FirstTimeLaunchingApp;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 				0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */,
 				21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */,
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
+				26DC9591296C7F7E002836A8 /* HighlightingButtons.swift in Sources */,
 				CDE4A605296886AB00D7D7CE /* CHCSVParser.m in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
 				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
@@ -413,6 +420,7 @@
 				2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */,
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
 				2109802C296B5C3B0098EA31 /* OverviewViewController.swift in Sources */,
+				26DC958F296C767A002836A8 /* UserProfileViewController.swift in Sources */,
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
 				3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */,
 				26DC9589296C5E2F002836A8 /* WalkthroughPageViewController.swift in Sources */,
