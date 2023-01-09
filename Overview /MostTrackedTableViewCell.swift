@@ -48,7 +48,7 @@ addToCell()
     func addToCell() {
         //variables declration
         let transactions : [Transaction] = Transaction.loadTransactions()
-        let categories : [Category] = Category.loadSampleCategories()
+        
     var   myDict = [String: Int]()
         var emoji1 : String = ""
         var categoryName1  : String = ""

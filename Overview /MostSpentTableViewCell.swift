@@ -55,10 +55,10 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
        
     }
     var currencyCode_ : String = ""
-    func addToCell() {
+    func addToCell()
+    {
         //variables declration
         let transactions : [Transaction] = Transaction.loadTransactions()
-        let categories : [Category] = Category.loadCategories()!
     var   myDict = [String: Double]()
         var emoji1 : String = ""
         var categoryName1  : String = ""
