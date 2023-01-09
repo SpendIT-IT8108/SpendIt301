@@ -158,29 +158,34 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         }
     }
     
+    var hasTransactions = false
     
     //function to check if category has transactions
     func categoryHasTransactions(indexPath: IndexPath){
         //get list of transactions
     var transactions = Transaction.loadTransactions()
         //loop through the transactions list
-    for (i , transaction) in transactions.enumerated() {
+    for transaction in transactions {
       //check if transaction is of the selected category type
         if transaction.category.name == categories[indexPath.row].name  {
+            hasTransactions = true
             //show alert controller
             let alert2 = UIAlertController(title: "Delete Transactions", message: "By Deleting category \(categories[indexPath.row].name) all of it's transactions will be deleted, choose keep to keep your transactions of this category", preferredStyle: .alert)
             //remove transactions option
             alert2.addAction(UIAlertAction(title: "Remove Transactions", style: .destructive, handler: { action in
-                transactions.remove(at: i)
+                transactions.removeAll{$0.category.name.lowercased() == self.categories[indexPath.row].name.lowercased()}
                 Transaction.saveTransactions(transactions)
+                print(transactions)
             }))
             //keep transaction
             alert2.addAction(UIAlertAction(title: "Keep Transactions", style: .default, handler: nil))
             //show alert
             self.present(alert2, animated: true, completion: nil)
-
+        }else{
+            hasTransactions = false
         }
     }
+        
     }
     
     
