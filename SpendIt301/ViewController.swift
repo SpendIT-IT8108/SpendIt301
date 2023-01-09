@@ -14,10 +14,6 @@ class ViewController: UIViewController {
         view.addSubview(floatingButton)
         // Do any additional setup after loading the view.
 
-        //instantiate the main story board from here to call it in other launches
-        let mainSB = UIStoryboard(name: "Main", bundle: nil)
-        let vc = mainSB.instantiateViewController(withIdentifier: "mainStartPoint")
-        self.present(vc, animated: true)
 
     }
     private let floatingButton: UIButton = {
@@ -53,8 +49,6 @@ class ViewController: UIViewController {
                                       y:view.frame.size.height - 115,
                                       width:60, height:60)
     }
-    
-    
     
     
 

@@ -10,65 +10,11 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
-    let defaults = UserDefaults.standard
 
-    
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
- 
-        
-        //1. store the scene
-        guard let windowScene = (scene as? UIWindowScene) else {return}
-        
-        
-        //2. create new UI window, for both screens that must be displayed in different conditions
-        let walkthroughWindow = UIWindow(windowScene: windowScene)
-        let overviewWindow = UIWindow(windowScene: windowScene
-        )
-       
-        
-        //create the view controller programatically for first launch
-        let walkthroughVC = SBViewController()
-        let navigation = UINavigationController(rootViewController: walkthroughVC)
-        
-        //create the view controller programatically for other launches
-        let overviewVC = ViewController()
-        let navigation2 = UINavigationController(rootViewController: overviewVC)
-        
-        //set the root view controller of the window
-        walkthroughWindow.rootViewController = navigation
-        overviewWindow.rootViewController = navigation2
-        
-        
-        
-        
-        //check if this is the first launch
-        if defaults.bool(forKey: "first launch") == true {
-            print("The second +")
-            
-           
-            //confirmation (but not necssary)
-            defaults.set(true, forKey: "first launch")
-            
-            //run code after other lanches, display overview
-            self.window = overviewWindow
-            overviewWindow.makeKeyAndVisible()
-        
-        }else{
-            
-            print("First time!")
-            //change the state from false to true >> so important
-            defaults.set(true, forKey: "first launch")
-            
-            
-            //run code after first launch, display the walkthrough
-             self.window = walkthroughWindow
-            walkthroughWindow.makeKeyAndVisible()
-             
-        }
-        
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
     }
