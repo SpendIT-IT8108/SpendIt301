@@ -1,0 +1,48 @@
+
+/* Class = "UIButton"; configuration.title = "Start tour"; ObjectID = "HpO-1h-CpR"; */
+"HpO-1h-CpR.configuration.title" = "ابدأ الجولة";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HpO-1h-CpR"; */
+"HpO-1h-CpR.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Hello!"; ObjectID = "JI6-3j-EtS"; */
+"JI6-3j-EtS.text" = "أهلاً";
+
+/* Class = "UIButton"; configuration.title = "Skip"; ObjectID = "KG8-Nf-nA2"; */
+"KG8-Nf-nA2.configuration.title" = "تخطي";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KG8-Nf-nA2"; */
+"KG8-Nf-nA2.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Transactions"; ObjectID = "Nm1-c8-xbt"; */
+"Nm1-c8-xbt.text" = "المعاملات";
+
+/* Class = "UILabel"; text = " Monthly summary of your income and expenses. "; ObjectID = "QUr-pt-M9Y"; */
+"QUr-pt-M9Y.text" = " ملخص شهري بدخلك ونفقاتك.";
+
+/* Class = "UILabel"; text = "Your categories will be displayed in a separate tab, you can add or edit them easily."; ObjectID = "WnL-gT-nGl"; */
+"WnL-gT-nGl.text" = "سيتم عرض الفئات الخاصة بك في صفحة منفصلة ، يمكنك إضافتها أو تعديلها بسهولة.";
+
+/* Class = "UILabel"; text = "Add a new transaction quickly from any point of the app!"; ObjectID = "ZWR-Kr-RMB"; */
+"ZWR-Kr-RMB.text" = "أضف معاملة جديدة بسرعة من أي نقطة في التطبيق!";
+
+/* Class = "UILabel"; text = "Transactions"; ObjectID = "faE-gd-i7j"; */
+"faE-gd-i7j.text" = "المعاملات";
+
+/* Class = "UILabel"; text = "Overview"; ObjectID = "jP7-EM-tIE"; */
+"jP7-EM-tIE.text" = "نظرة عامة";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "jQ1-Lz-h3F"; */
+"jQ1-Lz-h3F.text" = "الفئات";
+
+/* Class = "UILabel"; text = "You can view, search, or filter your list of transactions."; ObjectID = "maz-qm-NSt"; */
+"maz-qm-NSt.text" = "يمكنك عرض أو البحث أو تصفية قائمة المعاملات الخاصة بك.";
+
+/* Class = "UILabel"; text = "Let's explore Spend It  together"; ObjectID = "qyd-Io-729"; */
+"qyd-Io-729.text" = "دعنا نستكشف Spend It معًا";
+
+/* Class = "UIButton"; configuration.title = "Get Started"; ObjectID = "te3-74-0Qr"; */
+"te3-74-0Qr.configuration.title" = "لنبدأ!";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "te3-74-0Qr"; */
+"te3-74-0Qr.normalTitle" = "Button";

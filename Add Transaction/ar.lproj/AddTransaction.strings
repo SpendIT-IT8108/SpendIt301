@@ -1,0 +1,78 @@
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "1Dd-0m-5bz"; */
+"1Dd-0m-5bz.configuration.title" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4sb-k5-scv"; */
+"4sb-k5-scv.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Choose Category"; ObjectID = "86E-sR-wfU"; */
+"86E-sR-wfU.title" = "اختر فئة";
+
+/* Class = "UILabel"; text = "Repeat Interval"; ObjectID = "ADZ-MH-OYp"; */
+"ADZ-MH-OYp.text" = "فترة التكرار";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Abo-oo-sQb"; */
+"Abo-oo-sQb.text" = "الاسم";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "CTb-qN-Bgr"; */
+"CTb-qN-Bgr.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CTb-qN-Bgr"; */
+"CTb-qN-Bgr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Tap to attach receipt for future reference."; ObjectID = "D8e-fl-I2b"; */
+"D8e-fl-I2b.text" = "انقر لإرفاق الفاتورة للرجوع إليها في المستقبل";
+
+/* Class = "UILabel"; text = "Attachment"; ObjectID = "EQm-gL-2v0"; */
+"EQm-gL-2v0.text" = "مرفق";
+
+/* Class = "UIButton"; configuration.title = "Edit"; ObjectID = "FHK-xK-VVX"; */
+"FHK-xK-VVX.configuration.title" = "تعديل";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FHK-xK-VVX"; */
+"FHK-xK-VVX.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "ISL-2a-yD7"; */
+"ISL-2a-yD7.text" = "ملاحظات";
+
+/* Class = "UILabel"; text = "Tap to record any additional information."; ObjectID = "QHO-5p-ztu"; */
+"QHO-5p-ztu.text" = "انقر لتسجيل أي معلومات إضافية";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "VBs-5n-rwO"; */
+"VBs-5n-rwO.text" = "من";
+
+/* Class = "UILabel"; text = "Let your bills repeat automatically."; ObjectID = "aQE-Iv-NYK"; */
+"aQE-Iv-NYK.text" = "دع فواتيرك تتكرر تلقائيًا";
+
+/* Class = "UITableViewSection"; headerTitle = "ADDITIONAL DETAILS"; ObjectID = "dlT-HH-5J9"; */
+"dlT-HH-5J9.headerTitle" = "تفاصيل إضافية";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "f2K-Op-aU0"; */
+"f2K-Op-aU0.text" = "التاريخ";
+
+/* Class = "UITextField"; placeholder = "Transaction Title"; ObjectID = "lAC-Fp-kOg"; */
+"lAC-Fp-kOg.placeholder" = "عنوان المعاملة";
+
+/* Class = "UILabel"; text = "Repeat"; ObjectID = "srY-hV-ilI"; */
+"srY-hV-ilI.text" = "تكرار";
+
+/* Class = "UIButton"; configuration.title = "Edit"; ObjectID = "uXM-Y8-1Rl"; */
+"uXM-Y8-1Rl.configuration.title" = "تغيير";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uXM-Y8-1Rl"; */
+"uXM-Y8-1Rl.normalTitle" = "Button";
+
+/* Class = "UISegmentedControl"; ugy-ps-jBO.segmentTitles[0] = "Expense"; ObjectID = "ugy-ps-jBO"; */
+"ugy-ps-jBO.segmentTitles[0]" = "مصروف";
+
+/* Class = "UISegmentedControl"; ugy-ps-jBO.segmentTitles[1] = "Income"; ObjectID = "ugy-ps-jBO"; */
+"ugy-ps-jBO.segmentTitles[1]" = "دخل";
+
+/* Class = "UITextField"; placeholder = "BHD"; ObjectID = "wEt-hP-k66"; */
+"wEt-hP-k66.placeholder" = "دب";
+
+/* Class = "UILabel"; text = "Until"; ObjectID = "wRf-3f-XhZ"; */
+"wRf-3f-XhZ.text" = "إلى";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "ynv-qk-Hyj"; */
+"ynv-qk-Hyj.text" = "نوع";

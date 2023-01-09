@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Most Spent Categories"; ObjectID = "1UJ-NP-lbv"; */
+"1UJ-NP-lbv.text" = "الفئات الأكثر إنفاقا";
+
+/* Class = "UILabel"; text = "💻"; ObjectID = "3LF-8N-Ztv"; */
+"3LF-8N-Ztv.text" = "💻";
+
+/* Class = "UILabel"; text = "Most Tracked Categories"; ObjectID = "4VG-SS-Bcp"; */
+"4VG-SS-Bcp.text" = "الفئات الأكثر تتبعاً";
+
+/* Class = "UILabel"; text = "Laptop"; ObjectID = "8AR-Wi-8En"; */
+"8AR-Wi-8En.text" = "Laptop";
+
+/* Class = "UILabel"; text = "Laptop"; ObjectID = "9dg-h4-lYQ"; */
+"9dg-h4-lYQ.text" = "Laptop";
+
+/* Class = "UILabel"; text = "💻"; ObjectID = "KGw-kC-Zeg"; */
+"KGw-kC-Zeg.text" = "💻";
+
+/* Class = "UILabel"; text = "5 times"; ObjectID = "YGV-I7-vst"; */
+"YGV-I7-vst.text" = "5 مرات";
+
+/* Class = "UITabBarItem"; title = "Overview"; ObjectID = "bw5-fd-NSC"; */
+"bw5-fd-NSC.title" = "نظرة عامة";
+
+/* Class = "UINavigationItem"; title = "Overview"; ObjectID = "dte-zd-fiN"; */
+"dte-zd-fiN.title" = "نظرة عامة";
+
+/* Class = "UILabel"; text = "1000 BD"; ObjectID = "qKp-29-ijw"; */
+"qKp-29-ijw.text" = "1000 دب";
