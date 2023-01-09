@@ -2,7 +2,7 @@
 //  CategoryTVCell.swift
 //  SpendIt301
 //
-//  Created by A'laa Alekri on 28/12/2022.
+//  Created by Kawthar Alakri on 28/12/2022.
 //
 
 import UIKit
@@ -22,6 +22,7 @@ class CategoryTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    //update cell content with category name anc icon
     func update(with category: Category) {
         categoryNameLabel.text = category.name
         symbolImageView.image = category.icon?.image
