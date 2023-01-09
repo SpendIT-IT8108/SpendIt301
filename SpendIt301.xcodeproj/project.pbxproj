@@ -35,9 +35,9 @@
 		2180892A296CAA30002BCFC1 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2180892C296CAA30002BCFC1 /* Overview.storyboard */; };
 		21808931296CAABC002BCFC1 /* AddTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21808933296CAABC002BCFC1 /* AddTransaction.storyboard */; };
 		2180893A296CAFE7002BCFC1 /* UserWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2180893C296CAFE7002BCFC1 /* UserWalkthrough.storyboard */; };
+		2180893F296CB170002BCFC1 /* UserSetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21808941296CB170002BCFC1 /* UserSetup.storyboard */; };
 		21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */; };
 		2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601B05529636E810045F9BC /* userSetupPVC.swift */; };
-		26DC9581296C5C4E002836A8 /* UserSetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC9580296C5C4E002836A8 /* UserSetup.storyboard */; };
 		26DC9587296C5DD0002836A8 /* UserSetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */; };
 		26DC9589296C5E2F002836A8 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */; };
 		26DC958B296C5ECD002836A8 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */; };
@@ -102,9 +102,10 @@
 		21808939296CAD9C002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/SettingsPage.strings; sourceTree = "<group>"; };
 		2180893B296CAFE7002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserWalkthrough.storyboard; sourceTree = "<group>"; };
 		2180893E296CAFEB002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/UserWalkthrough.strings; sourceTree = "<group>"; };
+		21808940296CB170002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserSetup.storyboard; sourceTree = "<group>"; };
+		21808943296CB173002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/UserSetup.strings; sourceTree = "<group>"; };
 		21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2601B05529636E810045F9BC /* userSetupPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSetupPVC.swift; sourceTree = "<group>"; };
-		26DC9580296C5C4E002836A8 /* UserSetup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSetup.storyboard; sourceTree = "<group>"; };
 		26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupPageViewController.swift; sourceTree = "<group>"; };
 		26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +235,7 @@
 			children = (
 				2180893C296CAFE7002BCFC1 /* UserWalkthrough.storyboard */,
 				26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */,
-				26DC9580296C5C4E002836A8 /* UserSetup.storyboard */,
+				21808941296CB170002BCFC1 /* UserSetup.storyboard */,
 				26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */,
 				26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */,
 				26DC958E296C767A002836A8 /* UserProfileViewController.swift */,
@@ -349,7 +350,7 @@
 				369E17E0295CF6BC00400D6D /* TransactionDetails.storyboard in Resources */,
 				2130B037294AEBEB001EC43C /* Main.storyboard in Resources */,
 				2130B04A294AF518001EC43C /* Categories.storyboard in Resources */,
-				26DC9581296C5C4E002836A8 /* UserSetup.storyboard in Resources */,
+				2180893F296CB170002BCFC1 /* UserSetup.storyboard in Resources */,
 				2130B047294AF4EC001EC43C /* Transactions.storyboard in Resources */,
 				CDA96F0C296C982100981CAE /* Assets.xcassets in Resources */,
 				21808931296CAABC002BCFC1 /* AddTransaction.storyboard in Resources */,
@@ -529,6 +530,15 @@
 				2180893E296CAFEB002BCFC1 /* ar */,
 			);
 			name = UserWalkthrough.storyboard;
+			sourceTree = "<group>";
+		};
+		21808941296CB170002BCFC1 /* UserSetup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21808940296CB170002BCFC1 /* Base */,
+				21808943296CB173002BCFC1 /* ar */,
+			);
+			name = UserSetup.storyboard;
 			sourceTree = "<group>";
 		};
 		369E17DE295CF6BC00400D6D /* TransactionDetails.storyboard */ = {
