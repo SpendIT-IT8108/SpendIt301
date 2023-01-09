@@ -182,6 +182,8 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
             var list = Transaction.loadTransactions()
             list.removeAll(where: {$0.category.name == name})
             Transaction.saveTransactions(list)
+            self.performSegue(withIdentifier: "backToTransactions", sender: self)
+
         }))
         //action2
         alertHasTransactions.addAction(UIAlertAction(title: "Keep Transactions", style: .default, handler: nil))
@@ -198,12 +200,11 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         // delete Action
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [self] _ in
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
             //delete category
             if self.searchController.isActive{
                 //call function to check if category has transactions
                 self.checkCategoryHasTransactions(indexPath: indexPath)
-    
                 self.categories.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 Category.saveCategories(self.categories)
@@ -250,10 +251,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         categories.insert(movedObject, at: destinationIndexPath.row)
     }
     
-    
-    
-    
-    
+
     //search results update
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar

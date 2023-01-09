@@ -285,4 +285,11 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         
     }
     
+    //segue performed when transactions associated with category are removed
+    @IBAction func unwindToRemoveAllTransactions(segue: UIStoryboardSegue){
+        //tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        tableView.reloadData()
+        viewDidLoad()
+    }
+    
 }

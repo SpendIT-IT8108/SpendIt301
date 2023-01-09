@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdH-Wl-5hy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="-382"/>
+            <point key="canvasLocation" x="2128" y="-709"/>
         </scene>
         <!--Category Manager-->
         <scene sceneID="RQf-g7-aML">
@@ -82,11 +82,13 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sortButton" destination="8RD-CI-Tra" id="EoG-XO-WVt"/>
+                        <segue destination="GNw-zP-6KH" kind="unwind" identifier="backToTransactions" unwindAction="unwindToRemoveAllTransactionsWithSegue:" id="cix-cF-wTk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukX-uQ-4Tv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GNw-zP-6KH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2913" y="-716"/>
+            <point key="canvasLocation" x="2913" y="-709"/>
         </scene>
         <!--AddTransaction-->
         <scene sceneID="KXD-ga-yAc">
@@ -113,7 +115,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUG-wR-DBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3857" y="-747"/>
+            <point key="canvasLocation" x="3710" y="-709"/>
         </scene>
         <!--Add Category-->
         <scene sceneID="pWl-Uo-Vya">
@@ -276,7 +278,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jk7-0R-P1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rcD-Av-wY7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4693" y="-747"/>
+            <point key="canvasLocation" x="4506" y="-709"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
