@@ -16,6 +16,7 @@ class WalkthroughViewController: UIViewController {
         //instantaite the walkthrough storyboard for first launch
         let storyB = UIStoryboard(name: "UserWalkthrough", bundle: nil)
         let vc = storyB.instantiateViewController(withIdentifier: "WalkthroughStartPoint")
+        vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
     

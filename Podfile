@@ -7,5 +7,8 @@ target 'SpendIt301' do
 
   # Pods for SpendIt301
 pod 'Charts'
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+
 
 end
