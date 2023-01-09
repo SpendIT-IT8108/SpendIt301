@@ -12,6 +12,7 @@ class MostTrackedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emojiLbl: UILabel!
     @IBOutlet weak var categoryLbl: UILabel!
     @IBOutlet weak var timesLbl: UILabel!
+    //function to set up the cell with requird info from transactions
     func setUpCell (emoji: String, categoryName: String, itemsNo: String){
         emojiLbl.text = emoji
         categoryLbl.text = categoryName

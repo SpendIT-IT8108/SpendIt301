@@ -20,7 +20,7 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
         mostSpentCollection.delegate = self
         mostSpentCollection.dataSource = self
         mostspentLbl.text = NSLocalizedString("mostspent", comment: "")
-
+        
         //define item size
         let itemSize =
            NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
@@ -40,8 +40,10 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
 
         mostSpentCollection.collectionViewLayout =
            UICollectionViewCompositionalLayout(section: section)
+        //stop scrolling
         mostSpentCollection.isScrollEnabled = false
-addToCell()
+        //call function
+        addToCell()
 
     }
     
@@ -53,10 +55,10 @@ addToCell()
        
     }
     var currencyCode_ : String = ""
-    func addToCell() {
+    func addToCell()
+    {
         //variables declration
         let transactions : [Transaction] = Transaction.loadTransactions()
-        let categories : [Category] = Category.loadCategories()!
     var   myDict = [String: Double]()
         var emoji1 : String = ""
         var categoryName1  : String = ""
@@ -94,7 +96,10 @@ addToCell()
             //assign the category name and the total to the variables
             categoryName1 =  i.key
             currencyCode_ = "BHD"
+           
             total1 = "\(i.value) \(currencyCode_)"
+//            _ = total1.replacingOccurrences(of: "BHD", with: "USD")
+
             //append it to the array
             mostSpentArray.append(mostSpentCategories(emoji: emoji1, categoryName: categoryName1, price: total1))
         }
@@ -113,10 +118,11 @@ addToCell()
             if mostSpentArray.count > 0 && indexPath.row < mostSpentArray.count {
             
             let category = mostSpentArray[indexPath.row]
-            
+            //set the collection view cell with the info
             cell.setUpCell(emoji: category.emoji, categoryName: category.categoryName, sum: category.price)
         
             return cell }
+            //if empty return empty
             else
             
             {

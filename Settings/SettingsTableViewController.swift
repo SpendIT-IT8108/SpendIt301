@@ -205,10 +205,16 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     @IBAction func currencySegmentHasChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
     case 0:
-            let usrRegionCode = Locale.current.currencyCode!
-print(usrRegionCode)
+          
         break
     case 1:
+//            let storyboard = UIStoryboard(name: "AddTransaction", bundle: nil)
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "addTrans")
+//            if let vc = initialViewController as? AddTransactionTVC {
+//                let str =  vc.amountTextField.text
+//                let replaced = str?.replacingOccurrences(of: "BHD", with: "USD")
+
+            
         break
         default:
             break
