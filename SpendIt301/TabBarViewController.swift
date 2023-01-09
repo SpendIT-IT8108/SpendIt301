@@ -12,9 +12,10 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(floatingButton)
+        
+        //assign the object function as an action to the programmatically created floating button
         floatingButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
 
-        // Do any additional setup after loading the view.
     }
     
     //floating button
@@ -48,14 +49,6 @@ class TabBarViewController: UITabBarController {
     }()
 
    
-    @objc func addButtonClicked(){
-        performSegue(withIdentifier: "showAddForm", sender: self)
-    }
-    
-    
-    @IBSegueAction func showAddForm(_ coder: NSCoder) -> UIViewController? {
-        return AddTransactionTVC(coder: coder, transaction: nil)
-    }
     
     //subView for floating button
     override func viewDidLayoutSubviews() {
@@ -67,13 +60,14 @@ class TabBarViewController: UITabBarController {
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+    @objc func addButtonClicked(){
+            performSegue(withIdentifier: "showAddForm", sender: self)
         }
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        @IBSegueAction func showAddForm(_ coder: NSCoder) -> UIViewController? {
+            return AddTransactionTVC(coder: coder, transaction: nil)
+        }
+        
     }
     
 
