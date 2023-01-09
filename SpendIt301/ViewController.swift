@@ -14,6 +14,11 @@ class ViewController: UIViewController {
         view.addSubview(floatingButton)
         // Do any additional setup after loading the view.
 
+        
+        //instantiate the main story board from here to call it in other launches
+        let mainSB = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainSB.instantiateViewController(withIdentifier: "tabBar")
+        self.present(vc, animated: true)
 
     }
     private let floatingButton: UIButton = {

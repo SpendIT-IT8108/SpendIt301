@@ -38,8 +38,9 @@ class MostTrackedTableViewCell: UITableViewCell, UICollectionViewDataSource,UICo
         
         mostTrackedCollection.collectionViewLayout =
            UICollectionViewCompositionalLayout(section: section)
+        //stop scrolling
         mostTrackedCollection.isScrollEnabled = false
-        
+        //call function
 addToCell()
 
     }
@@ -47,7 +48,7 @@ addToCell()
     func addToCell() {
         //variables declration
         let transactions : [Transaction] = Transaction.loadTransactions()
-        let categories : [Category] = Category.loadSampleCategories()
+        
     var   myDict = [String: Int]()
         var emoji1 : String = ""
         var categoryName1  : String = ""
@@ -109,11 +110,14 @@ addToCell()
             if collectionView == self.mostTrackedCollection {
             
             let cell = mostTrackedCollection.dequeueReusableCell(withReuseIdentifier: "MostTrackedCollectionViewCell", for: indexPath) as! MostTrackedCollectionViewCell
+                //check if the array is empty or not
                 if mostTrackedArray.count > 0 && indexPath.row < mostTrackedArray.count {
                 let category = mostTrackedArray[indexPath.row]
+                    //set up the cell with the returned info 
                 cell.setUpCell(emoji: category.emoji, categoryName: category.categoryName, itemsNo: category.itemsNo)
                 
             return cell
+                    //if empty return ""
                 
                 }else{
                     cell.setUpCell(emoji: "", categoryName: "", itemsNo: "")
