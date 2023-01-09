@@ -10,7 +10,8 @@ import UIKit
 class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollectionViewDelegate  {
 
     
-
+    @IBOutlet weak var mostspentLbl: UILabel!
+    
     @IBOutlet weak var mostSpentCollection: UICollectionView!
     var mostSpentArray = [mostSpentCategories]()
     override func awakeFromNib() {
@@ -18,7 +19,7 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
         // Initialization code
         mostSpentCollection.delegate = self
         mostSpentCollection.dataSource = self
-        
+        mostspentLbl.text = NSLocalizedString("mostspent", comment: "")
 
         //define item size
         let itemSize =
@@ -41,11 +42,9 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
            UICollectionViewCompositionalLayout(section: section)
         mostSpentCollection.isScrollEnabled = false
 addToCell()
-//        mostSpentArray.append(mostSpentCategories(emoji: "💻", categoryName: "Laptop", price: "212 BHD"))
-//        mostSpentArray.append(mostSpentCategories(emoji: "🍔", categoryName: "Food", price: "100 BHD"))
-//        mostSpentArray.append(mostSpentCategories(emoji: "📚", categoryName: "Books", price: " 50 BHD"))
-//        mostSpentArray.append(mostSpentCategories(emoji: "🐱", categoryName: "Cat", price: "50 BHD"))
+
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -53,10 +52,11 @@ addToCell()
         // Configure the view for the selected state
        
     }
+    var currencyCode_ : String = ""
     func addToCell() {
         //variables declration
-    let transactions : [Transaction] = Transaction.loadSampleTransacion()
-        let categories : [Category] = Category.loadSampleCategories()
+        let transactions : [Transaction] = Transaction.loadTransactions()
+        let categories : [Category] = Category.loadCategories()!
     var   myDict = [String: Double]()
         var emoji1 : String = ""
         var categoryName1  : String = ""
@@ -93,7 +93,8 @@ addToCell()
             }
             //assign the category name and the total to the variables
             categoryName1 =  i.key
-            total1 = "\(i.value) BHD"
+            currencyCode_ = "BHD"
+            total1 = "\(i.value) \(currencyCode_)"
             //append it to the array
             mostSpentArray.append(mostSpentCategories(emoji: emoji1, categoryName: categoryName1, price: total1))
         }

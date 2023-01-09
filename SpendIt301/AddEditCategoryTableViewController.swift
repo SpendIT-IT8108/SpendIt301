@@ -59,8 +59,6 @@
                     title = "Add Category"
                     
                 }
-
-            
             updateSaveButtonState()
         
                 }

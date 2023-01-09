@@ -11,9 +11,7 @@ class BarChartTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var BarChart: BarChartView!
-    //fake data
-   // let income = [100,200,300]
-   // let expenses = [20,10,30,5,4,400]
+
     var inc: Double = 0.0
     var exp : Double = 0.0
     var total : Double = 0.0
@@ -64,17 +62,18 @@ class BarChartTableViewCell: UITableViewCell {
         
         
         
-//        for i in 0..<self.xaxisValue.count {
+
         let i = 0
-           //let sumOfIncome = inc.reduce(0,+)
+      
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(inc))
             dataEntries.append(dataEntry)
-       // let sumOfExpenses = expenses.reduce(0,+)
+     
             let dataEntry1 = BarChartDataEntry(x: Double(i), y: Double(exp))
             dataEntries1.append(dataEntry1)
-//        }
+
         
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Income")
+      
           let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses")
         
         //color of the data sets(bars)
@@ -85,32 +84,39 @@ class BarChartTableViewCell: UITableViewCell {
         let chartData = BarChartData(dataSets: dataSets)
         BarChart.data = chartData
         let groupSpace = 0.4
-         let barSpace = 0.02
-        let barWidth = 0.05
+         let barSpace = 0.01
+        let barWidth = 0.045
 
          chartData.barWidth = barWidth
          chartData.setDrawValues(true)
         BarChart.xAxis.axisMinimum = 0.0
-//        BarChart.xAxis.axisMaximum = 0.0 + chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace) * Double(self.xaxisValue.count)
 
+        
          chartData.groupBars(fromX: 0.0, groupSpace: groupSpace, barSpace: barSpace)
-//        BarChart.xAxis.granularity = BarChart.xAxis.axisMaximum / Double(self.xaxisValue.count)
+
         
         BarChart.drawValueAboveBarEnabled = true
        BarChart.keepPositionOnRotation = true
         BarChart.clipValuesToContentEnabled = true
 
-        //this code rotate the barss
-//       BarChart.getAxis(.left).inverted = true
+
 
         BarChart.notifyDataSetChanged()
-//        BarChart.setVisibleXRangeMaximum(4)
-//        BarChart.setVisibleXRangeMinimum(4)
+
         BarChart.animate(yAxisDuration: 1.0, easingOption: .linear)
         
 
-        
-        
+        let legend = BarChart.legend
+        legend.horizontalAlignment = .center
+        legend.verticalAlignment = .bottom
+        legend.orientation = .horizontal
+        legend.textWidthMax = 2
+       // legend.formToTextSpace = 1
+        //legend.xEntrySpace = 5
+//        legend.xEntrySpace = 0
+//        legend.yEntrySpace = 0
+//        legend.yOffset = 10
+//        legend.xOffset = 10
     }
 
 }

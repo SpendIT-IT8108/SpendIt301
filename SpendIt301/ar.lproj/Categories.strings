@@ -1,0 +1,39 @@
+
+/* Class = "UINavigationItem"; title = "Add Category"; ObjectID = "44V-VY-dlA"; */
+"44V-VY-dlA.title" = "إضافة فئة";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8RD-CI-Tra"; */
+"8RD-CI-Tra.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Edit"; ObjectID = "CQJ-cJ-dFs"; */
+"CQJ-cJ-dFs.configuration.title" = "تعديل";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CQJ-cJ-dFs"; */
+"CQJ-cJ-dFs.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Categories"; ObjectID = "Gbz-cI-BMg"; */
+"Gbz-cI-BMg.title" = "الفئات";
+
+/* Class = "UILabel"; text = "Category Type"; ObjectID = "LJa-Vg-Cf2"; */
+"LJa-Vg-Cf2.text" = "نوع الفئة";
+
+/* Class = "UILabel"; text = "Spending Limit"; ObjectID = "MaT-Yu-ehE"; */
+"MaT-Yu-ehE.text" = "حد الإنفاق";
+
+/* Class = "UITextField"; placeholder = "0.00 BHD"; ObjectID = "Ogh-ca-cNP"; */
+"Ogh-ca-cNP.placeholder" = "0.00 BHD";
+
+/* Class = "UISegmentedControl"; RC7-zy-LvJ.segmentTitles[0] = "Expense"; ObjectID = "RC7-zy-LvJ"; */
+"RC7-zy-LvJ.segmentTitles[0]" = "مصروف";
+
+/* Class = "UISegmentedControl"; RC7-zy-LvJ.segmentTitles[1] = "Income"; ObjectID = "RC7-zy-LvJ"; */
+"RC7-zy-LvJ.segmentTitles[1]" = "دخل";
+
+/* Class = "UITextField"; placeholder = "Category Name"; ObjectID = "TlU-yE-OWy"; */
+"TlU-yE-OWy.placeholder" = "اسم الفئة";
+
+/* Class = "UINavigationItem"; title = "Add Category"; ObjectID = "dbt-Lv-dtR"; */
+"dbt-Lv-dtR.title" = "إضافة فئة";
+
+/* Class = "UINavigationItem"; title = "Category Manager"; ObjectID = "pJ5-lg-kb3"; */
+"pJ5-lg-kb3.title" = "مدير الفئات";

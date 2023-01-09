@@ -110,9 +110,9 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BHD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEt-hP-k66">
                                                             <rect key="frame" x="157.33333333333337" y="0.0" width="157.66666666666663" height="80"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="55"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                             <connections>
-                                                                <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingDidEnd" id="Rla-u9-LIs"/>
+                                                                <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingChanged" id="bhG-zO-GQf"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -143,7 +143,7 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingDidEnd" id="mc5-hG-nH7"/>
+                                                        <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingChanged" id="8DH-vH-Ovl"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -177,6 +177,9 @@
                                                                 <segment title="Expense"/>
                                                                 <segment title="Income"/>
                                                             </segments>
+                                                            <connections>
+                                                                <action selector="typeChanged:" destination="X0H-Dk-r6V" eventType="valueChanged" id="XGv-PJ-g6b"/>
+                                                            </connections>
                                                         </segmentedControl>
                                                     </subviews>
                                                     <constraints>
@@ -486,12 +489,24 @@
                         <outlet property="type" destination="ugy-ps-jBO" id="jPF-bf-wV4"/>
                         <segue destination="WcH-iu-BhO" kind="unwind" identifier="cancelAddUnwind" unwindAction="unwindToListWithSegue:" id="ZMk-gm-16V"/>
                         <segue destination="WcH-iu-BhO" kind="unwind" identifier="cancelEditUnwind" unwindAction="unwindToDetailsWithSegue:" id="TNh-FJ-CwR"/>
+                        <segue destination="1Iu-0N-Vj2" kind="show" id="pJk-T8-hkW"/>
+                        <segue destination="WcH-iu-BhO" kind="unwind" identifier="redirectToOriginal" unwindAction="unwindToListWithSegue:" id="PuQ-OK-8mU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UX-c4-BTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="WcH-iu-BhO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4076.9230769230767" y="447.86729857819904"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="4Hg-qo-ZKx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Transactions" id="1Iu-0N-Vj2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Efg-g4-Aqs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IkM-Zf-3Rp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4083" y="885"/>
         </scene>
         <!--Choose Category-->
         <scene sceneID="iGK-gj-i5c">
@@ -502,7 +517,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="0QF-V7-enV" customClass="CategoryTVCell" customModule="SpendIt301" customModuleProvider="target">
+
                                 <rect key="frame" x="20" y="49" width="350" height="49.666667938232422"/>
+
+                                <rect key="frame" x="20" y="55.333332061767578" width="350" height="49.666667938232422"/>
+
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0QF-V7-enV" id="d2u-Zm-t2w">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="49.666667938232422"/>

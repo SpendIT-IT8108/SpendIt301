@@ -11,6 +11,7 @@ import MessageUI
 
 class SettingsTableViewController: UITableViewController,MFMailComposeViewControllerDelegate  {
 
+    
     //index pathes
     //first section
     let profileIndexPath = IndexPath(row: 0, section: 0)
@@ -23,7 +24,8 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     let emailIndexPath = IndexPath(row: 4, section: 1)
     let guideIndexPath = IndexPath(row: 5, section: 1)
     let aboutUsIndexPath = IndexPath(row: 6, section: 1)
-    let exportToCsvPath = IndexPath(row: 0, section: 2)
+    let exportToCsvPath = IndexPath(row: 0, section: 3)
+    let resetApp = IndexPath(row: 0, section: 4)
     
 
     
@@ -51,7 +53,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
 
         }
         
-        
+        //code for export csv
         if indexPath == exportToCsvPath {
             //stream data to memory
             let output = OutputStream.toMemory()
@@ -123,17 +125,44 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                 
             }
             // create the alert
-                    let alert = UIAlertController(title: "SpendIt Would you like to acceess your files app", message: "Allow access to files to preview your csv file", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "SpendIt Would you like to acceess your files app", message: "Allow access to files to preview your csv file", preferredStyle: UIAlertController.Style.alert)
 
-                    // add the actions (buttons)
+            // add the actions (buttons)
             alert.addAction(UIAlertAction(title: "Allow", style: UIAlertAction.Style.default, handler: {action in self.openSharedFilesApp()}))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
 
-                    // show the alert
-                    self.present(alert, animated: true, completion: nil)
-            
-            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
         }
+        
+        //reset app
+         if indexPath == resetApp {
+             //get transaction list
+           var transactions = Transaction.loadTransactions()
+             //get category list
+            var categories = Category.loadCategories()!
+             // create the alert
+            let alert = UIAlertController(title: "Remove All Data", message: "This action will 'permanently' delete all your data", preferredStyle: UIAlertController.Style.alert)
+                     // add the actions (buttons)
+             alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: {action in
+                 //remove all elemnts in list
+                 transactions.removeAll()
+                 categories.removeAll()
+                  //save
+                 Transaction.saveTransactions(transactions)
+                 Category.saveCategories(categories)
+                  
+             }))
+             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                     // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    
+        
+        
+        
+        
     }
     
 
@@ -147,11 +176,26 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     
     
     
+    @IBOutlet weak var languageSegment: UISegmentedControl!
     @IBAction func languageSegmentHasChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
+            //english
     case 0:
+            let currentLang = Locale.current.languageCode
+            let newLanguage = currentLang == "en" ? "en" : "en"
+            UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+            
+            exit(0)
         break
+            //arabic
     case 1:
+            languageSegment.selectedSegmentIndex = 1
+            languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
+            let currentLang = Locale.current.languageCode
+            let newLanguage = currentLang == "ar" ? "en" : "ar"
+            UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+            exit(0)
+         
         break
         default:
             break
@@ -161,6 +205,8 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     @IBAction func currencySegmentHasChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
     case 0:
+            let usrRegionCode = Locale.current.currencyCode!
+print(usrRegionCode)
         break
     case 1:
         break

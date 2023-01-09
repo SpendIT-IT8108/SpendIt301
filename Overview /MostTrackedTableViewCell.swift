@@ -9,10 +9,12 @@ import UIKit
 
 class MostTrackedTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollectionViewDelegate {
 
+    @IBOutlet weak var mosttrackedLbl: UILabel!
     @IBOutlet weak var mostTrackedCollection: UICollectionView!
     var mostTrackedArray = [mostTrackedCategories]()
     override func awakeFromNib() {
         super.awakeFromNib()
+        mosttrackedLbl.text = NSLocalizedString("mosttracked", comment: "")
         // Initialization code
         mostTrackedCollection.delegate = self
         mostTrackedCollection.dataSource = self
@@ -37,11 +39,11 @@ class MostTrackedTableViewCell: UITableViewCell, UICollectionViewDataSource,UICo
         mostTrackedCollection.collectionViewLayout =
            UICollectionViewCompositionalLayout(section: section)
         mostTrackedCollection.isScrollEnabled = false
+        
 addToCell()
-//        mostTrackedArray.append(mostTrackedCategories(emoji: "🍔", categoryName: "Food", itemsNo: "5 times"))
-//        mostTrackedArray.append(mostTrackedCategories(emoji: "📚", categoryName: "Books", itemsNo: "3 times"))
-//        mostTrackedArray.append(mostTrackedCategories(emoji: "🐱", categoryName: "Cat", itemsNo: "2 times"))
+
     }
+    
     func addToCell() {
         //variables declration
         let transactions : [Transaction] = Transaction.loadTransactions()
