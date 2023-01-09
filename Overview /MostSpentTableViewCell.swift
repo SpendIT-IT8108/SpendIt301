@@ -96,10 +96,9 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
             //assign the category name and the total to the variables
             categoryName1 =  i.key
             currencyCode_ = "BHD"
+            total1 = String(format:"%.2f",  i.value)
+            total1 = "\(total1) \(currencyCode_)"
            
-            total1 = "\(i.value) \(currencyCode_)"
-//            _ = total1.replacingOccurrences(of: "BHD", with: "USD")
-
             //append it to the array
             mostSpentArray.append(mostSpentCategories(emoji: emoji1, categoryName: categoryName1, price: total1))
         }
