@@ -39,7 +39,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchBar.placeholder="Transaction Name"
         searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
-        //transactions
+        //update repeated and load the transactions
         updateRepeated()
         transactions=Transaction.loadTransactions()
         searchedItem=transactions
@@ -51,9 +51,9 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         navigationItem.rightBarButtonItem = editButtonItem
     }
     
-    
+    //MARK: REPEAT PROCESS
+    //function to update repeated sequences
     func updateRepeated(){
-        //MARK: REPEAT CODE
         var trans = Transaction.loadTransactions()
         for tran in trans {
             var record = tran
@@ -80,16 +80,21 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             }
         }
     }
-    //calculate next repeated transaction date
+    
+    
+    //a function to calculate next repeated transaction date
     func calculateNext(interval:String, nextTime:Date, endDate:Date? ) -> Date? {
         var next : Date?
         switch interval {
         case "Monthly":
             next = Calendar.current.date(byAdding: .month, value: 1, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
         case "Weekly":
             next = Calendar.current.date(byAdding: .day, value: 7, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
         case "Daily":
             next = Calendar.current.date(byAdding: .day, value: 1, to: nextTime)!
+            next = Calendar.current.startOfDay(for: next!)
         default:
             next = nil
         }
@@ -109,13 +114,13 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }
     }
     
-    //function to check if the next transaction is valid to be added
+    
+    //function to check if the next transaction is valid to be added at the moment
     func validate(nextTime: Date?) -> Bool {
         var valid = false
         if let nextTime = nextTime {
             if nextTime <= Date() {
                 valid = true
-                
             }
         }
         return valid
@@ -222,9 +227,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     //MARK: Navigation (Segue)
     @IBSegueAction func showDetails(_ coder: NSCoder, sender: Any?) -> TransactionDetailsTVC? {
-        
+        //redirect user to transaction details passing the selected transaction as a parameter
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-            //transaction object passed to new controller
             var transaction: Transaction
             if searchController.isActive{
                 transaction=searchedItem[indexPath.row]
@@ -246,24 +250,30 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     
     @IBAction func unwindToList(segue: UIStoryboardSegue){
-        
+        //unwind to this list after adding or updating a transaction
         guard segue.identifier == "saveUnwind", let sourceViewController = segue.source as? AddTransactionTVC, let transaction = sourceViewController.transaction else {return}
+        //if table has a selected cell, it means we're back from editing the selected
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            //if unwindAfterRedirected, get the original record index bath instead of previously selected
+            //in case of unwind after being redirected to the original repeated record, get the original record index bath instead of previously selected and update it
             if transaction.nextDate != nil {
                 for tran in Transaction.loadTransactions() {
                     if tran.name == transaction.name && tran.nextDate != nil {
                         var originalIndex = Transaction.loadTransactions().firstIndex(of: tran)
                         transactions[originalIndex!] = transaction
+                        //reload the row to provide updating feedback to user
+                        tableView.reloadRows(at: [IndexPath(row: originalIndex!, section: 0)], with: .automatic)
                     }
                 }
             }
             else {
+                //set the updated transaction record to the previously selected one
                 transactions[selectedIndexPath.row] = transaction
+                //reload the row to provide updating feedback to user
+                tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
             }
         }
         else {
-            let newIndexPath = IndexPath(row: 0, section: 0)
+            //add the transaction to the array, which will be saved and reloaded sorted by date that determines the new record position
             transactions.append(transaction)
         }
         //save list, update any possible repeats, and reload data after insert/edit

@@ -1,4 +1,10 @@
 
+// COPYWRITES
+// Code snippet published by Khoa Pham on July 4, 2021
+// URL: https://onmyway133.com/posts/how-to-conform-uiimage-to-codable/
+
+
+
 import Foundation
 import UIKit
 

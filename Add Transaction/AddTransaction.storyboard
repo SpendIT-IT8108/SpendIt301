@@ -113,7 +113,7 @@
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="55"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                             <connections>
-                                                                <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingDidEnd" id="Rla-u9-LIs"/>
+                                                                <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingChanged" id="bhG-zO-GQf"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -144,7 +144,7 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingDidEnd" id="mc5-hG-nH7"/>
+                                                        <action selector="textEditingChanged:" destination="X0H-Dk-r6V" eventType="editingChanged" id="8DH-vH-Ovl"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -178,6 +178,9 @@
                                                                 <segment title="Expense"/>
                                                                 <segment title="Income"/>
                                                             </segments>
+                                                            <connections>
+                                                                <action selector="typeChanged:" destination="X0H-Dk-r6V" eventType="valueChanged" id="XGv-PJ-g6b"/>
+                                                            </connections>
                                                         </segmentedControl>
                                                     </subviews>
                                                     <constraints>
@@ -419,14 +422,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ISL-2a-yD7">
-                                                    <rect key="frame" x="20.000000000000004" y="8.9999999999999982" width="47.333333333333336" height="20.333333333333332"/>
+                                                    <rect key="frame" x="8" y="8.9999999999999982" width="47.333333333333336" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Tap to record any additional information." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QHO-5p-ztu">
-                                                    <rect key="frame" x="19.999999999999986" y="30.333333333333332" width="244.66666666666666" height="15.666666666666666"/>
+                                                    <rect key="frame" x="7.9999999999999858" y="30.333333333333332" width="244.66666666666666" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
