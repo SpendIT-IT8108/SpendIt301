@@ -1,79 +1,78 @@
 //
-//  OverviewTableViewController.swift
+//  CurrencyTableViewController.swift
 //  SpendIt301
 //
-//  Created by Fatema Marhoon on 25/12/2022.
+//  Created by Fatema Marhoon on 09/01/2023.
 //
 
 import UIKit
-import Charts
-class OverviewTableViewController: UITableViewController{
 
-    @IBOutlet weak var overviewTitle: UINavigationItem!
+class CurrencyTableViewController: UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return currencis.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let row = currencis[row]
+        return row
+    }
     
 
     
+    //first section
+    let txtField = IndexPath(row: 0, section: 0)
+    let from = IndexPath(row: 1, section: 0)
+    let to = IndexPath(row: 2, section: 0)
+    
+    //second section
+    let conversion = IndexPath(row: 0, section: 1)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        overviewTitle.title = NSLocalizedString("Overview", comment: "")
 
-        //spaces between section
-        tableView.sectionFooterHeight=6.0
-        tableView.sectionHeaderHeight=6.0
-        tableView.allowsSelection = false
-        //tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        tableView.reloadData()
-        
-    }
-    
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
-    }
+ var itemSelected = 0
+    var itemSelected2 = 1
+    var amount : String = ""
+    let currencis = ["USD", "BHD"]
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+    @IBAction func AmountTxtFld(_ sender: Any) {
     }
-
+    @IBOutlet weak var picker1: UIPickerView!
+    
+    @IBOutlet weak var picker2: UIPickerView!
+    
+    @IBOutlet weak var conversionLbl: UILabel!
+    func fillPicker (){
+        for currency in currencis {
+            picker1.dataSource = currency as? UIPickerViewDataSource
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == from {
+           
+        }
+    }
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if  indexPath.section == 0 && indexPath.row == 0 {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BarChartTableViewCell", for: indexPath) as! BarChartTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-            self.tableView.rowHeight = 290
+
         return cell
-        }
-        else if  indexPath.section == 1 && indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MostSpentTableViewCell", for: indexPath) as! MostSpentTableViewCell
-
-            // Configure the cell...
-                self.tableView.rowHeight = 160
-            return cell
-        }else if  indexPath.section == 2 && indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MostTrackedTableViewCell", for: indexPath) as! MostTrackedTableViewCell
-
-            // Configure the cell...
-                self.tableView.rowHeight = 160
-            return cell
-        }
-        
-        
-        else {
-            return UITableViewCell()
-        }
-    }
+    }*/
+    
 
     /*
     // Override to support conditional editing of the table view.
