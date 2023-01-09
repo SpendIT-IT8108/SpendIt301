@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */; };
-		0BA4536B295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */; };
-		0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */; };
 		0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */; };
 		0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */; };
 		0BF0975829536A56000CC354 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0975729536A56000CC354 /* Transaction.swift */; };
@@ -58,8 +56,6 @@
 
 /* Begin PBXFileReference section */
 		0B35909C29621B0A003C979F /* SortPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPriceTableViewCell.swift; sourceTree = "<group>"; };
-		0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogeryForTransactionTableViewCell.swift; sourceTree = "<group>"; };
-		0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogeryForTransactionCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BEE122A2955C594007E1DAD /* TrasactionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionFilterTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975529536A2C000CC354 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		0BF0975729536A56000CC354 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -169,9 +165,7 @@
 				2601B05529636E810045F9BC /* userSetupPVC.swift */,
 				21687277296337D800F4FF0A /* Settings */,
 				210651D0296328F60047CE7B /* Overview  */,
-				0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */,
 				0BC4EBD92964955500F7365B /* Transaction List */,
-				0BA4536C295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift */,
 				36A52D502964451C00E4EFE3 /* Transaction Details */,
 				369E17DA295CE0E500400D6D /* Add Transaction */,
 				2130B048294AF518001EC43C /* Categories.storyboard */,
@@ -401,7 +395,6 @@
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
 				26DC9587296C5DD0002836A8 /* UserSetupPageViewController.swift in Sources */,
 				21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */,
-				0BA4536B295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift in Sources */,
 				0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */,
 				21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */,
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
@@ -412,7 +405,6 @@
 				CD06402E295C386F0084A17B /* AddEditCategoryTableViewController.swift in Sources */,
 				21236C5F295C0AC80040B7AE /* MostSpentTableViewCell.swift in Sources */,
 				0B35909D29621B0A003C979F /* SortPriceTableViewCell.swift in Sources */,
-				0BA4536D295CF32700320A57 /* CatogeryForTransactionCollectionViewCell.swift in Sources */,
 				2130B032294AEBEB001EC43C /* SceneDelegate.swift in Sources */,
 				0BF0975A29543E56000CC354 /* TransactionTableViewCell.swift in Sources */,
 				216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */,
