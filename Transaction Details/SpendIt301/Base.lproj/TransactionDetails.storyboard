@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fro-Ua-CRp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fro-Ua-CRp">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -243,7 +242,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="addedOnLbl" destination="itX-LK-Fxh" id="yF2-Fs-V0L"/>
                         <outlet property="amountLabel" destination="ctG-j3-K42" id="8On-j3-evP"/>
+                        <outlet property="attachementLbl" destination="Zce-3m-ShC" id="1d3-MM-1RK"/>
                         <outlet property="attachmentImageView" destination="EGh-AS-zYX" id="Zwl-Ih-hl7"/>
                         <outlet property="categoryNameLabel" destination="9BF-BT-Xq7" id="kZ2-Is-A6u"/>
                         <outlet property="categorySymbolLabel" destination="rN4-kw-R22" id="Xkr-tn-u92"/>
@@ -251,9 +252,14 @@
                         <outlet property="currencyLabel" destination="poZ-kK-2xG" id="PfL-Jw-ZUz"/>
                         <outlet property="dateLabel" destination="Wfe-WG-ZIT" id="7uw-qd-TOU"/>
                         <outlet property="notesLabel" destination="3fC-ip-KyP" id="rix-uB-c1v"/>
+                        <outlet property="notesLbl" destination="8Mc-YL-APq" id="LUT-tg-WWa"/>
                         <outlet property="repeatLabel" destination="zNK-Gg-cqr" id="3x8-nD-dVa"/>
+                        <outlet property="repeatLbl" destination="XLw-Hm-fEq" id="yaq-rT-rDF"/>
+                        <outlet property="titleLbl" destination="2gL-Kk-eKe" id="CbD-ei-OLN"/>
+                        <outlet property="transDetailsLbl" destination="mKW-3l-KiD" id="H1u-g6-1j0"/>
                         <outlet property="transactionNameLabel" destination="S22-9C-Aqv" id="e97-Ve-vGa"/>
                         <outlet property="typeLabel" destination="xiD-QJ-KqP" id="l9z-xp-Cdv"/>
+                        <outlet property="typeLbl" destination="Edy-t9-Ie2" id="Prg-mU-ver"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaH-6y-mdX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -272,7 +278,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="98"/>
+        <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="97"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

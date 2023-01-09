@@ -22,6 +22,13 @@ class TransactionDetailsTVC: UITableViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var attachmentImageView: UIImageView!
     
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var addedOnLbl: UILabel!
+    @IBOutlet weak var repeatLbl: UILabel!
+    @IBOutlet weak var notesLbl: UILabel!
+    @IBOutlet weak var attachementLbl: UILabel!
+    @IBOutlet weak var transDetailsLbl: UINavigationItem!
     //current transaction
     var transaction : Transaction
     
@@ -36,7 +43,15 @@ class TransactionDetailsTVC: UITableViewController {
     
     
     override func viewDidLoad() {
+        //localization
+        titleLbl.text = NSLocalizedString("title", comment: "")
+        typeLbl.text = NSLocalizedString("type", comment: "")
+        addedOnLbl.text = NSLocalizedString("addedon", comment: "")
+        repeatLbl.text = NSLocalizedString("repeat", comment: "")
+        notesLbl.text = NSLocalizedString("notes", comment: "")
+        attachementLbl.text = NSLocalizedString("attachment", comment: "")
         super.viewDidLoad()
+        transDetailsLbl.title = NSLocalizedString("transdetails", comment: "")
         //modify colors based on the transaction type
         if transaction.category.type == "Income" {
             coloredView.backgroundColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0)
