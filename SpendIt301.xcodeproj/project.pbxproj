@@ -33,6 +33,7 @@
 		2130B04A294AF518001EC43C /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B048294AF518001EC43C /* Categories.storyboard */; };
 		2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */; };
 		216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216874532958E1900031BC7B /* OverviewTableViewController.swift */; };
+		21808916296C8F04002BCFC1 /* CurrnecyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */; };
 		21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */; };
 		2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601B05529636E810045F9BC /* userSetupPVC.swift */; };
 		26DC957F296C5C13002836A8 /* UserWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC957E296C5C12002836A8 /* UserWalkthrough.storyboard */; };
@@ -92,6 +93,7 @@
 		2130B049294AF518001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Categories.storyboard; sourceTree = "<group>"; };
 		2130B04E294AF6DB001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/SettingsPage.storyboard; sourceTree = "<group>"; };
 		216874532958E1900031BC7B /* OverviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
+		21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnecyViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2601B05529636E810045F9BC /* userSetupPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSetupPVC.swift; sourceTree = "<group>"; };
 		26DC957E296C5C12002836A8 /* UserWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserWalkthrough.storyboard; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		21687277296337D800F4FF0A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */,
 				2112D362295C35F80033A07C /* SettingsTableViewController.swift */,
 				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 			);
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21808916296C8F04002BCFC1 /* CurrnecyViewController.swift in Sources */,
 				21236C63295C0DDD0040B7AE /* MostSpentCollectionViewCell.swift in Sources */,
 				0BF0975629536A2C000CC354 /* TransactionTableViewController.swift in Sources */,
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,

@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,47 +94,29 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="uak-cm-ECC" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CustomCell" textLabel="iz0-gz-96Q" imageView="yGO-vA-STO" style="IBUITableViewCellStyleDefault" id="uak-cm-ECC" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                         <rect key="frame" x="20" y="178" width="350" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uak-cm-ECC" id="q0W-XB-vbf">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-a6-jgt">
-                                                    <rect key="frame" x="21" y="12.666666666666666" width="19" height="19.666666666666679"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUd-Dx-Gfb">
-                                                    <rect key="frame" x="56" y="11.666666666666664" width="106" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="106" id="4C3-Mr-rrQ"/>
-                                                    </constraints>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Currency Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iz0-gz-96Q">
+                                                    <rect key="frame" x="55.666666666666657" y="0.0" width="257.66666666666663" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="abU-qZ-QDp">
-                                                    <rect key="frame" x="239" y="6.6666666666666679" width="101" height="32"/>
-                                                    <segments>
-                                                        <segment title="BHD" width="50"/>
-                                                        <segment title="USD" width="50"/>
-                                                    </segments>
-                                                    <connections>
-                                                        <action selector="currencySegmentHasChanged:" destination="Lv0-hC-jEm" eventType="valueChanged" id="L3Z-Ve-8gN"/>
-                                                    </connections>
-                                                </segmentedControl>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="dollarsign.circle" catalog="system" id="yGO-vA-STO">
+                                                    <rect key="frame" x="20.5" y="12.666666666666664" width="19.666666666666664" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="abU-qZ-QDp" firstAttribute="centerY" secondItem="q0W-XB-vbf" secondAttribute="centerY" id="6I9-VG-RXu"/>
-                                                <constraint firstItem="mUd-Dx-Gfb" firstAttribute="centerY" secondItem="q0W-XB-vbf" secondAttribute="centerY" id="8Gr-Wf-ouR"/>
-                                                <constraint firstAttribute="trailing" secondItem="abU-qZ-QDp" secondAttribute="trailing" constant="10" id="En9-Tx-WkV"/>
-                                                <constraint firstItem="mUd-Dx-Gfb" firstAttribute="centerY" secondItem="kx7-a6-jgt" secondAttribute="centerY" id="Klp-Cq-W3a"/>
-                                                <constraint firstItem="mUd-Dx-Gfb" firstAttribute="leading" secondItem="q0W-XB-vbf" secondAttribute="leading" constant="56" id="Slp-pe-Gwr"/>
-                                                <constraint firstItem="mUd-Dx-Gfb" firstAttribute="firstBaseline" secondItem="kx7-a6-jgt" secondAttribute="firstBaseline" id="aBq-K0-F24"/>
-                                                <constraint firstItem="mUd-Dx-Gfb" firstAttribute="firstBaseline" secondItem="kx7-a6-jgt" secondAttribute="baseline" id="ijK-Lx-Bfr"/>
-                                                <constraint firstItem="mUd-Dx-Gfb" firstAttribute="leading" secondItem="kx7-a6-jgt" secondAttribute="trailing" constant="16" id="lmx-Ga-874"/>
-                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="aPQ-8y-eln" kind="show" id="X4x-pd-1hZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="QEo-6y-awU" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                         <rect key="frame" x="20" y="222" width="350" height="44"/>
@@ -474,8 +457,138 @@ This policy also explains your choices about how we use information about you. Y
             </objects>
             <point key="canvasLocation" x="785" y="901"/>
         </scene>
+        <!--Currnecy View Controller-->
+        <scene sceneID="hqD-Rz-ZxG">
+            <objects>
+                <viewController id="aPQ-8y-eln" customClass="CurrnecyViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w4V-kl-O1h">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu8-EQ-14j">
+                                <rect key="frame" x="19" y="214" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8Qi-qm-bUo"/>
+                                    <constraint firstAttribute="height" constant="50" id="DY9-8l-QPx"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="Unchecked"/>
+                                <state key="selected" image="Checked"/>
+                                <connections>
+                                    <action selector="rbtnAction:" destination="aPQ-8y-eln" eventType="touchUpInside" id="f6g-DH-Qdh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqO-fa-pzq">
+                                <rect key="frame" x="20" y="272" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="UST-eH-yrs"/>
+                                    <constraint firstAttribute="height" constant="50" id="zGe-JE-zgY"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="Unchecked"/>
+                                <state key="selected" image="Checked"/>
+                                <connections>
+                                    <action selector="rbtnAction:" destination="aPQ-8y-eln" eventType="touchUpInside" id="weg-C1-fDA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="US Dollars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nA-fV-0N3">
+                                <rect key="frame" x="74" y="229" width="147" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="gKg-OA-Brw"/>
+                                    <constraint firstAttribute="width" constant="147" id="ncl-cB-VoZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BF-3E-Iud">
+                                <rect key="frame" x="78" y="286.5" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="SVq-vb-1VL"/>
+                                    <constraint firstAttribute="width" constant="80" id="pTu-Uw-QRr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pib-DC-7gL">
+                                <rect key="frame" x="83.333333333333329" y="118.00000000000001" width="223.33333333333337" height="32.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wz-0p-WgB">
+                                <rect key="frame" x="128" y="187.33333333333334" width="131" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Price in BHD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY4-J6-Ha5">
+                                <rect key="frame" x="124.33333333333333" y="158" width="141.33333333333337" height="22.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bahraini Dinar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDI-np-2mJ">
+                                <rect key="frame" x="16" y="338" width="358" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8iJ-Hq-Rh9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.0 BD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZB-6M-fN6">
+                                <rect key="frame" x="16" y="378" width="358" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Rvp-QD-Hic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pdh-wv-l7D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FY4-J6-Ha5" firstAttribute="centerX" secondItem="w4V-kl-O1h" secondAttribute="centerX" id="5fo-dy-djm"/>
+                            <constraint firstItem="6wz-0p-WgB" firstAttribute="top" secondItem="FY4-J6-Ha5" secondAttribute="bottom" constant="6.5" id="6Vh-hl-27t"/>
+                            <constraint firstItem="ZDI-np-2mJ" firstAttribute="centerX" secondItem="FY4-J6-Ha5" secondAttribute="centerX" id="ACd-Gs-Qek"/>
+                            <constraint firstItem="ZDI-np-2mJ" firstAttribute="leading" secondItem="bqO-fa-pzq" secondAttribute="leading" constant="-4" id="AJ9-fO-jcE"/>
+                            <constraint firstItem="6wz-0p-WgB" firstAttribute="leading" secondItem="pdh-wv-l7D" secondAttribute="leading" constant="128" id="Axh-mf-PJQ"/>
+                            <constraint firstItem="Pib-DC-7gL" firstAttribute="centerX" secondItem="w4V-kl-O1h" secondAttribute="centerX" id="Fho-uh-yqe"/>
+                            <constraint firstItem="9BF-3E-Iud" firstAttribute="leading" secondItem="bqO-fa-pzq" secondAttribute="trailing" constant="8" id="QOS-Vd-A6k"/>
+                            <constraint firstItem="bqO-fa-pzq" firstAttribute="leading" secondItem="w4V-kl-O1h" secondAttribute="leadingMargin" id="Xc4-dy-ZN0"/>
+                            <constraint firstItem="pdh-wv-l7D" firstAttribute="trailing" secondItem="6wz-0p-WgB" secondAttribute="trailing" constant="131" id="YbP-hv-ay5"/>
+                            <constraint firstItem="FY4-J6-Ha5" firstAttribute="top" secondItem="w4V-kl-O1h" secondAttribute="topMargin" constant="18" id="azJ-bi-Lft"/>
+                            <constraint firstItem="6nA-fV-0N3" firstAttribute="leading" secondItem="bu8-EQ-14j" secondAttribute="trailing" constant="5" id="bwL-gp-TQf"/>
+                            <constraint firstItem="9BF-3E-Iud" firstAttribute="centerY" secondItem="bqO-fa-pzq" secondAttribute="centerY" id="cbz-rl-CUE"/>
+                            <constraint firstItem="6nA-fV-0N3" firstAttribute="top" secondItem="pdh-wv-l7D" secondAttribute="top" constant="170" id="d4w-RR-T0Y"/>
+                            <constraint firstItem="ZDI-np-2mJ" firstAttribute="trailing" secondItem="aZB-6M-fN6" secondAttribute="trailing" id="eZL-7A-FYT"/>
+                            <constraint firstItem="Pib-DC-7gL" firstAttribute="top" secondItem="pdh-wv-l7D" secondAttribute="top" constant="-22" id="gqL-pM-7Ds"/>
+                            <constraint firstItem="aZB-6M-fN6" firstAttribute="top" secondItem="ZDI-np-2mJ" secondAttribute="bottom" constant="19" id="hXz-kW-uQE"/>
+                            <constraint firstItem="ZDI-np-2mJ" firstAttribute="leading" secondItem="aZB-6M-fN6" secondAttribute="leading" id="iNp-Kv-fnG"/>
+                            <constraint firstItem="pdh-wv-l7D" firstAttribute="bottom" secondItem="aZB-6M-fN6" secondAttribute="bottom" constant="411" id="pox-h7-mge"/>
+                            <constraint firstItem="bu8-EQ-14j" firstAttribute="top" secondItem="pdh-wv-l7D" secondAttribute="top" constant="155" id="vr1-8k-GTT"/>
+                            <constraint firstItem="bqO-fa-pzq" firstAttribute="top" secondItem="bu8-EQ-14j" secondAttribute="bottom" constant="8" id="xCO-ZH-TzZ"/>
+                            <constraint firstItem="bu8-EQ-14j" firstAttribute="leading" secondItem="pdh-wv-l7D" secondAttribute="leading" constant="19" id="zhX-aq-0Gq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Xj5-Ot-sEx"/>
+                    <connections>
+                        <outlet property="amountTxtBx" destination="6wz-0p-WgB" id="N1W-Kv-kMs"/>
+                        <outlet property="convertedamountLbl" destination="aZB-6M-fN6" id="u8H-Ri-R1B"/>
+                        <outlet property="euroRadioBtn" destination="bqO-fa-pzq" id="1YG-gW-MmO"/>
+                        <outlet property="usdRadioBtn" destination="bu8-EQ-14j" id="542-LM-OTd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyd-Dx-ALA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2394" y="237"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Checked" width="44" height="44"/>
+        <image name="Unchecked" width="44" height="44"/>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
@@ -486,6 +599,9 @@ This policy also explains your choices about how we use information about you. Y
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
