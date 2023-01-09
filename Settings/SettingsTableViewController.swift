@@ -189,7 +189,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
 
             
             // create the alert
-            let alert = UIAlertController(title: "SpendIt warning", message: "The app will quit to change the language. Are you sure of this step? ", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "SpendIt warning", message: "The app needs to quit and reopen to change the language. Therefore, do these steps!", preferredStyle: UIAlertController.Style.alert)
 
             // add the actions (buttons)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
@@ -213,7 +213,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             let newLanguage = currentLang == "ar" ? "en" : "ar"
             UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
             // create the alert
-            let alert = UIAlertController(title: "SpendIt warning", message: "The app will quit to change the language. Are you sure of this step? ", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "SpendIt alert", message: "The app needs to quit and reopen to change the language. Therefore, do these steps!", preferredStyle: UIAlertController.Style.alert)
 
             // add the actions (buttons)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
