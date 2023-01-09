@@ -30,6 +30,7 @@ class UserSetupPageViewController: UIPageViewController, UIPageViewControllerDel
         let vc3 = self.storyboard?.instantiateViewController(withIdentifier: "page3")
         
         let vc4 = self.storyboard?.instantiateViewController(withIdentifier: "page4")
+        let vc5 = self.storyboard?.instantiateViewController(withIdentifier: "page5")
        
         
         
@@ -39,6 +40,7 @@ class UserSetupPageViewController: UIPageViewController, UIPageViewControllerDel
         arrayOfContainers.append(vc2!)
         arrayOfContainers.append(vc3!)
         arrayOfContainers.append(vc4!)
+        arrayOfContainers.append(vc5!)
        
   
         delegate = self

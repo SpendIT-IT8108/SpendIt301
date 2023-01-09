@@ -49,6 +49,7 @@ to set up.</string>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Setup" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseBackgroundColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="kX3-Ay-FfT" kind="presentation" modalPresentationStyle="fullScreen" id="Vye-e3-IwU"/>
@@ -59,6 +60,9 @@ to set up.</string>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Skip"/>
+                                        <connections>
+                                            <segue destination="ymI-RJ-Jde" kind="presentation" modalPresentationStyle="fullScreen" id="33w-30-gRI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -80,6 +84,14 @@ to set up.</string>
             </objects>
             <point key="canvasLocation" x="20" y="86"/>
         </scene>
+        <!--loginAndSignUp-->
+        <scene sceneID="9iw-0V-rGy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="loginAndSignUp" id="ymI-RJ-Jde" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Liu-3A-ewy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="363" y="474"/>
+        </scene>
         <!--User Profile View Controller-->
         <scene sceneID="I1I-zE-9z9">
             <objects>
@@ -94,8 +106,8 @@ to set up.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="MtM-19-8pa">
-                                <rect key="frame" x="141" y="789" width="132.5" height="68"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="MtM-19-8pa">
+                                <rect key="frame" x="132" y="789" width="150.5" height="68"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
@@ -168,8 +180,8 @@ to set up.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="bSU-xU-ToF">
-                                <rect key="frame" x="141" y="831" width="132.5" height="26"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="bSU-xU-ToF">
+                                <rect key="frame" x="132" y="831" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
@@ -253,8 +265,8 @@ to set up.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="kb3-bn-aCF">
-                                <rect key="frame" x="141" y="831" width="132.5" height="26"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="kb3-bn-aCF">
+                                <rect key="frame" x="132" y="831" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
@@ -318,10 +330,73 @@ to set up.</string>
             </objects>
             <point key="canvasLocation" x="2845" y="86"/>
         </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="Url-TK-FBz">
+            <objects>
+                <viewController storyboardIdentifier="page4" id="5Zn-zZ-LHb" customClass="UserProfileViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fOe-1i-YBh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="rFo-Ri-Lpv">
+                                <rect key="frame" x="35" y="79" width="298.5" height="748"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock SpendIt  with Face ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGF-Pk-3Xu">
+                                        <rect key="frame" x="0.0" y="0.0" width="298.5" height="98"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7ZR-Zc-nbx">
+                                        <rect key="frame" x="0.0" y="148.5" width="298.5" height="248.5"/>
+                                        <color key="tintColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="PPi-I1-Gwi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gL-LM-BvM">
+                                        <rect key="frame" x="0.0" y="448" width="298.5" height="300"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Setup Now"/>
+                                        <connections>
+                                            <action selector="faceItSetupBtn:" destination="5Zn-zZ-LHb" eventType="touchUpInside" id="FU2-8i-C5s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="We7-TX-0Ge"/>
+                                </constraints>
+                            </stackView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="zna-wd-j7a">
+                                <rect key="frame" x="109" y="841" width="150.5" height="26"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UcG-L8-Ek5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UcG-L8-Ek5" firstAttribute="bottom" secondItem="rFo-Ri-Lpv" secondAttribute="bottom" constant="35" id="JO4-bZ-ewk"/>
+                            <constraint firstItem="UcG-L8-Ek5" firstAttribute="leading" secondItem="rFo-Ri-Lpv" secondAttribute="leading" constant="-35" id="ddc-3j-vup"/>
+                            <constraint firstItem="rFo-Ri-Lpv" firstAttribute="centerX" secondItem="fOe-1i-YBh" secondAttribute="centerX" id="h5y-ta-HV9"/>
+                            <constraint firstItem="zna-wd-j7a" firstAttribute="bottom" secondItem="UcG-L8-Ek5" secondAttribute="bottom" constant="5" id="jn2-z7-DBj"/>
+                            <constraint firstItem="UcG-L8-Ek5" firstAttribute="top" secondItem="rFo-Ri-Lpv" secondAttribute="top" constant="-35" id="pFy-vG-YYR"/>
+                            <constraint firstItem="zna-wd-j7a" firstAttribute="centerX" secondItem="fOe-1i-YBh" secondAttribute="centerX" id="qgv-mf-qYT"/>
+                            <constraint firstItem="UcG-L8-Ek5" firstAttribute="trailing" secondItem="rFo-Ri-Lpv" secondAttribute="trailing" constant="35" id="zad-xS-xXe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="faceIdOutlet" destination="5gL-LM-BvM" id="xaV-KJ-NLH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ro8-PQ-72N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3595.652173913044" y="85.714285714285708"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="pG5-L9-e7o">
             <objects>
-                <viewController storyboardIdentifier="page4" id="cYe-wo-ofV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page5" id="cYe-wo-ofV" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNE-ah-ytd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -352,6 +427,7 @@ later in the settings easily.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Done" cornerStyle="large">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="DW4-nx-VM7" kind="presentation" modalPresentationStyle="fullScreen" id="i8m-C9-suY"/>
@@ -359,8 +435,8 @@ later in the settings easily.</string>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="iq6-gK-AdW">
-                                <rect key="frame" x="141" y="831" width="132.5" height="26"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="4" translatesAutoresizingMaskIntoConstraints="NO" id="iq6-gK-AdW">
+                                <rect key="frame" x="132" y="831" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
@@ -377,15 +453,15 @@ later in the settings easily.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eke-bG-mOr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3616" y="86"/>
+            <point key="canvasLocation" x="4335" y="86"/>
         </scene>
-        <!--Main-->
+        <!--loginAndSignUp-->
         <scene sceneID="NRG-nr-QWR">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="DW4-nx-VM7" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="loginAndSignUp" id="DW4-nx-VM7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfg-gf-R9r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4251" y="110"/>
+            <point key="canvasLocation" x="4970" y="110"/>
         </scene>
         <!--User Setup Page View Controller-->
         <scene sceneID="Oam-ps-g26">
@@ -399,6 +475,7 @@ later in the settings easily.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="faceid" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

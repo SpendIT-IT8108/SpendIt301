@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class UserProfileViewController: UIViewController {
 
+    @IBOutlet weak var faceIdOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
     
 
@@ -127,6 +130,66 @@ class UserProfileViewController: UIViewController {
         //set the value inside the user defaults
         defaults.set("Dark", forKey: "App Mode")
     }
+    
+    
+    
+    @IBAction func faceItSetupBtn(_ sender: Any) {
+        
+        
+        let context = LAContext()
+        var error: NSError? = nil
+        //check for older devices
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
+            
+            let reason = "Please authorize with face ID"
+            
+            //if able to use, use the policy
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] sucess, error in
+                
+                DispatchQueue.main.async {
+                    guard sucess, error == nil else{
+                        
+                        //failed
+                        let alert = UIAlertController(title: "Failed to Authunticate", message: "Please try again", preferredStyle: .alert)
+                        
+                        //show a dismiss button + presnt the alert
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                        
+                        //because we're in weak self area
+                        self?.present(alert, animated: true)
+                        
+                        
+                        
+                        
+                        
+                        return
+                    }
+                    
+                   
+                    
+                    //success >> show next screen
+                    let mainSB = UIStoryboard(name: "UserSetup", bundle: nil)
+                    let vc = mainSB.instantiateViewController(withIdentifier: "page5")
+                    vc.modalPresentationStyle = .overFullScreen
+                    self?.present(vc, animated: true)
+                }
+                
+            }
+        }else{
+            //cannot use face id / touch id, alert user
+            let alert = UIAlertController(title: "Unavialble", message: "You can't use this feature", preferredStyle: .alert)
+            
+            //show a dismiss button + presnt the alert
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            
+            present(alert, animated: true)
+            
+            
+        }
+        
+    }
+
+
     
    
 

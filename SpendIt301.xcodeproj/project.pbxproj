@@ -35,6 +35,11 @@
 		21808916296C8F04002BCFC1 /* CurrnecyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */; };
 		21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */; };
 		2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601B05529636E810045F9BC /* userSetupPVC.swift */; };
+		268D0A43296CBCFB00D280D5 /* bioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268D0A42296CBCFB00D280D5 /* bioViewController.swift */; };
+		26AB7954296CA4DD00F2210C /* loginAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AB7953296CA4DC00F2210C /* loginAndSignUp.storyboard */; };
+		26AB7956296CA6EC00F2210C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB7955296CA6EC00F2210C /* LoginViewController.swift */; };
+		26AB7958296CA71A00F2210C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB7957296CA71A00F2210C /* SignUpViewController.swift */; };
+		26AB795A296CAAD600F2210C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26AB7959296CAAD500F2210C /* GoogleService-Info.plist */; };
 		26DC957F296C5C13002836A8 /* UserWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC957E296C5C12002836A8 /* UserWalkthrough.storyboard */; };
 		26DC9581296C5C4E002836A8 /* UserSetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC9580296C5C4E002836A8 /* UserSetup.storyboard */; };
 		26DC9587296C5DD0002836A8 /* UserSetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */; };
@@ -96,6 +101,11 @@
 		21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnecyViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2601B05529636E810045F9BC /* userSetupPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSetupPVC.swift; sourceTree = "<group>"; };
+		268D0A42296CBCFB00D280D5 /* bioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioViewController.swift; sourceTree = "<group>"; };
+		26AB7953296CA4DC00F2210C /* loginAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loginAndSignUp.storyboard; sourceTree = "<group>"; };
+		26AB7955296CA6EC00F2210C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		26AB7957296CA71A00F2210C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		26AB7959296CAAD500F2210C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26DC957E296C5C12002836A8 /* UserWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserWalkthrough.storyboard; sourceTree = "<group>"; };
 		26DC9580296C5C4E002836A8 /* UserSetup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSetup.storyboard; sourceTree = "<group>"; };
 		26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupPageViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +176,7 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
+				26AB7959296CAAD500F2210C /* GoogleService-Info.plist */,
 				26DC9590296C7F7E002836A8 /* HighlightingButtons.swift */,
 				26DC957D296C5BD9002836A8 /* FirstTimeLaunchingApp */,
 				21098027296B52F10098EA31 /* Localizable.strings */,
@@ -228,10 +239,14 @@
 			children = (
 				26DC957E296C5C12002836A8 /* UserWalkthrough.storyboard */,
 				26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */,
+				268D0A42296CBCFB00D280D5 /* bioViewController.swift */,
 				26DC9580296C5C4E002836A8 /* UserSetup.storyboard */,
 				26DC9586296C5DD0002836A8 /* UserSetupPageViewController.swift */,
 				26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */,
 				26DC958E296C767A002836A8 /* UserProfileViewController.swift */,
+				26AB7953296CA4DC00F2210C /* loginAndSignUp.storyboard */,
+				26AB7957296CA71A00F2210C /* SignUpViewController.swift */,
+				26AB7955296CA6EC00F2210C /* LoginViewController.swift */,
 			);
 			path = FirstTimeLaunchingApp;
 			sourceTree = "<group>";
@@ -338,6 +353,7 @@
 				26DC957F296C5C13002836A8 /* UserWalkthrough.storyboard in Resources */,
 				2130B03C294AEBEF001EC43C /* LaunchScreen.storyboard in Resources */,
 				2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */,
+				26AB7954296CA4DD00F2210C /* loginAndSignUp.storyboard in Resources */,
 				21098025296B52F10098EA31 /* Localizable.strings in Resources */,
 				2130B044294AF4AB001EC43C /* Overview.storyboard in Resources */,
 				369E17E0295CF6BC00400D6D /* TransactionDetails.storyboard in Resources */,
@@ -347,6 +363,7 @@
 				2130B047294AF4EC001EC43C /* Transactions.storyboard in Resources */,
 				CDA96F0C296C982100981CAE /* Assets.xcassets in Resources */,
 				36D485B5294B018700D0D297 /* AddTransaction.storyboard in Resources */,
+				26AB795A296CAAD600F2210C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,11 +440,14 @@
 				0BF0975829536A56000CC354 /* Transaction.swift in Sources */,
 				2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */,
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
+				26AB7956296CA6EC00F2210C /* LoginViewController.swift in Sources */,
 				2109802C296B5C3B0098EA31 /* OverviewViewController.swift in Sources */,
+				26AB7958296CA71A00F2210C /* SignUpViewController.swift in Sources */,
 				26DC958F296C767A002836A8 /* UserProfileViewController.swift in Sources */,
 				CD8973F829543CBC0030075F /* CategoryTableViewController.swift in Sources */,
 				3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */,
 				26DC9589296C5E2F002836A8 /* WalkthroughPageViewController.swift in Sources */,
+				268D0A43296CBCFB00D280D5 /* bioViewController.swift in Sources */,
 				369E17E2295CF97700400D6D /* TransactionDetailsTVC.swift in Sources */,
 				CDE4A5FD2964C68400D7D7CE /* CodableImage.swift in Sources */,
 				21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */,
@@ -638,6 +658,7 @@
 				INFOPLIST_FILE = SpendIt301/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with Face ID";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -674,6 +695,7 @@
 				INFOPLIST_FILE = SpendIt301/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with Face ID";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
