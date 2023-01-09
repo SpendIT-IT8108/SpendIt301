@@ -35,7 +35,10 @@
 		216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216874532958E1900031BC7B /* OverviewTableViewController.swift */; };
 		21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */; };
 		2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601B05529636E810045F9BC /* userSetupPVC.swift */; };
+		265A214E296B55660084EB27 /* UserWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A214D296B55660084EB27 /* UserWalkthroughViewController.swift */; };
 		268F58EC296330B0007F77B5 /* UserSetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268F58EB296330B0007F77B5 /* UserSetup.storyboard */; };
+		26D9860E296C469E00C27AF1 /* UserWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26D9860D296C469E00C27AF1 /* UserWalkthrough.storyboard */; };
+		26D98610296C473400C27AF1 /* UserWalkthroughPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9860F296C473300C27AF1 /* UserWalkthroughPVC.swift */; };
 		36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36025E6929533D8E0035C71F /* AddTransactionTVC.swift */; };
 		3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */; };
 		369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369E17DB295CE24A00400D6D /* CategoryTVCell.swift */; };
@@ -81,7 +84,10 @@
 		216874532958E1900031BC7B /* OverviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2601B05529636E810045F9BC /* userSetupPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSetupPVC.swift; sourceTree = "<group>"; };
+		265A214D296B55660084EB27 /* UserWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalkthroughViewController.swift; sourceTree = "<group>"; };
 		268F58EB296330B0007F77B5 /* UserSetup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSetup.storyboard; sourceTree = "<group>"; };
+		26D9860D296C469E00C27AF1 /* UserWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserWalkthrough.storyboard; sourceTree = "<group>"; };
+		26D9860F296C473300C27AF1 /* UserWalkthroughPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalkthroughPVC.swift; sourceTree = "<group>"; };
 		357C3171B533C475835C844D /* Pods-SpendIt301.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendIt301.debug.xcconfig"; path = "Target Support Files/Pods-SpendIt301/Pods-SpendIt301.debug.xcconfig"; sourceTree = "<group>"; };
 		36025E6929533D8E0035C71F /* AddTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTVC.swift; sourceTree = "<group>"; };
 		3648E7CA295BD9B7005251A3 /* ChooseCategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryTVC.swift; sourceTree = "<group>"; };
@@ -144,7 +150,7 @@
 		2130B023294AEBEB001EC43C = {
 			isa = PBXGroup;
 			children = (
-				2601B05529636E810045F9BC /* userSetupPVC.swift */,
+				26D9860C296C464700C27AF1 /* FirstLaunch Files */,
 				21687277296337D800F4FF0A /* Settings */,
 				210651D0296328F60047CE7B /* Overview  */,
 				0BA4536A295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift */,
@@ -179,7 +185,6 @@
 				21BEDF54295AF21B00DBB59C /* TabBarViewController.swift */,
 				2130B038294AEBEF001EC43C /* Assets.xcassets */,
 				2130B03A294AEBEF001EC43C /* LaunchScreen.storyboard */,
-				268F58EB296330B0007F77B5 /* UserSetup.storyboard */,
 				2130B03D294AEBEF001EC43C /* Info.plist */,
 				CD8973F529543C740030075F /* Category.swift */,
 				CD8973F729543CBC0030075F /* CategoryTableViewController.swift */,
@@ -198,6 +203,18 @@
 				2130B04D294AF6DB001EC43C /* SettingsPage.storyboard */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		26D9860C296C464700C27AF1 /* FirstLaunch Files */ = {
+			isa = PBXGroup;
+			children = (
+				2601B05529636E810045F9BC /* userSetupPVC.swift */,
+				265A214D296B55660084EB27 /* UserWalkthroughViewController.swift */,
+				268F58EB296330B0007F77B5 /* UserSetup.storyboard */,
+				26D9860D296C469E00C27AF1 /* UserWalkthrough.storyboard */,
+				26D9860F296C473300C27AF1 /* UserWalkthroughPVC.swift */,
+			);
+			path = "FirstLaunch Files";
 			sourceTree = "<group>";
 		};
 		369E17DA295CE0E500400D6D /* Add Transaction */ = {
@@ -301,6 +318,7 @@
 				2130B03C294AEBEF001EC43C /* LaunchScreen.storyboard in Resources */,
 				2130B04F294AF6DB001EC43C /* SettingsPage.storyboard in Resources */,
 				2130B044294AF4AB001EC43C /* Overview.storyboard in Resources */,
+				26D9860E296C469E00C27AF1 /* UserWalkthrough.storyboard in Resources */,
 				369E17E0295CF6BC00400D6D /* TransactionDetails.storyboard in Resources */,
 				268F58EC296330B0007F77B5 /* UserSetup.storyboard in Resources */,
 				2130B039294AEBEF001EC43C /* Assets.xcassets in Resources */,
@@ -365,6 +383,7 @@
 				2130B034294AEBEB001EC43C /* ViewController.swift in Sources */,
 				21236C5D295C0A160040B7AE /* BarChartTableViewCell.swift in Sources */,
 				0BA4536B295CF2F900320A57 /* CatogeryForTransactionTableViewCell.swift in Sources */,
+				265A214E296B55660084EB27 /* UserWalkthroughViewController.swift in Sources */,
 				0BF27851295F0DCA007A6FFF /* FilterCatTableViewCell.swift in Sources */,
 				21236C65295C14730040B7AE /* MostTrackedCollectionViewCell.swift in Sources */,
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
@@ -386,6 +405,7 @@
 				3648E7CB295BD9B7005251A3 /* ChooseCategoryTVC.swift in Sources */,
 				369E17E2295CF97700400D6D /* TransactionDetailsTVC.swift in Sources */,
 				CDE4A5FD2964C68400D7D7CE /* CodableImage.swift in Sources */,
+				26D98610296C473400C27AF1 /* UserWalkthroughPVC.swift in Sources */,
 				21BEDF55295AF21B00DBB59C /* TabBarViewController.swift in Sources */,
 				21236C61295C0AF00040B7AE /* MostTrackedTableViewCell.swift in Sources */,
 				2112D363295C35F80033A07C /* SettingsTableViewController.swift in Sources */,
@@ -577,7 +597,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserSetup;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -611,7 +631,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "To share photos rom the camera.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserSetup;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;

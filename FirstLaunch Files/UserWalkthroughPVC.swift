@@ -1,21 +1,19 @@
 //
-//  userSetupPVC.swift
+//  UserWalkthroughPVC.swift
 //  SpendIt301
 //
-//  Created by Nawra Alhaji on 02/01/2023.
+//  Created by Nawra Alhaji on 09/01/2023.
 //
 
 import UIKit
 
-class userSetupPVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource  {
-    
-    
+class UserWalkthroughPVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource  {
+
     //define array of walkthrough pages to be able to display them all
     var arrayOfContainers = [UIViewController]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         
         //instainte instances
@@ -29,16 +27,19 @@ class userSetupPVC: UIPageViewController, UIPageViewControllerDelegate, UIPageVi
         let vc4 = self.storyboard?.instantiateViewController(withIdentifier: "page4")
         
         
-        
-        
         //force unwrap to all view controllers and add them to the array
         arrayOfContainers.append(vc1!)
         arrayOfContainers.append(vc2!)
         arrayOfContainers.append(vc3!)
         arrayOfContainers.append(vc4!)
-  
-
-       
+        
+        delegate = self
+        dataSource = self
+        //display the first page/ view after unwraping the value
+        if let firstVC = arrayOfContainers.first{
+            setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
+     
     }
     
     
@@ -79,6 +80,5 @@ class userSetupPVC: UIPageViewController, UIPageViewControllerDelegate, UIPageVi
         return arrayOfContainers[afterIndex]
         
     }
-    
-    
+
 }
