@@ -86,10 +86,10 @@
 "wAG-mi-HdW.text" = "إشعارات الإنفاق المفرط";
 
 /* Class = "UISegmentedControl"; wn4-5z-QH4.segmentTitles[0] = "Light"; ObjectID = "wn4-5z-QH4"; */
-"wn4-5z-QH4.segmentTitles[0]" = "Light";
+"wn4-5z-QH4.segmentTitles[0]" = "فاتح";
 
 /* Class = "UISegmentedControl"; wn4-5z-QH4.segmentTitles[1] = "Dark"; ObjectID = "wn4-5z-QH4"; */
-"wn4-5z-QH4.segmentTitles[1]" = "مظلم";
+"wn4-5z-QH4.segmentTitles[1]" = "داكن";
 
 /* Class = "UILabel"; text = "Email Us"; ObjectID = "y03-a7-2oz"; */
 "y03-a7-2oz.text" = "ارسل لنا";

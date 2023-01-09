@@ -31,12 +31,14 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentLang = Locale.current.languageCode
+        if currentLang == "ar" {
+            languageSegment.selectedSegmentIndex = 1
+        }
+        else {
+            languageSegment.selectedSegmentIndex = 0
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == emailIndexPath {
@@ -182,45 +184,56 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             //english
     case 0:
             let currentLang = Locale.current.languageCode
-            let newLanguage = currentLang == "en" ? "en" : "en"
+            let newLanguage = currentLang == "en" ? "ar" : "en"
             UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+
             
-            exit(0)
-        break
+            // create the alert
+            let alert = UIAlertController(title: "SpendIt warning", message: "The app needs to quit and reopen to change the language. Therefore, do these steps!", preferredStyle: UIAlertController.Style.alert)
+
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+               
+           // exit(0)
+      
             //arabic
     case 1:
+            
+       
             languageSegment.selectedSegmentIndex = 1
             languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "ar" ? "en" : "ar"
             UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
-            exit(0)
-         
-        break
-        default:
-            break
-        }
-    }
-    
-    @IBAction func currencySegmentHasChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-    case 0:
-          
-        break
-    case 1:
-//            let storyboard = UIStoryboard(name: "AddTransaction", bundle: nil)
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "addTrans")
-//            if let vc = initialViewController as? AddTransactionTVC {
-//                let str =  vc.amountTextField.text
-//                let replaced = str?.replacingOccurrences(of: "BHD", with: "USD")
+            // create the alert
+            let alert = UIAlertController(title: "SpendIt alert", message: "The app needs to quit and reopen to change the language. Therefore, do these steps!", preferredStyle: UIAlertController.Style.alert)
 
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
             
-        break
+                            
+        
+           //exit(0)
+         
+          
         default:
             break
         }
     }
-    
+
     @IBAction func notificationSwitchHasChanged(_ sender: UISwitch) {
     }
     
@@ -238,64 +251,5 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     
 
 }
-
-
-    // MARK: - Table view data source
-
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
