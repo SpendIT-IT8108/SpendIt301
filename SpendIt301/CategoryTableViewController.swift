@@ -164,14 +164,15 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         let transactions = Transaction.loadTransactions()
         //loop through transactions list
         var found = false
-        while !found {
             for transaction in transactions {
                 if transaction.category.name == categories[indexPath.row].name{
-                    removeAllTransactionsAlert(categories[indexPath.row].name)
                     found = true
                 }
             }
+        if found == true {
+            removeAllTransactionsAlert(categories[indexPath.row].name)
         }
+        
     }
     
     func removeAllTransactionsAlert(_ name:String){
