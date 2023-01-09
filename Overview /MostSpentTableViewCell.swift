@@ -42,10 +42,7 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
            UICollectionViewCompositionalLayout(section: section)
         mostSpentCollection.isScrollEnabled = false
 addToCell()
-//        mostSpentArray.append(mostSpentCategories(emoji: "💻", categoryName: "Laptop", price: "212 BHD"))
-//        mostSpentArray.append(mostSpentCategories(emoji: "🍔", categoryName: "Food", price: "100 BHD"))
-//        mostSpentArray.append(mostSpentCategories(emoji: "📚", categoryName: "Books", price: " 50 BHD"))
-//        mostSpentArray.append(mostSpentCategories(emoji: "🐱", categoryName: "Cat", price: "50 BHD"))
+
     }
     
 
@@ -55,6 +52,7 @@ addToCell()
         // Configure the view for the selected state
        
     }
+    var currencyCode_ : String = ""
     func addToCell() {
         //variables declration
         let transactions : [Transaction] = Transaction.loadTransactions()
@@ -95,7 +93,8 @@ addToCell()
             }
             //assign the category name and the total to the variables
             categoryName1 =  i.key
-            total1 = "\(i.value) BHD"
+            currencyCode_ = "BHD"
+            total1 = "\(i.value) \(currencyCode_)"
             //append it to the array
             mostSpentArray.append(mostSpentCategories(emoji: emoji1, categoryName: categoryName1, price: total1))
         }
