@@ -24,6 +24,7 @@ class CurrnecyViewController: UIViewController {
     @IBAction func rbtnAction(_ sender: UIButton) {
         let itemCost = Float(amountTxtBx.text!)
         var bhd : Float = 0
+        if amountTxtBx.text != "" {
         if sender.tag == 1 {
             usdRadioBtn.isSelected = true
             euroRadioBtn.isSelected = false
@@ -38,6 +39,11 @@ class CurrnecyViewController: UIViewController {
             bhd = (itemCost!*Float(euroRate))
             convertedamountLbl.text = String("\(bhd) BHD")
         }
+        
+        }else {
+            print("No data entered")
+        }
+        
         
     }
 
