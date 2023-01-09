@@ -89,13 +89,13 @@ class BarChartTableViewCell: UITableViewCell {
            let dataEntry2 = BarChartDataEntry(x: Double(i), y: Double(balance))
            dataEntries2.append(dataEntry2)
         //set chart data set
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Income")
-        let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses")
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Income    ")
+        let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Expenses  ")
         let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: "Balance")
         //color of the data sets(bars)
         chartDataSet.colors = [UIColor(red: 224/255, green: 223/255, blue: 119/255, alpha: 1)]
         chartDataSet1.colors =   [UIColor(red: 27/255, green: 87/255, blue: 95/255, alpha: 1)]
-        chartDataSet2.colors =   [UIColor(red: 243/255, green: 254/255, blue: 57/255, alpha: 1)]
+        chartDataSet2.colors =   [UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)]
       
         //set chart data set
           let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet1,chartDataSet2]
@@ -103,9 +103,9 @@ class BarChartTableViewCell: UITableViewCell {
         //asign it to the chart
         BarChart.data = chartData
         //set sizes - dpaxes
-        let groupSpace = 0.4
-         let barSpace = 0.01
-        let barWidth = 0.045
+        let groupSpace = 0.37
+         let barSpace = 0.008
+        let barWidth = 0.040
 
          chartData.barWidth = barWidth
          chartData.setDrawValues(true)
