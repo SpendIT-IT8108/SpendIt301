@@ -20,6 +20,7 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
         mostSpentCollection.delegate = self
         mostSpentCollection.dataSource = self
         mostspentLbl.text = NSLocalizedString("mostspent", comment: "")
+        
         //define item size
         let itemSize =
            NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
@@ -39,8 +40,10 @@ class MostSpentTableViewCell: UITableViewCell, UICollectionViewDataSource,UIColl
 
         mostSpentCollection.collectionViewLayout =
            UICollectionViewCompositionalLayout(section: section)
+        //stop scrolling
         mostSpentCollection.isScrollEnabled = false
-addToCell()
+        //call function
+        addToCell()
 
     }
     
@@ -115,10 +118,11 @@ addToCell()
             if mostSpentArray.count > 0 && indexPath.row < mostSpentArray.count {
             
             let category = mostSpentArray[indexPath.row]
-            
+            //set the collection view cell with the info
             cell.setUpCell(emoji: category.emoji, categoryName: category.categoryName, sum: category.price)
         
             return cell }
+            //if empty return empty
             else
             
             {
