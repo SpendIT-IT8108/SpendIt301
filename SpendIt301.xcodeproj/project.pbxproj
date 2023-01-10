@@ -69,7 +69,6 @@
 		0BF0975929543E56000CC354 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		0BF27850295F0DCA007A6FFF /* FilterCatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCatTableViewCell.swift; sourceTree = "<group>"; };
 		0BF27852295F96FE007A6FFF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		2109801F296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/TransactionDetails.strings; sourceTree = "<group>"; };
 		21098020296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/Categories.strings; sourceTree = "<group>"; };
 		21098021296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		21098022296B52B30098EA31 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -93,10 +92,12 @@
 		2130B049294AF518001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/Categories.storyboard; sourceTree = "<group>"; };
 		2130B04E294AF6DB001EC43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpendIt301/Base.lproj/SettingsPage.storyboard; sourceTree = "<group>"; };
 		21314E25296D8AAF00302018 /* singletonForCurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singletonForCurrentUser.swift; sourceTree = "<group>"; };
+		2132F972296DB99400F8A11B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/TransactionDetails.strings; sourceTree = "<group>"; };
+		2132F974296DBA5700F8A11B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SpendIt301/en.lproj/TransactionDetails.strings; sourceTree = "<group>"; };
+		2132F976296DBACF00F8A11B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/Transactions.strings; sourceTree = "<group>"; };
+		2132F978296DBB2D00F8A11B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SpendIt301/en.lproj/Transactions.strings; sourceTree = "<group>"; };
 		216874532958E1900031BC7B /* OverviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnecyViewController.swift; sourceTree = SOURCE_ROOT; };
-		21808924296CA941002BCFC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SpendIt301/en.lproj/Transactions.strings; sourceTree = "<group>"; };
-		21808929296CA9F8002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/Transactions.strings; sourceTree = "<group>"; };
 		2180892B296CAA30002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Overview.storyboard; sourceTree = "<group>"; };
 		2180892E296CAA37002BCFC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Overview.strings; sourceTree = "<group>"; };
 		21808930296CAA65002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Overview.strings; sourceTree = "<group>"; };
@@ -495,8 +496,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				2130B046294AF4EC001EC43C /* Base */,
-				21808924296CA941002BCFC1 /* en */,
-				21808929296CA9F8002BCFC1 /* ar */,
+				2132F976296DBACF00F8A11B /* ar */,
+				2132F978296DBB2D00F8A11B /* en */,
 			);
 			name = Transactions.storyboard;
 			sourceTree = "<group>";
@@ -561,7 +562,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				369E17DF295CF6BC00400D6D /* Base */,
-				2109801F296B52B30098EA31 /* ar */,
+				2132F972296DB99400F8A11B /* ar */,
+				2132F974296DBA5700F8A11B /* en */,
 			);
 			name = TransactionDetails.storyboard;
 			sourceTree = "<group>";
