@@ -207,8 +207,24 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     }
 
     @IBAction func notificationSwitchHasChanged(_ sender: UISwitch) {
+        if sender.isOn{
+        let content = UNMutableNotificationContent()
+        content.title="Spend It"
+        content.subtitle="Have you recorded your spending today?💲"
+        content.sound = .default
         
+        var date = DateComponents()
+        date.calendar = Calendar.current
+        date.hour = 20 //everyday @8pm aka 20
+        date.minute = 28
+        date.second = 00
         
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        
+    
+        }
     }
     
     func openSharedFilesApp() {
