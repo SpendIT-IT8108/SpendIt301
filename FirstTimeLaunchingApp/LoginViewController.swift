@@ -75,6 +75,10 @@ class LoginViewController: UIViewController {
             //set the value inside the user defaults
             self?.defaults.set(true, forKey: "Logged In")
             
+            //get the info from user defaults
+            self?.defaults.string(forKey: "User Name")
+            
+            
             //double check the information
             self!.checkUserInfo()
         }
@@ -93,6 +97,8 @@ class LoginViewController: UIViewController {
                 vc.modalPresentationStyle = .overFullScreen
                 self.present(vc, animated: true)
             }
+            
+            
             
         }
         

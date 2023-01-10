@@ -4,14 +4,22 @@
 //
 //  Created by Nawra Alhaji on 09/01/2023.
 //
-
+import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
 
 
 class SignUpViewController: UIViewController {
+    
+    static var sahredInstance = SignUpViewController()
+    
 
+  
+  
+   
+    
+    
     //declare user defaults
     let defaults = UserDefaults.standard
     
@@ -126,7 +134,9 @@ class SignUpViewController: UIViewController {
         }
         
         //save the info in the user defaults too
-        defaults.set(name.text, forKey: "User Name")
+        
+                defaults.set(name.text, forKey: "User Name")
+      
         defaults.set(email.text, forKey: "User Email")
         defaults.set(password.text, forKey: "User Password")
         
