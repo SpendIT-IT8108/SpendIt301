@@ -21,16 +21,12 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     //second section
     let languageIndexPath = IndexPath(row: 0, section: 1)
     let currencyIndexPath = IndexPath(row: 1, section: 1)
-    let darkModeIndexPath = IndexPath(row: 2, section: 1)
-    let emailIndexPath = IndexPath(row: 3, section: 1)
-    let aboutUsIndexPath = IndexPath(row: 4, section: 1)
+    let emailIndexPath = IndexPath(row: 2, section: 1)
+    let aboutUsIndexPath = IndexPath(row: 3, section: 1)
     //third section
-    let dailyNotificationIndexPath = IndexPath(row: 0, section: 2)
-    let overspendingNotificationIndexPath = IndexPath(row: 1, section: 2)
-    //fourth section
-    let exportToCsvPath = IndexPath(row: 0, section: 3)
+    let exportToCsvPath = IndexPath(row: 0, section: 2)
     //fifth section
-    let resetApp = IndexPath(row: 0, section: 4)
+    let resetApp = IndexPath(row: 0, section: 3)
     
 
         //declare user defaults
