@@ -28,23 +28,27 @@ class CurrnecyViewController: UIViewController {
         if sender.tag == 1 {
             usdRadioBtn.isSelected = true
             euroRadioBtn.isSelected = false
-            let usRate = 2.65
+            
+            let usRate = 0.38
             bhd = (itemCost!*Float(usRate))
             
             convertedamountLbl.text = String("\(bhd) BHD")
-        } else if sender.tag == 2 {
+            }
+        else if sender.tag == 2 {
             usdRadioBtn.isSelected = false
             euroRadioBtn.isSelected = true
-            let euroRate = 2.47
+          
+            let euroRate = 0.40
             bhd = (itemCost!*Float(euroRate))
             convertedamountLbl.text = String("\(bhd) BHD")
         }
-        
-        }else {
-            print("No data entered")
+    }else {
+        print("No data entered")
+    }
         }
         
         
     }
 
-}
+
+
