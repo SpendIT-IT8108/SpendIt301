@@ -38,6 +38,7 @@ This project is an iOS application with the goal of tracking users' spending and
 - Notifications - Zainab Abdulla
 - Overview (Home) - Fatema Marhoon
 - User settings - Fatema Marhoon
+- Localization - Fatema Marhoon
 - Export data to CSV - Maryam Taraif
 
 
