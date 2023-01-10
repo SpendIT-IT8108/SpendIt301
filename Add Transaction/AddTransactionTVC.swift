@@ -87,22 +87,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //localization
-//        titleTextField.placeholder = NSLocalizedString("transTitle", comment: "")
-//        typeLbl.text = NSLocalizedString("type", comment: "")
-//        editLbl.titleLabel?.text = NSLocalizedString("edit", comment: "")
-//        dateLbl.text = NSLocalizedString("date", comment: "")
-//        repeatLbl.text  = NSLocalizedString("repeat", comment: "")
-//        repeatSentenceLbl.text = NSLocalizedString("letyourbill", comment: "")
-//        repeatintervalLbl.text = NSLocalizedString("repeatInterval", comment: "")
-//        fromLbl.text = NSLocalizedString("from", comment: "")
-//        untilLbl.text = NSLocalizedString("until", comment: "")
-//        attachementLbl.text = NSLocalizedString("attachment", comment: "")
-//        attachDescLbl.text = NSLocalizedString("taptoattach", comment: "")
-//        notesLbl.text = NSLocalizedString("notes", comment: "")
-//        notesDecLbl.text = NSLocalizedString("notesdec", comment: "")
-        
-        
         //creating a tap gesture recognizer for the attachment UIImage
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         attachmentImageView.addGestureRecognizer(tapGR)
@@ -198,11 +182,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                         }
                     }
                 }
-                
             }
-            
-           
-            
         }
         else {
             //set the default catgeory
@@ -286,14 +266,15 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             category = defaultCategory(type: "Expense")
         }else {
             category = defaultCategory(type: "Income")
+            
         }
         categoryNameTextField.text = category?.name
         symbolImageView.image = category?.icon?.image
     }
     
     //get default element of each type
-    func defaultCategory(type: String) -> Category {
-      
+    func defaultCategory(type: String) -> Category? {
+      //get catgeory list to take the default from
         var list : [Category] = []
         for cat in Category.loadSampleCategories() {
             if cat.type == type {
@@ -301,22 +282,57 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             }
         }
         
+        //if there is a most tracked one, set to eafult for expense to make it easier for the user
         if type == "Expense" {
             if let most = Category.mostTracked {
                 return most
             }
             else {
-                return list.first!
+                if let category = list.first {
+                    return category
+                }
+                else {
+                     showRestrictionAlert()
+                    return nil
+                }
             }
         }
         else {
-            return list.first!
+            showRestrictionAlert()
+            return nil
         }
     }
-
+    
+    //Alert for restriction to add in empty chosen type
+    func showRestrictionAlert() {
+        let alertController = UIAlertController(title:
+                                                    "No Categories", message: "Sorry, you can't add a transaction without having any category in this type.",
+                                                preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel",
+                                   style: .cancel, handler: { _ in
+            //switch to the other type
+            if self.type.selectedSegmentIndex == 0 {
+                self.type.selectedSegmentIndex = 1
+                self.category = self.defaultCategory(type: "Income")
+                self.categoryNameTextField.text = self.category?.name
+                self.symbolImageView.image = self.category?.icon?.image
+            } else {
+                self.type.selectedSegmentIndex = 0
+                self.category = self.defaultCategory(type: "Expense")
+                self.categoryNameTextField.text = self.category?.name
+                self.symbolImageView.image = self.category?.icon?.image
+            }
+        }
+                                   
+        )
+        alertController.addAction(cancel)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     
     // MARK: attachment process
+    
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         let placeholderImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
         if sender.state == .ended {
