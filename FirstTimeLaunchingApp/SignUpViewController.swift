@@ -12,14 +12,7 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
-    static var sahredInstance = SignUpViewController()
-    
 
-  
-  
-   
-    
-    
     //declare user defaults
     let defaults = UserDefaults.standard
     
@@ -30,7 +23,6 @@ class SignUpViewController: UIViewController {
     
         //outlets for all fields
     @IBOutlet weak var name: UITextField!
-    
    
     @IBOutlet weak var email: UITextField!
     
@@ -115,17 +107,18 @@ class SignUpViewController: UIViewController {
                 
                 //if user is not created, display the error.
                 print("Error \(error?.localizedDescription)")
-                
+                //set the user as false inside user defaults
+                self.defaults.set(false, forKey: "Logged In")
                
                 
                 return
 
             }
             
-            //set the value inside the user defaults
+            //set the user as logged in inside user defaults
             self.defaults.set(true, forKey: "Logged In")
             
-            //redirect to overview page
+            //redirect to overview page since the user is signed up sucessfully
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
             let vc = mainSB.instantiateViewController(withIdentifier: "tabBar")
             vc.modalPresentationStyle = .overFullScreen
@@ -133,10 +126,9 @@ class SignUpViewController: UIViewController {
         
         }
         
-        //save the info in the user defaults too
         
-                defaults.set(name.text, forKey: "User Name")
-      
+        //save the info in the user defaults 
+        defaults.set(name.text, forKey: "User Name" )
         defaults.set(email.text, forKey: "User Email")
         defaults.set(password.text, forKey: "User Password")
         

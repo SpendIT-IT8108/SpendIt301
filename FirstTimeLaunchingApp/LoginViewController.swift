@@ -70,13 +70,13 @@ class LoginViewController: UIViewController {
             
             if let errorMessgae = errorMessgae{
                 print(errorMessgae.localizedDescription)
+                
+               
             }
             
-            //set the value inside the user defaults
-            self?.defaults.set(true, forKey: "Logged In")
             
-            //get the info from user defaults
-            self?.defaults.string(forKey: "User Name")
+            
+     
             
             
             //double check the information
@@ -90,12 +90,30 @@ class LoginViewController: UIViewController {
             if Auth.auth().currentUser != nil {
                 //print the id to ensure
                 print(Auth.auth().currentUser?.uid)
+                //print(Auth.auth().currentUser?.displayName)
+                
+                //set the value inside the user defaults
+                self.defaults.set(true, forKey: "Logged In")
                 
                 //pass the user the overview
                 let mainSB = UIStoryboard(name: "Main", bundle: nil)
                 let vc = mainSB.instantiateViewController(withIdentifier: "tabBar")
                 vc.modalPresentationStyle = .overFullScreen
                 self.present(vc, animated: true)
+                let userID: String = Auth.auth().currentUser!.uid
+                
+                
+            }else{
+                //set the user as false inside user defaults
+                self.defaults.set(false, forKey: "Logged In")
+                
+                //pass the user to the login form directly
+                let loginForm = UIStoryboard(name: "loginAndSignUp", bundle: nil)
+                let loginVc = loginForm.instantiateViewController(withIdentifier: "loginForm")
+                loginVc.modalPresentationStyle = .overFullScreen
+                self.present(loginVc, animated: true)
+               
+
             }
             
             
@@ -108,6 +126,10 @@ class LoginViewController: UIViewController {
            validateFields()
        }
         
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //checkUserInfo()
+    }
     }
     
 

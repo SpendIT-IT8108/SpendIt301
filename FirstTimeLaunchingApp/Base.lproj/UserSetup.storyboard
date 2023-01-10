@@ -340,20 +340,20 @@ to set up.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="a9u-Ny-VfE">
-                                <rect key="frame" x="35" y="79" width="298.5" height="748"/>
+                                <rect key="frame" x="35" y="79" width="344" height="748"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock SpendIt  with Face ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ln-Lr-oYG">
-                                        <rect key="frame" x="0.0" y="0.0" width="298.5" height="98"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="98"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-PN-Eqy">
-                                        <rect key="frame" x="0.0" y="148.5" width="298.5" height="297.5"/>
+                                        <rect key="frame" x="0.0" y="148.5" width="344" height="297.5"/>
                                         <color key="tintColor" name="yellowcolor"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKg-Nb-PMc">
-                                        <rect key="frame" x="0.0" y="497" width="298.5" height="251"/>
+                                        <rect key="frame" x="0.0" y="497" width="344" height="251"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Setup Now"/>
                                         <connections>
@@ -367,7 +367,7 @@ to set up.</string>
                                 </constraints>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hxs-iK-BzF">
-                                <rect key="frame" x="109" y="841" width="150.5" height="26"/>
+                                <rect key="frame" x="132" y="841" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
