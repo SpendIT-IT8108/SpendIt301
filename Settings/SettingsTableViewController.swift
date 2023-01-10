@@ -36,8 +36,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentLang = Locale.current.languageCode
-        let setupLangChosen = defaults.string(forKey: "Language")
-        if currentLang == "ar" && setupLangChosen == "Arabic"{
+        if currentLang == "ar" {
             languageSegment.selectedSegmentIndex = 1
         }
         else {
@@ -65,11 +64,6 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)        //present mail composer
             present(mailComposer, animated: true, completion: nil)
 
-        }
-        if indexPath == profileIndexPath {
-            let setupLangChosen = defaults.object(forKey: "Language")
-            print(setupLangChosen)
-            
         }
         
         //code for export csv

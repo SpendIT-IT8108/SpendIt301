@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrnecyViewController: UIViewController {
+class CurrnecyViewController: UIViewController, UITextFieldDelegate {
 
 
     @IBOutlet weak var usdRadioBtn: UIButton!
@@ -19,6 +19,10 @@ class CurrnecyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     @IBAction func rbtnAction(_ sender: UIButton) {
