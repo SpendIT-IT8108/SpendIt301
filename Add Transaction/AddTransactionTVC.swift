@@ -293,14 +293,27 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     //get default element of each type
     func defaultCategory(type: String) -> Category {
+      
         var list : [Category] = []
         for cat in Category.loadSampleCategories() {
             if cat.type == type {
                 list.append(cat)
             }
         }
-        return list.first!
+        
+        if type == "Expense" {
+            if let most = Category.mostTracked {
+                return most
+            }
+            else {
+                return list.first!
+            }
+        }
+        else {
+            return list.first!
+        }
     }
+
     
     
     // MARK: attachment process
