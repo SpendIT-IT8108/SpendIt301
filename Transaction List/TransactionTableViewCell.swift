@@ -9,12 +9,13 @@ import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
 
+    //properties
     @IBOutlet weak var transactionNameLable: UILabel!
     @IBOutlet weak var transactionAmountLable: UILabel!
     @IBOutlet weak var categorySymbolLable: UIImageView!
     
     func update(with transaction: Transaction){
-            //transactionSymbolLable.
+            //uchnage the color based on type
         if transaction.category.type=="Expense"{
             transactionAmountLable.textColor=UIColor.red
             transactionAmountLable.text=("- \(String(transaction.amount))")

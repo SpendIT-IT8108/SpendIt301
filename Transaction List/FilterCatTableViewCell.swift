@@ -55,7 +55,7 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     }
 
     func update(with category: Category){
-        //catLbl.text=category.symbol
+      
         }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -63,6 +63,7 @@ class FilterCatTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         // Configure the view for the selected state
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //custom cell size
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.width)
     }
 

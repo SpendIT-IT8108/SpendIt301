@@ -10,19 +10,14 @@ import UIKit
 
 class TransactionTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate{
     
-    
+    //properties
     @IBOutlet weak var filterBtn: UIButton!
     var transactions=[Transaction]()
     let searchController=UISearchController()
     var searchedItem: [Transaction] = []
     
     
-    @IBAction func EditPressed(_ sender: Any) {
-        let tableViewEditingMode = tableView.isEditing
-        tableView.setEditing(!tableViewEditingMode, animated: true)
-        navigationItem.leftBarButtonItem = editButtonItem
-        
-    }
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -176,31 +171,28 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //dequeing the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
-        
-        //         Configure the cell...
         var  transaction:Transaction
-        if searchController.isActive{
+    
+        //  if searched or use scope
+        if searchController.isActive  || searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2{
             transaction=searchedItem[indexPath.row]
             
         }
-        else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
-            transaction=searchedItem[indexPath.row]
-        }
-        
         
         else{
             transaction=transactions[indexPath.row]
         }
         
-        
+        //update cell's content
         cell.update(with: transaction)
         
         return cell
     }
     //
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Transaction"
+        return "Transactions"
     }
     
     
@@ -208,7 +200,12 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
     //MARK: Navigation (Segue)
     
-    
+    @IBAction func EditPressed(_ sender: Any) {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+    }
     
     @IBAction func unwindtoTransactionList(sender: UIStoryboardSegue){
         if sender.identifier == "doneIdentifier" {
