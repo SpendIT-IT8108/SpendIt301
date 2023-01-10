@@ -91,8 +91,9 @@ struct Transaction: Equatable, Codable{
         let trans13 = Transaction(name: "Mom's Retirement gift", amount: 68.9, category:  Category(name: "Gifts", symbol: "🎁", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
         let trans14 = Transaction(name: "Taxi to airport", amount: 10, category: Category(name: "Transportation", symbol: "🚆", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
         let trans15 = Transaction(name: "Uni Books", amount: 200, category:  Category(name: "Education", symbol: "🏫", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans16 = Transaction(name: "Extra Salary", amount: 200, category: Category(name: "Salary", symbol: "💵", spendingLimit: nil, type: "Income"), date: Date(), repeated: false)
 
-        return [trans1,trans2,trans3,trans4,trans5,trans6,trans7,trans8,trans9,trans10,trans11,trans12,trans13,trans14,trans15]
+        return [trans1,trans2,trans3,trans4,trans5,trans6,trans7,trans8,trans9,trans10,trans11,trans12,trans13,trans14,trans15, trans16]
     }
     
     

@@ -177,75 +177,96 @@ to set up.</string>
         <scene sceneID="b9Z-cb-3zR">
             <objects>
                 <viewController storyboardIdentifier="page2" id="brg-hA-woU" customClass="UserProfileViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kmf-xY-SYr">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Kmf-xY-SYr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="sFH-d6-wK6">
-                                <rect key="frame" x="132" y="831" width="150.5" height="26"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-cB-Ezj">
-                                <rect key="frame" x="35" y="79" width="207" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-cB-Ezj">
+                                <rect key="frame" x="35" y="79" width="83" height="54"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="g5Z-tA-Som">
-                                <rect key="frame" x="72" y="204" width="270" height="550"/>
+                                <rect key="frame" x="72" y="204" width="270" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZ3-Ff-nWh">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="260"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="270" id="coj-Jb-1XQ"/>
-                                            <constraint firstAttribute="height" constant="260" id="dfO-Tw-sxb"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Aa" cornerStyle="medium">
+                                        <buttonConfiguration key="configuration" style="filled" title="15-25" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="70"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="languageBtn:" destination="brg-hA-woU" eventType="touchUpInside" id="uNL-r9-iXS"/>
+                                            <action selector="age1Btn:" destination="brg-hA-woU" eventType="touchUpInside" id="5yM-eI-aEk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkj-a5-Kvs">
-                                        <rect key="frame" x="0.0" y="290" width="270" height="260"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIe-TX-9a0">
+                                        <rect key="frame" x="0.0" y="210" width="270" height="180"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="260" id="Fd8-IQ-Bia"/>
-                                            <constraint firstAttribute="width" constant="270" id="Vxf-zz-bZs"/>
+                                            <constraint firstAttribute="width" constant="270" id="b8y-sx-ZzD"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="أب" cornerStyle="medium">
+                                        <buttonConfiguration key="configuration" style="filled" title="26-40" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="70"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="ArabicBtn:" destination="brg-hA-woU" eventType="touchUpInside" id="WMU-Yu-Ak1"/>
+                                            <action selector="age2Btn:" destination="brg-hA-woU" eventType="touchUpInside" id="vGN-BY-iOr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjI-dH-5Gx">
+                                        <rect key="frame" x="0.0" y="420" width="270" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="270" id="gB5-K1-Yo0"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="41+" cornerStyle="medium">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" name="greenColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="70"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="age3Btn:" destination="brg-hA-woU" eventType="touchUpInside" id="AUZ-Ue-I3r"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="WIe-TX-9a0" firstAttribute="height" secondItem="g5Z-tA-Som" secondAttribute="height" multiplier="0.3" id="5bT-u6-kVp"/>
+                                    <constraint firstItem="kZ3-Ff-nWh" firstAttribute="height" secondItem="g5Z-tA-Som" secondAttribute="height" multiplier="0.3" id="UQa-Aa-BNZ"/>
+                                    <constraint firstItem="NjI-dH-5Gx" firstAttribute="height" secondItem="g5Z-tA-Som" secondAttribute="height" multiplier="0.3" id="y98-1X-ZCS"/>
+                                </constraints>
                             </stackView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="vPz-ln-ZWw">
+                                <rect key="frame" x="132" y="849" width="150.5" height="26"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OAn-cn-yY6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g5Z-tA-Som" firstAttribute="centerY" secondItem="Kmf-xY-SYr" secondAttribute="centerY" id="1j4-bX-ZdS"/>
                             <constraint firstItem="ExK-cB-Ezj" firstAttribute="leading" secondItem="OAn-cn-yY6" secondAttribute="leading" constant="35" id="6Bc-zd-wD1"/>
-                            <constraint firstItem="OAn-cn-yY6" firstAttribute="bottom" secondItem="sFH-d6-wK6" secondAttribute="bottom" constant="5" id="Hc4-4c-mcS"/>
-                            <constraint firstItem="sFH-d6-wK6" firstAttribute="centerX" secondItem="Kmf-xY-SYr" secondAttribute="centerX" id="S7N-sb-mIb"/>
                             <constraint firstItem="g5Z-tA-Som" firstAttribute="top" secondItem="OAn-cn-yY6" secondAttribute="top" constant="160" id="ani-Om-akE"/>
                             <constraint firstItem="g5Z-tA-Som" firstAttribute="centerX" secondItem="Kmf-xY-SYr" secondAttribute="centerX" id="eIM-Ak-8F2"/>
+                            <constraint firstItem="OAn-cn-yY6" firstAttribute="bottom" secondItem="vPz-ln-ZWw" secondAttribute="bottom" constant="5" id="gi1-Ht-QaD"/>
                             <constraint firstItem="ExK-cB-Ezj" firstAttribute="top" secondItem="OAn-cn-yY6" secondAttribute="top" constant="35" id="lIb-9I-Rv4"/>
+                            <constraint firstItem="vPz-ln-ZWw" firstAttribute="centerX" secondItem="Kmf-xY-SYr" secondAttribute="centerX" id="vi2-Fl-88a"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ArabicLanguageOutlet" destination="jkj-a5-Kvs" id="wYi-az-X9p"/>
-                        <outlet property="languageBtnOutlet" destination="kZ3-Ff-nWh" id="Nwt-G3-0Ls"/>
+                        <outlet property="age1Btn" destination="kZ3-Ff-nWh" id="Feq-dL-MdE"/>
+                        <outlet property="age2BtnOutlet" destination="WIe-TX-9a0" id="Eoz-Oj-fux"/>
+                        <outlet property="age3BtnOutlet" destination="NjI-dH-5Gx" id="8Sh-mv-bjj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCI-Zo-F9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -363,7 +384,6 @@ to set up.</string>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="aHv-PN-Eqy" firstAttribute="height" secondItem="a9u-Ny-VfE" secondAttribute="height" multiplier="0.4" id="1Wm-j7-sZ5"/>
-                                    <constraint firstAttribute="width" constant="250" id="TiF-WD-A7a"/>
                                 </constraints>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hxs-iK-BzF">
