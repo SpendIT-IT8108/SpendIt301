@@ -20,7 +20,6 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <outlet property="overviewTabbarItem" destination="bw5-fd-NSC" id="rif-8d-qrR"/>
                         <segue destination="HUd-tZ-Cfl" kind="relationship" relationship="rootViewController" id="79c-ZT-UGh"/>
                     </connections>
                 </navigationController>

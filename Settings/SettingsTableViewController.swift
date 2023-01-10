@@ -32,12 +32,14 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     let resetApp = IndexPath(row: 0, section: 4)
     
 
-
+        //declare user defaults
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentLang = Locale.current.languageCode
-        if currentLang == "ar" {
+        let setupLangChosen = defaults.string(forKey: "Language")
+        if currentLang == "ar" && setupLangChosen == "Arabic"{
             languageSegment.selectedSegmentIndex = 1
         }
         else {
@@ -195,8 +197,6 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             //arabic
     case 1:
             
-            languageSegment.selectedSegmentIndex = 1
-            languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "ar" ? "en" : "ar"
             languageAlert(newLanguage: newLanguage)
