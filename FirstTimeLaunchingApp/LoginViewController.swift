@@ -15,6 +15,9 @@ class LoginViewController: UIViewController {
 
     }
     
+    //declare user defaults
+    let defaults = UserDefaults.standard
+    
     //create outlets for the fields
     
     @IBOutlet weak var email: UITextField!
@@ -68,6 +71,9 @@ class LoginViewController: UIViewController {
             if let errorMessgae = errorMessgae{
                 print(errorMessgae.localizedDescription)
             }
+            
+            //set the value inside the user defaults
+            self?.defaults.set(true, forKey: "Logged In")
             
             //double check the information
             self!.checkUserInfo()

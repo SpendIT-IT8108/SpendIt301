@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,12 +45,12 @@ to set up.</string>
                                             <constraint firstAttribute="width" constant="344" id="bCn-hb-rV9"/>
                                             <constraint firstAttribute="height" constant="49" id="pyc-Ek-LUa"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="yellowcolor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Setup" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
-                                            <color key="baseBackgroundColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" name="yellowcolor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="nnH-vM-IPe" kind="presentation" modalPresentationStyle="fullScreen" id="8D4-PU-TJF"/>
@@ -123,7 +124,7 @@ to set up.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="👩🏼" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.1058823529" green="0.3411764706" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
                                         </buttonConfiguration>
@@ -140,7 +141,7 @@ to set up.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="👨🏼" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.1058823529" green="0.3411764706" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
                                         </buttonConfiguration>
@@ -203,7 +204,7 @@ to set up.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Aa" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.1058823529" green="0.3411764706" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
                                         </buttonConfiguration>
@@ -220,7 +221,7 @@ to set up.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="أب" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.1058823529" green="0.3411764706" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
                                         </buttonConfiguration>
@@ -282,7 +283,7 @@ to set up.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="☀️" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.1058823529" green="0.3411764706" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
                                         </buttonConfiguration>
@@ -299,7 +300,7 @@ to set up.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="🌙" cornerStyle="medium">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.1058823529" green="0.3411764706" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="greenColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="120"/>
                                         </buttonConfiguration>
@@ -339,23 +340,23 @@ to set up.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="a9u-Ny-VfE">
-                                <rect key="frame" x="35" y="79" width="298.5" height="748"/>
+                                <rect key="frame" x="35" y="79" width="344" height="748"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock SpendIt  with Face ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ln-Lr-oYG">
-                                        <rect key="frame" x="0.0" y="0.0" width="298.5" height="98"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="98"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-PN-Eqy">
-                                        <rect key="frame" x="0.0" y="148.5" width="298.5" height="248.5"/>
-                                        <color key="tintColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="148.5" width="344" height="248.5"/>
+                                        <color key="tintColor" name="yellowcolor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="nss-YO-tdg"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKg-Nb-PMc">
-                                        <rect key="frame" x="0.0" y="448" width="298.5" height="300"/>
+                                        <rect key="frame" x="0.0" y="448" width="344" height="300"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Setup Now"/>
                                         <connections>
@@ -368,7 +369,7 @@ to set up.</string>
                                 </constraints>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hxs-iK-BzF">
-                                <rect key="frame" x="109" y="841" width="150.5" height="26"/>
+                                <rect key="frame" x="132" y="841" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
@@ -427,7 +428,7 @@ later in the settings easily.</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Done" cornerStyle="large">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" red="0.87843137250000003" green="0.87450980389999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" name="yellowcolor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="vFh-bc-XYx" kind="presentation" modalPresentationStyle="fullScreen" id="kG1-Kw-zFb"/>
@@ -476,6 +477,12 @@ later in the settings easily.</string>
     </scenes>
     <resources>
         <image name="faceid" catalog="system" width="128" height="115"/>
+        <namedColor name="greenColor">
+            <color red="0.10588235294117647" green="0.3411764705882353" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellowcolor">
+            <color red="0.8784313725490196" green="0.87450980392156863" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

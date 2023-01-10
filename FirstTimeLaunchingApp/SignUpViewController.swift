@@ -103,11 +103,19 @@ class SignUpViewController: UIViewController {
             //check the auth result to make sure that the user is created
             guard let user = authResult?.user, error == nil else{
                 
+                
+                
                 //if user is not created, display the error.
                 print("Error \(error?.localizedDescription)")
+                
+               
+                
                 return
 
             }
+            
+            //set the value inside the user defaults
+            self.defaults.set(true, forKey: "Logged In")
             
             //redirect to overview page
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
