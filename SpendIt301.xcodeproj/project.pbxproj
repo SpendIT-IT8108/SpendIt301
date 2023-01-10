@@ -42,8 +42,8 @@
 		26A1A64C296CD7130086D82B /* loginAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A1A64B296CD7120086D82B /* loginAndSignUp.storyboard */; };
 		26A1A64E296CD8060086D82B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1A64D296CD8060086D82B /* LoginViewController.swift */; };
 		26A1A650296CD8150086D82B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1A64F296CD8150086D82B /* SignUpViewController.swift */; };
-		26A1A652296CD8A60086D82B /* UserSetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1A651296CD8A60086D82B /* UserSetupPageViewController.swift */; };
-		26A1A654296CD90C0086D82B /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1A653296CD90C0086D82B /* UserProfileViewController.swift */; };
+		26CAA68E296CE37E00C493B2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CAA68D296CE37D00C493B2 /* UserProfileViewController.swift */; };
+		26CAA690296CE3CA00C493B2 /* UserSetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CAA68F296CE3CA00C493B2 /* UserSetupPageViewController.swift */; };
 		26DC9589296C5E2F002836A8 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */; };
 		26DC958B296C5ECD002836A8 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */; };
 		26DC9591296C7F7E002836A8 /* HighlightingButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC9590296C7F7E002836A8 /* HighlightingButtons.swift */; };
@@ -114,8 +114,8 @@
 		26A1A64B296CD7120086D82B /* loginAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loginAndSignUp.storyboard; sourceTree = "<group>"; };
 		26A1A64D296CD8060086D82B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26A1A64F296CD8150086D82B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		26A1A651296CD8A60086D82B /* UserSetupPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSetupPageViewController.swift; path = "../../SpendIt301 - addingLogin/FirstTimeLaunchingApp/UserSetupPageViewController.swift"; sourceTree = "<group>"; };
-		26A1A653296CD90C0086D82B /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = "../../SpendIt301 - addingLogin/FirstTimeLaunchingApp/UserProfileViewController.swift"; sourceTree = "<group>"; };
+		26CAA68D296CE37D00C493B2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		26CAA68F296CE3CA00C493B2 /* UserSetupPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupPageViewController.swift; sourceTree = "<group>"; };
 		26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		26DC958A296C5ECD002836A8 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		26DC9590296C7F7E002836A8 /* HighlightingButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HighlightingButtons.swift; path = FirstTimeLaunchingApp/HighlightingButtons.swift; sourceTree = "<group>"; };
@@ -247,10 +247,10 @@
 				26A1A64F296CD8150086D82B /* SignUpViewController.swift */,
 				21808941296CB170002BCFC1 /* UserSetup.storyboard */,
 				26A1A64B296CD7120086D82B /* loginAndSignUp.storyboard */,
-				26A1A651296CD8A60086D82B /* UserSetupPageViewController.swift */,
 				26A1A64D296CD8060086D82B /* LoginViewController.swift */,
 				26DC9588296C5E2E002836A8 /* WalkthroughPageViewController.swift */,
-				26A1A653296CD90C0086D82B /* UserProfileViewController.swift */,
+				26CAA68D296CE37D00C493B2 /* UserProfileViewController.swift */,
+				26CAA68F296CE3CA00C493B2 /* UserSetupPageViewController.swift */,
 			);
 			path = FirstTimeLaunchingApp;
 			sourceTree = "<group>";
@@ -430,6 +430,7 @@
 				369E17DC295CE24A00400D6D /* CategoryTVCell.swift in Sources */,
 				26DC9591296C7F7E002836A8 /* HighlightingButtons.swift in Sources */,
 				CDE4A605296886AB00D7D7CE /* CHCSVParser.m in Sources */,
+				26CAA68E296CE37E00C493B2 /* UserProfileViewController.swift in Sources */,
 				2130B030294AEBEB001EC43C /* AppDelegate.swift in Sources */,
 				0BEE122B2955C594007E1DAD /* TrasactionFilterTableViewController.swift in Sources */,
 				0BF27853295F96FE007A6FFF /* CollectionViewCell.swift in Sources */,
@@ -441,9 +442,8 @@
 				216874542958E1900031BC7B /* OverviewTableViewController.swift in Sources */,
 				26DC958B296C5ECD002836A8 /* WalkthroughViewController.swift in Sources */,
 				0BF0975829536A56000CC354 /* Transaction.swift in Sources */,
-				26A1A654296CD90C0086D82B /* UserProfileViewController.swift in Sources */,
+				26CAA690296CE3CA00C493B2 /* UserSetupPageViewController.swift in Sources */,
 				2601B05629636E820045F9BC /* userSetupPVC.swift in Sources */,
-				26A1A652296CD8A60086D82B /* UserSetupPageViewController.swift in Sources */,
 				36025E6A29533D8E0035C71F /* AddTransactionTVC.swift in Sources */,
 				26A1A64E296CD8060086D82B /* LoginViewController.swift in Sources */,
 				2109802C296B5C3B0098EA31 /* OverviewViewController.swift in Sources */,
