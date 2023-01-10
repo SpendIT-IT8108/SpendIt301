@@ -171,7 +171,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
                     self.viewDidLoad()
                     
                     
-                } else if self.searchController.searchBar.selectedScopeButtonIndex == 1{
+                } else if self.searchController.searchBar.selectedScopeButtonIndex == 1 || searchController.isActive  {
                     //call function to check if category has transactions
                     //self.categoryHasTransactions(indexPath: indexPath)
                     //remove the item
@@ -195,7 +195,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
                     self.viewDidLoad()
           
            
-                }else if self.searchController.searchBar.selectedScopeButtonIndex == 2  {
+                }else if self.searchController.searchBar.selectedScopeButtonIndex == 2 || searchController.isActive  {
                     //call function to check if category has transactions
                     //self.categoryHasTransactions(indexPath: indexPath)
                     self.checkCategoryHasTransactions(indexPath: indexPath)
