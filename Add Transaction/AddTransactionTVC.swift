@@ -302,39 +302,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
         return list.first!
     }
     
-    //calculate next date for repeated transaction (used in prepare)
-    func calculateNext(interval:String, nextTime:Date, endDate:Date? ) -> Date? {
-        var next : Date?
-        switch interval {
-        case "Monthly":
-            next = Calendar.current.date(byAdding: .month, value: 1, to: nextTime)!
-            next = Calendar.current.startOfDay(for: next!)
-        case "Weekly":
-            next = Calendar.current.date(byAdding: .day, value: 7, to: nextTime)!
-            next = Calendar.current.startOfDay(for: next!)
-        case "Daily":
-            next = Calendar.current.date(byAdding: .day, value: 1, to: nextTime)!
-            next = Calendar.current.startOfDay(for: next!)
-        default:
-            next = nil
-        }
-        
-        //take the end date into consedaration if it's specified
-        if let endDate = endDate {
-            //if the calculated next date is less or equal then the end, return the date, otherwise return nil to end the repeat
-            if next! <= endDate {
-                return next
-            }
-            else {
-                return nil
-            }
-        }
-        else {
-            return next
-        }
-    }
-    
-    
     
     // MARK: attachment process
     @objc func imageTapped(sender: UITapGestureRecognizer) {
@@ -635,7 +602,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
                 else {
                     //just added, set the transaction date = starting date, and calculate next based on it
                     date = fromDatePicker.date
-                    nextDate = calculateNext(interval: interval!, nextTime: date, endDate: endDate)
+                    nextDate = Transaction.calculateNext(interval: interval!, nextTime: date, endDate: endDate)
                 }
                 
             }

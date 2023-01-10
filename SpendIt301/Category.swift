@@ -13,7 +13,7 @@ struct Category: Equatable,Codable {
     var spendingLimit:Float?
     var type: String
     var icon:CodableImage?
-    
+    static var mostTracked: Category?
     
     
     init(name:String, symbol:String, spendingLimit:Float?, type:String) {

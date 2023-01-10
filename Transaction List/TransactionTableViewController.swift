@@ -40,7 +40,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchBar.scopeButtonTitles = ["All", "Expense", "Income"]
         
         //update repeated and load the transactions
-        updateRepeated()
+        Transaction.updateRepeated()
         transactions=Transaction.loadTransactions()
         searchedItem=transactions
     }
@@ -51,80 +51,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
-    //MARK: REPEAT PROCESS
-    //function to update repeated sequences
-    func updateRepeated(){
-        var trans = Transaction.loadTransactions()
-        for tran in trans {
-            var record = tran
-            //if it has a nextDate (the original transaction of a repeated one only has this value)
-            if tran.nextDate != nil , let interval = tran.repeatingInterval {
-                var nextDate = tran.nextDate
-                var valid = validate(nextTime: nextDate)
-                //repeat while validated
-                while valid {
-                    //add new transaction
-                    let newTran = Transaction(name: tran.name, amount: tran.amount,category: tran.category, date: nextDate!,  repeated: tran.repeated, repeatingInterval: tran.repeatingInterval, repeatFrom: tran.repeatFrom, repeatUntil: tran.repeatUntil, note: tran.note, attachment: tran.attachment?.image, nextDate: nil)
-                    trans.append(newTran)
-                    //calculate the next transaction date and update the original transaction record
-                    nextDate = calculateNext(interval: interval, nextTime: nextDate!, endDate: tran.repeatUntil)
-                    record.nextDate = nextDate
-                    //reaplce the old record with the new one in the array, and save to files
-                    if let index = trans.firstIndex(of: tran) {
-                        trans[index] = record
-                        Transaction.saveTransactions(trans)
-                    }
-                    //check validity using the new calculated nextDate to decide if we continue adding or stop
-                    valid = validate(nextTime: nextDate)
-                }
-            }
-        }
-    }
-    
-    
-    //a function to calculate next repeated transaction date
-    func calculateNext(interval:String, nextTime:Date, endDate:Date? ) -> Date? {
-        var next : Date?
-        switch interval {
-        case "Monthly":
-            next = Calendar.current.date(byAdding: .month, value: 1, to: nextTime)!
-            next = Calendar.current.startOfDay(for: next!)
-        case "Weekly":
-            next = Calendar.current.date(byAdding: .day, value: 7, to: nextTime)!
-            next = Calendar.current.startOfDay(for: next!)
-        case "Daily":
-            next = Calendar.current.date(byAdding: .day, value: 1, to: nextTime)!
-            next = Calendar.current.startOfDay(for: next!)
-        default:
-            next = nil
-        }
-        
-        //take the end date into consedaration if it's specified
-        if let endDate = endDate {
-            //if the calculated next date is less or equal then the end, return the date, otherwise return nil to end the repeat
-            if next! <= endDate {
-                return next
-            }
-            else {
-                return nil
-            }
-        }
-        else {
-            return next
-        }
-    }
-    
-    
-    //function to check if the next transaction is valid to be added at the moment
-    func validate(nextTime: Date?) -> Bool {
-        var valid = false
-        if let nextTime = nextTime {
-            if nextTime <= Date() {
-                valid = true
-            }
-        }
-        return valid
-    }
+   
     
     
     
@@ -286,7 +213,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         }
         //save list, update any possible repeats, and reload data after insert/edit
         Transaction.saveTransactions(transactions)
-        updateRepeated()
+        Transaction.updateRepeated()
         transactions = Transaction.loadTransactions()
         tableView.reloadData()
         
