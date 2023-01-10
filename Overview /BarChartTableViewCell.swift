@@ -99,9 +99,9 @@ class BarChartTableViewCell: UITableViewCell {
         //asign it to the chart
         BarChart.data = chartData
         //set sizes - spaces
-        let groupSpace = 0.37
+        let groupSpace = 0.27
          let barSpace = 0.008
-        let barWidth = 0.040
+        let barWidth = 0.080
 
          chartData.barWidth = barWidth
          chartData.setDrawValues(true)

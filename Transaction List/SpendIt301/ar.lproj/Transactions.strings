@@ -3,10 +3,10 @@
 "2qJ-F1-kma.text" = "Label";
 
 /* Class = "UINavigationItem"; title = "Filter"; ObjectID = "AmM-x1-0ZA"; */
-"AmM-x1-0ZA.title" = "فلتر";
+"AmM-x1-0ZA.title" = "تصفية";
 
 /* Class = "UILabel"; text = "Repeated"; ObjectID = "Hem-IH-Wvl"; */
-"Hem-IH-Wvl.text" = "تكرار";
+"Hem-IH-Wvl.text" = "مكرر";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OiN-Dn-prD"; */
 "OiN-Dn-prD.title" = "Item";

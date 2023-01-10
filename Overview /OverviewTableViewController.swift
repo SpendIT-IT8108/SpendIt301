@@ -10,14 +10,16 @@ import Charts
 class OverviewTableViewController: UITableViewController{
 
     @IBOutlet weak var overviewTitle: UINavigationItem!
-    
+    let barchartIndexPath = IndexPath(row: 0, section: 0)
+    let mostspentIndexPath = IndexPath(row: 0, section: 1)
+    let mosttarckedIndexPath = IndexPath(row: 0, section: 2)
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //loclaize the title
         overviewTitle.title = NSLocalizedString("Overview", comment: "")
-
+       
         //spaces between section
         tableView.sectionFooterHeight=6.0
         tableView.sectionHeaderHeight=6.0
@@ -26,6 +28,14 @@ class OverviewTableViewController: UITableViewController{
     override func viewWillAppear(_ animated: Bool) {
         
         tableView.reloadData()
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "BarChartTableViewCell", for: barchartIndexPath) as! BarChartTableViewCell
+        cell1.customizeChart()
+        
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "MostSpentTableViewCell", for: mostspentIndexPath) as! MostSpentTableViewCell
+        cell2.addToCell()
+        
+         let cell3 = tableView.dequeueReusableCell(withIdentifier: "MostTrackedTableViewCell", for: mosttarckedIndexPath) as! MostTrackedTableViewCell
+        cell3.addToCell()
         
     }
     

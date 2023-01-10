@@ -23,8 +23,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     let currencyIndexPath = IndexPath(row: 1, section: 1)
     let darkModeIndexPath = IndexPath(row: 2, section: 1)
     let emailIndexPath = IndexPath(row: 3, section: 1)
-    let guideIndexPath = IndexPath(row: 4, section: 1)
-    let aboutUsIndexPath = IndexPath(row: 5, section: 1)
+    let aboutUsIndexPath = IndexPath(row: 4, section: 1)
     //third section
     let dailyNotificationIndexPath = IndexPath(row: 0, section: 2)
     let overspendingNotificationIndexPath = IndexPath(row: 1, section: 2)

@@ -14,8 +14,8 @@
 /* Class = "UITableViewSection"; headerTitle = "Reset App"; ObjectID = "BFL-CE-RUV"; */
 "BFL-CE-RUV.headerTitle" = "إعادة تعيين التطبيق";
 
-/* Class = "UILabel"; text = "Enter Price in BHD"; ObjectID = "FY4-J6-Ha5"; */
-"FY4-J6-Ha5.text" = "ادخل السعر بالدينار البحريني";
+/* Class = "UILabel"; text = "Enter Amount"; ObjectID = "FY4-J6-Ha5"; */
+"FY4-J6-Ha5.text" = "أدخل المبلغ";
 
 /* Class = "UILabel"; text = "Language"; ObjectID = "Ffz-n8-ybV"; */
 "Ffz-n8-ybV.text" = "اللغة";
@@ -24,7 +24,10 @@
 "FgI-NP-h7P.title" = "الإعدادات";
 
 /* Class = "UILabel"; text = "John Smith"; ObjectID = "IJ7-Di-Swp"; */
-"IJ7-Di-Swp.text" = "جون سميث";
+"IJ7-Di-Swp.text" = "John Smith";
+
+/* Class = "UILabel"; text = "Do you suffer from currency conversion in online shopping?  We did a currency converter for you!"; ObjectID = "JbP-R3-U12"; */
+"JbP-R3-U12.text" = "هل تعاني من تحويل العملات في التسوق عبر الإنترنت؟ قمنا بتحويل العملات من أجلك! تحويل الدولار أو اليورو إلى دينار بحريني!";
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "Lv0-hC-jEm"; */
 "Lv0-hC-jEm.title" = "الإعدادات";
@@ -33,7 +36,7 @@
 "Pib-DC-7gL.text" = "محول العملات";
 
 /* Class = "UILabel"; text = "Delete all data "; ObjectID = "Tg6-dR-45J"; */
-"Tg6-dR-45J.text" = "مسح جميع البيانات ";
+"Tg6-dR-45J.text" = "مسح جميع البيانات";
 
 /* Class = "UILabel"; text = "Bahraini Dinar"; ObjectID = "ZDI-np-2mJ"; */
 "ZDI-np-2mJ.text" = "دينار بحريني";
@@ -51,15 +54,31 @@
 "bu8-EQ-14j.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Guide"; ObjectID = "eXz-a6-AGa"; */
-"eXz-a6-AGa.text" = "دليل";
+//"eXz-a6-AGa.text" = "Guide";
 
-"ecu-bq-pzx.text" = "Last Update: Dec 2022\n\nOur philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.\n- Spend It is designed to protect your information and enable you to choose what you share.\n- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.\n- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.\n\nIn order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:\nGoogle Firebase: https://firebase.google.com/support/faq/\n\nBefore using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.\nThis policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business.";
+/* Class = "UILabel"; text = "Last Update: Dec 2022\n\nOur philosophy is to keep your data as private and as secure as our own data. We use Spend It in our daily lives, so we care a lot about our data too. All these data are used for analytical purposes, in order to provide you with a better and personalized experience.\n- Spend It is designed to protect your information and enable you to choose what you share.\n- Spend It collects information about the way you use the app, such as what screens do you open the most, the time you spend on them, only the number of accounts you have, what type of default settings do you choose. A detailed list of what we collect and how we do use that can be found here.\n- Spend It uses this information to ensure and provide new services and features that will improve your app usage and make the entire experience more enjoyable.\n\nIn order to maximize the quality of your experience and to use the highest data security practices, we use third-party SDKs for the data processing, more specifically Google Firebase. You can read more information about how they process the data here:\nGoogle Firebase: https://firebase.google.com/support/faq/\n\nBefore using Spend It applications you are required to acquaint yourself with the Terms of Use (“Terms”) and this Privacy Policy (“Policy”). The Policy forms an integral part of the Terms and all definitions and names shall have the respective meaning defined therein. By downloading, installing, using or otherwise accessing Spend It applications, you are expressing your acceptance and willingness to be bound by the Terms, including the Policy. We refer to all of these products, together with our other services and websites as “Services” in this policy.\nThis policy also explains your choices about how we use information about you. Your choices include how you can object to certain uses of information about you and how you can access and update certain information about you. If you do not agree with this policy, do not access or use our Services or interact with any other aspect of our business."; ObjectID = "ecu-bq-pzx"; */
+"ecu-bq-pzx.text" = "التحديث الأخير: ديسمبر 2022
+
+فلسفتنا هي الحفاظ على خصوصية بياناتك وأمانها مثل بياناتنا. نحن نستخدم Spend It في حياتنا اليومية ، لذلك نحن نهتم كثيرًا ببياناتنا أيضًا. تُستخدم كل هذه البيانات لأغراض تحليلية ، من أجل تزويدك بتجربة أفضل ومخصصة.
+- تم تصميم Spend لحماية معلوماتك وتمكينك من اختيار ما تشاركه.
+- Spend It يجمع معلومات حول طريقة استخدامك للتطبيق ، مثل الشاشات التي تفتحها أكثر من غيرها ، والوقت الذي تقضيه فيها ، وعدد الحسابات التي لديك فقط ، ونوع الإعدادات الافتراضية التي تختارها. يمكن العثور على قائمة مفصلة بما نجمعه وكيف نستخدمه هنا.
+- يستخدم تطبيق Spend هذه المعلومات لضمان تقديم خدمات وميزات جديدة من شأنها تحسين استخدام التطبيق وتجعل التجربة بأكملها أكثر إمتاعًا.
+
+من أجل زيادة جودة تجربتك إلى أقصى حد واستخدام أعلى ممارسات أمان البيانات ، نستخدم حزم SDK لجهات خارجية لمعالجة البيانات ، وبشكل أكثر تحديدًا Google Firebase. يمكنك قراءة المزيد من المعلومات حول كيفية معالجة البيانات هنا:
+Google Firebase: https://firebase.google.com/support/faq/
+
+قبل استخدام تطبيقات Spend It ، يتعين عليك التعرف على شروط الاستخدام (الشروط) وسياسة الخصوصية هذه (السياسة). تشكل السياسة جزءًا لا يتجزأ من الشروط ويجب أن تحمل جميع التعريفات والأسماء المعنى المحدد فيها. عن طريق تنزيل تطبيقات Spend It أو تثبيتها أو استخدامها أو الوصول إليها بطريقة أخرى ، فإنك تعبر عن موافقتك واستعدادك للالتزام بالشروط ، بما في ذلك السياسة. نشير إلى جميع هذه المنتجات ، جنبًا إلى جنب مع خدماتنا ومواقعنا الإلكترونية الأخرى باسم الخدمات في هذه السياسة.
+توضح هذه السياسة أيضًا اختياراتك حول كيفية استخدامنا للمعلومات الخاصة بك. تتضمن اختياراتك كيف يمكنك الاعتراض على استخدامات معينة للمعلومات الخاصة بك وكيف يمكنك الوصول إلى معلومات معينة عنك وتحديثها. إذا كنت لا توافق على هذه السياسة ، فلا تدخل إلى خدماتنا أو تستخدمها أو تتفاعل مع أي جانب آخر من أعمالنا.
+";
 
 /* Class = "UILabel"; text = "About Us"; ObjectID = "fgI-mQ-5eK"; */
 "fgI-mQ-5eK.text" = "عنّا";
 
 /* Class = "UILabel"; text = "Currency Converter"; ObjectID = "iz0-gz-96Q"; */
-"iz0-gz-96Q.text" = "محول العملات";
+"iz0-gz-96Q.text" = "محول العملة";
+
+/* Class = "UILabel"; text = "Choose Currency"; ObjectID = "j1L-wY-HUd"; */
+"j1L-wY-HUd.text" = "اختر العملة";
 
 /* Class = "UITableViewSection"; headerTitle = "Notifications"; ObjectID = "jKu-LI-JrO"; */
 "jKu-LI-JrO.headerTitle" = "الإشعارات";
@@ -77,7 +96,7 @@
 "odU-6f-t63.segmentTitles[1]" = "Second";
 
 /* Class = "UILabel"; text = "Export transactions to csv file"; ObjectID = "qOj-dU-qm0"; */
-"qOj-dU-qm0.text" = "تصدير إلى ملف csv";
+"qOj-dU-qm0.text" = "تصدير البيانات إلى ملف csv";
 
 /* Class = "UITableViewController"; title = "About Us"; ObjectID = "sYy-w9-VEF"; */
 "sYy-w9-VEF.title" = "عنّا";
@@ -86,7 +105,7 @@
 "wAG-mi-HdW.text" = "إشعارات الإنفاق المفرط";
 
 /* Class = "UISegmentedControl"; wn4-5z-QH4.segmentTitles[0] = "Light"; ObjectID = "wn4-5z-QH4"; */
-"wn4-5z-QH4.segmentTitles[0]" = "فاتح";
+"wn4-5z-QH4.segmentTitles[0]" = "مضيء";
 
 /* Class = "UISegmentedControl"; wn4-5z-QH4.segmentTitles[1] = "Dark"; ObjectID = "wn4-5z-QH4"; */
 "wn4-5z-QH4.segmentTitles[1]" = "داكن";
