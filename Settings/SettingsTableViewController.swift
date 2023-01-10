@@ -17,16 +17,21 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     let profileIndexPath = IndexPath(row: 0, section: 0)
     
     //second section
-    let notificationIndexPath = IndexPath(row: 0, section: 1)
-    let languageIndexPath = IndexPath(row: 1, section: 1)
-    let currencyIndexPath = IndexPath(row: 2, section: 1)
-    let darkModeIndexPath = IndexPath(row: 3, section: 1)
-    let emailIndexPath = IndexPath(row: 4, section: 1)
-    let guideIndexPath = IndexPath(row: 5, section: 1)
-    let aboutUsIndexPath = IndexPath(row: 6, section: 1)
+    let languageIndexPath = IndexPath(row: 0, section: 1)
+    let currencyIndexPath = IndexPath(row: 1, section: 1)
+    let darkModeIndexPath = IndexPath(row: 2, section: 1)
+    let emailIndexPath = IndexPath(row: 3, section: 1)
+    let guideIndexPath = IndexPath(row: 4, section: 1)
+    let aboutUsIndexPath = IndexPath(row: 5, section: 1)
+    //third section
+    let dailyNotificationIndexPath = IndexPath(row: 0, section: 2)
+    let overspendingNotificationIndexPath = IndexPath(row: 1, section: 2)
+    //fourth section
     let exportToCsvPath = IndexPath(row: 0, section: 3)
+    //fifth section
     let resetApp = IndexPath(row: 0, section: 4)
     
+
 
     
     override func viewDidLoad() {
@@ -185,50 +190,17 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     case 0:
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "en" ? "ar" : "en"
-            UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+            languageAlert(newLanguage: newLanguage)
 
-            
-            // create the alert
-            let alert = UIAlertController(title: "SpendIt warning", message: "The app needs to quit and reopen to change the language. Therefore, do these steps!", preferredStyle: UIAlertController.Style.alert)
-
-            // add the actions (buttons)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
-                }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-            
-               
-           // exit(0)
-      
             //arabic
     case 1:
             
-       
             languageSegment.selectedSegmentIndex = 1
             languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "ar" ? "en" : "ar"
-            UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
-            // create the alert
-            let alert = UIAlertController(title: "SpendIt alert", message: "The app needs to quit and reopen to change the language. Therefore, do these steps!", preferredStyle: UIAlertController.Style.alert)
-
-            // add the actions (buttons)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
-                }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-            
-                            
-        
-           //exit(0)
-         
-          
+            languageAlert(newLanguage: newLanguage)
+   
         default:
             break
         }
@@ -246,7 +218,19 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         }
     }
     
-    
+    func languageAlert(newLanguage:String){
+        // create the alert
+        let alert = UIAlertController(title: "Lnaguage switching", message: "Are you sure that you want to change the language? The app needs to quit and reopen to change it. Therefore, do these steps! ", preferredStyle: UIAlertController.Style.alert)
+//"The app needs to quit and reopen to change the language. Therefore, do these steps!"
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+            UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
 
