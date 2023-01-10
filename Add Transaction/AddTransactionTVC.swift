@@ -266,7 +266,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             category = defaultCategory(type: "Expense")
         }else {
             category = defaultCategory(type: "Income")
-            
         }
         categoryNameTextField.text = category?.name
         symbolImageView.image = category?.icon?.image
@@ -298,8 +297,13 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             }
         }
         else {
-            showRestrictionAlert()
-            return nil
+            if let category = list.first {
+                return category
+            }
+            else {
+                 showRestrictionAlert()
+                return nil
+            }
         }
     }
     
