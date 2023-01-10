@@ -96,6 +96,7 @@
 		2132F974296DBA5700F8A11B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SpendIt301/en.lproj/TransactionDetails.strings; sourceTree = "<group>"; };
 		2132F976296DBACF00F8A11B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/Transactions.strings; sourceTree = "<group>"; };
 		2132F978296DBB2D00F8A11B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SpendIt301/en.lproj/Transactions.strings; sourceTree = "<group>"; };
+		2132F97A296DBBF700F8A11B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/SettingsPage.strings; sourceTree = "<group>"; };
 		216874532958E1900031BC7B /* OverviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		21808915296C8F04002BCFC1 /* CurrnecyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnecyViewController.swift; sourceTree = SOURCE_ROOT; };
 		2180892B296CAA30002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Overview.storyboard; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		21808932296CAABC002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddTransaction.storyboard; sourceTree = "<group>"; };
 		21808935296CAAC2002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AddTransaction.strings; sourceTree = "<group>"; };
 		21808937296CAAF3002BCFC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddTransaction.strings; sourceTree = "<group>"; };
-		21808939296CAD9C002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = SpendIt301/ar.lproj/SettingsPage.strings; sourceTree = "<group>"; };
 		2180893B296CAFE7002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserWalkthrough.storyboard; sourceTree = "<group>"; };
 		2180893E296CAFEB002BCFC1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/UserWalkthrough.strings; sourceTree = "<group>"; };
 		21808940296CB170002BCFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserSetup.storyboard; sourceTree = "<group>"; };
@@ -515,7 +515,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2130B04E294AF6DB001EC43C /* Base */,
-				21808939296CAD9C002BCFC1 /* ar */,
+				2132F97A296DBBF700F8A11B /* ar */,
 			);
 			name = SettingsPage.storyboard;
 			sourceTree = "<group>";
