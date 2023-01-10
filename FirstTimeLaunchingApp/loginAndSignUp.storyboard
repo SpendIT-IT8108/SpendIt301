@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="LJY-Z1-OHp">
             <objects>
-                <viewController id="d3E-eQ-OvT" customClass="LoginViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginForm" id="d3E-eQ-OvT" customClass="LoginViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I3R-kN-ioz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-Tu-Tlq">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-Tu-Tlq">
                                         <rect key="frame" x="0.0" y="70" width="240" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -82,7 +82,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="OAR-e2-3w4">
             <objects>
-                <viewController id="6ym-7i-pWX" customClass="SignUpViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUp" id="6ym-7i-pWX" customClass="SignUpViewController" customModule="SpendIt301" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4PH-b1-xad">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +102,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-Iq-NKB">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WtB-3r-8tT">
                                         <rect key="frame" x="0.0" y="144" width="240" height="34"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -151,8 +151,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="email" destination="Gka-Iq-NKB" id="IIy-Fg-rwG"/>
-                        <outlet property="name" destination="sIB-nh-WnU" id="7Ih-ga-god"/>
+                        <outlet property="email" destination="WtB-3r-8tT" id="x09-YL-q7l"/>
+                        <outlet property="name" destination="sIB-nh-WnU" id="C4l-vx-16P"/>
                         <outlet property="password" destination="Ghn-ei-Bvn" id="qxJ-Yn-iI7"/>
                     </connections>
                 </viewController>

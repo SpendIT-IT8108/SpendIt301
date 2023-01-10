@@ -8,6 +8,8 @@
 import UIKit
 import SafariServices
 import MessageUI
+import Firebase
+import FirebaseAuth
 
 class SettingsTableViewController: UITableViewController,MFMailComposeViewControllerDelegate  {
 
@@ -47,12 +49,12 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             languageSegment.selectedSegmentIndex = 0
         }
         
-        let name = defaults.string(forKey: "User Name")
-        if name != "" {
-            
-            nameLbl.text = name
-            
+       let userEmail = Auth.auth().currentUser?.email
+        if (userEmail != ""){
+            nameLbl.text = userEmail
         }
+        
+        //get the value of the language from user setup, and change its state
 
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

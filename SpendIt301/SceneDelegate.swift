@@ -44,29 +44,55 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                
                
                
-               //check if this is the first launch, by getting the Logged in key value from the user defaults
-               if defaults.bool(forKey: "Logged In") == true {
+               //check if the user opened the app before, by getting the Logged in key value from the user defaults
+               if defaults.bool(forKey: "First Launch") == true {
                    print("The second +")
                    
                   
-                   //run code after other lanches, confirm that user logged in
-                   defaults.set(true, forKey: "Logged In")
-
+                   //as a confirmation, put the key = true again
+                   defaults.set(true, forKey: "First Launch")
                    
-                   //display overview
-                   self.window = overviewWindow
-                   overviewWindow.makeKeyAndVisible()
+                   
+                   //run code after other lanches, depnding on if user logged in or not, display the view
+                   if defaults.bool(forKey: "Logged In") == false{
+                       
+                       
+                       //display walkthrough again if user did not log in
+                       self.window = walkthroughWindow
+                      walkthroughWindow.makeKeyAndVisible()
+                       
+                       
+                   }else{
+                       
+                       //display overview if the user logged in
+                       self.window = overviewWindow
+                       overviewWindow.makeKeyAndVisible()
+                   }
+
                
                }else{
                    
                    print("First time!")
-                   //change the state from false to true because user logged in
-                   defaults.set(true, forKey: "Logged In")
+                   
+                   //change the state from false to true because user opened the app
+                   defaults.set(true, forKey: "First Launch")
                    
                    
                    //run code after first launch, display the walkthrough
+                   if defaults.bool(forKey: "Logged In") == false{
+                       
+                       
+                       //display walkthrough again if user did not log in
                     self.window = walkthroughWindow
-                   walkthroughWindow.makeKeyAndVisible()
+                    walkthroughWindow.makeKeyAndVisible()
+                       
+                       
+                   }else{
+                       
+                       //display overview if the user logged in
+                       self.window = overviewWindow
+                       overviewWindow.makeKeyAndVisible()
+                   }
                    
                     
                }
