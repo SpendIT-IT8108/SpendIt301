@@ -75,10 +75,26 @@
         
         //check fields to update save button state
         func updateSaveButtonState(){
-            let symbolText = symbolTextField.text ?? ""
             let nameText = nameTextField.text ?? ""
-            saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty
+            saveButton.isEnabled = containsSingleEmoji(symbolTextField) && !nameText.isEmpty
         }
+        
+        
+        //text field contains single emoji
+        func containsSingleEmoji(_ textField:UITextField)->Bool{
+            guard let text = textField.text, text.count == 1 else{
+                return false
+            }
+            let isCombinedIntoEmoji = text.unicodeScalars.count > 1 && text.unicodeScalars.first?.properties.isEmoji ?? false
+            let isEmojiPresesntation = text.unicodeScalars.first?.properties.isEmojiPresentation ?? false
+            return isEmojiPresesntation || isCombinedIntoEmoji
+        }
+        
+        
+        
+        
+        
+        
         
        // text fields event to check if fields contains text
         @IBAction func textEditingChanged (_ sender:UITextField){
