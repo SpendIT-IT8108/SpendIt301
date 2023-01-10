@@ -35,6 +35,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         //declare user defaults
     let defaults = UserDefaults.standard
     
+    @IBOutlet weak var nameLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentLang = Locale.current.languageCode
@@ -44,6 +45,13 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         }
         else {
             languageSegment.selectedSegmentIndex = 0
+        }
+        
+        let name = defaults.string(forKey: "User Name")
+        if name != "" {
+            
+            nameLbl.text = name
+            
         }
 
     }
@@ -60,6 +68,9 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)        //present mail composer
             present(mailComposer, animated: true, completion: nil)
 
+        }
+        if indexPath == profileIndexPath {
+            
         }
         
         //code for export csv

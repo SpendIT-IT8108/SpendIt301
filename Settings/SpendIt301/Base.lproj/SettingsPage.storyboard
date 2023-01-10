@@ -18,17 +18,17 @@
                         <sections>
                             <tableViewSection id="81A-NL-1Tm">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="80" id="6YT-3B-rIS" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="80" id="6YT-3B-rIS" customClass="CustomCellTableViewCell" customModule="SpendIt301" customModuleProvider="target">
                                         <rect key="frame" x="20" y="18" width="350" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6YT-3B-rIS" id="Lqv-sk-h9L">
-                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJ7-Di-Swp">
-                                                    <rect key="frame" x="56" y="30" width="106" height="20"/>
+                                                    <rect key="frame" x="56" y="30" width="257" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="106" id="efX-Xy-Q66"/>
+                                                        <constraint firstAttribute="width" constant="257" id="efX-Xy-Q66"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -367,6 +367,7 @@
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="y9G-IB-evv"/>
                     <connections>
                         <outlet property="languageSegment" destination="3Au-UD-sgo" id="xl8-fZ-i2s"/>
+                        <outlet property="nameLbl" destination="IJ7-Di-Swp" id="Ubp-4w-Qpo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zf-DM-o4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -497,7 +498,7 @@ This policy also explains your choices about how we use information about you. Y
                                     <constraint firstAttribute="height" constant="21" id="gKg-OA-Brw"/>
                                     <constraint firstAttribute="width" constant="147" id="ncl-cB-VoZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -507,13 +508,13 @@ This policy also explains your choices about how we use information about you. Y
                                     <constraint firstAttribute="height" constant="21" id="SVq-vb-1VL"/>
                                     <constraint firstAttribute="width" constant="80" id="pTu-Uw-QRr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pib-DC-7gL">
-                                <rect key="frame" x="89.666666666666686" y="118" width="211" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="80.000000000000014" y="118" width="230.33333333333337" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -523,28 +524,28 @@ This policy also explains your choices about how we use information about you. Y
                                     <constraint firstAttribute="width" constant="302" id="NpI-dN-ygT"/>
                                     <constraint firstAttribute="height" constant="109" id="WgB-iw-nZ7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wz-0p-WgB">
                                 <rect key="frame" x="130" y="353" width="131" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY4-J6-Ha5">
-                                <rect key="frame" x="144" y="326" width="104.33333333333331" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="140" y="326" width="112.33333333333331" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1L-wY-HUd">
-                                <rect key="frame" x="44" y="408" width="134" height="23"/>
+                                <rect key="frame" x="44" y="408" width="232" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="Dgr-2b-Q28"/>
-                                    <constraint firstAttribute="width" constant="134" id="iBd-bK-Qo6"/>
+                                    <constraint firstAttribute="width" constant="232" id="iBd-bK-Qo6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -553,7 +554,7 @@ This policy also explains your choices about how we use information about you. Y
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8iJ-Hq-Rh9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -562,7 +563,7 @@ This policy also explains your choices about how we use information about you. Y
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Rvp-QD-Hic"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
