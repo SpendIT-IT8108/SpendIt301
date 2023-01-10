@@ -162,7 +162,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
              //get category list
             var categories = Category.loadCategories()!
              // create the alert
-            let alert = UIAlertController(title: "Remove All Data", message: "This action will 'permanently' delete all your data", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Remove All Data", message: "This action will 'permanently' delete all your data and the app will quit to perform action", preferredStyle: UIAlertController.Style.alert)
                      // add the actions (buttons)
              alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: {action in
                  //remove all elemnts in list
@@ -171,7 +171,8 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                   //save
                  Transaction.saveTransactions(transactions)
                  Category.saveCategories(categories)
-                  
+                 //quit app
+                exit(0)
              }))
              alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                      // show the alert
