@@ -15,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+       
+        
         
                
                //1. store the scene
@@ -65,11 +67,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                    //run code after first launch, display the walkthrough
                     self.window = walkthroughWindow
                    walkthroughWindow.makeKeyAndVisible()
+                   
                     
                }
+        
+       
                
         
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -83,6 +90,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         Transaction.updateRepeated()
+        if defaults.string(forKey: "App Mode") == "Dark"{
+            window?.overrideUserInterfaceStyle =
+                .dark
+        }
+        else {
+            window?.overrideUserInterfaceStyle =
+                .light
+        }
+    
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
