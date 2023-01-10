@@ -59,10 +59,30 @@ class TabBarViewController: UITabBarController {
         
     }
     
+    
+    //Alert for restriction
+    func showRestrictionAlert() {
+        let alertController = UIAlertController(title:
+                                                    "No Categories", message: "Sorry, you can't add a transaction without having any category.",
+                                                preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel",
+                                   style: .cancel, handler: nil )
+        alertController.addAction(cancel)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: - Navigation
     @objc func addButtonClicked(){
+        
+        //if there is no categories, restrict the add
+        if Category.loadCategories() == [] {
+            showRestrictionAlert()
+        }
+        else {
             performSegue(withIdentifier: "showAddForm", sender: self)
         }
+    }
         
         @IBSegueAction func showAddForm(_ coder: NSCoder) -> UIViewController? {
             return AddTransactionTVC(coder: coder, transaction: nil)
