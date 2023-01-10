@@ -62,40 +62,7 @@ class UserProfileViewController: UIViewController {
     
     
     
-    @IBOutlet weak var languageBtnOutlet: UIButton!
-    
-    
-    @IBAction func languageBtn(_ sender: Any) {
-        //remove highlight from the other button
-        ArabicLanguageOutlet.layer.borderWidth = 0
-        
-        // if the button is pressed, make it highlighted
-        languageBtnOutlet.layer.borderWidth = 9
-        languageBtnOutlet.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
-        languageBtnOutlet.layer.cornerRadius = 30
-        
-        //set the value inside the user defaults
-        defaults.set("English", forKey: "Language")
-        
-        
-    }
-    
-    @IBOutlet weak var ArabicLanguageOutlet: UIButton!
-    
-    @IBAction func ArabicBtn(_ sender: Any) {
-        //remove highlight from the other button
-        languageBtnOutlet.layer.borderWidth = 0
-        
-        
-        // if the button is pressed, make it highlighted
-        ArabicLanguageOutlet.layer.borderWidth = 9
-        ArabicLanguageOutlet.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
-        ArabicLanguageOutlet.layer.cornerRadius = 30
-        
-        //set the value inside the user defaults
-        defaults.set("Arabic", forKey: "Language")
-    }
-    
+
     
     @IBOutlet weak var lightmodeOutlet: UIButton!
     
@@ -190,6 +157,59 @@ class UserProfileViewController: UIViewController {
     }
 
     
-   
+    //age buttons
+    
+    @IBOutlet weak var age1Btn: UIButton!
+    
+    @IBOutlet weak var age2BtnOutlet: UIButton!
+    
+    @IBOutlet weak var age3BtnOutlet: UIButton!
+    
+    
+    
+    @IBAction func age1Btn(_ sender: Any) {
+        //remove highlight from the other buttons
+        age2BtnOutlet.layer.borderWidth = 0
+        age3BtnOutlet.layer.borderWidth = 0
+        
+        // if the button is pressed, make it highlighted
+        age1Btn.layer.borderWidth = 9
+        age1Btn.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
+        age1Btn.layer.cornerRadius = 30
+        
+        //set the value inside the user defaults
+        defaults.set("15-25", forKey: "Age Range")
+    }
+    
+    @IBAction func age2Btn(_ sender: Any) {
+        //remove highlight from the other buttons
+        age1Btn.layer.borderWidth = 0
+        age3BtnOutlet.layer.borderWidth = 0
+        
+        // if the button is pressed, make it highlighted
+        age2BtnOutlet.layer.borderWidth = 9
+        age2BtnOutlet.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
+        age2BtnOutlet.layer.cornerRadius = 30
+        
+        //set the value inside the user defaults
+        defaults.set("26-40", forKey: "Age Range")
+        
+    }
+    
+    
+    @IBAction func age3Btn(_ sender: Any) {
+        //remove highlight from the other buttons
+        age1Btn.layer.borderWidth = 0
+        age2BtnOutlet.layer.borderWidth = 0
+        
+        // if the button is pressed, make it highlighted
+        age3BtnOutlet.layer.borderWidth = 9
+        age3BtnOutlet.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
+        age3BtnOutlet.layer.cornerRadius = 30
+        
+        //set the value inside the user defaults
+        defaults.set("41+", forKey: "Age Range")
+    }
+    
 
 }
