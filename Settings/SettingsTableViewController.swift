@@ -195,8 +195,6 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             //arabic
     case 1:
             
-            languageSegment.selectedSegmentIndex = 1
-            languageSegment.selectedSegmentIndex = UISegmentedControl.noSegment
             let currentLang = Locale.current.languageCode
             let newLanguage = currentLang == "ar" ? "en" : "ar"
             languageAlert(newLanguage: newLanguage)
