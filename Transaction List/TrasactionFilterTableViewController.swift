@@ -129,17 +129,20 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     
     @IBAction func HtLSwitch(_ sender: UISwitch) {
-        
+        //if the switch is on
             if sender.isOn {
+                //set the other switch off
                 LtHSwitchOutlet.setOn(false, animated: true)
-             doneBtn.isEnabled=true
+                doneBtn.isEnabled=true
                 clearBtn.isEnabled=true
+                //if the catogery is not used sort another array
                 if catTrans.isEmpty {
                     filteredTransactions = transactions.sorted {
                       $0.amount > $1.amount
                 }
                 }
                 else{
+                    //sort the transaction based on used categry
 
                 filteredTransactions = catTrans.sorted {
                   $0.amount > $1.amount
@@ -160,11 +163,12 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                     {item in item.repeated==true})
             }
             else {
-
+            
         filteredTransactions = catTrans.filter(
               {item in item.repeated==true})
                 
             }
+            //if there is no transactions alert user
             if filteredTransactions.isEmpty{
                 let alert = UIAlertController(title: "Transaction is empty", message: "There is no transactions in this filter", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -206,7 +210,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                      alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                      present(alert, animated: true) {
                          //deselecting
-                         sender.isSelected = !sender.isSelected
+                         sender.isEnabled=false
                      }
                   
                   }
@@ -220,12 +224,11 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                         catTrans = filteredTransactions
                     }
                   else{
-          //            doneBtn.isEnabled=true
+                     doneBtn.isEnabled=true
                       clearBtn.isEnabled=true
                      
                   }
                 
-//                    sender.isSelected = !sender.isSelected
 
           }
         sender.isSelected = !sender.isSelected
@@ -238,16 +241,16 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //clearing the filtered array
         filteredTransactions=transactions
         catTrans=transactions
-        //switching of the buttons ans switches
+        //switching of the buttons and switches
                 HtLSwitchOutlet.setOn(false, animated: true)
                 LtHSwitchOutlet.setOn(false, animated: true)
                 repeated.setOn(false, animated: true)
                 doneBtn.isEnabled = true
+        clearBtn.isEnabled = false
         if catogeryBtn != nil{
             for catoegoryButton in categoryBtns {
-                
-           
-                catoegoryButton.isSelected = !catoegoryButton.isSelected
+
+                catoegoryButton.isSelected = false
             
         }
                
