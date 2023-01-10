@@ -47,7 +47,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         else {
             languageSegment.selectedSegmentIndex = 0
         }
-        
+        //seth the email in the label
        let userEmail = Auth.auth().currentUser?.email
         if (userEmail != ""){
             nameLbl.text = userEmail
@@ -64,13 +64,15 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                 let mailComposer = MFMailComposeViewController()
                 mailComposer.mailComposeDelegate = self
             //set email parts
-            mailComposer.setToRecipients(["example@example.com"])
+            mailComposer.setToRecipients(["spend@it.com"])
             mailComposer.setSubject("Look at this")
             mailComposer.setMessageBody("Hello, this is an email from the appI made.", isHTML: false)        //present mail composer
             present(mailComposer, animated: true, completion: nil)
 
         }
         if indexPath == profileIndexPath {
+            let setupLangChosen = defaults.object(forKey: "Language")
+            print(setupLangChosen)
             
         }
         
@@ -180,11 +182,6 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             self.present(alert, animated: true, completion: nil)
         }
         
-    
-        
-        
-        
-        
     }
     
 
@@ -220,6 +217,8 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     }
 
     @IBAction func notificationSwitchHasChanged(_ sender: UISwitch) {
+        
+        
     }
     
     func openSharedFilesApp() {
