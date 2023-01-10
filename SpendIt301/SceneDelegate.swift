@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import LocalAuthentication
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -64,9 +64,56 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                        
                    }else{
                        
-                       //display overview if the user logged in
-                       self.window = overviewWindow
-                       overviewWindow.makeKeyAndVisible()
+                       //check if user enabled face id
+                       if defaults.bool(forKey: "FaceID enabled") == true {
+                           //prompt face id to the user
+                           let context = LAContext()
+                           var error: NSError? = nil
+                           let reason = "Please authorize with face ID"
+                           
+                           //if able to use, use the policy
+                           context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] sucess, error in
+                               
+                               DispatchQueue.main.async {
+                                   guard sucess, error == nil else{
+                                       
+                                       //failed
+                                       let alert = UIAlertController(title: "Failed to Authunticate", message: "Please try again", preferredStyle: .alert)
+                                       
+                                       //show a dismiss button + presnt the alert
+                                       alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                                       
+                                       //because we're in weak self area
+                                       //self?.present(alert, animated: true)
+                   
+                                       return
+                                   }
+                                   //success >> show next screen
+                                   self?.window = overviewWindow
+                                   overviewWindow.makeKeyAndVisible()
+                                   
+                                   //set the value of face Id == enabled in userdefaults for confirmation only
+                                   self?.defaults.set(true, forKey: "FaceID enabled")
+                                   
+                                   
+                               }
+                               
+                           }
+                           
+                       }else{
+                        
+                           
+                           //display overview if the user logged in
+                           self.window = overviewWindow
+                           overviewWindow.makeKeyAndVisible()
+                       }
+                       
+                       
+                       
+                       
+                       
+                       
+                       
                    }
 
                

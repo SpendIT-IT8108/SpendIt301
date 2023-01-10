@@ -161,21 +161,19 @@ class UserProfileViewController: UIViewController {
                         
                         //because we're in weak self area
                         self?.present(alert, animated: true)
-                        
-                        
-                        
-                        
-                        
+    
                         return
                     }
-                    
-                   
-                    
                     //success >> show next screen
                     let mainSB = UIStoryboard(name: "UserSetup", bundle: nil)
                     let vc = mainSB.instantiateViewController(withIdentifier: "page5")
                     vc.modalPresentationStyle = .overFullScreen
                     self?.present(vc, animated: true)
+                    
+                    //set the value of face Id == enabled in userdefaults
+                    self?.defaults.set(true, forKey: "FaceID enabled")
+                    
+                    
                 }
                 
             }
@@ -185,9 +183,7 @@ class UserProfileViewController: UIViewController {
             
             //show a dismiss button + presnt the alert
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-            
             present(alert, animated: true)
-            
             
         }
         
