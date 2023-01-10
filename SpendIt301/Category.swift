@@ -55,7 +55,8 @@ struct Category: Equatable,Codable {
                //expenses
                [
                     Category(name: "Food", symbol: "🍔", spendingLimit: nil,type: "Expense"),
-                   Category(name: "Transportaion", symbol: "🚆", spendingLimit: nil, type: "Expense"),
+                    Category(name: "Phone", symbol: "📱", spendingLimit: nil, type: "Expense"),
+                   Category(name: "Transportation", symbol: "🚆", spendingLimit: nil, type: "Expense"),
                    Category(name: "Health Care", symbol: "🏥", spendingLimit: nil, type: "Expense"),
                    Category(name: "Education", symbol: "🏫", spendingLimit: nil, type: "Expense"),
                    Category(name: "Gifts", symbol: "🎁", spendingLimit: nil, type: "Expense"),
@@ -68,6 +69,9 @@ struct Category: Equatable,Codable {
                
                    Category(name: "Salary", symbol: "💵", spendingLimit: nil, type: "Income"),
                    Category(name: "Investments", symbol: "📈", spendingLimit: nil, type: "Income"),
+                    Category(name: "Insurance Payout", symbol: "💰", spendingLimit: nil, type: "Income"),
+                    Category(name: "Refund", symbol: "🤑", spendingLimit: nil, type: "Income"),
+                    
 
                ]
                

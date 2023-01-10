@@ -42,7 +42,7 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         searchController.searchBar.scopeButtonTitles = ["All","Expense","Income"]
         
         
-        filteredCategories = categories
+       filteredCategories = categories
         // populateMenu()
         
         
@@ -153,7 +153,93 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         
         //delete row
         if editingStyle == .delete {
-            deleteShowAlert(indexPath: indexPath)
+            //deleteShowAlert(indexPath: indexPath)
+            let alert = UIAlertController(title: nil, message: "Are you sure you would like to delete this Category?", preferredStyle: .alert)
+            
+            // cancel action
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            // delete Action
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [self] action in
+                //delete category
+                if self.searchController.isActive {
+                    //call function to check if category has transactions
+                    checkCategoryHasTransactions(indexPath: indexPath)
+                    self.filteredCategories.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    Category.saveCategories(self.filteredCategories)
+                    self.viewDidLoad()
+                    
+                    
+                } else if self.searchController.searchBar.selectedScopeButtonIndex == 1{
+                    //call function to check if category has transactions
+                    //self.categoryHasTransactions(indexPath: indexPath)
+                    //remove the item
+                    checkCategoryHasTransactions(indexPath: indexPath)
+                    filteredCategories = self.categories.filter (
+                                           {
+                                           item in
+                                           item.type.localizedStandardContains("Expense")
+                                       })
+                                      print( filteredCategories.remove(at: indexPath.row))
+                                       //remove from table view
+                                      print( self.tableView.deleteRows(at: [indexPath], with: .automatic))
+
+                                       filteredCategories = filteredCategories + categories.filter({
+                                           item in
+                                           item.type.localizedStandardContains("Income")
+
+                                       })
+                                       //save deleted
+                    Category.saveCategories(self.filteredCategories)
+                    self.viewDidLoad()
+          
+           
+                }else if self.searchController.searchBar.selectedScopeButtonIndex == 2  {
+                    //call function to check if category has transactions
+                    //self.categoryHasTransactions(indexPath: indexPath)
+                    self.checkCategoryHasTransactions(indexPath: indexPath)
+                    //remove from categories
+                    filteredCategories = self.categories.filter (
+                                           {
+                                           item in
+                                           item.type.localizedStandardContains("Income")
+                                       })
+                                      print( filteredCategories.remove(at: indexPath.row))
+                                       //remove from table view
+                                      print( self.tableView.deleteRows(at: [indexPath], with: .automatic))
+
+                                       filteredCategories = filteredCategories + categories.filter({
+                                           item in
+                                           item.type.localizedStandardContains("Expense")
+
+                                       })
+                                       //save deleted
+                    Category.saveCategories(self.filteredCategories)
+                    //self.viewDidLoad()
+                   
+             }
+                else {
+                    //call function to check if category has transactions
+                   // self.categoryHasTransactions(indexPath: indexPath)
+                    self.checkCategoryHasTransactions(indexPath: indexPath)
+                    //remove from categories
+                    self.categories.remove(at: indexPath.row)
+                    //remove from table view
+                    self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    //save data
+                    Category.saveCategories(self.categories)
+                    
+                }
+                
+            }
+            tableView.reloadData()
+            
+            alert.addAction(deleteAction)
+            present(alert, animated: true, completion: nil)
+      
+            
+            
             
         }
     }
@@ -192,59 +278,6 @@ class CategoryTableViewController: UITableViewController,UISearchBarDelegate,UIS
         self.present(alertHasTransactions, animated: true, completion: nil)
         
     }
-    
-    
-    func deleteShowAlert(indexPath: IndexPath) {
-        let alert = UIAlertController(title: nil, message: "Are you sure you would like to delete this Category?", preferredStyle: .alert)
-        
-        // cancel action
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        // delete Action
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
-            //delete category
-            if self.searchController.isActive{
-                //call function to check if category has transactions
-                self.checkCategoryHasTransactions(indexPath: indexPath)
-                self.categories.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
-                Category.saveCategories(self.categories)
-                
-                
-            } else if self.searchController.searchBar.selectedScopeButtonIndex == 1 || self.searchController.searchBar.selectedScopeButtonIndex == 2 {
-            
-                //call function to check if category has transactions
-                //self.categoryHasTransactions(indexPath: indexPath)
-                self.checkCategoryHasTransactions(indexPath: indexPath)
-                //remove from categories
-                self.filteredCategories.remove(at: indexPath.row)
-                //remove from table view
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
-                //save data
-                Category.saveCategories(self.categories)
-            }
-            else {
-                
-                //call function to check if category has transactions
-               // self.categoryHasTransactions(indexPath: indexPath)
-                self.checkCategoryHasTransactions(indexPath: indexPath)
-                //remove from categories
-                self.categories.remove(at: indexPath.row)
-                //remove from table view
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
-                //save data
-                Category.saveCategories(self.categories)
-            }
-            
-        }
-        
-        alert.addAction(deleteAction)
-        present(alert, animated: true, completion: nil)
-  
-        
-    }
-   
-    
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = self.categories[sourceIndexPath.row]

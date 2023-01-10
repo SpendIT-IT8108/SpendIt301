@@ -76,17 +76,23 @@ struct Transaction: Equatable, Codable{
         let date = dateFormatter.date(from:isoDate)!
         let next = Calendar.current.date(byAdding: .day, value: 1, to: date)!
         
-        let isoDate2 = "2023-01-08T00:00:00+0000"
-        let end = dateFormatter.date(from:isoDate2)!
-        
         let trans1 = Transaction(name: "Phone Bills", amount: 10.9, category:  Category(name: "Phone", symbol: "📱", spendingLimit: nil, type: "Expense"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
         let trans2 = Transaction(name: "Talabat", amount: 15.5, category: Category(name: "Food", symbol: "🍔", spendingLimit: 55.7,type: "Expense"), date: Date(), repeated: false)
         let trans3 = Transaction(name: "Monthly Salary", amount: 200, category: Category(name: "Salary", symbol: "💵", spendingLimit: nil, type: "Income"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
         let trans4 = Transaction(name: "Winter Clothes", amount: 35, category: Category(name: "Clothing", symbol: "👚", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
         let trans5 = Transaction(name: "Maintenance", amount: 15.7, category: Category(name: "Car", symbol: "🚘", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
         let trans6 = Transaction(name: "Karak", amount: 0.2, category: Category(name: "Food", symbol: "🍔", spendingLimit: nil, type: "Expense"), date: date, repeated: true, repeatingInterval: "Daily", repeatFrom: date, repeatUntil: nil, nextDate: next)
+        let trans7 = Transaction(name: "Garrage", amount: 12, category:  Category(name: "Car", symbol: "🚘", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans8 = Transaction(name: "Petrol", amount: 8, category: Category(name: "Car", symbol: "🚘", spendingLimit: nil, type: "Expense"), date: Date(), repeated: true, repeatingInterval: "Monthly", repeatFrom: Date())
+        let trans9 = Transaction(name: "New Books", amount: 20, category:  Category(name: "Shopping", symbol: "🛍️", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans10 = Transaction(name: "Shein Order", amount: 55, category:  Category(name: "Shopping", symbol: "🛍️", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans11 = Transaction(name: "Uni Fees", amount: 200, category:  Category(name: "Education", symbol: "🏫", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans12 = Transaction(name: "Maryam's Birthday", amount: 16.9, category:  Category(name: "Gifts", symbol: "🎁", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans13 = Transaction(name: "Mom's Retirement gift", amount: 68.9, category:  Category(name: "Gifts", symbol: "🎁", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans14 = Transaction(name: "Taxi to airport", amount: 10, category: Category(name: "Transportation", symbol: "🚆", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
+        let trans15 = Transaction(name: "Uni Books", amount: 200, category:  Category(name: "Education", symbol: "🏫", spendingLimit: nil, type: "Expense"), date: Date(), repeated: false)
 
-        return [trans1,trans2,trans3,trans4,trans5,trans6]
+        return [trans1,trans2,trans3,trans4,trans5,trans6,trans7,trans8,trans9,trans10,trans11,trans12,trans13,trans14,trans15]
     }
     
     
