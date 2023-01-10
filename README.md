@@ -8,6 +8,7 @@
 * [Features and developers](#features-and-developers)
 * [Setup](#setup)
 * [Project Status](#project-status)
+* [Test run](#test-run)
 * [Room for Improvement](#room-for-improvement)
 
 
@@ -44,12 +45,15 @@ This project is an iOS application with the goal of tracking users' spending and
 
 ## Setup
 To setup this project you have to run `$ sudo gem install cocoapods` using the terminal.
-<!--This will install the default Ruby available on macOS.--> 
+
 
 ## Project Status
 This project is currently under development 
 
-
+## Test run
+To test run this project an account has been created with the following credentials 
+- User Name: mahdi@spendit.com
+- Password: 12345678 
 ## Room for Improvement
 
 ### Room for improvement:
