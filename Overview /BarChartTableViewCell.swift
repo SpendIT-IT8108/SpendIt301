@@ -31,6 +31,7 @@ class BarChartTableViewCell: UITableViewCell {
     }
     func customizeChart() {
         //set up chart settings
+        BarChart.xAxis.labelPosition = .bottomInside
         BarChart.chartDescription.enabled = true
         BarChart.xAxis.drawGridLinesEnabled = false
         BarChart.xAxis.drawLabelsEnabled = false
@@ -51,12 +52,7 @@ class BarChartTableViewCell: UITableViewCell {
         legend.verticalAlignment = .bottom
         legend.orientation = .horizontal
         legend.textWidthMax = 2
-       // legend.formToTextSpace = 1
-        //legend.xEntrySpace = 5
-//        legend.xEntrySpace = 0
-//        legend.yEntrySpace = 0
-//        legend.yOffset = 10
-//        legend.xOffset = 10
+
 
         //data entries for the bar chart
         var dataEntries = [BarChartDataEntry]()

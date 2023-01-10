@@ -74,11 +74,15 @@ addToCell()
         }
         //save the sorted dictionary in a new constant
         let  DictionarySorted =    myDict.sorted() { $0.value > $1.value }.prefix(3)
+        //setting the static variable
+        Category.mostTracked = Category.loadCategories()?.first(where: { $0.name == DictionarySorted[0].key})
+    
+
         //loop through the dictionary to assign the variables
         for i in DictionarySorted {
             //loop through the categories to get the category symbol / emoji
             for transaction in transactions {
-                
+               
                 //check  the category name
                 if i.key == transaction.category.name{
                     //asign the symbol to the variable
