@@ -53,7 +53,6 @@ This project is currently under development
 
 ### Room for improvement:
 - Backup users information using network database 
-- Improvement to be done 2
 
 ### Feature to do:
 - Saving goals feature
