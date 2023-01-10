@@ -206,7 +206,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                      alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                      present(alert, animated: true) {
                          //deselecting
-                         sender.isSelected = !sender.isSelected
+                         sender.isEnabled=false
                      }
                   
                   }
@@ -220,12 +220,11 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                         catTrans = filteredTransactions
                     }
                   else{
-          //            doneBtn.isEnabled=true
+                     doneBtn.isEnabled=true
                       clearBtn.isEnabled=true
                      
                   }
                 
-//                    sender.isSelected = !sender.isSelected
 
           }
         sender.isSelected = !sender.isSelected
@@ -238,16 +237,16 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //clearing the filtered array
         filteredTransactions=transactions
         catTrans=transactions
-        //switching of the buttons ans switches
+        //switching of the buttons and switches
                 HtLSwitchOutlet.setOn(false, animated: true)
                 LtHSwitchOutlet.setOn(false, animated: true)
                 repeated.setOn(false, animated: true)
                 doneBtn.isEnabled = true
+        clearBtn.isEnabled = false
         if catogeryBtn != nil{
             for catoegoryButton in categoryBtns {
-                
-           
-                catoegoryButton.isSelected = !catoegoryButton.isSelected
+
+                catoegoryButton.isSelected = false
             
         }
                
