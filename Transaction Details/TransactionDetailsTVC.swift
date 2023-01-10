@@ -44,14 +44,14 @@ class TransactionDetailsTVC: UITableViewController {
     
     override func viewDidLoad() {
         //localization
-        titleLbl.text = NSLocalizedString("title", comment: "")
-        typeLbl.text = NSLocalizedString("type", comment: "")
-        addedOnLbl.text = NSLocalizedString("addedon", comment: "")
-        repeatLbl.text = NSLocalizedString("repeat", comment: "")
-        notesLbl.text = NSLocalizedString("notes", comment: "")
-        attachementLbl.text = NSLocalizedString("attachment", comment: "")
+//        titleLbl.text = NSLocalizedString("title", comment: "")
+//        typeLbl.text = NSLocalizedString("type", comment: "")
+//        addedOnLbl.text = NSLocalizedString("addedon", comment: "")
+//        repeatLbl.text = NSLocalizedString("repeat", comment: "")
+//        notesLbl.text = NSLocalizedString("notes", comment: "")
+//        attachementLbl.text = NSLocalizedString("attachment", comment: "")
         super.viewDidLoad()
-        transDetailsLbl.title = NSLocalizedString("transdetails", comment: "")
+//        transDetailsLbl.title = NSLocalizedString("transdetails", comment: "")
         //modify colors based on the transaction type
         if transaction.category.type == "Income" {
             coloredView.backgroundColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0)

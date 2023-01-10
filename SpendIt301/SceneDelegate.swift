@@ -15,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+       
+        
         
                
                //1. store the scene
@@ -42,33 +44,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                
                
                
-               //check if this is the first launch
-               if defaults.bool(forKey: "first launch") == true {
+               //check if this is the first launch, by getting the Logged in key value from the user defaults
+               if defaults.bool(forKey: "Logged In") == true {
                    print("The second +")
                    
                   
-                   //confirmation (but not necssary)
-                   defaults.set(true, forKey: "first launch")
+                   //run code after other lanches, confirm that user logged in
+                   defaults.set(true, forKey: "Logged In")
+
                    
-                   //run code after other lanches, display overview
+                   //display overview
                    self.window = overviewWindow
                    overviewWindow.makeKeyAndVisible()
                
                }else{
                    
                    print("First time!")
-                   //change the state from false to true >> so important
-                   defaults.set(true, forKey: "first launch")
+                   //change the state from false to true because user logged in
+                   defaults.set(true, forKey: "Logged In")
                    
                    
                    //run code after first launch, display the walkthrough
                     self.window = walkthroughWindow
                    walkthroughWindow.makeKeyAndVisible()
+                   
                     
                }
+        
+       
                
         
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -82,6 +90,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         Transaction.updateRepeated()
+        if defaults.string(forKey: "App Mode") == "Dark"{
+            window?.overrideUserInterfaceStyle =
+                .dark
+        }
+        else {
+            window?.overrideUserInterfaceStyle =
+                .light
+        }
+    
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

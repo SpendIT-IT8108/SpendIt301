@@ -43,8 +43,18 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         Transaction.updateRepeated()
         transactions=Transaction.loadTransactions()
         searchedItem=transactions
+        
+        //refresh page
+        self.refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(refresh), for:  UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl!)
+        
     }
-    
+    @objc func refresh(sender: UIRefreshControl){
+        transactions=Transaction.loadTransactions()
+        self.tableView.reloadData()
+        self.refreshControl!.endRefreshing()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -53,16 +63,101 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
     
    
     
-    
-    
+
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+
+//                if searchController.isActive || searchController.searchBar.selectedScopeButtonIndex==1 {
+//                    //remove the item
+//                  searchedItem = transactions.filter (
+//                        {
+//                        item in
+//                        item.category.type.localizedStandardContains("expense")
+//                    })
+//                   print( searchedItem.remove(at: indexPath.row))
+//
+//
+//                    //remove from table view
+//                   print( self.tableView.deleteRows(at: [indexPath], with: .automatic))
+//
+//                    searchedItem = searchedItem + transactions.filter({
+//                        item in
+//                        item.category.type.localizedStandardContains("income")
+//
+//                    })
+//                    //save deleted
+//                    Transaction.saveTransactions(searchedItem)
+//
+//                }
+//
+//          else  if searchController.isActive || searchController.searchBar.selectedScopeButtonIndex==2 {
+//              //remove the item
+//            searchedItem = transactions.filter (
+//                  {
+//                  item in
+//                  item.category.type.localizedStandardContains("income")
+//              })
+//             print( searchedItem.remove(at: indexPath.row))
+//
+//
+//              //remove from table view
+//             print( self.tableView.deleteRows(at: [indexPath], with: .automatic))
+//
+//              searchedItem = searchedItem + transactions.filter({
+//                  item in
+//                  item.category.type.localizedStandardContains("expense")
+//
+//              })
+//              //save deleted
+//              Transaction.saveTransactions(searchedItem)
+//            }
+//
+//
+//                else{
+//                    self.transactions.remove(at: indexPath.row)
+//                    //remove from table view
+//                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//                    //save deleted
+//                    Transaction.saveTransactions(self.transactions)
+//                }
+            if searchController.isActive || searchController.searchBar.selectedScopeButtonIndex==1 {
+                searchedItem.remove(at: indexPath.row)
+                transactions=searchedItem+transactions.filter({
+                    item in
+                    item.category.type.localizedStandardContains("income")
+                })
+                    tableView.deleteRows(at: [indexPath], with:.automatic)
+                    Transaction.saveTransactions(transactions)
+                  
+            }
+          else if searchController.isActive || searchController.searchBar.selectedScopeButtonIndex==2 {
+                searchedItem.remove(at: indexPath.row)
+                transactions=searchedItem+transactions.filter({
+                    item in
+                    item.category.type.localizedStandardContains("expense")
+                })
+                    tableView.deleteRows(at: [indexPath], with:.automatic)
+                    Transaction.saveTransactions(transactions)
+                  
+            }
+            else {
             transactions.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with:.automatic)
+            Transaction.saveTransactions(transactions)
+            }
+            self.viewDidLoad()
+//            transactions.remove(at: indexPath.row)
+//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
         }
+
+       
+        
     }
+
+
     
     
     
@@ -98,7 +193,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
           tableView.reloadData()
         
     }
-    var isUnwind=false
+   
     
     @IBAction func unwindtoTransactionList(sender: UIStoryboardSegue){
         if sender.identifier == "doneIdentifier" {
@@ -110,7 +205,7 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
             
         }
         
-        isUnwind=true
+        
     }
     
     
@@ -124,7 +219,8 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         if searchController.isActive{
             return searchedItem.count
             
-        } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2{
+        }
+        else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2{
             return searchedItem.count
         }
         else{
@@ -140,9 +236,12 @@ class TransactionTableViewController: UITableViewController, UISearchResultsUpda
         if searchController.isActive{
             transaction=searchedItem[indexPath.row]
             
-        } else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
+        }
+        else if searchController.searchBar.selectedScopeButtonIndex==1 || searchController.searchBar.selectedScopeButtonIndex==2 {
             transaction=searchedItem[indexPath.row]
         }
+        
+        
         else{
             transaction=transactions[indexPath.row]
         }

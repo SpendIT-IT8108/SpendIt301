@@ -109,6 +109,8 @@ class UserProfileViewController: UIViewController {
         lightmodeOutlet.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
         lightmodeOutlet.layer.cornerRadius = 30
         
+        //override the ui based on user choice
+        //UserProfileViewController().overrideUserInterfaceStyle = .light
         //set the value inside the user defaults
         defaults.set("Light", forKey: "App Mode")
     }
@@ -126,6 +128,9 @@ class UserProfileViewController: UIViewController {
         darkmodeOutlet.layer.borderWidth = 9
         darkmodeOutlet.layer.borderColor = UIColor(red: 224.0/255, green: 223.0/255, blue: 119.0/255, alpha: 1.0).cgColor
         darkmodeOutlet.layer.cornerRadius = 30
+        
+        //override the ui based on user choice
+        
         
         //set the value inside the user defaults
         defaults.set("Dark", forKey: "App Mode")
