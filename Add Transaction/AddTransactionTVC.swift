@@ -275,7 +275,7 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     func defaultCategory(type: String) -> Category? {
       //get catgeory list to take the default from
         var list : [Category] = []
-        for cat in Category.loadSampleCategories() {
+        for cat in Category.loadCategories()! {
             if cat.type == type {
                 list.append(cat)
             }
@@ -336,7 +336,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
     
     
     // MARK: attachment process
-    
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         let placeholderImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
         if sender.state == .ended {
@@ -452,7 +451,6 @@ class AddTransactionTVC: UITableViewController, UIImagePickerControllerDelegate 
             endIsVisible = false
             dateIsVisible = true
         }
-        //intervalIsVisible.toggle()
         tableView.beginUpdates()
         tableView.endUpdates()
     }
