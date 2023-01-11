@@ -10,6 +10,7 @@ import Charts
 class OverviewTableViewController: UITableViewController{
 
     @IBOutlet weak var overviewTitle: UINavigationItem!
+    //take the index paths
     let barchartIndexPath = IndexPath(row: 0, section: 0)
     let mostspentIndexPath = IndexPath(row: 0, section: 1)
     let mosttarckedIndexPath = IndexPath(row: 0, section: 2)
@@ -26,7 +27,7 @@ class OverviewTableViewController: UITableViewController{
         tableView.allowsSelection = false
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        //call the functions from the cells to change the appearing view according to the newly added transactions 
         tableView.reloadData()
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "BarChartTableViewCell", for: barchartIndexPath) as! BarChartTableViewCell
         cell1.customizeChart()

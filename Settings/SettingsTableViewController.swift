@@ -35,6 +35,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     @IBOutlet weak var nameLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //language segments changing according to the user choice + language displayed
         let currentLang = Locale.current.languageCode
         if currentLang == "ar" {
             languageSegment.selectedSegmentIndex = 1
@@ -42,7 +43,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         else {
             languageSegment.selectedSegmentIndex = 0
         }
-        //seth the email in the label
+        //set the email in the label
        let userEmail = Auth.auth().currentUser?.email
         if (userEmail != ""){
             nameLbl.text = userEmail
@@ -190,15 +191,20 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         switch sender.selectedSegmentIndex {
             //english
     case 0:
+            //save the current language in a let
             let currentLang = Locale.current.languageCode
+            //check the current language and change it according to the choice
             let newLanguage = currentLang == "en" ? "ar" : "en"
+            //call the function
             languageAlert(newLanguage: newLanguage)
 
             //arabic
     case 1:
-            
+            //save the current language in a let
             let currentLang = Locale.current.languageCode
+            //check the current language and change it according to the choice
             let newLanguage = currentLang == "ar" ? "en" : "ar"
+            //call the function
             languageAlert(newLanguage: newLanguage)
    
         default:
@@ -236,6 +242,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         }
     }
     
+    //function to alert the user about changing the language action process and setting the value in user defaults
     func languageAlert(newLanguage:String){
         // create the alert
         let alert = UIAlertController(title: "Lnaguage switching", message: "Are you sure that you want to change the language? The app needs to quit and reopen to change it. Therefore, do these steps! ", preferredStyle: UIAlertController.Style.alert)

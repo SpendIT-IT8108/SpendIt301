@@ -11,7 +11,7 @@ class BarChartTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var BarChart: BarChartView!
-
+//declare variables
     var inc: Double = 0.0
     var exp : Double = 0.0
     var balance : Double = 0.0
@@ -30,6 +30,8 @@ class BarChartTableViewCell: UITableViewCell {
       
     }
     func customizeChart() {
+        //creating charts by using the 'charts' library from 'cocoapods' framework 
+        
         //set up chart settings
         BarChart.xAxis.labelPosition = .bottomInside
         BarChart.chartDescription.enabled = true
@@ -76,12 +78,13 @@ class BarChartTableViewCell: UITableViewCell {
     
         let i = 0
       //set char data entry
+        //for income
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(inc))
             dataEntries.append(dataEntry)
-     
+     //for expense
             let dataEntry1 = BarChartDataEntry(x: Double(i), y: Double(exp))
             dataEntries1.append(dataEntry1)
-        
+        //for balance
            let dataEntry2 = BarChartDataEntry(x: Double(i), y: Double(balance))
            dataEntries2.append(dataEntry2)
         //set chart data set
@@ -96,7 +99,7 @@ class BarChartTableViewCell: UITableViewCell {
         //set chart data set
           let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet1,chartDataSet2]
         let chartData = BarChartData(dataSets: dataSets)
-        //asign it to the chart
+        //asign it to the chart to display
         BarChart.data = chartData
         //set sizes - spaces
         let groupSpace = 0.27
