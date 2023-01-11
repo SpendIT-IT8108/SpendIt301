@@ -9,7 +9,7 @@ import UIKit
 
 class CurrnecyViewController: UIViewController, UITextFieldDelegate {
 
-
+//outlets
     @IBOutlet weak var usdRadioBtn: UIButton!
     @IBOutlet weak var euroRadioBtn: UIButton!
     
@@ -20,11 +20,12 @@ class CurrnecyViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    //to display a return button in the keybord
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-
+//calculate the amount function according to user inputs and choices
     @IBAction func rbtnAction(_ sender: UIButton) {
         let itemCost = Float(amountTxtBx.text!)
         var bhd : Float = 0
